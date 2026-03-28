@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Taller - Catálogo Profesional</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root { --bg: #f4f7f6; --card: #ffffff; --text: #333; --primary: #007bff; --accent: #28a745; }
+        [data-theme="dark"] { --bg: #121212; --card: #1e1e1e; --text: #e0e0e0; --primary: #3791ff; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 15px; transition: 0.3s; }
+        header { text-align: center; padding: 20px 0; }
+        .search-box { position: sticky; top: 10px; z-index: 100; background: var(--bg); padding: 10px 0; display: flex; gap: 10px; justify-content: center; }
+        input#search { padding: 12px 20px; width: 75%; border-radius: 25px; border: 1px solid #ccc; outline: none; font-size: 16px; }
+        .btn-theme { padding: 10px 15px; border-radius: 50%; border: none; background: var(--primary); color: white; cursor: pointer; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; max-width: 1000px; margin: 20px auto; }
+        .card { background: var(--card); padding: 15px; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; }
+        .price { font-size: 1.2rem; color: var(--accent); font-weight: bold; display: block; margin: 8px 0; }
+        .cat { font-size: 0.7rem; background: #eee; padding: 3px 8px; border-radius: 10px; color: #666; }
+        [data-theme="dark"] .cat { background: #333; color: #aaa; }
+        .ws-btn { display: block; background: #25d366; color: white; padding: 8px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 0.9rem; margin-top: 10px; }
+        h1 { margin: 5px 0; color: var(--primary); }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><i class="fas fa-tools"></i> Reset Taller</h1>
+    <p>Calidad y Garantía en cada reparación</p>
+</header>
+
+<div class="search-box">
+    <input type="text" id="search" placeholder="Buscar modelo (A12, iPhone, Batería)...">
+    <button class="btn-theme" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
+</div>
+
+<div class="grid" id="catalog"></div>
+
+<script>
+    const products = [
+        { name: "Pantalla Samsung A10/A12", price: "₡28,000", cat: "Samsung" },
+        { name: "Pantalla Samsung A21s/A31", price: "₡32,000", cat: "Samsung" },
+        { name: "Pantalla iPhone 6/7/8", price: "₡22,000", cat: "iPhone" },
+        { name: "Pantalla iPhone X/XR/11", price: "₡38,000", cat: "iPhone" },
+        { name: "Batería Genérica Todas Marcas", price: "₡22,000", cat: "Baterías" },
+        { name: "Batería iPhone Premium", price: "₡28,000", cat: "Baterías" },
+        { name: "Cargador Carga Rápida 20W", price: "₡12,000", cat: "Accesorios" },
+        { name: "Smartwatch Ultra 2026", price: "₡18,000", cat: "Gadgets" },
+        { name: "Audífonos Bluetooth Pro", price: "₡10,000", cat: "Audio" },
+        { name: "Reparación Pin de Carga", price: "Desde ₡15,000", cat: "Servicio" }
+    ];
+
+    function load(f = '') {
+        const grid = document.getElementById('catalog');
+        grid.innerHTML = '';
+        products.filter(p => p.name.toLowerCase().includes(f.toLowerCase())).forEach(p => {
+            grid.innerHTML += `
+                <div class="card">
+                    <span class="cat">${p.cat}</span>
+                    <h3 style="font-size:1rem">${p.name}</h3>
+                    <span class="price">${p.price}</span>
+                    <a href="https://wa.me/50684281358?text=Hola,%20cotizar:%20${p.name}" class="ws-btn">Consultar</a>
+                </div>`;
+        });
+    }
+
+    document.getElementById('search').addEventListener('input', (e) => load(e.target.value));
+    function toggleTheme() {
+        document.body.getAttribute('data-theme') === 'dark' ? 
+        document.body.removeAttribute('data-theme') : 
+        document.body.setAttribute('data-theme', 'dark');
+    }
+    load();
+</script>
+</body>
+</html>
