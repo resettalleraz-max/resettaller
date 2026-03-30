@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Taller - Catálogo Completo</title>
+    <title>Reset Taller - Catálogo Oficial</title>
     <style>
         :root { --bg: #f4f4f4; --text: #333; --card: white; --primary: #007bff; }
         .dark-mode { --bg: #121212; --text: #f4f4f4; --card: #1e1e1e; --primary: #375a7f; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); padding: 20px; transition: 0.3s; max-width: 600px; margin: auto; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); padding: 20px; transition: 0.3s; max-width: 700px; margin: auto; }
         .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        #buscador { width: 100%; padding: 12px; border-radius: 25px; border: 1px solid #ccc; margin-bottom: 20px; font-size: 16px; outline: none; box-sizing: border-box; }
+        #buscador { width: 100%; padding: 15px; border-radius: 25px; border: 1px solid #ccc; margin-bottom: 20px; font-size: 16px; outline: none; box-sizing: border-box; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .btn-theme { background: var(--primary); color: white; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; font-weight: bold; }
-        .categoria-titulo { text-align: left; margin-top: 25px; color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 5px; font-weight: bold; text-transform: uppercase; }
-        .caja { background: var(--card); padding: 15px; border-radius: 12px; margin: 15px 0; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .categoria-titulo { text-align: left; margin-top: 30px; color: var(--primary); border-bottom: 3px solid var(--primary); padding-bottom: 5px; font-weight: bold; text-transform: uppercase; font-size: 1.2em; }
+        .caja { background: var(--card); padding: 15px; border-radius: 12px; margin: 15px 0; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid transparent; }
+        .caja:hover { border-color: var(--primary); }
         .info { text-align: left; }
         .info h3 { margin: 0; font-size: 1.1em; }
         .precio { color: #28a745; font-weight: bold; font-size: 1.2em; display: block; margin-top: 5px; }
@@ -23,45 +24,34 @@
 
     <div class="header">
         <h1 style="margin:0;">Reset Taller 🛠️</h1>
-        <button class="btn-theme" onclick="toggleTheme()">☀️/🌙</button>
+        <button class="btn-theme" onclick="toggleTheme()">☀️ / 🌙</button>
     </div>
-    <p>Aguas Zarcas, San Carlos | WhatsApp: 8428-1358</p>
+    <p><b>Aguas Zarcas, San Carlos</b> | Soluciones en Tecnología</p>
 
-    <input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 Buscar repuesto en Reset Taller...">
+    <input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 ¿Qué repuesto o accesorio buscas?">
 
     <div id="lista-productos">
         
-        <div class="categoria-titulo">📺 PANTALLAS SAMSUNG</div>
-        <div class="caja producto"><div class="info"><h3>Samsung A10 / M10</h3><span class="precio">₡25,000</span></div><a href="https://wa.me/50684281358?text=Consulta+A10" class="btn-wa">WhatsApp</a></div>
+        <div class="categoria-titulo">📱 PANTALLAS XIAOMI</div>
+        <div class="caja producto"><div class="info"><h3>Redmi Note 11 / 12</h3><span class="precio">₡35,000</span></div><a href="https://wa.me/50684281358?text=Consulta+Xiaomi+Note11" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Redmi 9C / 10A / 12C</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50684281358?text=Consulta+Redmi9C" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Redmi Note 10 Pro</h3><span class="precio">₡45,000</span></div><a href="https://wa.me/50684281358?text=Consulta+Note10Pro" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Xiaomi Poco X3 / X3 Pro</h3><span class="precio">₡38,000</span></div><a href="https://wa.me/50684281358?text=Consulta+PocoX3" class="btn-wa">WhatsApp</a></div>
+
+        <div class="categoria-titulo">🔌 ACCESORIOS Y CARGA</div>
+        <div class="caja producto"><div class="info"><h3>Cargador Carga Rápida (Cubo + Cable)</h3><span class="precio">₡12,000</span></div><a href="https://wa.me/50684281358?text=Consulta+Cargador" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Cable USB Tipo C (Reforzado)</h3><span class="precio">₡5,000</span></div><a href="https://wa.me/50684281358?text=Consulta+CableC" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Cable iPhone (Lightning) Certificado</h3><span class="precio">₡7,000</span></div><a href="https://wa.me/50684281358?text=Consulta+CableiPhone" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Audífonos Manos Libres</h3><span class="precio">₡6,000</span></div><a href="https://wa.me/50684281358?text=Consulta+Audifonos" class="btn-wa">WhatsApp</a></div>
+
+        <div class="categoria-titulo">⚙️ HERRAMIENTAS Y TÉCNICO</div>
+        <div class="caja producto"><div class="info"><h3>Kit de Destornilladores Pro</h3><span class="precio">₡15,000</span></div><a href="https://wa.me/50684281358?text=Consulta+Herramientas" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Pasta Térmica para Laptop</h3><span class="precio">₡5,000</span></div><a href="https://wa.me/50684281358?text=Consulta+PastaTermica" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Multímetro Digital</h3><span class="precio">₡18,000</span></div><a href="https://wa.me/50684281358?text=Consulta+Multimetro" class="btn-wa">WhatsApp</a></div>
+
+        <div class="categoria-titulo">📺 OTRAS PANTALLAS</div>
         <div class="caja producto"><div class="info"><h3>Samsung A12 / M12</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50684281358?text=Consulta+A12" class="btn-wa">WhatsApp</a></div>
-        <div class="caja producto"><div class="info"><h3>Samsung A21s</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50684281358?text=Consulta+A21s" class="btn-wa">WhatsApp</a></div>
-        <div class="caja producto"><div class="info"><h3>Samsung A30 / A50 / M30</h3><span class="precio">₡30,000</span></div><a href="https://wa.me/50684281358?text=Consulta+A30" class="btn-wa">WhatsApp</a></div>
-        <div class="caja producto"><div class="info"><h3>Samsung A51</h3><span class="precio">₡32,000</span></div><a href="https://wa.me/50684281358?text=Consulta+A51" class="btn-wa">WhatsApp</a></div>
-        <div class="caja producto"><div class="info"><h3>Samsung A03 Core</h3><span class="precio">₡22,000</span></div><a href="https://wa.me/50684281358?text=Consulta+A03" class="btn-wa">WhatsApp</a></div>
-
-        <div class="categoria-titulo">🍎 IPHONE (PANTALLAS)</div>
-        <div class="caja producto"><div class="info"><h3>iPhone 6G / 6S</h3><span class="precio">₡18,000</span></div><a href="https://wa.me/50684281358?text=Consulta+i6" class="btn-wa">WhatsApp</a></div>
-        <div class="caja producto"><div class="info"><h3>iPhone 7G / 8G</h3><span class="precio">₡20,000</span></div><a href="https://wa.me/50684281358?text=Consulta+i7" class="btn-wa">WhatsApp</a></div>
-        <div class="caja producto"><div class="info"><h3>iPhone 11 (Incell)</h3><span class="precio">₡35,000</span></div><a href="https://wa.me/50684281358?text=Consulta+i11" class="btn-wa">WhatsApp</a></div>
-        <div class="caja producto"><div class="info"><h3>iPhone XR</h3><span class="precio">₡35,000</span></div><a href="https://wa.me/50684281358?text=Consulta+iXR" class="btn-wa">WhatsApp</a></div>
-
-        <div class="categoria-titulo">📱 HUAWEI / XIAOMI / OTROS</div>
-        <div class="caja producto"><div class="info"><h3>Huawei Y9 Prime / P Smart Pro</h3><span class="precio">₡30,000</span></div><a href="https://wa.me/50684281358?text=Consulta+Y9Prime" class="btn-wa">WhatsApp</a></div>
-        <div class="caja producto"><div class="info"><h3>Huawei P30 Lite</h3><span class="precio">₡25,000</span></div><a href="https://wa.me/50684281358?text=Consulta+P30Lite" class="btn-wa">WhatsApp</a></div>
-        <div class="caja producto"><div class="info"><h3>Xiaomi Redmi Note 8</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50684281358?text=Consulta+Note8" class="btn-wa">WhatsApp</a></div>
-        <div class="caja producto"><div class="info"><h3>Xiaomi Redmi Note 10 Pro</h3><span class="precio">₡45,000</span></div><a href="https://wa.me/50684281358?text=Consulta+Note10Pro" class="btn-wa">WhatsApp</a></div>
-
-        <div class="categoria-titulo">🔋 BATERÍAS</div>
-        <div class="caja producto"><div class="info"><h3>Batería iPhone 6G / 6S</h3><span class="precio">₡18,000</span></div><a href="https://wa.me/50684281358?text=Bateria+i6" class="btn-wa">WhatsApp</a></div>
-        <div class="caja producto"><div class="info"><h3>Batería iPhone 7 / 8 / SE</h3><span class="precio">₡22,000</span></div><a href="https://wa.me/50684281358?text=Bateria+i7" class="btn-wa">WhatsApp</a></div>
-        <div class="caja producto"><div class="info"><h3>Batería Samsung (A10, A20, A30)</h3><span class="precio">₡18,000</span></div><a href="https://wa.me/50684281358?text=Bateria+Samsung" class="btn-wa">WhatsApp</a></div>
-        <div class="caja producto"><div class="info"><h3>Batería Huawei P20 / P30 Lite</h3><span class="precio">₡18,000</span></div><a href="https://wa.me/50684281358?text=Bateria+Huawei" class="btn-wa">WhatsApp</a></div>
-
-        <div class="categoria-titulo">🛠️ SERVICIOS TÉCNICOS</div>
-        <div class="caja producto"><div class="info"><h3>Mantenimiento Laptop / PC</h3><span class="precio">₡15,000</span></div><a href="https://wa.me/50684281358?text=Mantenimiento" class="btn-wa">WhatsApp</a></div>
-        <div class="caja producto"><div class="info"><h3>Cambio de Pin de Carga</h3><span class="precio">₡12,000</span></div><a href="https://wa.me/50684281358?text=Pin" class="btn-wa">WhatsApp</a></div>
-        <div class="caja producto"><div class="info"><h3>Formateo e Inst. Sistemas</h3><span class="precio">₡20,000</span></div><a href="https://wa.me/50684281358?text=Sistemas" class="btn-wa">WhatsApp</a></div>
-
+        <div class="caja producto"><div class="info"><h3>iPhone 11</h3><span class="precio">₡35,000</span></div><a href="https://wa.me/50684281358?text=Consulta+i11" class="btn-wa">WhatsApp</a></div>
     </div>
 
     <script>
