@@ -139,3 +139,29 @@
             <div class="caja producto"><div class="info"><h3>KIT DESTORNILLADORES TÉCNICOS</h3><span class="precio">₡12,000</span></div><a href="https://wa.me/50661073855?text=Consulta+KitTools" class="btn-wa">WhatsApp</a></div>
             <div class="caja producto"><div class="info"><h3>LÁPÍZ CAPACITIVO UNIVERSAL</h3><span class="precio">₡8,500</span></div><a href="https://wa.me/50661073855?text=Consulta+Lapiz" class="btn-wa">WhatsApp</a></div>
         </div>
+<div class="categoria-titulo">⌚ SMARTWATCH Y TECNOLOGÍA</div>
+        <div class="grid-container">
+            <div class="caja producto"><div class="info"><h3>SMARTWATCH SERIE 8 / 9 ULTRA</h3><span class="precio">₡18,500</span></div><a href="https://wa.me/50661073855?text=Consulta+Smartwatch+Ultra" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>SMARTWATCH T500 / T900 PRO</h3><span class="precio">₡12,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Smartwatch+T500" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>SMARTBAND M6 / M7 / M8</h3><span class="precio">₡8,500</span></div><a href="https://wa.me/50661073855?text=Consulta+Smartband" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>RELOJ DEPORTIVO DIGITAL</h3><span class="precio">₡6,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Reloj+Digital" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>AUDÍFONOS BLUETOOTH F9-5 / PRO</h3><span class="precio">₡10,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Audifonos+F9" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>AUDÍFONOS TWS i12 / i13</h3><span class="precio">₡7,500</span></div><a href="https://wa.me/50661073855?text=Consulta+Audifonos+i12" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>PARLANTE BLUETOOTH PORTÁTIL</h3><span class="precio">₡15,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Parlante" class="btn-wa">WhatsApp</a></div>
+        </div>
+        </div> <script>
+        function toggleTheme() { document.body.classList.toggle('dark-mode'); }
+        function buscar() {
+            let input = document.getElementById('buscador').value.toLowerCase();
+            let productos = document.getElementsByClassName('producto');
+            for (let i = 0; i < productos.length; i++) {
+                if (!productos[i].innerText.toLowerCase().includes(input)) {
+                    productos[i].style.display = "none";
+                } else {
+                    productos[i].style.display = "flex";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
