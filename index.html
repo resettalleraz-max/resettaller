@@ -7,17 +7,16 @@
     <style>
         :root { --bg: #f4f4f4; --text: #333; --card: white; --primary: #007bff; }
         .dark-mode { --bg: #121212; --text: #f4f4f4; --card: #1e1e1e; --primary: #375a7f; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); padding: 20px; transition: 0.3s; max-width: 700px; margin: auto; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); padding: 20px; transition: 0.3s; max-width: 800px; margin: auto; }
         .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
         #buscador { width: 100%; padding: 15px; border-radius: 25px; border: 1px solid #ccc; margin-bottom: 20px; font-size: 16px; outline: none; box-sizing: border-box; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .btn-theme { background: var(--primary); color: white; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; font-weight: bold; }
         .categoria-titulo { text-align: left; margin-top: 30px; color: var(--primary); border-bottom: 3px solid var(--primary); padding-bottom: 5px; font-weight: bold; text-transform: uppercase; font-size: 1.2em; }
-        .caja { background: var(--card); padding: 15px; border-radius: 12px; margin: 15px 0; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid transparent; }
-        .caja:hover { border-color: var(--primary); }
+        .caja { background: var(--card); padding: 15px; border-radius: 12px; margin: 15px 0; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .info { text-align: left; }
         .info h3 { margin: 0; font-size: 1.1em; }
         .precio { color: #28a745; font-weight: bold; font-size: 1.2em; display: block; margin-top: 5px; }
-        .btn-wa { background: #25d366; color: white; padding: 10px 15px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 0.8em; white-space: nowrap; }
+        .btn-wa { background: #25d366; color: white; padding: 10px 15px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 0.8em; }
     </style>
 </head>
 <body>
@@ -26,32 +25,46 @@
         <h1 style="margin:0;">Reset Taller 🛠️</h1>
         <button class="btn-theme" onclick="toggleTheme()">☀️ / 🌙</button>
     </div>
-    <p><b>Aguas Zarcas, San Carlos</b> | Soluciones en Tecnología</p>
+    <p><b>Aguas Zarcas, San Carlos</b> | WhatsApp: 6107-3855</p>
 
-    <input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 ¿Qué repuesto o accesorio buscas?">
+    <input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 Buscar por modelo o repuesto...">
 
     <div id="lista-productos">
         
+        <div class="categoria-titulo">📱 PANTALLAS SAMSUNG</div>
+        <div class="caja producto"><div class="info"><h3>Samsung A01 / A01 Core</h3><span class="precio">₡22,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Samsung+A01" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Samsung A10 / M10</h3><span class="precio">₡25,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Samsung+A10" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Samsung A11</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Samsung+A11" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Samsung A12 / M12 / A13</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Samsung+A12" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Samsung A20 / A30 / A50 / M30</h3><span class="precio">₡30,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Samsung+A30" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Samsung A21s</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Samsung+A21s" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Samsung A51</h3><span class="precio">₡32,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Samsung+A51" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Samsung A52 / A53</h3><span class="precio">₡45,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Samsung+A52" class="btn-wa">WhatsApp</a></div>
+
+        <div class="categoria-titulo">🍎 PANTALLAS IPHONE</div>
+        <div class="caja producto"><div class="info"><h3>iPhone 6G / 6S</h3><span class="precio">₡18,000</span></div><a href="https://wa.me/50661073855?text=Consulta+iPhone6" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>iPhone 7G / 8G</h3><span class="precio">₡20,000</span></div><a href="https://wa.me/50661073855?text=Consulta+iPhone7" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>iPhone X / XS</h3><span class="precio">₡35,000</span></div><a href="https://wa.me/50661073855?text=Consulta+iPhoneX" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>iPhone XR / 11</h3><span class="precio">₡35,000</span></div><a href="https://wa.me/50661073855?text=Consulta+iPhone11" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>iPhone 12 / 12 Pro</h3><span class="precio">₡65,000</span></div><a href="https://wa.me/50661073855?text=Consulta+iPhone12" class="btn-wa">WhatsApp</a></div>
+
         <div class="categoria-titulo">📱 PANTALLAS XIAOMI</div>
-        <div class="caja producto"><div class="info"><h3>Redmi Note 11 / 12</h3><span class="precio">₡35,000</span></div><a href="https://wa.me/50684281358?text=Consulta+Xiaomi+Note11" class="btn-wa">WhatsApp</a></div>
-        <div class="caja producto"><div class="info"><h3>Redmi 9C / 10A / 12C</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50684281358?text=Consulta+Redmi9C" class="btn-wa">WhatsApp</a></div>
-        <div class="caja producto"><div class="info"><h3>Redmi Note 10 Pro</h3><span class="precio">₡45,000</span></div><a href="https://wa.me/50684281358?text=Consulta+Note10Pro" class="btn-wa">WhatsApp</a></div>
-        <div class="caja producto"><div class="info"><h3>Xiaomi Poco X3 / X3 Pro</h3><span class="precio">₡38,000</span></div><a href="https://wa.me/50684281358?text=Consulta+PocoX3" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Redmi 9 / 9A / 9C</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Redmi9" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Redmi Note 8 / 8 Pro</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Note8" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Redmi Note 9 / 9S / 9 Pro</h3><span class="precio">₡32,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Note9" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Redmi Note 10 / 11 / 12</h3><span class="precio">₡35,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Note11" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Poco X3 / X4 Pro</h3><span class="precio">₡38,000</span></div><a href="https://wa.me/50661073855?text=Consulta+PocoX3" class="btn-wa">WhatsApp</a></div>
 
-        <div class="categoria-titulo">🔌 ACCESORIOS Y CARGA</div>
-        <div class="caja producto"><div class="info"><h3>Cargador Carga Rápida (Cubo + Cable)</h3><span class="precio">₡12,000</span></div><a href="https://wa.me/50684281358?text=Consulta+Cargador" class="btn-wa">WhatsApp</a></div>
-        <div class="caja producto"><div class="info"><h3>Cable USB Tipo C (Reforzado)</h3><span class="precio">₡5,000</span></div><a href="https://wa.me/50684281358?text=Consulta+CableC" class="btn-wa">WhatsApp</a></div>
-        <div class="caja producto"><div class="info"><h3>Cable iPhone (Lightning) Certificado</h3><span class="precio">₡7,000</span></div><a href="https://wa.me/50684281358?text=Consulta+CableiPhone" class="btn-wa">WhatsApp</a></div>
-        <div class="caja producto"><div class="info"><h3>Audífonos Manos Libres</h3><span class="precio">₡6,000</span></div><a href="https://wa.me/50684281358?text=Consulta+Audifonos" class="btn-wa">WhatsApp</a></div>
+        <div class="categoria-titulo">🔌 CARGADORES Y CABLES</div>
+        <div class="caja producto"><div class="info"><h3>Combo Carga Rápida 20W</h3><span class="precio">₡12,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Cargador20W" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Cable USB-C a USB-C</h3><span class="precio">₡5,000</span></div><a href="https://wa.me/50661073855?text=Consulta+CableCC" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Cargador Original Huawei 40W</h3><span class="precio">₡15,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Huawei40W" class="btn-wa">WhatsApp</a></div>
 
-        <div class="categoria-titulo">⚙️ HERRAMIENTAS Y TÉCNICO</div>
-        <div class="caja producto"><div class="info"><h3>Kit de Destornilladores Pro</h3><span class="precio">₡15,000</span></div><a href="https://wa.me/50684281358?text=Consulta+Herramientas" class="btn-wa">WhatsApp</a></div>
-        <div class="caja producto"><div class="info"><h3>Pasta Térmica para Laptop</h3><span class="precio">₡5,000</span></div><a href="https://wa.me/50684281358?text=Consulta+PastaTermica" class="btn-wa">WhatsApp</a></div>
-        <div class="caja producto"><div class="info"><h3>Multímetro Digital</h3><span class="precio">₡18,000</span></div><a href="https://wa.me/50684281358?text=Consulta+Multimetro" class="btn-wa">WhatsApp</a></div>
+        <div class="categoria-titulo">⚙️ HERRAMIENTAS PRO</div>
+        <div class="caja producto"><div class="info"><h3>Multímetro Sunshine DT-17N</h3><span class="precio">₡22,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Multimetro" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Estación de Calor / Soldadura</h3><span class="precio">₡45,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Estacion" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Malla para Desoldar CP-2015</h3><span class="precio">₡3,500</span></div><a href="https://wa.me/50661073855?text=Consulta+Malla" class="btn-wa">WhatsApp</a></div>
 
-        <div class="categoria-titulo">📺 OTRAS PANTALLAS</div>
-        <div class="caja producto"><div class="info"><h3>Samsung A12 / M12</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50684281358?text=Consulta+A12" class="btn-wa">WhatsApp</a></div>
-        <div class="caja producto"><div class="info"><h3>iPhone 11</h3><span class="precio">₡35,000</span></div><a href="https://wa.me/50684281358?text=Consulta+i11" class="btn-wa">WhatsApp</a></div>
     </div>
 
     <script>
