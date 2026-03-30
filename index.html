@@ -3,61 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Taller - Catálogo Oficial</title>
+    <title>Reset Taller - Catálogo Completo</title>
     <style>
         :root { --bg: #f4f4f4; --text: #333; --card: white; --primary: #007bff; }
         .dark-mode { --bg: #121212; --text: #f4f4f4; --card: #1e1e1e; --primary: #375a7f; }
-        
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); padding: 20px; transition: 0.3s; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); padding: 20px; transition: 0.3s; max-width: 600px; margin: auto; }
         .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        
-        /* Buscador */
-        #buscador { width: 100%; padding: 12px; border-radius: 25px; border: 1px solid #ccc; margin-bottom: 20px; font-size: 16px; outline: none; }
-        
-        /* Botón Modo Noche */
-        .btn-theme { background: var(--primary); color: white; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; }
-        
-        .categoria-titulo { text-align: left; margin-top: 25px; color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 5px; font-weight: bold; }
-        
+        #buscador { width: 100%; padding: 12px; border-radius: 25px; border: 1px solid #ccc; margin-bottom: 20px; font-size: 16px; outline: none; box-sizing: border-box; }
+        .btn-theme { background: var(--primary); color: white; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        .categoria-titulo { text-align: left; margin-top: 25px; color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 5px; font-weight: bold; text-transform: uppercase; }
         .caja { background: var(--card); padding: 15px; border-radius: 12px; margin: 15px 0; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .info { text-align: left; }
         .info h3 { margin: 0; font-size: 1.1em; }
-        .precio { color: #28a745; font-weight: bold; font-size: 1.2em; display: block; }
-        .btn-wa { background: #25d366; color: white; padding: 10px 15px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 0.9em; }
+        .precio { color: #28a745; font-weight: bold; font-size: 1.2em; display: block; margin-top: 5px; }
+        .btn-wa { background: #25d366; color: white; padding: 10px 15px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 0.8em; white-space: nowrap; }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <h1>Reset Taller 🛠️</h1>
-        <button class="btn-theme" onclick="toggleTheme()">🌙/☀️</button>
+        <h1 style="margin:0;">Reset Taller 🛠️</h1>
+        <button class="btn-theme" onclick="toggleTheme()">☀️/🌙</button>
     </div>
-    
-    <p>Aguas Zarcas, San Carlos | Tel: 8428-1358</p>
+    <p>Aguas Zarcas, San Carlos | WhatsApp: 8428-1358</p>
 
-    <input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 Buscar repuesto (ej: iPhone, Samsung)...">
+    <input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 Buscar repuesto en Reset Taller...">
 
     <div id="lista-productos">
-        <div class="categoria-titulo">📺 PANTALLAS</div>
-        <div class="caja producto">
-            <div class="info"><h3>Pantalla Samsung A12</h3><span class="precio">₡28,000</span></div>
-            <a href="https://wa.me/50684281358?text=Consulta+Pantalla+A12" class="btn-wa">WhatsApp</a>
-        </div>
-        <div class="caja producto">
-            <div class="info"><h3>Pantalla iPhone 11</h3><span class="precio">₡35,000</span></div>
-            <a href="https://wa.me/50684281358?text=Consulta+iPhone+11" class="btn-wa">WhatsApp</a>
-        </div>
+        
+        <div class="categoria-titulo">📺 PANTALLAS SAMSUNG</div>
+        <div class="caja producto"><div class="info"><h3>Samsung A10 / M10</h3><span class="precio">₡25,000</span></div><a href="https://wa.me/50684281358?text=Consulta+A10" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Samsung A12 / M12</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50684281358?text=Consulta+A12" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Samsung A21s</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50684281358?text=Consulta+A21s" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Samsung A30 / A50 / M30</h3><span class="precio">₡30,000</span></div><a href="https://wa.me/50684281358?text=Consulta+A30" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Samsung A51</h3><span class="precio">₡32,000</span></div><a href="https://wa.me/50684281358?text=Consulta+A51" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Samsung A03 Core</h3><span class="precio">₡22,000</span></div><a href="https://wa.me/50684281358?text=Consulta+A03" class="btn-wa">WhatsApp</a></div>
+
+        <div class="categoria-titulo">🍎 IPHONE (PANTALLAS)</div>
+        <div class="caja producto"><div class="info"><h3>iPhone 6G / 6S</h3><span class="precio">₡18,000</span></div><a href="https://wa.me/50684281358?text=Consulta+i6" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>iPhone 7G / 8G</h3><span class="precio">₡20,000</span></div><a href="https://wa.me/50684281358?text=Consulta+i7" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>iPhone 11 (Incell)</h3><span class="precio">₡35,000</span></div><a href="https://wa.me/50684281358?text=Consulta+i11" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>iPhone XR</h3><span class="precio">₡35,000</span></div><a href="https://wa.me/50684281358?text=Consulta+iXR" class="btn-wa">WhatsApp</a></div>
+
+        <div class="categoria-titulo">📱 HUAWEI / XIAOMI / OTROS</div>
+        <div class="caja producto"><div class="info"><h3>Huawei Y9 Prime / P Smart Pro</h3><span class="precio">₡30,000</span></div><a href="https://wa.me/50684281358?text=Consulta+Y9Prime" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Huawei P30 Lite</h3><span class="precio">₡25,000</span></div><a href="https://wa.me/50684281358?text=Consulta+P30Lite" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Xiaomi Redmi Note 8</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50684281358?text=Consulta+Note8" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Xiaomi Redmi Note 10 Pro</h3><span class="precio">₡45,000</span></div><a href="https://wa.me/50684281358?text=Consulta+Note10Pro" class="btn-wa">WhatsApp</a></div>
 
         <div class="categoria-titulo">🔋 BATERÍAS</div>
-        <div class="caja producto">
-            <div class="info"><h3>Batería iPhone 7/8</h3><span class="precio">₡22,000</span></div>
-            <a href="https://wa.me/50684281358?text=Consulta+Bateria+iPhone" class="btn-wa">WhatsApp</a>
-        </div>
+        <div class="caja producto"><div class="info"><h3>Batería iPhone 6G / 6S</h3><span class="precio">₡18,000</span></div><a href="https://wa.me/50684281358?text=Bateria+i6" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Batería iPhone 7 / 8 / SE</h3><span class="precio">₡22,000</span></div><a href="https://wa.me/50684281358?text=Bateria+i7" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Batería Samsung (A10, A20, A30)</h3><span class="precio">₡18,000</span></div><a href="https://wa.me/50684281358?text=Bateria+Samsung" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Batería Huawei P20 / P30 Lite</h3><span class="precio">₡18,000</span></div><a href="https://wa.me/50684281358?text=Bateria+Huawei" class="btn-wa">WhatsApp</a></div>
 
-        <div class="categoria-titulo">🛠️ SERVICIOS</div>
-        <div class="caja producto">
-            <div class="info"><h3>Mantenimiento Laptop</h3><span class="precio">₡15,000</span></div>
-            <a href="https://wa.me/50684281358?text=Consulta+Mantenimiento" class="btn-wa">WhatsApp</a>
-        </div>
+        <div class="categoria-titulo">🛠️ SERVICIOS TÉCNICOS</div>
+        <div class="caja producto"><div class="info"><h3>Mantenimiento Laptop / PC</h3><span class="precio">₡15,000</span></div><a href="https://wa.me/50684281358?text=Mantenimiento" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Cambio de Pin de Carga</h3><span class="precio">₡12,000</span></div><a href="https://wa.me/50684281358?text=Pin" class="btn-wa">WhatsApp</a></div>
+        <div class="caja producto"><div class="info"><h3>Formateo e Inst. Sistemas</h3><span class="precio">₡20,000</span></div><a href="https://wa.me/50684281358?text=Sistemas" class="btn-wa">WhatsApp</a></div>
+
     </div>
 
     <script>
@@ -66,7 +70,7 @@
             let input = document.getElementById('buscador').value.toLowerCase();
             let productos = document.getElementsByClassName('producto');
             for (let i = 0; i < productos.length; i++) {
-                if (!productos[i].innerHTML.toLowerCase().includes(input)) {
+                if (!productos[i].innerText.toLowerCase().includes(input)) {
                     productos[i].style.display = "none";
                 } else {
                     productos[i].style.display = "flex";
