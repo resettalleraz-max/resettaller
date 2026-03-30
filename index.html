@@ -3,75 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Taller - Catálogo Completo</title>
+    <title>Reset Taller - Catálogo Oficial</title>
     <style>
         :root { --bg: #f4f4f4; --text: #333; --card: white; --primary: #007bff; }
         .dark-mode { --bg: #121212; --text: #f4f4f4; --card: #1e1e1e; --primary: #375a7f; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); padding: 10px; transition: 0.3s; max-width: 1000px; margin: auto; }
-        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; position: sticky; top: 0; background: var(--bg); z-index: 1000; padding: 10px 0; border-bottom: 1px solid #ccc; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); padding: 10px; transition: 0.3s; max-width: 900px; margin: auto; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; position: sticky; top: 0; background: var(--bg); z-index: 1000; padding: 10px 0; }
         #buscador { width: 100%; padding: 15px; border-radius: 25px; border: 1px solid #ccc; margin-bottom: 20px; font-size: 16px; outline: none; box-sizing: border-box; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .btn-theme { background: var(--primary); color: white; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; font-weight: bold; }
-        .categoria-titulo { text-align: left; margin-top: 30px; color: var(--primary); border-bottom: 3px solid var(--primary); padding-bottom: 5px; font-weight: bold; text-transform: uppercase; font-size: 1.1em; position: sticky; top: 70px; background: var(--bg); z-index: 999; }
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; margin-top: 10px; }
-        .caja { background: var(--card); padding: 15px; border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid transparent; transition: 0.2s; }
-        .caja:hover { border-color: var(--primary); transform: translateY(-2px); }
-        .info h3 { margin: 0; font-size: 0.95em; line-height: 1.2; text-transform: uppercase; }
-        .precio { color: #28a745; font-weight: bold; font-size: 1.2em; display: block; margin-top: 5px; }
-        .btn-wa { background: #25d366; color: white; padding: 10px; text-decoration: none; border-radius: 8px; font-weight: bold; text-align: center; font-size: 0.85em; margin-top: 10px; }
+        .categoria-titulo { text-align: left; margin-top: 25px; color: var(--primary); border-bottom: 3px solid var(--primary); padding-bottom: 5px; font-weight: bold; text-transform: uppercase; font-size: 1.1em; }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; margin-top: 10px; }
+        .caja { background: var(--card); padding: 12px; border-radius: 10px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid transparent; }
+        .info h3 { margin: 0; font-size: 0.9em; text-transform: uppercase; line-height: 1.1; }
+        .precio { color: #28a745; font-weight: bold; font-size: 1.1em; display: block; margin-top: 5px; }
+        .btn-wa { background: #25d366; color: white; padding: 8px; text-decoration: none; border-radius: 6px; font-weight: bold; text-align: center; font-size: 0.8em; margin-top: 8px; }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <h1 style="margin:0; font-size: 1.3em;">Reset Taller 🛠️</h1>
+        <h1 style="margin:0; font-size: 1.4em;">Reset Taller 🛠️</h1>
         <button class="btn-theme" onclick="toggleTheme()">☀️ / 🌙</button>
     </div>
-    <p style="margin-top:0; font-size: 0.9em;"><b>Aguas Zarcas</b> | WhatsApp: 6107-3855</p>
+    <p style="margin-top:0;"><b>Aguas Zarcas</b> | WhatsApp: 6107-3855</p>
 
-    <input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 Busca modelo (ej: A12, iPhone 11, Honor X8)...">
+    <input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 Busca modelo o repuesto...">
 
     <div id="lista-productos">
         
-        <div class="categoria-titulo">📱 HUAWEI</div>
+        <div class="categoria-titulo">📱 PANTALLAS HUAWEI</div>
         <div class="grid-container">
-            <div class="caja producto"><div class="info"><h3>LCD P SMART + MARCO</h3><span class="precio">₡24,000</span></div><a href="https://wa.me/50661073855?text=Consulta+PSmart" class="btn-wa">WhatsApp</a></div>
-            <div class="caja producto"><div class="info"><h3>LCD P30 LITE + MARCO</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50661073855?text=Consulta+P30Lite" class="btn-wa">WhatsApp</a></div>
-            <div class="caja producto"><div class="info"><h3>LCD Y9 PRIME 2019 + MARCO</h3><span class="precio">₡30,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Y9Prime" class="btn-wa">WhatsApp</a></div>
-            <div class="caja producto"><div class="info"><h3>LCD NOVA 5T + MARCO</h3><span class="precio">₡30,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Nova5T" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD P SMART + MARCO</h3><span class="precio">₡24,000</span></div><a href="https://wa.me/50661073855?text=Huawei+PSmart" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD P30 LITE + MARCO</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50661073855?text=Huawei+P30Lite" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD Y9 PRIME + MARCO</h3><span class="precio">₡30,000</span></div><a href="https://wa.me/50661073855?text=Huawei+Y9Prime" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD NOVA 5T / NOVA 9</h3><span class="precio">₡30,000</span></div><a href="https://wa.me/50661073855?text=Huawei+Nova" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD Y7 2019 / Y7 PRIME</h3><span class="precio">₡22,000</span></div><a href="https://wa.me/50661073855?text=Huawei+Y7" class="btn-wa">WhatsApp</a></div>
             </div>
 
-        <div class="categoria-titulo">📱 SAMSUNG</div>
+        <div class="categoria-titulo">📱 PANTALLAS SAMSUNG</div>
         <div class="grid-container">
-            <div class="caja producto"><div class="info"><h3>LCD A10 / M10 + MARCO</h3><span class="precio">₡24,000</span></div><a href="https://wa.me/50661073855?text=Consulta+A10" class="btn-wa">WhatsApp</a></div>
-            <div class="caja producto"><div class="info"><h3>LCD A12 / M12 / A13 + MARCO</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50661073855?text=Consulta+A12" class="btn-wa">WhatsApp</a></div>
-            <div class="caja producto"><div class="info"><h3>LCD A51 OLED + MARCO</h3><span class="precio">₡38,000</span></div><a href="https://wa.me/50661073855?text=Consulta+A51" class="btn-wa">WhatsApp</a></div>
-            <div class="caja producto"><div class="info"><h3>LCD S22 ULTRA (ORIGINAL)</h3><span class="precio">₡165,000</span></div><a href="https://wa.me/50661073855?text=Consulta+S22Ultra" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>SAMSUNG A10 + MARCO</h3><span class="precio">₡24,000</span></div><a href="https://wa.me/50661073855?text=Samsung+A10" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>SAMSUNG A12 / M12 / A13</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50661073855?text=Samsung+A12" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>SAMSUNG A51 OLED</h3><span class="precio">₡38,000</span></div><a href="https://wa.me/50661073855?text=Samsung+A51" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>SAMSUNG S23 ULTRA ORIG.</h3><span class="precio">₡185,000</span></div><a href="https://wa.me/50661073855?text=Samsung+S23U" class="btn-wa">WhatsApp</a></div>
         </div>
 
-        <div class="categoria-titulo">🍎 IPHONE</div>
+        <div class="categoria-titulo">📱 PANTALLAS HONOR</div>
         <div class="grid-container">
-            <div class="caja producto"><div class="info"><h3>LCD IPHONE 11 INCELL</h3><span class="precio">₡35,000</span></div><a href="https://wa.me/50661073855?text=Consulta+i11" class="btn-wa">WhatsApp</a></div>
-            <div class="caja producto"><div class="info"><h3>LCD IPHONE 12 OLED</h3><span class="precio">₡55,000</span></div><a href="https://wa.me/50661073855?text=Consulta+i12" class="btn-wa">WhatsApp</a></div>
-            <div class="caja producto"><div class="info"><h3>LCD IPHONE 13 PRO MAX (SOFT)</h3><span class="precio">₡125,000</span></div><a href="https://wa.me/50661073855?text=Consulta+i13PM" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>HONOR X6 / X6S / X7</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50661073855?text=Honor+X7" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>HONOR X8 / X8A / X8B</h3><span class="precio">₡30,000</span></div><a href="https://wa.me/50661073855?text=Honor+X8" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>HONOR MAGIC 5 LITE</h3><span class="precio">₡55,000</span></div><a href="https://wa.me/50661073855?text=Honor+Magic" class="btn-wa">WhatsApp</a></div>
         </div>
 
-        <div class="categoria-titulo">📱 HONOR</div>
+        <div class="categoria-titulo">⚙️ MAQUINARIA Y HERRAMIENTAS</div>
         <div class="grid-container">
-            <div class="caja producto"><div class="info"><h3>LCD HONOR X6 / X7 / X8 + MARCO</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50661073855?text=Consulta+HonorX" class="btn-wa">WhatsApp</a></div>
-            <div class="caja producto"><div class="info"><h3>LCD HONOR 70 5G (OLED)</h3><span class="precio">₡65,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Honor70" class="btn-wa">WhatsApp</a></div>
-        </div>
-
-        <div class="categoria-titulo">📱 XIAOMI / REDMI</div>
-        <div class="grid-container">
-            <div class="caja producto"><div class="info"><h3>LCD REDMI NOTE 11 / 12 PRO</h3><span class="precio">₡42,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Note11" class="btn-wa">WhatsApp</a></div>
-            <div class="caja producto"><div class="info"><h3>LCD REDMI 10C / 12C</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Redmi10C" class="btn-wa">WhatsApp</a></div>
-        </div>
-
-        <div class="categoria-titulo">⚙️ HERRAMIENTAS Y MAQUINARIA</div>
-        <div class="grid-container">
-            <div class="caja producto"><div class="info"><h3>MICROSCOPIO TRINOCULAR RELIFE</h3><span class="precio">₡95,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Microscopio" class="btn-wa">WhatsApp</a></div>
-            <div class="caja producto"><div class="info"><h3>CARGADOR MULTIPUERTO MECANIC</h3><span class="precio">₡35,000</span></div><a href="https://wa.me/50661073855?text=Consulta+CargadorMecanic" class="btn-wa">WhatsApp</a></div>
-            <div class="caja producto"><div class="info"><h3>ESTACIÓN DE CALOR SUGON</h3><span class="precio">₡125,000</span></div><a href="https://wa.me/50661073855?text=Consulta+Estacion" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>MICROSCOPIO TRINOCULAR</h3><span class="precio">₡95,000</span></div><a href="https://wa.me/50661073855?text=Microscopio" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>CARGADOR MULTIPUERTO PRO</h3><span class="precio">₡35,000</span></div><a href="https://wa.me/50661073855?text=Cargador" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>MAQUINA SOLDAR PUNTOS</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50661073855?text=Soldadora" class="btn-wa">WhatsApp</a></div>
         </div>
 
     </div>
