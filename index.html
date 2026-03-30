@@ -3,47 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Taller - Catálogo</title>
+    <title>Reset Taller - Catálogo Oficial</title>
     <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; text-align: center; color: #333; }
-        .caja { background: white; padding: 20px; border-radius: 15px; margin-bottom: 20px; border-left: 8px solid #007bff; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        h1 { color: #007bff; margin-bottom: 5px; }
-        .precio { color: #28a745; font-weight: bold; font-size: 1.5em; display: block; margin: 10px 0; }
-        .btn { background: #25d366; color: white; padding: 15px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; }
+        :root { --bg: #f4f4f4; --text: #333; --card: white; --primary: #007bff; }
+        .dark-mode { --bg: #121212; --text: #f4f4f4; --card: #1e1e1e; --primary: #375a7f; }
+        
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); padding: 20px; transition: 0.3s; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        
+        /* Buscador */
+        #buscador { width: 100%; padding: 12px; border-radius: 25px; border: 1px solid #ccc; margin-bottom: 20px; font-size: 16px; outline: none; }
+        
+        /* Botón Modo Noche */
+        .btn-theme { background: var(--primary); color: white; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; }
+        
+        .categoria-titulo { text-align: left; margin-top: 25px; color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 5px; font-weight: bold; }
+        
+        .caja { background: var(--card); padding: 15px; border-radius: 12px; margin: 15px 0; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .info h3 { margin: 0; font-size: 1.1em; }
+        .precio { color: #28a745; font-weight: bold; font-size: 1.2em; display: block; }
+        .btn-wa { background: #25d366; color: white; padding: 10px 15px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 0.9em; }
     </style>
 </head>
 <body>
-    <h1>Reset Taller 🛠️</h1>
-    <p>Aguas Zarcas, San Carlos</p>
 
-    <div class="caja">
-        <h3>Pantalla Samsung A12</h3>
-        <span class="precio">₡28,000</span>
-        <a href="https://wa.me/50684281358" class="btn">Pedir por WhatsApp</a>
+    <div class="header">
+        <h1>Reset Taller 🛠️</h1>
+        <button class="btn-theme" onclick="toggleTheme()">🌙/☀️</button>
+    </div>
+    
+    <p>Aguas Zarcas, San Carlos | Tel: 8428-1358</p>
+
+    <input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 Buscar repuesto (ej: iPhone, Samsung)...">
+
+    <div id="lista-productos">
+        <div class="categoria-titulo">📺 PANTALLAS</div>
+        <div class="caja producto">
+            <div class="info"><h3>Pantalla Samsung A12</h3><span class="precio">₡28,000</span></div>
+            <a href="https://wa.me/50684281358?text=Consulta+Pantalla+A12" class="btn-wa">WhatsApp</a>
+        </div>
+        <div class="caja producto">
+            <div class="info"><h3>Pantalla iPhone 11</h3><span class="precio">₡35,000</span></div>
+            <a href="https://wa.me/50684281358?text=Consulta+iPhone+11" class="btn-wa">WhatsApp</a>
+        </div>
+
+        <div class="categoria-titulo">🔋 BATERÍAS</div>
+        <div class="caja producto">
+            <div class="info"><h3>Batería iPhone 7/8</h3><span class="precio">₡22,000</span></div>
+            <a href="https://wa.me/50684281358?text=Consulta+Bateria+iPhone" class="btn-wa">WhatsApp</a>
+        </div>
+
+        <div class="categoria-titulo">🛠️ SERVICIOS</div>
+        <div class="caja producto">
+            <div class="info"><h3>Mantenimiento Laptop</h3><span class="precio">₡15,000</span></div>
+            <a href="https://wa.me/50684281358?text=Consulta+Mantenimiento" class="btn-wa">WhatsApp</a>
+        </div>
     </div>
 
-    <div class="caja">
-        <h3>Batería iPhone 7 / 8</h3>
-        <span class="precio">₡22,000</span>
-        <a href="https://wa.me/50684281358" class="btn">Pedir por WhatsApp</a>
-    </div>
-
-    <div class="caja">
-        <h3>Pantalla iPhone 11</h3>
-        <span class="precio">₡35,000</span>
-        <a href="https://wa.me/50684281358" class="btn">Pedir por WhatsApp</a>
-    </div>
-
-    <div class="caja">
-        <h3>Pin de Carga (Cambio)</h3>
-        <span class="precio">₡12,000</span>
-        <a href="https://wa.me/50684281358" class="btn">Pedir por WhatsApp</a>
-    </div>
-
-    <div class="caja">
-        <h3>Mantenimiento de Laptop</h3>
-        <span class="precio">₡15,000</span>
-        <a href="https://wa.me/50684281358" class="btn">Pedir por WhatsApp</a>
-    </div>
+    <script>
+        function toggleTheme() { document.body.classList.toggle('dark-mode'); }
+        function buscar() {
+            let input = document.getElementById('buscador').value.toLowerCase();
+            let productos = document.getElementsByClassName('producto');
+            for (let i = 0; i < productos.length; i++) {
+                if (!productos[i].innerHTML.toLowerCase().includes(input)) {
+                    productos[i].style.display = "none";
+                } else {
+                    productos[i].style.display = "flex";
+                }
+            }
+        }
+    </script>
 </body>
 </html>
