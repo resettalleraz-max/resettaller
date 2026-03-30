@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Taller RST - Catálogo</title>
+    <title>Reset Taller RST - Catálogo Huawei Completo</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -11,107 +11,96 @@
             --primary-neon: #38bdf8; --secondary-neon: #22c55e;
         }
         body { font-family: 'Poppins', sans-serif; background-color: var(--bg-main); color: var(--text-main); margin: 0; padding: 10px; max-width: 1000px; margin: auto; }
-        
-        /* Cabecera */
-        .header { 
-            display: flex; flex-direction: column; align-items: center; 
-            padding: 30px 0; border-bottom: 3px solid var(--primary-neon); 
-            text-align: center; border-radius: 0 0 25px 25px;
-            background: linear-gradient(rgba(10, 16, 29, 0.8), rgba(10, 16, 29, 0.95));
-        }
-        
-        .logo-container { 
-            width: 120px; height: 120px; border-radius: 50%; 
-            border: 4px solid var(--primary-neon); box-shadow: 0 0 20px var(--primary-neon); 
-            background-color: #000; overflow: hidden; margin-bottom: 15px;
-        }
+        .header { display: flex; flex-direction: column; align-items: center; padding: 30px 0; border-bottom: 3px solid var(--primary-neon); text-align: center; background: linear-gradient(rgba(10, 16, 29, 0.8), rgba(10, 16, 29, 0.95)); border-radius: 0 0 25px 25px; }
+        .logo-container { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--primary-neon); box-shadow: 0 0 20px var(--primary-neon); background-color: #000; overflow: hidden; margin-bottom: 15px; }
         .logo-container img { width: 100%; height: 100%; object-fit: cover; }
-        
         #buscador-container { position: sticky; top: 15px; z-index: 1000; margin: 25px 0; }
-        #buscador { 
-            width: 100%; padding: 18px; border-radius: 50px; border: 2px solid var(--primary-neon); 
-            background: #fff; color: #1e1e1e; font-weight: 700; outline: none; box-sizing: border-box;
-        }
-
-        /* Estilo de Carpetas (Acordeones) */
-        .carpeta {
-            background: #1e293b; color: var(--primary-neon);
-            cursor: pointer; padding: 15px; width: 100%;
-            border: none; text-align: left; outline: none;
-            font-size: 1.1em; font-weight: 700; border-radius: 10px;
-            margin-top: 10px; display: flex; justify-content: space-between;
-            align-items: center; border-left: 5px solid var(--primary-neon);
-        }
-
-        .carpeta:after { content: '\002B'; font-size: 20px; }
-        .activa:after { content: "\2212"; }
-
-        .contenido-carpeta {
-            padding: 0 10px; max-height: 0; overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-
+        #buscador { width: 100%; padding: 18px; border-radius: 50px; border: 2px solid var(--primary-neon); background: #fff; color: #1e1e1e; font-weight: 700; outline: none; box-sizing: border-box; }
+        .carpeta { background: #1e293b; color: var(--primary-neon); cursor: pointer; padding: 15px; width: 100%; border: none; text-align: left; font-size: 1.1em; font-weight: 700; border-radius: 10px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; border-left: 5px solid var(--primary-neon); }
+        .carpeta:after { content: '\002B'; } .activa:after { content: "\2212"; }
+        .contenido-carpeta { padding: 0 10px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
         .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; padding: 15px 0; }
-        
-        .caja { 
-            background: var(--bg-card); padding: 15px; border-radius: 12px; 
-            border: 1px solid rgba(56, 189, 248, 0.1); display: flex; 
-            flex-direction: column; justify-content: space-between; 
-        }
-        
-        .info h3 { margin: 0; font-size: 0.85em; text-transform: uppercase; color: #fff; }
+        .caja { background: var(--bg-card); padding: 15px; border-radius: 12px; border: 1px solid rgba(56, 189, 248, 0.1); display: flex; flex-direction: column; justify-content: space-between; }
+        .info h3 { margin: 0; font-size: 0.85em; text-transform: uppercase; color: #fff; line-height: 1.2; }
         .precio { color: var(--secondary-neon); font-weight: 800; font-size: 1.3em; margin-top: 8px; display: block; }
-        
-        .btn-wa { 
-            background: var(--secondary-neon); color: #000; padding: 10px; 
-            text-decoration: none; border-radius: 8px; text-align: center; 
-            font-size: 0.8em; font-weight: 800; margin-top: 10px; 
-        }
+        .btn-wa { background: var(--secondary-neon); color: #000; padding: 10px; text-decoration: none; border-radius: 8px; text-align: center; font-size: 0.8em; font-weight: 800; margin-top: 10px; text-transform: uppercase; }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <div class="logo-container">
-            <img src="https://i.postimg.cc/9M349Y9k/1000985447.jpg" alt="Logo Reset Taller">
-        </div>
+        <div class="logo-container"><img src="https://i.postimg.cc/9M349Y9k/1000985447.jpg" alt="Logo Reset Taller"></div>
         <h1>RESET TALLER RST</h1>
         <div style="font-weight: 600;">Aguas Zarcas | WhatsApp: 6107-3855</div>
     </div>
 
-    <div id="buscador-container">
-        <input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 BUSCAR REPUESTO...">
-    </div>
+    <div id="buscador-container"><input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 BUSCAR MODELO..."></div>
 
     <h2 style="color: var(--primary-neon); border-bottom: 2px solid; padding-bottom: 5px;">📱 HUAWEI</h2>
 
     <button class="carpeta">📁 HUAWEI: SOLO PANTALLAS (SIN MARCO)</button>
     <div class="contenido-carpeta">
         <div class="grid-container">
-            <div class="caja producto"><div class="info"><h3>LCD P SMART (SOLO)</h3><span class="precio">₡21,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
-            <div class="caja producto"><div class="info"><h3>LCD P SMART 2019 (SOLO)</h3><span class="precio">₡22,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
-            <div class="caja producto"><div class="info"><h3>LCD P8 LITE</h3><span class="precio">₡16,500</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
-            <div class="caja producto"><div class="info"><h3>LCD P20 LITE (SOLO)</h3><span class="precio">₡22,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
-            <div class="caja producto"><div class="info"><h3>LCD P30 LITE (SOLO)</h3><span class="precio">₡25,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
-            <div class="caja producto"><div class="info"><h3>LCD Y5 2018</h3><span class="precio">₡18,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
-            <div class="caja producto"><div class="info"><h3>LCD Y9 2019 (SOLO)</h3><span class="precio">₡26,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD P SMART NEGRO</h3><span class="precio">₡21,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD P SMART 2019 NEGRO</h3><span class="precio">₡22,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD P8 NEGRO</h3><span class="precio">₡18,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD P8 LITE NEGRO</h3><span class="precio">₡16,500</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD P10 NEGRO</h3><span class="precio">₡22,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD P10 LITE NEGRO/BLANCO</h3><span class="precio">₡25,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD P20 NEGRO</h3><span class="precio">₡24,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD P20 LITE NEGRO</h3><span class="precio">₡22,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD P30 LITE NEGRO</h3><span class="precio">₡25,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD P40 LITE NEGRO</h3><span class="precio">₡26,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD Y3 2017 NEGRO</h3><span class="precio">₡17,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD Y5 2018 NEGRO/BLANCO</h3><span class="precio">₡18,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD Y5 2019 NEGRO</h3><span class="precio">₡19,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD Y6 2018 NEGRO</h3><span class="precio">₡19,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD Y6 PRIME 2019 NEGRO</h3><span class="precio">₡21,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD Y6P NEGRO</h3><span class="precio">₡22,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD Y7 2018 NEGRO</h3><span class="precio">₡21,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD Y7 PRIME 2019 NEGRO</h3><span class="precio">₡22,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD Y7P NEGRO</h3><span class="precio">₡25,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD Y7A NEGRO</h3><span class="precio">₡26,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD Y9 2018 NEGRO</h3><span class="precio">₡26,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD Y9 2019 / Y8S NEGRO</h3><span class="precio">₡26,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD Y9 PRIME 2019 NEGRO</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD Y9S NEGRO</h3><span class="precio">₡32,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD Y9A NEGRO</h3><span class="precio">₡34,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD MATE 10 LITE NEGRO</h3><span class="precio">₡26,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD MATE 20 LITE NEGRO</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD NOVA 5T NEGRO</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD NOVA 9 / 9 SE NEGRO</h3><span class="precio">₡35,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD NOVA 10 / 10 SE NEGRO</h3><span class="precio">₡38,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD NOVA Y60 / Y70 NEGRO</h3><span class="precio">₡28,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD NOVA 8i / HONOR 50 LITE</h3><span class="precio">₡35,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD TABLET T1 7.0"</h3><span class="precio">₡22,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD TABLET T3 7.0"</h3><span class="precio">₡25,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
         </div>
     </div>
 
-    <button class="carpeta">📁 HUAWEI: PANTALLAS CON MARCO</button>
+    <button class="carpeta">📁 HUAWEI: PANTALLAS CON MARCO (FULL)</button>
     <div class="contenido-carpeta">
         <div class="grid-container">
-            <div class="caja producto"><div class="info"><h3>P SMART + MARCO</h3><span class="precio">₡24,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
-            <div class="caja producto"><div class="info"><h3>P SMART 2019 + MARCO</h3><span class="precio">₡25,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
-            <div class="caja producto"><div class="info"><h3>P20 LITE + MARCO</h3><span class="precio">₡26,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
-            <div class="caja producto"><div class="info"><h3>P30 LITE + MARCO</h3><span class="precio">₡30,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
-            <div class="caja producto"><div class="info"><h3>Y9 2019 + MARCO</h3><span class="precio">₡30,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
-            <div class="caja producto"><div class="info"><h3>Y9 PRIME + MARCO</h3><span class="precio">₡32,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD + MARCO P SMART NEGRO</h3><span class="precio">₡24,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD + MARCO P SMART 2019 NEGRO</h3><span class="precio">₡25,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD + MARCO P20 LITE NEGRO</h3><span class="precio">₡26,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD + MARCO P30 LITE (NEGRO/AZUL)</h3><span class="precio">₡30,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD + MARCO P40 LITE (NEGRO/VERDE)</h3><span class="precio">₡30,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD + MARCO Y6 PRIME 2019 NEGRO</h3><span class="precio">₡24,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD + MARCO Y7 2018 NEGRO</h3><span class="precio">₡24,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD + MARCO Y7 PRIME 2019 NEGRO</h3><span class="precio">₡25,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD + MARCO Y7P NEGRO</h3><span class="precio">₡28,500</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD + MARCO Y8S NEGRO</h3><span class="precio">₡30,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD + MARCO Y9 2019 NEGRO</h3><span class="precio">₡30,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD + MARCO Y9 PRIME 2019 (NGR/AZ)</h3><span class="precio">₡32,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD + MARCO Y9S NEGRO</h3><span class="precio">₡36,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD + MARCO Y9A NEGRO</h3><span class="precio">₡38,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD + MARCO MATE 20 LITE NEGRO</h3><span class="precio">₡32,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
+            <div class="caja producto"><div class="info"><h3>LCD + MARCO NOVA 5T (NGR/AZ)</h3><span class="precio">₡32,000</span></div><a href="https://wa.me/50661073855" class="btn-wa">WhatsApp</a></div>
         </div>
     </div>
 
     <script>
-        // Lógica para abrir carpetas
         var acc = document.getElementsByClassName("carpeta");
         for (var i = 0; i < acc.length; i++) {
             acc[i].addEventListener("click", function() {
@@ -121,12 +110,9 @@
                 else { panel.style.maxHeight = panel.scrollHeight + "px"; } 
             });
         }
-
         function buscar() {
             let input = document.getElementById('buscador').value.toLowerCase();
             let productos = document.getElementsByClassName('producto');
-            // Al buscar, abrimos todas las carpetas para que se vean los resultados
-            let carpetas = document.getElementsByClassName('contenido-carpeta');
             for (let i = 0; i < productos.length; i++) {
                 if (!productos[i].innerText.toLowerCase().includes(input)) {
                     productos[i].style.display = "none";
