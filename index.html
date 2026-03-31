@@ -54,51 +54,41 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--t
 <button class="acordeon" onclick="toggle(this)">CON MARCO (70)</button>
 <div class="panel"><div class="grid" id="s2"></div></div>
 
-<h2 style="color:var(--red)">📱 XIAOMI PANTALLAS</h2>
-<button class="acordeon" onclick="toggle(this)">SOLO PANTALLAS (33)</button>
-<div class="panel"><div class="grid" id="x1"></div></div>
-<button class="acordeon" onclick="toggle(this)">CON MARCO (11)</button>
-<div class="panel"><div class="grid" id="x2"></div></div>
-
-<h2 style="color:var(--gold)">📱 HONOR PANTALLAS</h2>
-<button class="acordeon" onclick="toggle(this)">SOLO PANTALLAS (16)</button>
-<div class="panel"><div class="grid" id="hon1"></div></div>
-<button class="acordeon" onclick="toggle(this)">CON MARCO (19)</button>
-<div class="panel"><div class="grid" id="hon2"></div></div>
-
-<h2 style="color:var(--orange)">📱 MOTOROLA PANTALLAS</h2>
-<button class="acordeon" onclick="toggle(this)">SOLO PANTALLAS (29)</button>
-<div class="panel"><div class="grid" id="m1"></div></div>
-<button class="acordeon" onclick="toggle(this)">CON MARCO (13)</button>
-<div class="panel"><div class="grid" id="m2"></div></div>
-
 <script>
-// DATOS CARGA (TC)
-const tcs=[["A01","₡15,000"],["A10S","₡15,000"],["A21S-A71","₡18,000"],["A34/A52","₡20,000"],["S23-S24 U","₡40,000"]]; // Simplificado por espacio
-const tch=[["PS 2019","₡15,000"],["P30/P40 L","₡18,000"],["Nova 5T/Y70","₡18,000"]];
-const tci=[["6G-6SP","₡15,000"],["X-XR-XS","₡22,000"],["11-15 PM","₡35,000"]];
-const tco=[["Redmi 9-13C","₡15,000"],["Note 10-13P","₡20,000"],["Moto G8-G72","₡18,000"],["Honor X6-X9","₡18,000"]];
+// FUNCION PARA LLENAR DATOS
+function add(id,items){
+  const c=document.getElementById(id);
+  items.forEach(i=>{
+    c.innerHTML+=`<div class="caja producto"><h3>${i[0]}</h3><span class="precio">${i[1]}</span><a href="https://wa.me/50661073855?text=Reparar+${i[0]}" class="btn-wa">REPARAR</a></div>`;
+  });
+}
 
-// DATOS PANTALLAS (IPHONE SEPARADO)
-const ip1=[["6G","₡22,000"],["6G+","₡24,000"],["7G","₡25,000"],["8G","₡26,000"],["8+","₡30,000"]];
-const ip2=[["X OLED","₡45,000"],["XS","₡48,000"],["XR","₡45,000"],["11","₡48,000"],["11PM","₡65,000"]];
-const ip3=[["12 OLED","₡65,000"],["13 OLED","₡80,000"],["14 PM","₡185,000"],["15 PM","₡245,000"],["16 PM","₡345,000"]];
+// DATOS CARGA
+add('tc_s',[["A01","₡15,000"],["A10S","₡15,000"],["A21S-A71","₡18,000"],["A34/A52","₡20,000"],["S23-S24 U","₡40,000"]]);
+add('tc_h',[["PS 2019","₡15,000"],["P30/P40 L","₡18,000"],["Nova 5T","₡18,000"]]);
+add('tc_i',[["6G-6SP","₡15,000"],["X-XR-XS","₡22,000"],["11-15 PM","₡35,000"]]);
+add('tc_o',[["Redmi 9-13C","₡15,000"],["Note 10-13P","₡20,000"],["Moto G8-G72","₡18,000"],["Honor X6-X9","₡18,000"]]);
+
+// DATOS PANTALLAS IPHONE
+add('ip1',[["6G","₡22,000"],["6G Plus","₡24,000"],["6S","₡23,000"],["6S Plus","₡26,000"],["7G","₡25,000"],["7 Plus","₡28,000"],["8G","₡26,000"],["8 Plus","₡30,000"]]);
+add('ip2',[["X OLED","₡45,000"],["X Incel","₡35,000"],["XS OLED","₡48,000"],["XS Incel","₡38,000"],["XR <span class='badge'>ORIG</span>","₡45,000"],["XR Incel","₡35,000"],["XS Max OLED","₡55,000"],["XS Max Incel","₡42,000"],["11 <span class='badge'>ORIG</span>","₡48,000"],["11 Incel","₡35,000"],["11 Pro OLED","₡55,000"],["11 Pro Incel","₡42,000"],["11 Pro Max OLED","₡65,000"],["11 Pro Max Incel","₡48,000"]]);
+add('ip3',[["12 OLED","₡65,000"],["12/12P Incel","₡48,000"],["12PM <span class='badge'>ORIG</span>","₡110,000"],["13 OLED","₡80,000"],["14 PM","₡185,000"],["15 PM","₡245,000"],["16 PM","₡345,000"]]);
 
 // SAMSUNG
-const s1=[["J2P","₡16,000"],["A10/S","₡19,000"],["A14 5G","₡24,000"],["A20 OLED","₡26,000"]];
-const s2=[["A01 M","₡22,000"],["A15 ORIG","₡45,000"],["A54 ORIG","₡70,000"],["S23U ORIG","₡145,000"]];
+add('s1',[["J2P","₡16,000"],["A10/S","₡19,000"],["A14 5G","₡24,000"],["A20 OLED","₡26,000"]]);
+add('s2',[["A01 M","₡22,000"],["A15 ORIG","₡45,000"],["A54 ORIG","₡70,000"],["S23U ORIG","₡145,000"]]);
 
-// XIAOMI / HONOR / MOTO (Igual formato)
-const x1=[["Redmi 9A","₡22,000"],["Note 13 Pro","₡55,000"]];
-const hon1=[["Honor 8X","₡22,000"],["X8B","₡45,000"]];
-const m1=[["G04/G24","₡22,000"],["G60","₡28,000"]];
-
-function fill(d,id){const c=document.getElementById(id);if(c)d.forEach(i=>{c.innerHTML+=`<div class="caja producto"><h3>${i[0]}</h3><span class="precio">${i[1]}</span><a href="https://wa.me/50661073855?text=Reparar+${i[0]}" class="btn-wa">REPARAR</a></div>`})}
-fill(tc_s,'tc_s');fill(tc_h,'tc_h');fill(tc_i,'tc_i');fill(tc_o,'tc_o');fill(ip1,'ip1');fill(ip2,'ip2');fill(ip3,'ip3');fill(s1,'s1');fill(s2,'s2');fill(x1,'x1');fill(hon1,'hon1');fill(m1,'m1');
-
-function toggle(b){b.classList.toggle("active");const p=b.nextElementSibling;p.style.maxHeight=p.style.maxHeight?null:p.scrollHeight+"px";}
+function toggle(b){
+  b.classList.toggle("active");
+  const p=b.nextElementSibling;
+  p.style.maxHeight=p.style.maxHeight?null:p.scrollHeight+"px";
+}
 function cambiarTema(){document.body.classList.toggle("light-mode");}
-function buscar(){const v=document.getElementById('buscador').value.toLowerCase();const p=document.getElementsByClassName('producto');for(let i=0;i<p.length;i++){p[i].style.display=p[i].innerText.toLowerCase().includes(v)?"flex":"none";}}
+function buscar(){
+  const v=document.getElementById('buscador').value.toLowerCase();
+  const p=document.getElementsByClassName('producto');
+  for(let i=0;i<p.length;i++){p[i].style.display=p[i].innerText.toLowerCase().includes(v)?"flex":"none";}
+}
 </script>
 </body>
 </html>
