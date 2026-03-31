@@ -17,9 +17,10 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);mar
 .panel{padding:0 5px;max-height:0;overflow:hidden;transition:max-height .3s ease-out;background:rgba(0,0,0,.1);border-radius:0 0 12px 12px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;padding:15px 5px}
 .caja{background:var(--card);padding:12px;border-radius:15px;text-align:center;border:1px solid rgba(255,255,255,.05)}
-.caja h3{font-size:.7em;margin:0;color:var(--text);text-transform:uppercase;min-height:35px}
+.caja h3{font-size:.75em;margin:0;color:var(--text);text-transform:uppercase;min-height:35px}
 .precio{color:var(--green);font-size:1.1em;font-weight:800;margin:8px 0;display:block}
 .btn-wa{background:var(--green);color:#fff;text-decoration:none;padding:8px;border-radius:8px;font-size:.7em;font-weight:700;display:block}
+.badge{background:#ffd700;color:#000;font-size:.6em;padding:2px 4px;border-radius:4px;font-weight:900}
 .acordeon:after{content:'\002B'}.active:after{content:"\2212"}
 </style>
 </head>
@@ -27,18 +28,18 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);mar
 <button class="btn-tema" onclick="cambiarTema()">🌓 MODO DÍA</button>
 <div class="header"><img src="WhatsApp Image 2026-03-30 at 8.47.32 PM.jpeg" class="logo-img"><h1>RESET TALLER</h1><p>6107-3855</p></div>
 <div class="aviso">✅ PRECIOS INCLUYEN REPUESTO E INSTALACIÓN</div>
-<input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 BUSCAR REPUESTO...">
+<input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 BUSCAR (EJ: A10, CARGA, IPHONE)">
 
 <h2 style="color:var(--purple)">⚡ TARJETAS DE CARGA</h2>
 <button class="acordeon" onclick="toggle(this)">CARGA: SAMSUNG (58)</button><div class="panel"><div class="grid" id="tc_s"></div></div>
 <button class="acordeon" onclick="toggle(this)">CARGA: HUAWEI (32)</button><div class="panel"><div class="grid" id="tc_h"></div></div>
 <button class="acordeon" onclick="toggle(this)">CARGA: IPHONE FLEX (26)</button><div class="panel"><div class="grid" id="tc_i"></div></div>
-<button class="acordeon" onclick="toggle(this)">CARGA: OTRAS MARCAS (90)</button><div class="panel"><div class="grid" id="tc_o"></div></div>
+<button class="acordeon" onclick="toggle(this)">CARGA: MOTO / XIAOMI / HONOR (90)</button><div class="panel"><div class="grid" id="tc_o"></div></div>
 
 <h2 style="color:#cbd5e1">📱 IPHONE PANTALLAS</h2>
 <button class="acordeon" onclick="toggle(this)">SERIE 6 AL 8 PLUS (8)</button><div class="panel"><div class="grid" id="ip1"></div></div>
-<button class="acordeon" onclick="toggle(this)">SERIE X AL 11 PM (14)</button><div class="panel"><div class="grid" id="ip2"></div></div>
-<button class="acordeon" onclick="toggle(this)">SERIE 12 AL 16 PM (34)</button><div class="panel"><div class="grid" id="ip3"></div></div>
+<button class="acordeon" onclick="toggle(this)">SERIE X AL 11 PRO MAX (14)</button><div class="panel"><div class="grid" id="ip2"></div></div>
+<button class="acordeon" onclick="toggle(this)">SERIE 12 AL 16 PRO MAX (34)</button><div class="panel"><div class="grid" id="ip3"></div></div>
 
 <h2 style="color:var(--green)">📱 SAMSUNG PANTALLAS</h2>
 <button class="acordeon" onclick="toggle(this)">SOLO PANTALLAS (29)</button><div class="panel"><div class="grid" id="s1"></div></div>
@@ -48,43 +49,53 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);mar
 <button class="acordeon" onclick="toggle(this)">SOLO PANTALLAS (33)</button><div class="panel"><div class="grid" id="x1"></div></div>
 <button class="acordeon" onclick="toggle(this)">CON MARCO (11)</button><div class="panel"><div class="grid" id="x2"></div></div>
 
+<h2 style="color:var(--gold)">📱 HONOR PANTALLAS</h2>
+<button class="acordeon" onclick="toggle(this)">SOLO PANTALLAS (16)</button><div class="panel"><div class="grid" id="h1"></div></div>
+<button class="acordeon" onclick="toggle(this)">CON MARCO (19)</button><div class="panel"><div class="grid" id="h2"></div></div>
+
+<h2 style="color:var(--orange)">📱 MOTOROLA PANTALLAS</h2>
+<button class="acordeon" onclick="toggle(this)">SOLO PANTALLAS (29)</button><div class="panel"><div class="grid" id="m1"></div></div>
+<button class="acordeon" onclick="toggle(this)">CON MARCO (13)</button><div class="panel"><div class="grid" id="m2"></div></div>
+
 <script>
-function fill(id,data){
-  const c=document.getElementById(id);
-  if(!c)return;
-  let html='';
-  data.forEach(i=>{
-    html+=`<div class="caja producto"><h3>${i[0]}</h3><span class="precio">${i[1]}</span><a href="https://wa.me/50661073855?text=Reparar+${i[0]}" class="btn-wa">INSTALAR</a></div>`;
-  });
-  c.innerHTML=html;
-}
+function fill(id,d){const c=document.getElementById(id);if(!c)return;let h='';d.forEach(i=>{h+=`<div class="caja producto"><h3>${i[0]}</h3><span class="precio">${i[1]}</span><a href="https://wa.me/50661073855?text=Reparar+${i[0]}" class="btn-wa">REPARAR</a></div>`});c.innerHTML=h}
 
-// --- CARGA ---
-fill('tc_s',[["A01/A10S","₡15,000"],["A11/A12","₡18,000"],["A21S-A71","₡18,000"],["S23-S24 U","₡40,000"]]);
-fill('tc_h',[["PS 2019","₡15,000"],["Y9 Prime","₡18,000"],["Nova 5T","₡18,000"]]);
-fill('tc_i',[["6G-8P","₡18,000"],["X-XS-XR","₡22,000"],["11-15 PM","₡35,000"]]);
-fill('tc_o',[["Redmi 9-13C","₡15,000"],["Note 10-13P","₡20,000"],["Moto G8-G72","₡18,000"],["Honor X6-X9","₡18,000"]]);
+// --- CARGA SAMSUNG ---
+fill('tc_s',[["A01","₡15,000"],["A01 Core","₡15,000"],["A02/A022F","₡15,000"],["A02S/A025F","₡15,000"],["A03","₡15,000"],["A03 Core","₡15,000"],["A04/A045","₡15,000"],["A04E","₡15,000"],["A04S","₡15,000"],["A05/A05S","₡18,000"],["A06","₡18,000"],["A10/A10S","₡15,000"],["A11","₡18,000"],["A12/A125","₡18,000"],["A13","₡18,000"],["A14 4G","₡18,000"],["A15","₡20,000"],["A16 4G/5G","₡20,000"],["A20/A205F","₡18,000"],["A20S M12/14","₡18,000"],["A21S","₡18,000"],["A22 4G/5G","₡18,000"],["A23/A24/A25","₡18,000"],["A30/A30S","₡18,000"],["A31/A32","₡18,000"],["A33/A34/A35/A36","₡20,000"],["A50/A51/A52/A53","₡20,000"],["A54/A55/A56","₡22,000"],["A70/A71/A72/A73","₡20,000"],["S20FE/S21FE","₡25,000"],["S23/U","₡35,000"],["S24/U","₡40,000"]]);
 
-// --- IPHONE PANTALLAS ---
-fill('ip1',[["6G","₡22,000"],["6G Plus","₡24,000"],["6S","₡23,000"],["6S Plus","₡26,000"],["7G","₡25,000"],["7 Plus","₡28,000"],["8G","₡26,000"],["8 Plus","₡30,000"]]);
-fill('ip2',[["X OLED","₡45,000"],["XS OLED","₡48,000"],["XR ORIG","₡45,000"],["11 ORIG","₡48,000"],["11PM OLED","₡65,000"]]);
-fill('ip3',[["12 OLED","₡65,000"],["13 OLED","₡80,000"],["14 PM","₡185,000"],["15 PM","₡245,000"],["16 PM","₡345,000"]]);
+// --- CARGA HUAWEI ---
+fill('tc_h',[["P Smart/19","₡15,000"],["P9/P10/Lite","₡15,000"],["P20/Lite","₡18,000"],["P30/P40 Lite","₡18,000"],["Y5/6/7 All","₡15,000"],["Y8S/Y9 19/P/S/A","₡18,000"],["Mate 10/20 L","₡15,000"],["Nova 5T/Y60/70","₡18,000"],["Nova 9/SE/10 SE","₡20,000"]]);
 
-// --- SAMSUNG PANTALLAS ---
-fill('s1',[["J2P","₡16,000"],["A10/S","₡19,000"],["A14 5G","₡24,000"],["A20 OLED","₡26,000"]]);
-fill('s2',[["A01 M","₡22,000"],["A15 ORIG","₡45,000"],["A54 ORIG","₡70,000"],["S23U ORIG","₡145,000"]]);
+// --- CARGA IPHONE ---
+fill('tc_i',[["6G/6S/P","₡15,000"],["7G/7P/8G/8P","₡18,000"],["X/XS/XR/Max","₡22,000"],["11/P/Max","₡25,000"],["12/P/Max","₡30,000"],["13/P/Max","₡35,000"],["14/P/Max","₡40,000"],["15/P/Max","₡45,000"]]);
 
-function toggle(b){
-  b.classList.toggle("active");
-  const p=b.nextElementSibling;
-  p.style.maxHeight=p.style.maxHeight?null:p.scrollHeight+"px";
-}
-function cambiarTema(){document.body.classList.toggle("light-mode");}
-function buscar(){
-  const v=document.getElementById('buscador').value.toLowerCase();
-  const p=document.getElementsByClassName('producto');
-  for(let i=0;i<p.length;i++){p[i].style.display=p[i].innerText.toLowerCase().includes(v)?"flex":"none";}
-}
+// --- CARGA OTRAS ---
+fill('tc_o',[["Redmi A1/A3/9/A/C","₡15,000"],["Redmi 10/12/13/14C","₡18,000"],["Note 9/10/11/12","₡20,000"],["Note 13/Pro/5G","₡25,000"],["Moto G8-G72","₡18,000"],["Moto E6-E40","₡15,000"],["Honor X6-X9","₡18,000"],["Magic 5/6/7 L","₡25,000"]]);
+
+// --- PANTALLAS IPHONE ---
+fill('ip1',[["6G","₡22,000"],["6G+","₡24,000"],["6S","₡23,000"],["6S+","₡26,000"],["7G","₡25,000"],["7+","₡28,000"],["8G","₡26,000"],["8+","₡30,000"]]);
+fill('ip2',[["X OLED","₡45,000"],["X Incel","₡35,000"],["XS OLED","₡48,000"],["XS Incel","₡38,000"],["XR ORIG","₡45,000"],["XR Incel","₡35,000"],["XS Max OLED","₡55,000"],["XS Max Incel","₡42,000"],["11 ORIG","₡48,000"],["11 Incel","₡35,000"],["11 Pro OLED","₡55,000"],["11 Pro Incel","₡42,000"],["11 Pro Max OLED","₡65,000"],["11 Pro Max Incel","₡48,000"]]);
+fill('ip3',[["12 OLED","₡65,000"],["12/12P Incel","₡48,000"],["12PM ORIG","₡110,000"],["13 SOFT","₡95,000"],["13 OLED","₡80,000"],["13PM SOFT","₡155,000"],["14 SOFT","₡120,000"],["14 PM","₡185,000"],["15 PM","₡245,000"],["16 PM","₡345,000"]]);
+
+// --- SAMSUNG ---
+fill('s1',[["J2P","₡16,000"],["J4","₡21,000"],["A10/S","₡19,000"],["A14 5G","₡24,000"],["A20 OLED","₡26,000"],["A32 4G","₡28,000"],["S21 FE","₡55,000"]]);
+fill('s2',[["A01 M","₡22,000"],["A15 ORIG","₡45,000"],["A16 OLED","₡38,000"],["A54 ORIG","₡70,000"],["S23U ORIG","₡145,000"]]);
+
+// --- XIAOMI ---
+fill('x1',[["Redmi A1","₡22,000"],["Note 11","₡28,000"],["Note 13 Pro","₡55,000"]]);
+fill('x2',[["Redmi 12C M","₡28,000"],["Note 10S M","₡52,000"]]);
+
+// --- HONOR ---
+fill('h1',[["Honor 8X","₡22,000"],["90 Lite","₡26,000"],["X8B","₡45,000"]]);
+fill('h2',[["X7 M","₡28,000"],["X9 M","₡30,000"]]);
+
+// --- MOTOROLA ---
+fill('m1',[["G04/G24","₡22,000"],["G60","₡32,000"]]);
+fill('m2',[["G14 M","₡28,000"],["E40 M","₡26,000"]]);
+
+function toggle(b){b.classList.toggle("active");const p=b.nextElementSibling;p.style.maxHeight=p.style.maxHeight?null:p.scrollHeight+"px"}
+function cambiarTema(){document.body.classList.toggle("light-mode")}
+function buscar(){const v=document.getElementById('buscador').value.toLowerCase();const p=document.getElementsByClassName('producto');for(let i=0;i<p.length;i++){p[i].style.display=p[i].innerText.toLowerCase().includes(v)?"flex":"none"}}
 </script>
 </body>
 </html>
