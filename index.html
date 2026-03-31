@@ -1,83 +1,68 @@
-// --- PANTALLAS (CON TÍTULOS LIMPIOS) ---
-const PANTALLAS = [
-    ["TITULO","--- IPHONE ---"],
-    ["iPhone 6G","₡22,000"], ["iPhone 7G","₡25,000"], ["iPhone 7 Plus","₡28,000"], ["iPhone 8 Plus","₡30,000"],
-    ["iPhone X OLED","₡45,000"], ["iPhone 11 ORIG","₡48,000"], ["iPhone 12 Incel","₡48,000"], ["iPhone 13 OLED","₡80,000"],
-    ["iPhone 14 Pro Max OLED","₡185,000"], ["iPhone 15 Pro Max","₡245,000"],
-    ["TITULO","--- SAMSUNG ---"],
-    ["Samsung A10","₡23,000"], ["Samsung A03 Core","₡19,000"], ["Samsung A15 ORIG","₡45,000"], ["Samsung A34 ORIG","₡55,000"],
-    ["Samsung A54 ORIG","₡70,000"], ["Samsung S20 FE","₡45,000"], ["Samsung S23 Ultra ORIG","₡145,000"],
-    ["TITULO","--- HONOR / HUAWEI ---"],
-    ["Honor X5 Plus","₡22,000"], ["Honor X6A","₡22,000"], ["Honor X7B","₡26,000"], ["Honor X8B ORIG","₡45,000"],
-    ["Huawei P30 Lite","₡25,000"], ["Huawei Y9 Prime","₡26,000"], ["Nova 5T","₡28,000"],
-    ["TITULO","--- XIAOMI / MOTO ---"],
-    ["Redmi 13C","₡24,000"], ["Redmi Note 13 Pro 4G","₡55,000"], ["Poco X3 Pro","₡28,000"], ["Moto G60","₡28,000"], ["Moto E20","₡22,000"]
-];
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RESET TALLER</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --bg: #0a0f18; --card: #161e2d; --neon: #38bdf8; --green: #22c55e; --text: #f8fafc; --gold: #eab308; }
+.light-mode { --bg: #f1f5f9; --card: #ffffff; --neon: #0284c7; --green: #16a34a; --text: #1e293b; --gold: #ca8a04; }
+body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 10px; transition: 0.3s; }
+.btn-tema { position: fixed; top: 25px; right: 25px; background: rgba(22,30,45,0.8); border: 2px solid var(--neon); color: var(--neon); padding: 8px 12px; border-radius: 20px; font-size: 0.75em; font-weight: 700; z-index: 1000; cursor: pointer; backdrop-filter: blur(5px); }
+.header { text-align: center; padding: 40px 20px; border-bottom: 4px solid var(--neon); border-radius: 0 0 25px 25px; margin-bottom: 20px; position: relative; overflow: hidden; background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000'); background-size: cover; background-position: center; }
+.header::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10,15,24,0.7); z-index: 0; }
+.logo-img { width: 110px; height: 110px; border-radius: 50%; border: 4px solid var(--neon); margin-bottom: 15px; position: relative; z-index: 1; object-fit: cover; box-shadow: 0 0 15px rgba(56,189,248,0.5); }
+.header h1, .header p, .header .dir, .biblia { position: relative; z-index: 1; margin: 0; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
+.header h1 { font-size: 2em; }
+.header p { font-size: 1.2em; color: var(--neon); margin: 5px 0; }
+.header .dir { font-size: 0.8em; opacity: 0.9; display: block; margin-bottom: 5px; color: #ccc; }
+.biblia { font-style: italic; font-size: 0.8em; color: var(--gold); }
+#buscador { width: 100%; padding: 15px; border-radius: 30px; border: 2px solid var(--neon); background: var(--card); color: var(--text); margin: 20px 0; outline: none; box-sizing: border-box; font-weight: 600; }
+.acordeon { background: var(--card); color: var(--neon); cursor: pointer; padding: 18px; width: 100%; border: 1px solid rgba(56,189,248,0.2); text-align: left; font-weight: 700; border-radius: 12px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; }
+.panel { padding: 0 5px; max-height: 0; overflow: hidden; transition: 0.3s ease-out; background: rgba(0,0,0,0.1); border-radius: 0 0 12px 12px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; padding: 15px 5px; }
+.caja { background: var(--card); padding: 12px; border-radius: 15px; text-align: center; border: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; justify-content: space-between; }
+.caja h3 { font-size: 0.75em; margin: 0; min-height: 35px; text-transform: uppercase; }
+.precio { color: var(--green); font-size: 1.2em; font-weight: 800; margin: 8px 0; display: block; }
+.btn-wa { background: var(--green); color: #fff; text-decoration: none; padding: 10px; border-radius: 8px; font-size: 0.75em; font-weight: 700; display: block; }
+.separador-marca { grid-column: 1 / -1; background: linear-gradient(90deg, transparent, rgba(56,189,248,0.2), transparent); color: var(--neon); padding: 10px; font-weight: 800; font-size: 1em; letter-spacing: 2px; border: none; margin: 10px 0; text-align: center; }
+.acordeon:after { content: '\002B'; } .active:after { content: "\2212"; }
+</style>
+</head>
+<body>
+<button class="btn-tema" onclick="cambiarTema()">🌓 MODO DÍA</button>
+<div class="header">
+  <img src="WhatsApp Image 2026-03-30 at 8.47.32 PM.jpeg" class="logo-img">
+  <h1>RESET TALLER</h1>
+  <p>6107-3855</p>
+  <span class="dir">Costa Rica, Alajuela, San Carlos, Aguas Zarcas</span>
+  <span class="biblia">"Pon en manos del Señor todas tus obras..." - Prov. 16:3</span>
+</div>
+<input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 BUSCAR REPUESTO O ACCESORIO...">
+<button class="acordeon" onclick="toggle(this)">📱 PANTALLAS (IPHONE, SAM, HONOR...)</button>
+<div class="panel"><div class="grid" id="pantallas"></div></div>
+<button class="acordeon" onclick="toggle(this)">🔌 FLEX (PRINCIPAL, CARGA, AUDIO, ENCENDIDO)</button>
+<div class="panel"><div class="grid" id="flex"></div></div>
+<button class="acordeon" onclick="toggle(this)">🔊 AUDIO, TIMBRE, MICRÓFONO Y ANTENA</button>
+<div class="panel"><div class="grid" id="audio"></div></div>
+<button class="acordeon" onclick="toggle(this)">⚡ CARGADORES (CUBOS Y CABLES)</button>
+<div class="panel"><div class="grid" id="cargadores"></div></div>
+<button class="acordeon" onclick="toggle(this)">📷 TAPAS, CÁMARAS Y LENTES</button>
+<div class="panel"><div class="grid" id="estetica"></div></div>
+<button class="acordeon" onclick="toggle(this)">🎧 AUDÍFONOS Y SMARTWATCH</button>
+<div class="panel"><div class="grid" id="gadgets"></div></div>
+<button class="acordeon" onclick="toggle(this)">🛠️ HERRAMIENTAS Y MALLAS DE SOLDAR</button>
+<div class="panel"><div class="grid" id="herramientas"></div></div>
+<button class="acordeon" onclick="toggle(this)">📦 OTROS (PORTASIM, GOMAS, ETC)</button>
+<div class="panel"><div class="grid" id="otros"></div></div>
 
-// --- FLEX ---
-const FLEX = [
-    ["Flex Principal A20S","₡12,000"],
-    ["Flex de Carga A30","₡10,000"],
-    ["Flex Encendido Moto G8","₡7,500"],
-    ["Flex de Antena / Señal","₡8,000"],
-    ["Flex de Audio J7 Prime","₡7,000"]
-];
-
-// --- AUDIO ---
-const AUDIO = [
-    ["TIMBRE: Samsung J7 Pro","₡6,000"],
-    ["MICRÓFONO: Universal","₡4,500"],
-    ["AURICULAR: iPhone 11","₡12,000"],
-    ["PARLANTE: Redmi Note 10","₡8,000"]
-];
-
-// --- BOTONES ---
-const BOTONES = [
-    ["HUELLA: Samsung A50","₡15,000"], 
-    ["CONECTOR: FPC Pantalla","₡8,000"],
-    ["BOTONES: Encendido/Volumen","₡6,000"]
-];
-
-// --- CARGA ---
-const CARGADORES = [
-    ["CUBO: Carga Rápida 20W","₡12,000"],
-    ["CABLE: Tipo C Reforzado","₡5,000"],
-    ["COMBO: Cubo + Cable","₡15,000"],
-    ["CARGADOR: Sintonizador Carro","₡12,000"]
-];
-
-// --- CARRO Y SOPORTES ---
-const CARRO = [
-    ["SOPORTE: Celular Imán","₡7,000"],
-    ["SOPORTE: Bicicleta/Moto","₡9,000"],
-    ["CARGADOR: Carro Doble USB","₡8,000"]
-];
-
-// --- ESTÉTICA ---
-const ESTETICA = [
-    ["TAPA: Samsung A30","₡12,000"],
-    ["TAPA: Huawei P30 Lite","₡10,000"],
-    ["LENTE: Cámara Redmi Note 11","₡5,000"],
-    ["CÁMARA: Principal A10S","₡15,000"]
-];
-
-// --- GADGETS ---
-const GADGETS = [
-    ["AUDÍFONOS: Bluetooth Pro","₡18,000"],
-    ["RELOJ: Smartwatch S8 Ultra","₡22,000"],
-    ["AUDÍFONOS: Alámbricos 3.5mm","₡5,000"]
-];
-
-// --- HERRAMIENTAS ---
-const HERRAMIENTAS = [
-    ["MALLA: Desoldar Goot Wick","₡4,000"],
-    ["GOMA: T-7000 Negra (Grande)","₡5,000"],
-    ["ESTAÑO: Pasta Relife","₡8,000"]
-];
-
-// --- OTROS ---
-const OTROS = [
-    ["PORTASIM: Huawei P30","₡3,000"],
-    ["MALLA: Polvo Auricular","₡2,000"],
-    ["BATERÍA: iPhone 11 (Certificada)","₡25,000"]
-];
+<script src="datos.js"></script>
+<script>
+const fill=(d,id)=>{const c=document.getElementById(id);if(!c||!d)return;let h='';d.forEach(i=>{if(i[0]==="TITULO"){h+=`<div class="separador-marca">${i[1]}</div>`;}else{h+=`<div class="caja producto"><h3>${i[0]}</h3><span class="precio">${i[1]}</span><a href="https://wa.me/50661073855?text=Consulta+por+${i[0]}" class="btn-wa">WHATSAPP</a></div>`}});c.innerHTML=h};
+if(typeof PANTALLAS!=='undefined'){fill(PANTALLAS,'pantallas');fill(FLEX,'flex');fill(AUDIO,'audio');fill(CARGADORES,'cargadores');fill(ESTETICA,'estetica');fill(GADGETS,'gadgets');fill(HERRAMIENTAS,'herramientas');fill(OTROS,'otros');}
+function toggle(b){b.classList.toggle("active");const p=b.nextElementSibling;p.style.maxHeight=p.style.maxHeight?null:p.scrollHeight+"px"}
+function cambiarTema(){document.body.classList.toggle("light-mode");}
+function buscar(){const v=document.getElementById('buscador').value.toLowerCase();const p=document.getElementsByClassName('producto');const t=document.getElementsByClassName('separador-marca');for(let i=0;i<p.length;i++){const m=p[i].innerText.toLowerCase().includes(v);p[i].style.display=m?"flex":"none"}for(let i=0;i<t.length;i++){t[i].style.display=v===""?"block":"none"}}
+</script>
+</body>
+</html>
