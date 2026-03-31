@@ -9,8 +9,11 @@
 .light-mode { --bg: #f1f5f9; --card: #ffffff; --neon: #0284c7; --green: #16a34a; --orange: #ea580c; --red: #be123c; --gold: #ca8a04; --purple: #9333ea; --text: #1e293b; }
 body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 10px; transition: 0.3s; }
 .btn-tema { position: fixed; top: 15px; right: 15px; background: var(--card); border: 2px solid var(--neon); color: var(--neon); padding: 8px 12px; border-radius: 20px; font-size: 0.75em; font-weight: 700; z-index: 1000; cursor: pointer; }
-.header { text-align: center; padding: 20px; background: var(--card); border-bottom: 4px solid var(--neon); border-radius: 0 0 25px 25px; margin-bottom: 20px; }
-.logo-img { width: 90px; height: 90px; border-radius: 50%; border: 3px solid var(--neon); margin-bottom: 10px; object-fit: cover; }
+.header { text-align: center; padding: 25px 20px; background: var(--card); border-bottom: 4px solid var(--neon); border-radius: 0 0 25px 25px; margin-bottom: 20px; }
+.logo-img { width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--neon); margin-bottom: 12px; object-fit: cover; }
+.header h1 { font-size: 1.7em; margin: 0; letter-spacing: 1px; }
+.header p { font-size: 1.1em; margin: 5px 0; color: var(--neon); font-weight: 700; }
+.header span { font-size: 0.8em; opacity: 0.8; display: block; }
 .aviso { background: rgba(34, 197, 94, 0.15); border: 2px solid var(--green); color: var(--green); padding: 10px; border-radius: 12px; font-size: 0.8em; text-align: center; font-weight: 700; margin-bottom: 20px; }
 #buscador { width: 100%; padding: 15px; border-radius: 30px; border: 2px solid var(--neon); box-sizing: border-box; font-weight: 600; margin-bottom: 20px; outline: none; }
 .acordeon { background: var(--card); color: var(--neon); cursor: pointer; padding: 18px; width: 100%; border: 1px solid rgba(56,189,248,0.2); text-align: left; font-weight: 700; border-radius: 12px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; }
@@ -26,7 +29,12 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--t
 </head>
 <body>
 <button class="btn-tema" onclick="cambiarTema()">🌓 MODO DÍA</button>
-<div class="header"><img src="WhatsApp Image 2026-03-30 at 8.47.32 PM.jpeg" class="logo-img"><h1>RESET TALLER</h1><p>6107-3855</p></div>
+<div class="header">
+  <img src="WhatsApp Image 2026-03-30 at 8.47.32 PM.jpeg" class="logo-img">
+  <h1>RESET TALLER</h1>
+  <p>6107-3855</p>
+  <span>Costa Rica, Alajuela, San Carlos, Aguas Zarcas</span>
+</div>
 <div class="aviso">✅ PRECIOS INCLUYEN REPUESTO E INSTALACIÓN</div>
 <input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 BUSCAR IPHONE, SAMSUNG, PUERTO...">
 
@@ -75,6 +83,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--t
 <div class="panel"><div class="grid" id="m2"></div></div>
 
 <script>
+// --- INVENTARIO ORIGINAL ---
 const ip1=[["6G","₡22,000"],["6G Plus","₡24,000"],["6S","₡23,000"],["6S Plus","₡26,000"],["7G","₡25,000"],["7 Plus","₡28,000"],["8G","₡26,000"],["8 Plus","₡30,000"]];
 const ip2=[["X OLED","₡45,000"],["X Incel","₡35,000"],["XS OLED","₡48,000"],["XS Incel","₡38,000"],["XR <span class='badge'>ORIG</span>","₡45,000"],["XR Incel","₡35,000"],["XS Max OLED","₡55,000"],["XS Max Incel","₡42,000"],["11 <span class='badge'>ORIG</span>","₡48,000"],["11 Incel","₡35,000"],["11 Pro OLED","₡55,000"],["11 Pro Incel","₡42,000"],["11 Pro Max OLED","₡65,000"],["11 Pro Max Incel","₡48,000"]];
 const ip3=[["12 OLED","₡65,000"],["12/12P Incel","₡48,000"],["12PM <span class='badge'>ORIG</span>","₡110,000"],["12PM OLED","₡85,000"],["12PM Incel","₡55,000"],["13 SOFT","₡95,000"],["13 OLED","₡80,000"],["13 Incel","₡55,000"],["13P SOFT","₡145,000"],["13P OLED","₡125,000"],["13P Incel","₡65,000"],["13PM SOFT","₡155,000"],["13PM OLED","₡135,000"],["13PM Incel","₡75,000"],["14 SOFT","₡120,000"],["14 OLED","₡105,000"],["14 Incel","₡65,000"],["14P OLED","₡165,000"],["14P Incel","₡85,000"],["14PM <span class='badge'>ORIG</span>","₡220,000"],["14PM OLED","₡185,000"],["14PM Incel","₡95,000"],["15 SOFT","₡165,000"],["15 OLED","₡145,000"],["15 Incel","₡85,000"],["15P SOFT","₡210,000"],["15P Incel","₡110,000"],["15PM OLED","₡245,000"],["15PM Incel","₡135,000"],["16 SOFT","₡265,000"],["16 OLED","₡245,000"],["16 Incel","₡155,000"],["16P OLED","₡295,000"],["16PM SOFT","₡345,000"]];
