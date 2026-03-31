@@ -27,6 +27,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--t
 .btn-wa { background: var(--green); color: #fff; text-decoration: none; padding: 10px; border-radius: 8px; font-size: 0.75em; font-weight: 700; display: block; }
 .separador-marca { grid-column: 1 / -1; background: linear-gradient(90deg, transparent, rgba(56,189,248,0.2), transparent); color: var(--neon); padding: 10px; font-weight: 800; font-size: 1em; letter-spacing: 2px; border: none; margin: 10px 0; text-align: center; }
 .acordeon:after { content: '\002B'; } .active:after { content: "\2212"; }
+.badge-count { background: var(--neon); color: var(--bg); font-size: 0.7em; padding: 2px 8px; border-radius: 10px; margin-left: 10px; }
 </style>
 </head>
 <body>
@@ -38,31 +39,75 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--t
   <span class="dir">Costa Rica, Alajuela, San Carlos, Aguas Zarcas</span>
   <span class="biblia">"Pon en manos del Señor todas tus obras..." - Prov. 16:3</span>
 </div>
-<input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 BUSCAR REPUESTO O ACCESORIO...">
-<button class="acordeon" onclick="toggle(this)">📱 PANTALLAS (IPHONE, SAM, HONOR...)</button>
+<input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 BUSCAR MODELO O PIEZA...">
+
+<button class="acordeon" onclick="toggle(this)">📱 PANTALLAS <span id="count-pantallas" class="badge-count">0</span></button>
 <div class="panel"><div class="grid" id="pantallas"></div></div>
-<button class="acordeon" onclick="toggle(this)">🔌 FLEX (PRINCIPAL, CARGA, AUDIO, ENCENDIDO)</button>
+
+<button class="acordeon" onclick="toggle(this)">🔌 FLEX <span id="count-flex" class="badge-count">0</span></button>
 <div class="panel"><div class="grid" id="flex"></div></div>
-<button class="acordeon" onclick="toggle(this)">🔊 AUDIO, TIMBRE, MICRÓFONO Y ANTENA</button>
+
+<button class="acordeon" onclick="toggle(this)">🔊 AUDIO Y ANTENA <span id="count-audio" class="badge-count">0</span></button>
 <div class="panel"><div class="grid" id="audio"></div></div>
-<button class="acordeon" onclick="toggle(this)">⚡ CARGADORES (CUBOS Y CABLES)</button>
+
+<button class="acordeon" onclick="toggle(this)">⚡ CARGADORES <span id="count-cargadores" class="badge-count">0</span></button>
 <div class="panel"><div class="grid" id="cargadores"></div></div>
-<button class="acordeon" onclick="toggle(this)">📷 TAPAS, CÁMARAS Y LENTES</button>
+
+<button class="acordeon" onclick="toggle(this)">📷 TAPAS Y LENTES <span id="count-estetica" class="badge-count">0</span></button>
 <div class="panel"><div class="grid" id="estetica"></div></div>
-<button class="acordeon" onclick="toggle(this)">🎧 AUDÍFONOS Y SMARTWATCH</button>
+
+<button class="acordeon" onclick="toggle(this)">🎧 GADGETS <span id="count-gadgets" class="badge-count">0</span></button>
 <div class="panel"><div class="grid" id="gadgets"></div></div>
-<button class="acordeon" onclick="toggle(this)">🛠️ HERRAMIENTAS Y MALLAS DE SOLDAR</button>
+
+<button class="acordeon" onclick="toggle(this)">🛠️ HERRAMIENTAS <span id="count-herramientas" class="badge-count">0</span></button>
 <div class="panel"><div class="grid" id="herramientas"></div></div>
-<button class="acordeon" onclick="toggle(this)">📦 OTROS (PORTASIM, GOMAS, ETC)</button>
+
+<button class="acordeon" onclick="toggle(this)">📦 OTROS <span id="count-otros" class="badge-count">0</span></button>
 <div class="panel"><div class="grid" id="otros"></div></div>
 
 <script src="datos.js"></script>
 <script>
-const fill=(d,id)=>{const c=document.getElementById(id);if(!c||!d)return;let h='';d.forEach(i=>{if(i[0]==="TITULO"){h+=`<div class="separador-marca">${i[1]}</div>`;}else{h+=`<div class="caja producto"><h3>${i[0]}</h3><span class="precio">${i[1]}</span><a href="https://wa.me/50661073855?text=Consulta+por+${i[0]}" class="btn-wa">WHATSAPP</a></div>`}});c.innerHTML=h};
-if(typeof PANTALLAS!=='undefined'){fill(PANTALLAS,'pantallas');fill(FLEX,'flex');fill(AUDIO,'audio');fill(CARGADORES,'cargadores');fill(ESTETICA,'estetica');fill(GADGETS,'gadgets');fill(HERRAMIENTAS,'herramientas');fill(OTROS,'otros');}
+const fill=(d,id,countId)=>{
+  const c=document.getElementById(id);
+  const countSpan=document.getElementById(countId);
+  if(!c||!d)return;
+  let h='';
+  let total = 0;
+  d.forEach(i=>{
+    if(i[0]==="TITULO"){
+      h+=`<div class="separador-marca">${i[1]}</div>`;
+    }else{
+      total++;
+      h+=`<div class="caja producto"><h3>${i[0]}</h3><span class="precio">${i[1]}</span><a href="https://wa.me/50661073855?text=Consulta+por+${i[0]}" class="btn-wa">WHATSAPP</a></div>`
+    }
+  });
+  c.innerHTML=h;
+  if(countSpan) countSpan.innerText = total;
+};
+
+if(typeof PANTALLAS!=='undefined'){
+  fill(PANTALLAS,'pantallas','count-pantallas');
+  fill(FLEX,'flex','count-flex');
+  fill(AUDIO,'audio','count-audio');
+  fill(CARGADORES,'cargadores','count-cargadores');
+  fill(ESTETICA,'estetica','count-estetica');
+  fill(GADGETS,'gadgets','count-gadgets');
+  fill(HERRAMIENTAS,'herramientas','count-herramientas');
+  fill(OTROS,'otros','count-otros');
+}
+
 function toggle(b){b.classList.toggle("active");const p=b.nextElementSibling;p.style.maxHeight=p.style.maxHeight?null:p.scrollHeight+"px"}
 function cambiarTema(){document.body.classList.toggle("light-mode");}
-function buscar(){const v=document.getElementById('buscador').value.toLowerCase();const p=document.getElementsByClassName('producto');const t=document.getElementsByClassName('separador-marca');for(let i=0;i<p.length;i++){const m=p[i].innerText.toLowerCase().includes(v);p[i].style.display=m?"flex":"none"}for(let i=0;i<t.length;i++){t[i].style.display=v===""?"block":"none"}}
+function buscar(){
+  const v=document.getElementById('buscador').value.toLowerCase();
+  const p=document.getElementsByClassName('producto');
+  const t=document.getElementsByClassName('separador-marca');
+  for(let i=0;i<p.length;i++){
+    const m=p[i].innerText.toLowerCase().includes(v);
+    p[i].style.display=m?"flex":"none";
+  }
+  for(let i=0;i<t.length;i++){t[i].style.display=v===""?"block":"none"}
+}
 </script>
 </body>
 </html>
