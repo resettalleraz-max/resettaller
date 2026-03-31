@@ -6,20 +6,44 @@
     <title>Reset Taller RST - Catálogo</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #0a101d; --card: #141b2a; --neon: #38bdf8; --green: #22c55e; }
-        body { font-family: 'Poppins', sans-serif; background: var(--bg); color: #fff; margin: 0; padding: 10px; }
-        .header { text-align: center; padding: 20px; border-bottom: 3px solid var(--neon); background: #111; border-radius: 0 0 20px 20px; margin-bottom: 20px; }
+        /* Variables de colores - Modo Claro por defecto */
+        :root { 
+            --bg: #f4f7f6; --card: #ffffff; --text: #1a202c; 
+            --neon: #38bdf8; --green: #22c55e; --header-bg: #111;
+        }
+
+        /* Variables - Modo Noche */
+        [data-theme="dark"] {
+            --bg: #0a101d; --card: #141b2a; --text: #ffffff;
+            --neon: #38bdf8; --green: #22c55e; --header-bg: #000;
+        }
+
+        body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 10px; transition: 0.3s; }
+        
+        .header { text-align: center; padding: 20px; border-bottom: 3px solid var(--neon); background: var(--header-bg); border-radius: 0 0 20px 20px; margin-bottom: 20px; color: #fff; }
         .logo { width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--neon); margin-bottom: 10px; box-shadow: 0 0 15px var(--neon); object-fit: cover; }
-        #buscador { width: 100%; padding: 15px; border-radius: 30px; border: 2px solid var(--neon); margin-bottom: 20px; box-sizing: border-box; font-weight: bold; outline: none; }
+        
+        #buscador { width: 100%; padding: 15px; border-radius: 30px; border: 2px solid var(--neon); margin-bottom: 20px; box-sizing: border-box; font-weight: bold; outline: none; background: var(--card); color: var(--text); }
+        
         .seccion-titulo { color: var(--neon); text-transform: uppercase; border-left: 5px solid var(--neon); padding-left: 10px; margin: 30px 0 10px; }
+        
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; }
-        .caja { background: var(--card); padding: 15px; border-radius: 12px; border: 1px solid rgba(56,189,248,0.2); display: flex; flex-direction: column; }
+        .caja { background: var(--card); padding: 15px; border-radius: 12px; border: 1px solid rgba(56,189,248,0.2); display: flex; flex-direction: column; transition: 0.3s; }
         .caja h3 { font-size: 0.85em; margin: 0; text-transform: uppercase; line-height: 1.2; }
         .precio { color: var(--green); font-size: 1.4em; font-weight: 800; margin: 10px 0; }
+        
         .btn-wa { background: var(--green); color: #000; text-decoration: none; padding: 10px; text-align: center; border-radius: 8px; font-weight: bold; text-transform: uppercase; font-size: 0.9em; }
+
+        /* Botón de Modo Noche Flotante */
+        .theme-switch {
+            position: fixed; bottom: 20px; right: 20px; background: var(--neon);
+            color: #000; width: 50px; height: 50px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            cursor: pointer; box-shadow: 0 0 15px var(--neon); z-index: 1000; font-size: 24px;
+        }
     </style>
 </head>
-<body>
+<body data-theme="dark"> <div class="theme-switch" onclick="toggleTheme()">🌓</div>
 
     <div class="header">
         <img src="https://i.postimg.cc/9M349Y9k/1000985447.jpg" class="logo" alt="Reset Taller">
@@ -35,59 +59,21 @@
         <div class="caja producto"><h3>LCD P SMART 2019 NEGRO</h3><span class="precio">₡22,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
         <div class="caja producto"><h3>LCD P8 NEGRO</h3><span class="precio">₡18,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
         <div class="caja producto"><h3>LCD P8 LITE NEGRO</h3><span class="precio">₡16,500</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD P10 NEGRO</h3><span class="precio">₡22,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD P10 LITE NEGRO/BLANCO</h3><span class="precio">₡25,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD P20 NEGRO</h3><span class="precio">₡24,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD P20 LITE NEGRO</h3><span class="precio">₡22,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD P30 LITE NEGRO</h3><span class="precio">₡25,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD P40 LITE NEGRO</h3><span class="precio">₡26,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD Y3 2017 NEGRO</h3><span class="precio">₡17,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD Y5 2018 NEGRO/BLANCO</h3><span class="precio">₡18,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD Y5 2019 NEGRO</h3><span class="precio">₡19,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD Y6 2018 NEGRO</h3><span class="precio">₡19,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD Y6 PRIME 2019 NEGRO</h3><span class="precio">₡21,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD Y6P NEGRO</h3><span class="precio">₡22,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD Y7 2018 NEGRO</h3><span class="precio">₡21,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD Y7 PRIME 2019 NEGRO</h3><span class="precio">₡22,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD Y7P NEGRO</h3><span class="precio">₡25,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD Y7A NEGRO</h3><span class="precio">₡26,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD Y9 2018 NEGRO</h3><span class="precio">₡26,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD Y9 2019/Y8S NEGRO</h3><span class="precio">₡26,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD Y9 PRIME 2019 NEGRO</h3><span class="precio">₡28,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD Y9S NEGRO</h3><span class="precio">₡32,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD Y9A NEGRO</h3><span class="precio">₡34,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD MATE 10 LITE NEGRO</h3><span class="precio">₡26,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD MATE 20 LITE NEGRO</h3><span class="precio">₡28,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD NOVA 5T NEGRO</h3><span class="precio">₡28,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD NOVA 9 / 9 SE NEGRO</h3><span class="precio">₡35,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD NOVA 10 / 10 SE NEGRO</h3><span class="precio">₡38,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD NOVA Y60 / Y70 NEGRO</h3><span class="precio">₡28,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD NOVA 8i/ HONOR 50 LITE</h3><span class="precio">₡35,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD TABLET T1 7.0"</h3><span class="precio">₡22,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD TABLET T3 7.0"</h3><span class="precio">₡25,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-    </div>
+        </div>
 
     <h2 class="seccion-titulo">📱 HUAWEI - PANTALLAS CON MARCO</h2>
     <div class="grid">
         <div class="caja producto"><h3>LCD + MARCO P SMART NEGRO</h3><span class="precio">₡24,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
         <div class="caja producto"><h3>LCD + MARCO P SMART 2019 NEGRO</h3><span class="precio">₡25,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD + MARCO P20 LITE NEGRO</h3><span class="precio">₡26,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD + MARCO P30 LITE NEGRO/AZUL</h3><span class="precio">₡30,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD + MARCO P40 LITE NEGRO VERDE</h3><span class="precio">₡30,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD + MARCO Y6 PRIME 2019 NEGRO</h3><span class="precio">₡24,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD + MARCO Y7 2018 NEGRO</h3><span class="precio">₡24,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD + MARCO Y7 PRIME 2019 NEGRO</h3><span class="precio">₡25,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD + MARCO Y7P NEGRO</h3><span class="precio">₡28,500</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD + MARCO Y8S NEGRO</h3><span class="precio">₡30,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD + MARCO Y9 2019 NEGRO</h3><span class="precio">₡30,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD + MARCO Y9 PRIME 2019</h3><span class="precio">₡32,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD + MARCO Y9S NEGRO</h3><span class="precio">₡36,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD + MARCO Y9A NEGRO</h3><span class="precio">₡38,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD + MARCO MATE 20 LITE NEGRO</h3><span class="precio">₡32,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
-        <div class="caja producto"><h3>LCD + MARCO NOVA 5T NEGRO/AZUL</h3><span class="precio">₡32,000</span><a href="https://wa.me/50661073855" class="btn-wa">Consultar</a></div>
     </div>
 
     <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            body.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+        }
+
         function buscar() {
             let input = document.getElementById('buscador').value.toLowerCase();
             let productos = document.getElementsByClassName('producto');
