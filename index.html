@@ -5,8 +5,8 @@
 <title>RESET TALLER</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root { --bg: #0a0f18; --card: #161e2d; --neon: #38bdf8; --green: #22c55e; --orange: #f97316; --red: #e11d48; --text: #f8fafc; }
-.light-mode { --bg: #f1f5f9; --card: #ffffff; --neon: #0284c7; --green: #16a34a; --orange: #ea580c; --red: #be123c; --text: #1e293b; }
+:root { --bg: #0a0f18; --card: #161e2d; --neon: #38bdf8; --green: #22c55e; --orange: #f97316; --red: #e11d48; --gold: #eab308; --text: #f8fafc; }
+.light-mode { --bg: #f1f5f9; --card: #ffffff; --neon: #0284c7; --green: #16a34a; --orange: #ea580c; --red: #be123c; --gold: #ca8a04; --text: #1e293b; }
 body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 10px; transition: 0.3s; }
 .btn-tema { position: fixed; top: 15px; right: 15px; background: var(--card); border: 2px solid var(--neon); color: var(--neon); padding: 8px 12px; border-radius: 20px; font-size: 0.75em; font-weight: 700; z-index: 1000; cursor: pointer; }
 .header { text-align: center; padding: 20px; background: var(--card); border-bottom: 4px solid var(--neon); border-radius: 0 0 25px 25px; margin-bottom: 20px; }
@@ -28,7 +28,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--t
 <button class="btn-tema" onclick="cambiarTema()">🌓 MODO DÍA</button>
 <div class="header"><img src="WhatsApp Image 2026-03-30 at 8.47.32 PM.jpeg" class="logo-img"><h1>RESET TALLER</h1><p>6107-3855</p></div>
 <div class="aviso">✅ PRECIOS INCLUYEN REPUESTO E INSTALACIÓN</div>
-<input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 BUSCAR MODELO...">
+<input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 BUSCAR MODELO (IPHONE, HONOR, SAMSUNG...)">
 
 <h2 style="color:#cbd5e1">📱 IPHONE</h2>
 <button class="acordeon" onclick="toggle(this)">IPHONE: 6 AL 8 PLUS (8)</button>
@@ -37,6 +37,12 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--t
 <div class="panel"><div class="grid" id="ip2"></div></div>
 <button class="acordeon" onclick="toggle(this)">IPHONE: 12 AL 16 PRO MAX (34)</button>
 <div class="panel"><div class="grid" id="ip3"></div></div>
+
+<h2 style="color:var(--gold)">📱 HONOR</h2>
+<button class="acordeon" onclick="toggle(this)">HONOR: SOLO PANTALLAS (16)</button>
+<div class="panel"><div class="grid" id="ho1"></div></div>
+<button class="acordeon" onclick="toggle(this)">HONOR: CON MARCO (19)</button>
+<div class="panel"><div class="grid" id="ho2"></div></div>
 
 <h2 style="color:var(--red)">📱 XIAOMI</h2>
 <button class="acordeon" onclick="toggle(this)">XIAOMI: SOLO PANTALLAS (33)</button>
@@ -66,6 +72,8 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--t
 const ip1=[["6G","₡22,000"],["6G Plus","₡24,000"],["6S","₡23,000"],["6S Plus","₡26,000"],["7G","₡25,000"],["7 Plus","₡28,000"],["8G","₡26,000"],["8 Plus","₡30,000"]];
 const ip2=[["X OLED","₡45,000"],["X Incel","₡35,000"],["XS OLED","₡48,000"],["XS Incel","₡38,000"],["XR <span class='badge'>ORIG</span>","₡45,000"],["XR Incel","₡35,000"],["XS Max OLED","₡55,000"],["XS Max Incel","₡42,000"],["11 <span class='badge'>ORIG</span>","₡48,000"],["11 Incel","₡35,000"],["11 Pro OLED","₡55,000"],["11 Pro Incel","₡42,000"],["11 Pro Max OLED","₡65,000"],["11 Pro Max Incel","₡48,000"]];
 const ip3=[["12 OLED","₡65,000"],["12/12P Incel","₡48,000"],["12PM <span class='badge'>ORIG</span>","₡110,000"],["12PM OLED","₡85,000"],["12PM Incel","₡55,000"],["13 SOFT","₡95,000"],["13 OLED","₡80,000"],["13 Incel","₡55,000"],["13P SOFT","₡145,000"],["13P OLED","₡125,000"],["13P Incel","₡65,000"],["13PM SOFT","₡155,000"],["13PM OLED","₡135,000"],["13PM Incel","₡75,000"],["14 SOFT","₡120,000"],["14 OLED","₡105,000"],["14 Incel","₡65,000"],["14P OLED","₡165,000"],["14P Incel","₡85,000"],["14PM <span class='badge'>ORIG</span>","₡220,000"],["14PM OLED","₡185,000"],["14PM Incel","₡95,000"],["15 SOFT","₡165,000"],["15 OLED","₡145,000"],["15 Incel","₡85,000"],["15P SOFT","₡210,000"],["15P Incel","₡110,000"],["15PM OLED","₡245,000"],["15PM Incel","₡135,000"],["16 SOFT","₡265,000"],["16 OLED","₡245,000"],["16 Incel","₡155,000"],["16P OLED","₡295,000"],["16PM SOFT","₡345,000"]];
+const ho1=[["Honor 8X","₡22,000"],["Honor 50 Lite","₡26,000"],["90 Lite","₡26,000"],["X5B/X6A/X5P","₡22,000"],["X6/X6S","₡22,000"],["X6B","₡24,000"],["X6C","₡24,000"],["X7","₡24,000"],["X7A","₡24,000"],["X7B","₡26,000"],["X7C","₡26,000"],["X8","₡24,000"],["X8A/90 Lite","₡26,000"],["X8B/200 Lite","₡45,000"],["X8C","₡26,000"],["X9","₡26,000"]];
+const ho2=[["50 Lite (Colores)","₡30,000"],["Honor 70","₡55,000"],["Honor 90","₡65,000"],["90 Lite","₡30,000"],["Honor 200","₡75,000"],["200 Lite","₡52,000"],["X6","₡26,000"],["X6A/X5 Plus","₡26,000"],["X7 (Colores)","₡28,000"],["X7A","₡28,000"],["X7B","₡30,000"],["X8 (Colores)","₡28,000"],["X8A (Colores)","₡30,000"],["X8B","₡52,000"],["X9 (Colores)","₡30,000"],["X9A/Magic 5 Lite","₡55,000"],["X9B/Magic 6 Lite","₡65,000"],["X9C/Magic 7 Lite","₡75,000"],["Magic 6 Lite","₡65,000"]];
 const x1=[["Redmi A1","₡22,000"],["Redmi A3","₡24,000"],["Redmi A5","₡22,000"],["Redmi 9","₡24,000"],["Redmi 9A/9C/10A","₡22,000"],["Redmi 10","₡24,000"],["Redmi 10C","₡24,000"],["Redmi 12/13","₡26,000"],["Redmi 12C","₡24,000"],["Redmi 13C","₡24,000"],["Redmi 14C","₡26,000"],["Mi 9T","₡45,000"],["Mi 11T/Pro","₡65,000"],["Mi 11 Lite","₡45,000"],["Mi 12 Lite","₡55,000"],["Mi 12T","₡65,000"],["Note 8","₡24,000"],["Note 9","₡24,000"],["Note 9 Pro/9S","₡26,000"],["Note 10/10S","₡45,000"],["Note 10/11P/12P/X4P","₡55,000"],["Note 10 5G/M3 Pro","₡26,000"],["Note 11/11S/12S <span class='badge'>OLED</span>","₡48,000"],["Note 12","₡45,000"],["Note 12 Pro 4G","₡45,000"],["Note 13 4G/Note 14","₡48,000"],["Note 13 Pro 4G","₡55,000"],["Note 13 Pro 5G","₡65,000"],["Note 13 Pro+ 5G","₡75,000"],["Poco X3","₡28,000"],["Poco X5P/Note 12P 5G","₡55,000"],["Poco M3/9T","₡24,000"],["Poco F3","₡55,000"]];
 const x2=[["Redmi A1","₡26,000"],["Redmi A3","₡28,000"],["Redmi 9","₡28,000"],["Redmi 9A/9C","₡26,000"],["Redmi 10C","₡28,000"],["Redmi 12C","₡28,000"],["Redmi 13C","₡28,000"],["Redmi 14C","₡30,000"],["Note 10S","₡52,000"],["Poco X3","₡32,000"],["Poco M3","₡28,000"]];
 const s1=[["J2P","₡16,000"],["J2P+T","₡18,000"],["J4","₡21,000"],["J4 Plus","₡23,000"],["J5P","₡18,000"],["J7","₡20,000"],["J7N","₡20,000"],["J7 2016","₡20,000"],["J7 Pro","₡25,000"],["J7P","₡18,000"],["J8","₡25,000"],["A01F","₡18,000"],["A01M","₡18,000"],["A01C","₡17,000"],["A02/M12","₡20,000"],["A02S/03S","₡20,000"],["A03C","₡19,000"],["A04","₡20,000"],["A04S","₡21,000"],["A05","₡22,000"],["A05S","₡22,000"],["A06","₡22,000"],["A10/S","₡19,000"],["A11","₡20,000"],["A12","₡20,000"],["A13/23","₡22,000"],["A14 4G","₡24,000"],["A14 5G","₡24,000"],["A20 OLED","₡26,000"]];
@@ -76,7 +84,7 @@ const m1=[["One","₡24,000"],["Macro/G8P","₡24,000"],["One Fusion","₡24,000
 const m2=[["One Macro","₡28,000"],["One Fusion","₡28,000"],["G8 P. Lite","₡26,000"],["G9 Power","₡28,000"],["G10","₡28,000"],["G14","₡28,000"],["G20","₡28,000"],["G30","₡28,000"],["G60","₡32,000"],["G60S","₡32,000"],["E7","₡26,000"],["E20","₡26,000"],["E40","₡26,000"]];
 
 function fill(d,id){const c=document.getElementById(id);d.forEach(i=>{c.innerHTML+=`<div class="caja producto"><h3>${i[0]}</h3><span class="precio">${i[1]}</span><a href="https://wa.me/50661073855?text=Instalar+${i[0]}" class="btn-wa">INSTALAR</a></div>`})}
-fill(ip1,'ip1');fill(ip2,'ip2');fill(ip3,'ip3');fill(x1,'x1');fill(x2,'x2');fill(s1,'s1');fill(s2,'s2');fill(h1,'h1');fill(h2,'h2');fill(m1,'m1');fill(m2,'m2');
+fill(ip1,'ip1');fill(ip2,'ip2');fill(ip3,'ip3');fill(ho1,'ho1');fill(ho2,'ho2');fill(x1,'x1');fill(x2,'x2');fill(s1,'s1');fill(s2,'s2');fill(h1,'h1');fill(h2,'h2');fill(m1,'m1');fill(m2,'m2');
 
 function toggle(b){b.classList.toggle("active");const p=b.nextElementSibling;p.style.maxHeight=p.style.maxHeight?null:p.scrollHeight+"px";}
 function cambiarTema(){document.body.classList.toggle("light-mode");const b=document.querySelector(".btn-tema");b.innerText=document.body.classList.contains("light-mode")?"🌙 MODO NOCHE":"🌓 MODO DÍA";}
