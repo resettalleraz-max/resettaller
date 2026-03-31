@@ -1,7 +1,4 @@
+// TOTAL HUAWEI: 33 PANTALLAS
 const PANTALLAS = [
-
-["TITULO","HUAWEI"],
-
-... TODAS las pantallas Huawei del PDF ...
-
+   ...
 ];
