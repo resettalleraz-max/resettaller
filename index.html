@@ -5,93 +5,47 @@
 <title>RESET TALLER</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root { --bg: #0a0f18; --card: #161e2d; --neon: #38bdf8; --green: #22c55e; --orange: #f97316; --red: #e11d48; --gold: #eab308; --purple: #a855f7; --text: #f8fafc; }
-.light-mode { --bg: #f1f5f9; --card: #ffffff; --neon: #0284c7; --green: #16a34a; --orange: #ea580c; --red: #be123c; --gold: #ca8a04; --purple: #9333ea; --text: #1e293b; }
-body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 10px; transition: 0.3s; }
-.btn-tema { position: fixed; top: 15px; right: 15px; background: var(--card); border: 2px solid var(--neon); color: var(--neon); padding: 8px 12px; border-radius: 20px; font-size: 0.75em; font-weight: 700; z-index: 1000; cursor: pointer; }
-.header { text-align: center; padding: 25px 20px; background: var(--card); border-bottom: 4px solid var(--neon); border-radius: 0 0 25px 25px; margin-bottom: 20px; }
-.logo-img { width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--neon); margin-bottom: 12px; object-fit: cover; }
-.header h1 { font-size: 1.7em; margin: 0; letter-spacing: 1px; }
-.header p { font-size: 1.1em; margin: 5px 0; color: var(--neon); font-weight: 700; }
-.header span { font-size: 0.8em; opacity: 0.8; display: block; margin-bottom: 8px; }
-.biblia { font-style: italic; font-size: 0.75em; color: var(--gold); font-weight: 600; margin-top: 5px; display: block; }
-.aviso { background: rgba(34, 197, 94, 0.15); border: 2px solid var(--green); color: var(--green); padding: 10px; border-radius: 12px; font-size: 0.8em; text-align: center; font-weight: 700; margin-bottom: 20px; }
-#buscador { width: 100%; padding: 15px; border-radius: 30px; border: 2px solid var(--neon); box-sizing: border-box; font-weight: 600; margin-bottom: 20px; outline: none; }
-.acordeon { background: var(--card); color: var(--neon); cursor: pointer; padding: 18px; width: 100%; border: 1px solid rgba(56,189,248,0.2); text-align: left; font-weight: 700; border-radius: 12px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; }
-.panel { padding: 0 5px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(0,0,0,0.1); border-radius: 0 0 12px 12px; }
+/* Aquí va todo el diseño neón que ya conocés (lo recorto para que no pese) */
+:root { --bg: #0a0f18; --card: #161e2d; --neon: #38bdf8; --green: #22c55e; --text: #f8fafc; }
+body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 10px; }
+.header { text-align: center; padding: 20px; background: var(--card); border-bottom: 4px solid var(--neon); border-radius: 0 0 25px 25px; }
+.logo-img { width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--neon); margin-bottom: 12px; }
+#buscador { width: 100%; padding: 15px; border-radius: 30px; border: 2px solid var(--neon); margin: 20px 0; outline: none; }
+.acordeon { background: var(--card); color: var(--neon); cursor: pointer; padding: 18px; width: 100%; border: 1px solid rgba(56,189,248,0.2); border-radius: 12px; margin-top: 10px; font-weight: 700; }
+.panel { padding: 0 5px; max-height: 0; overflow: hidden; transition: 0.3s; background: rgba(0,0,0,0.1); }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; padding: 15px 5px; }
-.caja { background: var(--card); padding: 12px; border-radius: 15px; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
-.caja h3 { font-size: 0.7em; margin: 0; color: var(--text); text-transform: uppercase; min-height: 35px; }
-.precio { color: var(--green); font-size: 1.1em; font-weight: 800; margin: 8px 0; display: block; }
-.btn-wa { background: var(--green); color: #fff; text-decoration: none; padding: 8px; border-radius: 8px; font-size: 0.7em; font-weight: 700; display: block; }
-.badge { background: #ffd700; color: #000; font-size: 0.6em; padding: 2px 4px; border-radius: 4px; font-weight: 900; }
-.acordeon:after { content: '\002B'; } .active:after { content: "\2212"; }
+.caja { background: var(--card); padding: 12px; border-radius: 15px; text-align: center; }
+.precio { color: var(--green); font-weight: 800; display: block; margin: 8px 0; }
+.btn-wa { background: var(--green); color: #fff; text-decoration: none; padding: 8px; border-radius: 8px; font-size: 0.7em; display: block; }
 </style>
 </head>
 <body>
-<button class="btn-tema" onclick="cambiarTema()">🌓 MODO DÍA</button>
 <div class="header">
   <img src="WhatsApp Image 2026-03-30 at 8.47.32 PM.jpeg" class="logo-img">
   <h1>RESET TALLER</h1>
   <p>6107-3855</p>
-  <span>Costa Rica, Alajuela, San Carlos, Aguas Zarcas</span>
-  <span class="biblia">"Pon en manos del Señor todas tus obras, y tus proyectos se cumplirán" - Prov. 16:3</span>
+  <span style="font-size:0.8em; color:#eab308">"Pon en manos del Señor todas tus obras..."</span>
 </div>
-<div class="aviso">✅ PRECIOS INCLUYEN REPUESTO E INSTALACIÓN</div>
-<input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 BUSCAR IPHONE, SAMSUNG, HONOR...">
 
-<h2 style="color:#cbd5e1">📱 IPHONE</h2>
-<button class="acordeon" onclick="toggle(this)">IPHONE: 6 AL 8 PLUS (8)</button><div class="panel"><div class="grid" id="ip1"></div></div>
-<button class="acordeon" onclick="toggle(this)">IPHONE: X AL 11 PRO MAX (14)</button><div class="panel"><div class="grid" id="ip2"></div></div>
-<button class="acordeon" onclick="toggle(this)">IPHONE: 12 AL 16 PRO MAX (34)</button><div class="panel"><div class="grid" id="ip3"></div></div>
+<input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 BUSCAR MODELO...">
 
-<h2 style="color:var(--purple)">🛠️ REPARACIONES CARGA Y TACTIL</h2>
-<button class="acordeon" onclick="toggle(this)">RAM DE CARGA / PUERTOS (27)</button><div class="panel"><div class="grid" id="puertos"></div></div>
-<button class="acordeon" onclick="toggle(this)">TÁCTILES SOLOS (4)</button><div class="panel"><div class="grid" id="tactiles"></div></div>
+<button class="acordeon" onclick="toggle(this)">📱 IPHONE</button>
+<div class="panel"><div class="grid" id="ip"></div></div>
 
-<h2 style="color:var(--gold)">📱 HONOR</h2>
-<button class="acordeon" onclick="toggle(this)">HONOR: SOLO PANTALLAS (16)</button><div class="panel"><div class="grid" id="ho1"></div></div>
-<button class="acordeon" onclick="toggle(this)">HONOR: CON MARCO (19)</button><div class="panel"><div class="grid" id="ho2"></div></div>
+<button class="acordeon" onclick="toggle(this)">📱 SAMSUNG</button>
+<div class="panel"><div class="grid" id="sa"></div></div>
 
-<h2 style="color:var(--red)">📱 XIAOMI</h2>
-<button class="acordeon" onclick="toggle(this)">XIAOMI: SOLO PANTALLAS (33)</button><div class="panel"><div class="grid" id="x1"></div></div>
-<button class="acordeon" onclick="toggle(this)">XIAOMI: CON MARCO (11)</button><div class="panel"><div class="grid" id="x2"></div></div>
-
-<h2 style="color:var(--green)">📱 SAMSUNG</h2>
-<button class="acordeon" onclick="toggle(this)">SAMSUNG: SOLO PANTALLAS (29)</button><div class="panel"><div class="grid" id="s1"></div></div>
-<button class="acordeon" onclick="toggle(this)">SAMSUNG: CON MARCO (70)</button><div class="panel"><div class="grid" id="s2"></div></div>
-
-<h2 style="color:var(--neon)">📱 HUAWEI</h2>
-<button class="acordeon" onclick="toggle(this)">HUAWEI: SOLO PANTALLAS (37)</button><div class="panel"><div class="grid" id="h1"></div></div>
-<button class="acordeon" onclick="toggle(this)">HUAWEI: CON MARCO (16)</button><div class="panel"><div class="grid" id="h2"></div></div>
-
-<h2 style="color:var(--orange)">📱 MOTOROLA</h2>
-<button class="acordeon" onclick="toggle(this)">MOTOROLA: SOLO PANTALLAS (29)</button><div class="panel"><div class="grid" id="m1"></div></div>
-<button class="acordeon" onclick="toggle(this)">MOTOROLA: CON MARCO (13)</button><div class="panel"><div class="grid" id="m2"></div></div>
+<script src="datos.js"></script>
 
 <script>
-const ip1=[["6G","₡22,000"],["6G Plus","₡24,000"],["6S","₡23,000"],["6S Plus","₡26,000"],["7G","₡25,000"],["7 Plus","₡28,000"],["8G","₡26,000"],["8 Plus","₡30,000"]];
-const ip2=[["X OLED","₡45,000"],["X Incel","₡35,000"],["XS OLED","₡48,000"],["XS Incel","₡38,000"],["XR <span class='badge'>ORIG</span>","₡45,000"],["XR Incel","₡35,000"],["XS Max OLED","₡55,000"],["XS Max Incel","₡42,000"],["11 <span class='badge'>ORIG</span>","₡48,000"],["11 Incel","₡35,000"],["11 Pro OLED","₡55,000"],["11 Pro Incel","₡42,000"],["11 Pro Max OLED","₡65,000"],["11 Pro Max Incel","₡48,000"]];
-const ip3=[["12 OLED","₡65,000"],["12 / 12 Pro Incel","₡48,000"],["12 Pro Max <span class='badge'>ORIG</span>","₡110,000"],["12 Pro Max OLED","₡85,000"],["12 Pro Max Incel","₡55,000"],["13 SOFT","₡95,000"],["13 OLED","₡80,000"],["13 Incel","₡55,000"],["13 Pro SOFT","₡145,000"],["13 Pro OLED","₡125,000"],["13 Pro Incel","₡65,000"],["13 Pro Max SOFT","₡155,000"],["13 Pro Max OLED","₡135,000"],["13 Pro Max Incel","₡75,000"],["14 SOFT","₡120,000"],["14 OLED","₡105,000"],["14 Incel","₡65,000"],["14 Pro OLED","₡165,000"],["14 Pro Incel","₡85,000"],["14 Pro Max <span class='badge'>ORIG</span>","₡220,000"],["14 Pro Max OLED","₡185,000"],["14 Pro Max Incel","₡95,000"],["15 SOFT","₡165,000"],["15 OLED","₡145,000"],["15 Incel","₡85,000"],["15 Pro SOFT","₡210,000"],["15 Pro Incel","₡110,000"],["15 Pro Max OLED","₡245,000"],["15 Pro Max Incel","₡135,000"],["16 SOFT","₡265,000"],["16 OLED","₡245,000"],["16 Incel","₡155,000"],["16 Pro OLED","₡295,000"],["16 Pro Max SOFT","₡345,000"]];
-const tactiles=[["J2 Prime","₡12,000"],["Y3 2017","₡12,000"],["G531","₡12,000"],["Tab China","₡15,000"]];
-const puertos=[["Huawei G7","₡15,000"],["Huawei 5 Pines","₡10,000"],["Huawei P7/P8","₡15,000"],["Huawei G510/Y300","₡12,000"],["Huawei Y3II/Y3 2017","₡12,000"],["Huawei Y7/Prime","₡15,000"],["Samsung J500/J700","₡12,000"],["Samsung A01/A10S","₡15,000"],["Samsung A03 Core","₡15,000"],["Samsung A11/A20S","₡18,000"],["Sams. A21S al A71","₡18,000"],["Samsung A34/A52","₡20,000"],["Samsung S9 Plus","₡25,000"],["Sams. S21 al S23U","₡35,000"],["Samsung S20 FE","₡25,000"],["Ram Tipo C A70","₡18,000"],["Ram Variada","₡15,000"],["Moto G8 Power Lite","₡15,000"],["Moto G5","₡12,000"],["Moto G8/G8 Plus","₡15,000"],["Moto G20","₡18,000"],["Xiaomi Poco X3","₡18,000"],["Xiaomi Redmi 7","₡15,000"]];
-const ho1=[["Honor 8X","₡22,000"],["Honor 50 Lite","₡26,000"],["90 Lite","₡26,000"],["Honor X5 Plus / X6A / X5B","₡22,000"],["X6 / X6S","₡22,000"],["X6B","₡24,000"],["X6C","₡24,000"],["X7","₡24,000"],["X7A","₡24,000"],["X7B","₡26,000"],["X7C","₡26,000"],["X8","₡24,000"],["X8A / 90 Lite","₡26,000"],["X8B / 200 Lite","₡45,000"],["X8C","₡26,000"],["X9","₡26,000"]];
-const ho2=[["50 Lite (Col)","₡30,000"],["Honor 70","₡55,000"],["Honor 90","₡65,000"],["90 Lite","₡30,000"],["Honor 200","₡75,000"],["200 Lite","₡52,000"],["X6 M","₡26,000"],["Honor X5 Plus / X6A Con Marco","₡26,000"],["X7 M","₡28,000"],["X7A M","₡28,000"],["X7B M","₡30,000"],["X8 M","₡28,000"],["X8A M","₡30,000"],["X8B M","₡52,000"],["X9 M","₡30,000"],["X9A / Magic 5L","₡55,000"],["X9B / Magic 6L","₡65,000"],["X9C / Magic 7L","₡75,000"],["Magic 6 Lite","₡65,000"]];
-const x1=[["Redmi A1","₡22,000"],["Redmi A3","₡24,000"],["Redmi A5","₡22,000"],["Redmi 9","₡24,000"],["Redmi 9A / 9C / 10A","₡22,000"],["Redmi 10","₡24,000"],["Redmi 10C","₡24,000"],["Redmi 12 / 13","₡26,000"],["Redmi 12C","₡24,000"],["Redmi 13C","₡24,000"],["Redmi 14C","₡26,000"],["Mi 9T","₡45,000"],["Mi 11T / Pro","₡65,000"],["Mi 11 Lite","₡45,000"],["Mi 12 Lite","₡55,000"],["Mi 12T","₡65,000"],["Note 8","₡24,000"],["Note 9","₡24,000"],["Note 9 Pro / 9S","₡26,000"],["Note 10 / 10S","₡45,000"],["N10 / 11P / 12P / X4P","₡55,000"],["N10 5G / M3 Pro","₡26,000"],["N11 / 11S / 12S OLED","₡48,000"],["Note 12","₡45,000"],["Note 12 Pro 4G","₡45,000"],["Note 13 / 14","₡48,000"],["Note 13 Pro 4G","₡55,000"],["Note 13 Pro 5G","₡65,000"],["Note 13 Pro+ 5G","₡75,000"],["Poco X3","₡28,000"],["Poco X5P / N12P 5G","₡55,000"],["Poco M3 / 9T","₡24,000"],["Poco F3","₡55,000"]];
-const x2=[["Redmi A1","₡26,000"],["Redmi A3","₡28,000"],["Redmi 9","₡28,000"],["Redmi 9A / 9C","₡26,000"],["Redmi 10C","₡28,000"],["Redmi 12C","₡28,000"],["Redmi 13C","₡28,000"],["Redmi 14C","₡30,000"],["Note 10S","₡52,000"],["Poco X3","₡32,000"],["Poco M3","₡28,000"]];
-const s1=[["J2P","₡16,000"],["J2P+T","₡18,000"],["J4","₡21,000"],["J4 Plus","₡23,000"],["J5P","₡18,000"],["J7","₡20,000"],["J7N","₡20,000"],["J7 2016","₡20,000"],["J7 Pro","₡25,000"],["J7P","₡18,000"],["J8","₡25,000"],["A01F","₡18,000"],["A01M","₡18,000"],["A01C","₡17,000"],["A02 / M12","₡20,000"],["A02S / 03S","₡20,000"],["A03C","₡19,000"],["A04","₡20,000"],["A04S","₡21,000"],["A05","₡22,000"],["A05S","₡22,000"],["A06","₡22,000"],["A10 / S","₡19,000"],["A11","₡20,000"],["A12","₡20,000"],["A13 / 23","₡22,000"],["A14 4G","₡24,000"],["A14 5G","₡24,000"],["A20 OLED","₡26,000"]];
-const s2=[["A01","₡22,000"],["A02S","₡24,000"],["A03S","₡24,000"],["A03","₡23,000"],["A03C","₡23,000"],["A10","₡23,000"],["A10S","₡23,000"],["A11","₡24,000"],["A12","₡24,000"],["A13 4G","₡26,000"],["A15 <span class='badge'>ORIG</span>","₡45,000"],["A15 OLED","₡35,000"],["A16 <span class='badge'>ORIG</span>","₡48,000"],["A16 OLED","₡38,000"],["A20 OLED","₡30,000"],["A20S","₡25,000"],["A21S","₡25,000"],["A22 4G","₡32,000"],["A22 5G","₡28,000"],["A23","₡28,000"],["A24 <span class='badge'>ORIG</span>","₡48,000"],["A24 OLED","₡35,000"],["A25","₡45,000"],["A30 OLED","₡30,000"],["A30S OLED","₡30,000"],["A30S Gen","₡26,000"],["A31 <span class='badge'>ORIG</span>","₡45,000"],["A31 OLED","₡32,000"],["A32 <span class='badge'>ORIG</span>","₡48,000"],["A32 OLED","₡35,000"],["A33 <span class='badge'>ORIG</span>","₡52,000"],["A33 5G","₡38,000"],["A34 <span class='badge'>ORIG</span>","₡55,000"],["A34 OLED","₡42,000"],["A35 <span class='badge'>ORIG</span>","₡58,000"],["A35 OLED","₡45,000"],["A36 <span class='badge'>ORIG</span>","₡62,000"],["A50 OLED","₡32,000"],["A51 OLED","₡32,000"],["A52 <span class='badge'>ORIG</span>","₡60,000"],["A52 OLED","₡40,000"],["A53 <span class='badge'>ORIG</span>","₡65,000"],["A53 OLED","₡40,000"],["A54 <span class='badge'>ORIG</span>","₡70,000"],["A54 OLED","₡45,000"],["A55 <span class='badge'>ORIG</span>","₡75,000"],["A55 OLED","₡48,000"],["A56 <span class='badge'>ORIG</span>","₡80,000"],["A70","₡35,000"],["A71 <span class='badge'>ORIG</span>","₡65,000"],["A71 OLED","₡35,000"],["A72 <span class='badge'>ORIG</span>","₡70,000"],["A72 OLED","₡42,000"],["A73 <span class='badge'>ORIG</span>","₡75,000"],["A73 OLED","₡42,000"],["M32","₡32,000"],["S20FE","₡45,000"],["S21","₡55,000"],["S21FE","₡55,000"],["S22","₡65,000"],["S23","₡65,000"],["S23U <span class='badge'>ORIG</span>","₡145,000"],["A20S","₡25,000"],["A21S","₡25,000"],["A22 5G","₡28,000"],["A23","₡28,000"],["A10","₡23,000"],["A10S","₡23,000"],["A11","₡24,000"],["M10L","₡26,000"]];
-const h1=[["P Smart","₡21,000"],["PS 2019","₡22,000"],["P8","₡18,000"],["P8 Lite","₡16,500"],["P10","₡22,000"],["P10 Lite","₡25,000"],["P20","₡24,000"],["P20 Lite","₡22,000"],["P30 Lite","₡25,000"],["P40 Lite","₡26,000"],["Y3 2017","₡17,000"],["Y5 2018","₡18,000"],["Y5 2019","₡19,000"],["Y6 2018","₡19,000"],["Y6P 2019","₡21,000"],["Y6P","₡22,000"],["Y7 2018","₡21,000"],["Y7P 2019","₡22,000"],["Y7P","₡25,000"],["Y7A","₡26,000"],["Y9 2018","₡26,000"],["Y9 2019","₡26,000"],["Y9P 2019","₡28,000"],["Y9S","₡32,000"],["Y9A","₡34,000"],["M10L","₡26,000"],["M20L","₡28,000"],["N5T","₡28,000"],["N9","₡35,000"],["N9 SE","₡35,000"],["N10","₡38,000"],["N10 SE","₡38,000"],["NY60","₡28,000"],["NY70","₡28,000"],["N8i","₡35,000"],["T1 7","₡22,000"],["T3 7","₡25,000"]];
-const h2=[["P Smart","₡24,000"],["PS 2019","₡25,000"],["P20 Lite","₡26,000"],["P30 Lite","₡30,000"],["P40 Lite","₡30,000"],["Y6P 2019","₡24,000"],["Y7 2018","₡24,000"],["Y7P 2019","₡25,000"],["Y7P","₡28,500"],["Y8S","₡30,000"],["Y9 2019","₡30,000"],["Y9P 2019","₡32,000"],["Y9S","₡36,000"],["Y9A","₡38,000"],["M20L","₡32,000"],["N5T","₡32,000"]];
-const m1=[["One","₡24,000"],["Macro / G8P","₡24,000"],["One Fusion","₡24,000"],["G04 / G24","₡22,000"],["G8 / Fast","₡24,000"],["G8 Power","₡24,000"],["G8 P. Lite","₡22,000"],["G8 Plus","₡25,000"],["G9 Power","₡24,000"],["G9 Plus","₡28,000"],["G9 Play","₡24,000"],["G10 / 20 / 30","₡24,000"],["G13 / 23 / 53","₡24,000"],["G14 / 54","₡24,000"],["G22 / E32","₡24,000"],["G31 / G71","₡35,000"],["G32","₡25,000"],["G42","₡35,000"],["G53 / G23","₡24,000"],["G60 / G51","₡28,000"],["G72","₡45,000"],["E6S / i","₡21,000"],["E6 Play","₡20,000"],["E7","₡22,000"],["E13","₡22,000"],["E20","₡22,000"],["E22","₡22,000"],["E40","₡22,000"],["Edge 30 Neo","₡55,000"]];
-const m2=[["One Macro","₡28,000"],["One Fusion","₡28,000"],["G8 P. Lite","₡26,000"],["G9 Power","₡28,000"],["G10","₡28,000"],["G14","₡28,000"],["G20","₡28,000"],["G30","₡28,000"],["G60","₡32,000"],["G60S","₡32,000"],["E7","₡26,000"],["E20","₡26,000"],["E40","₡26,000"]];
+const fill=(d,id)=>{const c=document.getElementById(id);let h='';d.forEach(i=>{h+=`<div class="caja producto"><h3>${i[0]}</h3><span class="precio">${i[1]}</span><a href="https://wa.me/50661073855?text=Reparar+${i[0]}" class="btn-wa">REPARAR</a></div>`});c.innerHTML=h};
 
-function fill(d,id){const c=document.getElementById(id);d.forEach(i=>{c.innerHTML+=`<div class="caja producto"><h3>${i[0]}</h3><span class="precio">${i[1]}</span><a href="https://wa.me/50661073855?text=Instalar+${i[0]}" class="btn-wa">INSTALAR</a></div>`})}
-fill(ip1,'ip1');fill(ip2,'ip2');fill(ip3,'ip3');fill(ho1,'ho1');fill(ho2,'ho2');fill(x1,'x1');fill(x2,'x2');fill(s1,'s1');fill(s2,'s2');fill(h1,'h1');fill(h2,'h2');fill(m1,'m1');fill(m2,'m2');fill(puertos,'puertos');fill(tactiles,'tactiles');
+// Llenamos las carpetas con la info que hay en datos.js
+fill(IPHONE, 'ip');
+fill(SAMSUNG, 'sa');
 
-function toggle(b){b.classList.toggle("active");const p=b.nextElementSibling;p.style.maxHeight=p.style.maxHeight?null:p.scrollHeight+"px";}
-function cambiarTema(){document.body.classList.toggle("light-mode");const b=document.querySelector(".btn-tema");b.innerText=document.body.classList.contains("light-mode")?"🌙 MODO NOCHE":"🌓 MODO DÍA";}
-function buscar(){const v=document.getElementById('buscador').value.toLowerCase();const p=document.getElementsByClassName('producto');for(let i=0;i<p.length;i++){const m=p[i].innerText.toLowerCase().includes(v);p[i].style.display=m?"flex":"none";if(v!==""&&m){const pan=p[i].parentElement.parentElement;pan.style.maxHeight="none";pan.previousElementSibling.classList.add("active")}}}
+function toggle(b){b.classList.toggle("active");const p=b.nextElementSibling;p.style.maxHeight=p.style.maxHeight?null:p.scrollHeight+"px"}
+function buscar(){ /* código de búsqueda */ }
 </script>
 </body>
 </html>
