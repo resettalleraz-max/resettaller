@@ -1,7 +1,6 @@
 // ==========================================
 //   RESET TALLER - BLOQUE 1: IPHONE (TODO)
 // ==========================================
-
 const PANTALLAS = [
     ["TITULO","--- IPHONE (INCELL / GENÉRICA) ---"],
     ["iPhone 6G","₡10,000"], ["iPhone 6G Plus","₡11,000"], ["iPhone 6S","₡10,000"], ["iPhone 6S Plus","₡11,000"], ["iPhone 7G","₡12,000"], ["iPhone 7 Plus","₡13,000"], ["iPhone 8G","₡12,000"], ["iPhone 8 Plus","₡13,000"], ["iPhone X Incell","₡20,000"], ["iPhone XS Incell","₡20,000"], ["iPhone XR Incell","₡20,000"], ["iPhone 11 Incell","₡20,000"], ["iPhone 11 Pro Incell","₡20,000"], ["iPhone 11 Pro Max Incell","₡23,000"], ["iPhone 12 Incell","₡25,000"], ["iPhone 12 Pro Incell","₡25,000"], ["iPhone 12 Pro Max Incell","₡29,000"], ["iPhone 13 Incell","₡29,000"], ["iPhone 13 Pro Incell","₡31,000"], ["iPhone 13 Pro Max Incell","₡35,000"], ["iPhone 14 Incell","₡33,000"], ["iPhone 14 Plus Incell","₡36,000"], ["iPhone 14 Pro Incell","₡45,000"], ["iPhone 14 Pro Max Incell","₡53,000"], ["iPhone 15 Incell","₡36,000"], ["iPhone 15 Plus Incell","₡43,000"], ["iPhone 15 Pro Incell","₡45,000"], ["iPhone 15 Pro Max Incell","₡60,000"], ["iPhone 16 Pro Max Incell","₡60,000"],
@@ -10,10 +9,14 @@ const PANTALLAS = [
     ["iPhone X OLED","₡28,000"], ["iPhone XS OLED","₡28,000"], ["iPhone XS Max OLED","₡31,000"], ["iPhone XR ORIGINAL","₡28,000"], ["iPhone 11 ORIGINAL","₡28,000"], ["iPhone 11 Pro OLED","₡29,000"], ["iPhone 11 Pro Max OLED","₡31,000"], ["iPhone 12 OLED","₡35,000"], ["iPhone 12 Pro OLED","₡35,000"], ["iPhone 12 Pro Max ORIGINAL","₡53,000"], ["iPhone 13 OLED Soft","₡44,000"], ["iPhone 13 Pro ORIGINAL","₡100,000"], ["iPhone 13 Pro Max Soft","₡50,000"], ["iPhone 13 Pro Max ORIGINAL","₡105,000"], ["iPhone 14 Pro ORIGINAL","₡93,000"], ["iPhone 14 Pro Max ORIGINAL","₡103,000"], ["iPhone 15 Pro ORIGINAL","₡85,000"], ["iPhone 15 Pro Max OLED","₡87,000"], ["iPhone 15 Pro Max ORIGINAL","₡105,000"], ["iPhone 16 Pro Max Soft ORIGINAL","₡105,000"],
 
     ["TITULO","--- IPHONE (TÁCTILES / VIDRIOS) ---"],
-    ["Tactil iPhone 6G/6S/7G/8G","₡5,000"], ["Tactil iPhone 6P/6SP/7P/8P","₡6,000"], ["Vidrio iPhone X/XS/11 Pro","₡10,000"], ["Vidrio iPhone XR/11","₡10,000"], ["Vidrio iPhone 12/13/14 Pro Max","₡15,000"]
-];
-["TITULO","--- HUAWEI SERIES P / Y / MATE ---"],
+    ["Tactil iPhone 6G/6S/7G/8G","₡5,000"], ["Tactil iPhone 6P/6SP/7P/8P","₡6,000"], ["Vidrio iPhone X/XS/11 Pro","₡10,000"], ["Vidrio iPhone XR/11","₡10,000"], ["Vidrio iPhone 12/13/14 Pro Max","₡15,000"],
+
+    ["TITULO","--- HUAWEI SERIES P / Y / MATE ---"],
     ["Huawei P Smart","₡11,000"], ["Huawei P Smart (Marco)","₡14,000"], ["Huawei P Smart 2019","₡12,000"], ["Huawei P Smart 2019 (Marco)","₡15,000"], ["Huawei P10 Lite","₡12,000"], ["Huawei P20 Lite","₡12,000"], ["Huawei P20 Lite (Marco)","₡15,000"], ["Huawei P30 Lite","₡15,000"], ["Huawei P30 Lite (Marco)","₡18,000"], ["Huawei P40 Lite","₡15,000"], ["Huawei P40 Lite (Marco)","₡18,000"], ["Huawei Y3 2017","₡11,000"], ["Huawei Y5 2018","₡11,000"], ["Huawei Y5 2019","₡11,000"], ["Huawei Y6 2018","₡13,000"], ["Huawei Y6 Prime 2019","₡13,000"], ["Huawei Y6 Prime 2019 (Marco)","₡16,000"], ["Huawei Y6P","₡14,000"], ["Huawei Y7 2018","₡11,000"], ["Huawei Y7 2018 (Marco)","₡14,000"], ["Huawei Y7 Prime 2019","₡13,000"], ["Huawei Y7 Prime 2019 (Marco)","₡16,000"], ["Huawei Y7P","₡14,000"], ["Huawei Y7P (Marco)","₡18,000"], ["Huawei Y7A","₡14,000"], ["Huawei Y8S (Marco)","₡18,000"], ["Huawei Y9 2018","₡12,000"], ["Huawei Y9 2019","₡15,000"], ["Huawei Y9 2019 (Marco)","₡18,000"], ["Huawei Y9 Prime 2019","₡16,000"], ["Huawei Y9 Prime 2019 (Marco)","₡20,000"], ["Huawei Y9S","₡16,000"], ["Huawei Y9S (Marco)","₡20,000"], ["Huawei Y9A","₡16,000"], ["Huawei Y9A (Marco)","₡19,000"], ["Huawei Mate 10 Lite","₡11,000"], ["Huawei Mate 20 Lite","₡13,000"], ["Huawei Mate 20 Lite (Marco)","₡17,000"], ["Huawei Nova 5T","₡15,000"], ["Huawei Nova 5T (Marco)","₡18,000"], ["Huawei Nova 8i","₡18,000"], ["Huawei Nova 9","₡33,000"], ["Huawei Nova 9 SE","₡18,000"], ["Huawei Nova 10","₡30,000"], ["Huawei Nova 10 SE","₡36,000"], ["Huawei Nova Y60","₡15,000"], ["Huawei Nova Y70","₡15,000"], ["Huawei Nova Y90","₡16,000"], ["Huawei Nova Y91","₡18,000"], ["Huawei Mate 30 Pro (Marco)","₡45,000"], ["Huawei Mate 40 Pro (Marco)","₡50,000"],
 
     ["TITULO","--- HONOR ---"],
     ["Honor 50 Lite","₡17,000"], ["Honor 50 Lite (Marco)","₡22,000"], ["Honor 70 (Marco) ORIGINAL","₡35,000"], ["Honor 90 (Marco) ORIGINAL","₡40,000"], ["Honor 90 Lite","₡16,000"], ["Honor 90 Lite (Marco)","₡18,000"], ["Honor 200 (Marco) ORIGINAL","₡40,000"], ["Honor X5 Plus / X6A","₡15,000"], ["Honor X6 / X6S","₡15,000"], ["Honor X7 / X7A","₡15,000"], ["Honor X8 / X8A","₡15,000"], ["Honor X9A ORIGINAL","₡33,000"]
+];
+
+const FLEX = [];
+const HERRAMIENTAS = [];
