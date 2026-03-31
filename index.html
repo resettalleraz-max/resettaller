@@ -7,47 +7,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root { 
-            --bg: #0a0f18; 
-            --card: #161e2d; 
-            --neon: #38bdf8; 
-            --green: #22c55e; 
-            --text: #f8fafc; 
-            --gold: #eab308; 
+            --bg: #0a1118; --card: #161e2d; --neon: #38bdf8; 
+            --green: #22c55e; --text: #f8fafc; --gold: #eab308; 
         }
-        body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 10px; box-sizing: border-box; }
-        .header { text-align: center; padding: 30px 15px; border-bottom: 4px solid var(--neon); border-radius: 0 0 25px 25px; margin-bottom: 20px; background: rgba(22,30,45,0.8); }
-        .logo-img { width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--neon); margin-bottom: 10px; object-fit: cover; }
-        h1 { margin: 5px 0; font-size: 1.5em; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
-        .header p { color: var(--neon); font-weight: 700; margin:0; }
+        .light-mode { 
+            --bg: #f1f5f9; --card: #ffffff; --neon: #0284c7; 
+            --text: #1e293b; --green: #16a34a; 
+        }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 15px; transition: 0.3s; }
+        
+        /* BOTÓN MODO NOCHE */
+        .theme-toggle { position: fixed; top: 20px; right: 20px; background: var(--card); border: 2px solid var(--neon); color: var(--neon); padding: 10px; border-radius: 50%; cursor: pointer; z-index: 1000; font-size: 1.2em; box-shadow: 0 0 10px rgba(0,0,0,0.3); }
 
-        .buscador-container { max-width: 600px; margin: 15px auto; padding: 0 10px; }
-        #buscador { width: 100%; padding: 15px; border-radius: 30px; border: 2px solid var(--neon); background: var(--card); color: var(--text); outline: none; box-sizing: border-box; font-weight: 600; box-shadow: 0 0 15px rgba(56,189,248,0.2); }
-        #buscador::placeholder { color: rgba(248,250,252,0.5); }
+        .header { text-align: center; padding: 30px 10px; border-bottom: 4px solid var(--neon); border-radius: 0 0 25px 25px; margin-bottom: 25px; background: var(--card); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        .logo-img { width: 90px; height: 90px; border-radius: 50%; border: 3px solid var(--neon); margin-bottom: 10px; object-fit: cover; }
+        h1 { margin: 5px 0; font-size: 1.6em; letter-spacing: 2px; font-weight: 800; }
 
-        .secciones-container { max-width: 800px; margin: 0 auto; }
+        #buscador { width: 100%; max-width: 500px; padding: 15px 20px; border-radius: 30px; border: 2px solid var(--neon); background: var(--card); color: var(--text); margin: 10px auto 25px auto; display: block; outline: none; box-sizing: border-box; font-weight: 600; }
+
+        .acordeon { background: var(--card); color: var(--neon); cursor: pointer; padding: 20px; width: 100%; max-width: 600px; border: 1px solid rgba(56,189,248,0.3); text-align: left; font-weight: 700; border-radius: 15px; margin: 12px auto; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; font-size: 1.1em; }
         
-        /* DISEÑO DE BOTONES CSS ORIGINAL */
-        .acordeon { background: var(--card); color: var(--neon); cursor: pointer; padding: 18px 25px; width: 100%; border: 2px solid rgba(56,189,248,0.2); text-align: left; font-weight: 700; border-radius: 12px; margin-top: 15px; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; transition: 0.3s; font-size: 1em; letter-spacing: 1px; }
-        .acordeon:hover { background: rgba(56,189,248,0.1); border-color: var(--neon); box-shadow: 0 0 10px rgba(56,189,248,0.3); }
+        .panel { max-width: 600px; margin: 0 auto; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(0,0,0,0.05); border-radius: 0 0 15px 15px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; padding: 20px 10px; }
         
-        .panel { padding: 0 10px; max-height: 0; overflow: hidden; transition: 0.4s ease-out; background: rgba(0,0,0,0.2); border-radius: 0 0 12px 12px; margin: 0 5px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; padding: 25px 0; }
+        .caja { background: var(--card); padding: 15px; border-radius: 18px; text-align: center; border: 1px solid rgba(0,0,0,0.1); display: flex; flex-direction: column; height: 100%; box-sizing: border-box; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .caja h3 { font-size: 0.8em; margin: 0; min-height: 35px; text-transform: uppercase; }
+        .precio { color: var(--green); font-size: 1.2em; font-weight: 800; margin: 10px 0; display: block; }
+        .btn-wa { background: var(--green); color: #fff; text-decoration: none; padding: 8px; border-radius: 8px; font-size: 0.75em; font-weight: 700; display: block; text-transform: uppercase; }
         
-        .caja { background: var(--card); padding: 18px; border-radius: 18px; text-align: center; border: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s; height: 100%; box-sizing: border-box; }
-        .caja:hover { transform: translateY(-5px); border-color: var(--neon); box-shadow: 0 0 15px rgba(56,189,248,0.2); }
-        .caja h3 { font-size: 0.85em; margin: 0; min-height: 40px; text-transform: uppercase; color: var(--text); font-weight: 600; line-height: 1.2; }
-        
-        .precio { color: var(--green); font-size: 1.25em; font-weight: 800; margin: 12px 0; display: block; }
-        .btn-wa { background: var(--green); color: #fff; text-decoration: none; padding: 12px; border-radius: 10px; font-size: 0.75em; font-weight: 700; display: block; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
-        .btn-wa:hover { opacity: 0.8; transform: scale(1.03); }
-        
-        .separador-marca { grid-column: 1 / -1; background: rgba(56,189,248,0.1); color: var(--neon); padding: 12px; font-weight: 800; font-size: 0.9em; margin: 20px 0 5px 0; text-align: center; border-radius: 10px; border-left: 5px solid var(--neon); text-transform: uppercase; letter-spacing: 2px; }
-        
-        /* ESTILO PARA EL CONTADOR */
-        .badge-count { background: var(--neon); color: #000; font-size: 0.85em; padding: 3px 15px; border-radius: 20px; font-weight: 800; }
+        .badge-count { background: var(--neon); color: #fff; font-size: 0.8em; padding: 2px 12px; border-radius: 20px; font-weight: 800; }
+        .separador-marca { grid-column: 1 / -1; background: rgba(56,189,248,0.1); color: var(--neon); padding: 8px; font-weight: 800; font-size: 0.85em; margin: 10px 0; text-align: center; border-radius: 8px; border-left: 4px solid var(--neon); }
     </style>
 </head>
 <body>
+
+<button class="theme-toggle" onclick="toggleTheme()">🌓</button>
 
 <div class="header">
     <img src="WhatsApp Image 2026-03-30 at 8.47.32 PM.jpeg" class="logo-img">
@@ -55,102 +49,54 @@
     <p>📲 6107-3855</p>
 </div>
 
-<div class="buscador-container">
-    <input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 BUSCAR REPUESTO O MODELO...">
-</div>
+<input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 Buscar modelo...">
 
-<div class="secciones-container">
-    <button class="acordeon" onclick="toggle(this)">📱 PANTALLAS <span id="count-pantallas" class="badge-count">0</span></button>
-    <div class="panel"><div class="grid" id="pantallas"></div></div>
+<button class="acordeon" onclick="toggle(this)">📱 PANTALLAS <span id="count-pantallas" class="badge-count">0</span></button>
+<div class="panel"><div class="grid" id="pantallas"></div></div>
 
-    <button class="acordeon" onclick="toggle(this)">🔌 CARGA Y FLEX <span id="count-flex" class="badge-count">0</span></button>
-    <div class="panel"><div class="grid" id="flex"></div></div>
+<button class="acordeon" onclick="toggle(this)">🔌 CARGA Y FLEX <span id="count-flex" class="badge-count">0</span></button>
+<div class="panel"><div class="grid" id="flex"></div></div>
 
-    <button class="acordeon" onclick="toggle(this)">🛠️ HERRAMIENTAS <span id="count-herramientas" class="badge-count">0</span></button>
-    <div class="panel"><div class="grid" id="herramientas"></div></div>
-</div>
+<button class="acordeon" onclick="toggle(this)">🛠️ HERRAMIENTAS <span id="count-herramientas" class="badge-count">0</span></button>
+<div class="panel"><div class="grid" id="herramientas"></div></div>
 
 <script src="datos.js"></script>
-
 <script>
-    // Recuperar el diseño y la funcionalidad del buscador corregido
+    function toggleTheme() { document.body.classList.toggle('light-mode'); }
+
     const render = (lista, contenedorId, contadorId) => {
         const cont = document.getElementById(contenedorId);
         const badge = document.getElementById(contadorId);
         if (!cont || !lista) return;
-        
-        let html = '';
-        let totalArticulos = 0;
-
-        lista.forEach(prod => {
-            if (prod[0] === "TITULO") {
-                html += `<div class="separador-marca">${prod[1]}</div>`;
-            } else {
-                totalArticulos++;
-                const nombre = prod[0].toUpperCase();
-                // Identificar originales para color oro
-                let estiloOro = (nombre.includes("ORIGINAL") || nombre.includes("SOFT") || nombre.includes("OLED")) ? 'style="color:var(--gold)"' : '';
-                
-                html += `
-                    <div class="caja">
-                        <h3 ${estiloOro}>${prod[0]}</h3>
-                        <span class="precio">${prod[1]}</span>
-                        <a href="https://wa.me/50661073855?text=Hola+Reset+Taller,+consulto+por:+${prod[0]}" target="_blank" class="btn-wa">CONSULTAR</a>
-                    </div>`;
+        let html = ''; let total = 0;
+        lista.forEach(p => {
+            if (p[0] === "TITULO") html += `<div class="separador-marca">${p[1]}</div>`;
+            else {
+                total++;
+                let oro = (p[0].toUpperCase().includes("ORIGINAL") || p[0].toUpperCase().includes("SOFT")) ? 'style="color:var(--gold)"' : '';
+                html += `<div class="caja"><h3 ${oro}>${p[0]}</h3><span class="precio">${p[1]}</span><a href="https://wa.me/50661073855?text=Consulta+por+${p[0]}" class="btn-wa">Pedir</a></div>`;
             }
         });
-        
         cont.innerHTML = html;
-        if (badge) badge.innerText = totalArticulos;
+        if (badge) badge.innerText = total;
     };
 
-    // Renderizado inicial
     render(PANTALLAS, 'pantallas', 'count-pantallas');
     render(FLEX, 'flex', 'count-flex');
     render(HERRAMIENTAS, 'herramientas', 'count-herramientas');
 
-    // Función Acordeón Original (Corregida la transición)
-    function toggle(boton) {
-        boton.classList.toggle("active");
-        var panel = boton.nextElementSibling;
-        if (panel.style.maxHeight) {
-            panel.style.maxHeight = null;
-        } else {
-            panel.style.maxHeight = panel.scrollHeight + "px";
-            // Forzar recálculo para abrir suavemente
-            setTimeout(()=>{ panel.style.maxHeight = panel.scrollHeight + "px"; }, 10);
-        }
+    function toggle(b) {
+        let p = b.nextElementSibling;
+        p.style.maxHeight = p.style.maxHeight ? null : p.scrollHeight + "px";
     }
 
-    // Buscador Inteligente
     function buscar() {
-        let input = document.getElementById('buscador').value.toLowerCase();
-        let cajas = document.getElementsByClassName('caja');
-        let separadores = document.getElementsByClassName('separador-marca');
-
-        for (let i = 0; i < cajas.length; i++) {
-            let texto = cajas[i].innerText.toLowerCase();
-            if(texto.includes(input)){
-                cajas[i].style.display = "flex";
-            } else {
-                cajas[i].style.display = "none";
-            }
-        }
-        
-        // Ajuste para separadores de marca y recálculo de altura de paneles abiertos
-        for (let j = 0; j < separadores.length; j++) {
-            separadores[j].style.display = input.length > 0 ? "none" : "block";
-        }
-        
-        // Si hay un panel abierto, recalcular su altura para que no se corte
-        let paneles = document.getElementsByClassName('panel');
-        for(let k=0; k<paneles.length; k++){
-            if(paneles[k].style.maxHeight && paneles[k].style.maxHeight !== "0px"){
-                 paneles[k].style.maxHeight = paneles[k].scrollHeight + "px";
-            }
+        let v = document.getElementById('buscador').value.toLowerCase();
+        let c = document.getElementsByClassName('caja');
+        for (let i = 0; i < c.length; i++) {
+            c[i].style.display = c[i].innerText.toLowerCase().includes(v) ? "flex" : "none";
         }
     }
 </script>
-
 </body>
 </html>
