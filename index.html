@@ -18,7 +18,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--t
 .header .dir { font-size: 0.8em; opacity: 0.9; display: block; margin-bottom: 5px; color: #ccc; }
 .biblia { font-style: italic; font-size: 0.8em; color: var(--gold); }
 #buscador { width: 100%; padding: 15px; border-radius: 30px; border: 2px solid var(--neon); background: var(--card); color: var(--text); margin: 20px 0; outline: none; box-sizing: border-box; font-weight: 600; }
-.acordeon { background: var(--card); color: var(--neon); cursor: pointer; padding: 18px; width: 100%; border: 1px solid rgba(56,189,248,0.2); text-align: left; font-weight: 700; border-radius: 12px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; }
+.acordeon { background: var(--card); color: var(--neon); cursor: pointer; padding: 18px; width: 100%; border: 1px solid rgba(56,189,248,0.2); text-align: left; font-weight: 700; border-radius: 12px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; }
 .panel { padding: 0 5px; max-height: 0; overflow: hidden; transition: 0.3s ease-out; background: rgba(0,0,0,0.1); border-radius: 0 0 12px 12px; }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; padding: 15px 5px; }
 .caja { background: var(--card); padding: 12px; border-radius: 15px; text-align: center; border: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; justify-content: space-between; }
@@ -26,8 +26,9 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--t
 .precio { color: var(--green); font-size: 1.2em; font-weight: 800; margin: 8px 0; display: block; }
 .btn-wa { background: var(--green); color: #fff; text-decoration: none; padding: 10px; border-radius: 8px; font-size: 0.75em; font-weight: 700; display: block; }
 .separador-marca { grid-column: 1 / -1; background: linear-gradient(90deg, transparent, rgba(56,189,248,0.2), transparent); color: var(--neon); padding: 10px; font-weight: 800; font-size: 1em; letter-spacing: 2px; border: none; margin: 10px 0; text-align: center; }
-.acordeon:after { content: '\002B'; } .active:after { content: "\2212"; }
-.badge-count { background: var(--neon); color: var(--bg); font-size: 0.7em; padding: 2px 8px; border-radius: 10px; margin-left: 10px; }
+.badge-count { background: rgba(56,189,248,0.1); color: var(--neon); font-size: 0.85em; padding: 2px 12px; border-radius: 15px; border: 1px solid var(--neon); margin-left: auto; margin-right: 15px; }
+.acordeon::after { content: '\002B'; font-size: 1.2em; } 
+.active::after { content: "\2212"; }
 </style>
 </head>
 <body>
@@ -71,42 +72,26 @@ const fill=(d,id,countId)=>{
   const c=document.getElementById(id);
   const countSpan=document.getElementById(countId);
   if(!c||!d)return;
-  let h='';
-  let total = 0;
+  let h=''; let total = 0;
   d.forEach(i=>{
-    if(i[0]==="TITULO"){
-      h+=`<div class="separador-marca">${i[1]}</div>`;
-    }else{
-      total++;
-      h+=`<div class="caja producto"><h3>${i[0]}</h3><span class="precio">${i[1]}</span><a href="https://wa.me/50661073855?text=Consulta+por+${i[0]}" class="btn-wa">WHATSAPP</a></div>`
-    }
+    if(i[0]==="TITULO"){ h+=`<div class="separador-marca">${i[1]}</div>`; }
+    else{ total++; h+=`<div class="caja producto"><h3>${i[0]}</h3><span class="precio">${i[1]}</span><a href="https://wa.me/50661073855?text=Consulta+por+${i[0]}" class="btn-wa">WHATSAPP</a></div>` }
   });
-  c.innerHTML=h;
-  if(countSpan) countSpan.innerText = total;
+  c.innerHTML=h; if(countSpan) countSpan.innerText = total;
 };
-
 if(typeof PANTALLAS!=='undefined'){
-  fill(PANTALLAS,'pantallas','count-pantallas');
-  fill(FLEX,'flex','count-flex');
-  fill(AUDIO,'audio','count-audio');
-  fill(CARGADORES,'cargadores','count-cargadores');
-  fill(ESTETICA,'estetica','count-estetica');
-  fill(GADGETS,'gadgets','count-gadgets');
-  fill(HERRAMIENTAS,'herramientas','count-herramientas');
-  fill(OTROS,'otros','count-otros');
+  fill(PANTALLAS,'pantallas','count-pantallas'); fill(FLEX,'flex','count-flex'); fill(AUDIO,'audio','count-audio');
+  fill(CARGADORES,'cargadores','count-cargadores'); fill(ESTETICA,'estetica','count-estetica');
+  fill(GADGETS,'gadgets','count-gadgets'); fill(HERRAMIENTAS,'herramientas','count-herramientas'); fill(OTROS,'otros','count-otros');
 }
-
 function toggle(b){b.classList.toggle("active");const p=b.nextElementSibling;p.style.maxHeight=p.style.maxHeight?null:p.scrollHeight+"px"}
 function cambiarTema(){document.body.classList.toggle("light-mode");}
 function buscar(){
   const v=document.getElementById('buscador').value.toLowerCase();
   const p=document.getElementsByClassName('producto');
   const t=document.getElementsByClassName('separador-marca');
-  for(let i=0;i<p.length;i++){
-    const m=p[i].innerText.toLowerCase().includes(v);
-    p[i].style.display=m?"flex":"none";
-  }
-  for(let i=0;i<t.length;i++){t[i].style.display=v===""?"block":"none"}
+  for(let i=0;i<p.length;i++){ p[i].style.display=p[i].innerText.toLowerCase().includes(v)?"flex":"none"; }
+  for(let i=0;i<t.length;i++){ t[i].style.display=v===""?"block":"none"; }
 }
 </script>
 </body>
