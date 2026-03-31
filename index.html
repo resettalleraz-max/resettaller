@@ -33,37 +33,82 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--t
 <h2 style="color:var(--purple)">⚡ TARJETAS DE CARGA</h2>
 <button class="acordeon" onclick="toggle(this)">CARGA: SAMSUNG (58)</button><div class="panel"><div class="grid" id="tc_s"></div></div>
 <button class="acordeon" onclick="toggle(this)">CARGA: HUAWEI (32)</button><div class="panel"><div class="grid" id="tc_h"></div></div>
+<button class="acordeon" onclick="toggle(this)">CARGA: HONOR (19)</button><div class="panel"><div class="grid" id="tc_ho"></div></div>
 <button class="acordeon" onclick="toggle(this)">CARGA: IPHONE FLEX (26)</button><div class="panel"><div class="grid" id="tc_i"></div></div>
+<button class="acordeon" onclick="toggle(this)">CARGA: XIAOMI (35)</button><div class="panel"><div class="grid" id="tc_x"></div></div>
+<button class="acordeon" onclick="toggle(this)">CARGA: MOTOROLA (36)</button><div class="panel"><div class="grid" id="tc_m"></div></div>
 
-<h2 style="color:#cbd5e1">📱 IPHONE PANTALLAS</h2>
-<button class="acordeon" onclick="toggle(this)">6 AL 8 PLUS</button><div class="panel"><div class="grid" id="ip1"></div></div>
-<button class="acordeon" onclick="toggle(this)">X AL 11 PRO MAX</button><div class="panel"><div class="grid" id="ip2"></div></div>
-<button class="acordeon" onclick="toggle(this)">12 AL 16 PRO MAX</button><div class="panel"><div class="grid" id="ip3"></div></div>
+<h2 style="color:#cbd5e1">📱 IPHONE</h2>
+<button class="acordeon" onclick="toggle(this)">IPHONE: 6 AL 8 PLUS</button><div class="panel"><div class="grid" id="ip1"></div></div>
+<button class="acordeon" onclick="toggle(this)">IPHONE: X AL 11 PRO MAX</button><div class="panel"><div class="grid" id="ip2"></div></div>
+<button class="acordeon" onclick="toggle(this)">IPHONE: 12 AL 16 PRO MAX</button><div class="panel"><div class="grid" id="ip3"></div></div>
 
-<h2 style="color:var(--green)">📱 SAMSUNG PANTALLAS</h2>
-<button class="acordeon" onclick="toggle(this)">SAMSUNG: SOLO PANTALLA</button><div class="panel"><div class="grid" id="s1"></div></div>
+<h2 style="color:var(--purple)">🛠️ REPARACIONES CARGA Y TACTIL</h2>
+<button class="acordeon" onclick="toggle(this)">RAM DE CARGA / PUERTOS</button><div class="panel"><div class="grid" id="puertos"></div></div>
+<button class="acordeon" onclick="toggle(this)">TÁCTILES SOLOS</button><div class="panel"><div class="grid" id="tactiles"></div></div>
+
+<h2 style="color:var(--gold)">📱 HONOR</h2>
+<button class="acordeon" onclick="toggle(this)">HONOR: SOLO PANTALLAS</button><div class="panel"><div class="grid" id="ho1"></div></div>
+<button class="acordeon" onclick="toggle(this)">HONOR: CON MARCO</button><div class="panel"><div class="grid" id="ho2"></div></div>
+
+<h2 style="color:var(--red)">📱 XIAOMI</h2>
+<button class="acordeon" onclick="toggle(this)">XIAOMI: SOLO PANTALLAS</button><div class="panel"><div class="grid" id="x1"></div></div>
+<button class="acordeon" onclick="toggle(this)">XIAOMI: CON MARCO</button><div class="panel"><div class="grid" id="x2"></div></div>
+
+<h2 style="color:var(--green)">📱 SAMSUNG</h2>
+<button class="acordeon" onclick="toggle(this)">SAMSUNG: SOLO PANTALLAS</button><div class="panel"><div class="grid" id="s1"></div></div>
 <button class="acordeon" onclick="toggle(this)">SAMSUNG: CON MARCO</button><div class="panel"><div class="grid" id="s2"></div></div>
+
+<h2 style="color:var(--neon)">📱 HUAWEI</h2>
+<button class="acordeon" onclick="toggle(this)">HUAWEI: SOLO PANTALLAS</button><div class="panel"><div class="grid" id="h1"></div></div>
+<button class="acordeon" onclick="toggle(this)">HUAWEI: CON MARCO</button><div class="panel"><div class="grid" id="h2"></div></div>
+
+<h2 style="color:var(--orange)">📱 MOTOROLA</h2>
+<button class="acordeon" onclick="toggle(this)">MOTOROLA: SOLO PANTALLAS</button><div class="panel"><div class="grid" id="m1"></div></div>
+<button class="acordeon" onclick="toggle(this)">MOTOROLA: CON MARCO</button><div class="panel"><div class="grid" id="m2"></div></div>
 
 <script>
 function fill(d,id){const c=document.getElementById(id);if(!c)return;d.forEach(i=>{c.innerHTML+=`<div class="caja producto"><h3>${i[0]}</h3><span class="precio">${i[1]}</span><a href="https://wa.me/50661073855?text=Instalar+${i[0]}" class="btn-wa">INSTALAR</a></div>`})}
 
-// --- CARGA SAMSUNG ---
-const tc_s=[["A01","₡15,000"],["A10S","₡15,000"],["A11","₡18,000"],["A21S","₡18,000"],["A54","₡22,000"],["S24 ULTRA","₡40,000"]];
-fill(tc_s,'tc_s');
+// --- CARGA DESMENUZADA (NUEVA) ---
+const tc_ho=[["X5","₡18,000"],["X6","₡18,000"],["X6S","₡18,000"],["X6A","₡18,000"],["X7","₡18,000"],["X7A","₡18,000"],["X7B","₡20,000"],["X8","₡18,000"],["X8A","₡18,000"],["X8B","₡20,000"],["X9","₡18,000"],["X9A","₡20,000"],["50 LITE","₡22,000"],["70","₡25,000"],["90","₡25,000"],["90 LITE","₡22,000"],["MAGIC 5 LITE","₡25,000"],["MAGIC 6 LITE","₡25,000"],["MAGIC 6 PRO","₡35,000"]];
+const tc_h=[["P SMART","₡15,000"],["P SMART 2019","₡15,000"],["P9","₡15,000"],["P10 LITE","₡15,000"],["P20 LITE","₡18,000"],["P30 LITE","₡18,000"],["P40 LITE","₡18,000"],["Y5 2018","₡15,000"],["Y6 2019","₡15,000"],["Y7 PRIME 19","₡15,000"],["Y9 PRIME","₡18,000"],["NOVA 5T","₡18,000"],["NOVA 9 SE","₡20,000"]];
+const tc_s=[["A01","₡15,000"],["A10S","₡15,000"],["A11","₡18,000"],["A12","₡18,000"],["A13","₡18,000"],["A14 4G","₡18,000"],["A15","₡20,000"],["A16","₡20,000"],["A34","₡20,000"],["A54","₡22,000"],["S21 FE","₡25,000"],["S23 ULTRA","₡35,000"],["S24 ULTRA","₡40,000"]];
+const tc_i=[["6G/6S/P","₡15,000"],["7G/7P/8G/8P","₡18,000"],["X/XS/XR/MAX","₡22,000"],["11/P/MAX","₡25,000"],["12/P/MAX","₡30,000"],["13/P/MAX","₡35,000"],["14/P/MAX","₡40,000"],["15/P/MAX","₡45,000"]];
+const tc_x=[["A1/A2/A3","₡15,000"],["9/A/C/T","₡15,000"],["10/12/13/14C","₡18,000"],["NOTE 11/12/13 PRO","₡25,000"]];
+const tc_m=[["ONE ALL","₡18,000"],["E6/E7/E20/E40","₡15,000"],["G8/9/10/14","₡18,000"],["G54/G60/G84","₡20,000"]];
 
-// --- IPHONE PANTALLAS (CON RESEÑA) ---
-const ip2=[["X OLED","₡45,000"],["XR <span class='badge'>ORIG</span>","₡45,000"],["11 <span class='badge'>ORIG</span>","₡48,000"],["11 PRO MAX OLED","₡65,000"]];
-fill(ip2,'ip2');
+fill(tc_ho,'tc_ho');fill(tc_h,'tc_h');fill(tc_s,'tc_s');fill(tc_i,'tc_i');fill(tc_x,'tc_x');fill(tc_m,'tc_m');
 
-const ip3=[["12 OLED","₡65,000"],["12PM <span class='badge'>ORIG</span>","₡110,000"],["14PM <span class='badge'>ORIG</span>","₡220,000"]];
-fill(ip3,'ip3');
+// --- PANTALLAS (TODO TU INVENTARIO) ---
+const ip1=[["6G","₡22,000"],["6G Plus","₡24,000"],["6S","₡23,000"],["6S Plus","₡26,000"],["7G","₡25,000"],["7 Plus","₡28,000"],["8G","₡26,000"],["8 Plus","₡30,000"]];
+const ip2=[["X OLED","₡45,000"],["X Incel","₡35,000"],["XS OLED","₡48,000"],["XS Incel","₡38,000"],["XR <span class='badge'>ORIG</span>","₡45,000"],["XR Incel","₡35,000"],["XS Max OLED","₡55,000"],["XS Max Incel","₡42,000"],["11 <span class='badge'>ORIG</span>","₡48,000"],["11 Incel","₡35,000"],["11 Pro OLED","₡55,000"],["11 Pro Incel","₡42,000"],["11 Pro Max OLED","₡65,000"],["11 Pro Max Incel","₡48,000"]];
+const ip3=[["12 OLED","₡65,000"],["12/12P Incel","₡48,000"],["12PM <span class='badge'>ORIG</span>","₡110,000"],["12PM OLED","₡85,000"],["12PM Incel","₡55,000"],["13 SOFT","₡95,000"],["13 OLED","₡80,000"],["13 Incel","₡55,000"],["13P SOFT","₡145,000"],["13P OLED","₡125,000"],["13P Incel","₡65,000"],["13PM SOFT","₡155,000"],["13PM OLED","₡135,000"],["13PM Incel","₡75,000"],["14 SOFT","₡120,000"],["14 OLED","₡105,000"],["14 Incel","₡65,000"],["14P OLED","₡165,000"],["14P Incel","₡85,000"],["14PM <span class='badge'>ORIG</span>","₡220,000"],["14PM OLED","₡185,000"],["14PM Incel","₡95,000"],["15 SOFT","₡165,000"],["15 OLED","₡145,000"],["15 Incel","₡85,000"],["15P SOFT","₡210,000"],["15P Incel","₡110,000"],["15PM OLED","₡245,000"],["15PM Incel","₡135,000"],["16 SOFT","₡265,000"],["16 OLED","₡245,000"],["16 Incel","₡155,000"],["16P OLED","₡295,000"],["16PM SOFT","₡345,000"]];
+fill(ip1,'ip1');fill(ip2,'ip2');fill(ip3,'ip3');
 
-// --- SAMSUNG PANTALLAS (CON RESEÑA) ---
-const s1=[["A14 5G","₡24,000"],["A15 <span class='badge'>ORIG</span>","₡45,000"],["A16 <span class='badge'>ORIG</span>","₡48,000"]];
-fill(s1,'s1');
+const ho1=[["Honor 8X","₡22,000"],["Honor 50 Lite","₡26,000"],["90 Lite","₡26,000"],["X5B/X6A","₡22,000"],["X6/X6S","₡22,000"],["X7","₡24,000"],["X7A","₡24,000"],["X7B","₡26,000"],["X8","₡24,000"],["X8B <span class='badge'>ORIG</span>","₡45,000"],["X9","₡26,000"]];
+const ho2=[["Honor 70","₡55,000"],["Honor 90","₡65,000"],["X7 M","₡28,000"],["X8B M <span class='badge'>ORIG</span>","₡52,000"],["X9A M","₡55,000"],["Magic 6 Lite","₡65,000"]];
+fill(ho1,'ho1');fill(ho2,'ho2');
 
-const s2=[["A34 <span class='badge'>ORIG</span>","₡55,000"],["A54 <span class='badge'>ORIG</span>","₡70,000"],["S23U <span class='badge'>ORIG</span>","₡145,000"]];
-fill(s2,'s2');
+const x1=[["Redmi A1","₡22,000"],["Redmi 9","₡24,000"],["Redmi 12/13","₡26,000"],["Redmi 13C","₡24,000"],["Note 9","₡24,000"],["Note 11/11S","₡48,000"],["Note 13 Pro","₡55,000"],["Poco X3","₡28,000"]];
+const x2=[["Note 10S M","₡52,000"],["Poco X3 M","₡32,000"]];
+fill(x1,'x1');fill(x2,'x2');
+
+const s1=[["J2P","₡16,000"],["A10/S","₡19,000"],["A14 5G","₡24,000"],["A15 <span class='badge'>ORIG</span>","₡45,000"],["A20 OLED","₡26,000"]];
+const s2=[["A15 M <span class='badge'>ORIG</span>","₡45,000"],["A34 M <span class='badge'>ORIG</span>","₡55,000"],["A54 M <span class='badge'>ORIG</span>","₡70,000"],["S23U M <span class='badge'>ORIG</span>","₡145,000"]];
+fill(s1,'s1');fill(s2,'s2');
+
+const h1=[["P Smart 19","₡22,000"],["P30 Lite","₡25,000"],["Y9 2019","₡26,000"]];
+const h2=[["P30 Lite M","₡30,000"],["Y9S M","₡36,000"]];
+fill(h1,'h1');fill(h2,'h2');
+
+const m1=[["One Fusion","₡24,000"],["G04/G24","₡22,000"],["G60","₡28,000"],["E20","₡22,000"]];
+const m2=[["G60 M","₡32,000"],["E40 M","₡26,000"]];
+fill(m1,'m1');fill(m2,'m2');
+
+const tactiles=[["J2 Prime","₡12,000"],["Y3 2017","₡12,000"]];
+const puertos=[["Huawei Y7","₡15,000"],["Samsung A10S","₡15,000"],["Moto G20","₡18,000"],["Redmi 7","₡15,000"]];
+fill(tactiles,'tactiles');fill(puertos,'puertos');
 
 function toggle(b){b.classList.toggle("active");const p=b.nextElementSibling;p.style.maxHeight=p.style.maxHeight?null:p.scrollHeight+"px"}
 function cambiarTema(){document.body.classList.toggle("light-mode")}
