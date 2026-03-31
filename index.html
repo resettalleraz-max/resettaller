@@ -5,47 +5,90 @@
 <title>RESET TALLER</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-/* Aquí va todo el diseño neón que ya conocés (lo recorto para que no pese) */
-:root { --bg: #0a0f18; --card: #161e2d; --neon: #38bdf8; --green: #22c55e; --text: #f8fafc; }
-body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 10px; }
-.header { text-align: center; padding: 20px; background: var(--card); border-bottom: 4px solid var(--neon); border-radius: 0 0 25px 25px; }
-.logo-img { width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--neon); margin-bottom: 12px; }
-#buscador { width: 100%; padding: 15px; border-radius: 30px; border: 2px solid var(--neon); margin: 20px 0; outline: none; }
-.acordeon { background: var(--card); color: var(--neon); cursor: pointer; padding: 18px; width: 100%; border: 1px solid rgba(56,189,248,0.2); border-radius: 12px; margin-top: 10px; font-weight: 700; }
-.panel { padding: 0 5px; max-height: 0; overflow: hidden; transition: 0.3s; background: rgba(0,0,0,0.1); }
+:root { --bg: #0a0f18; --card: #161e2d; --neon: #38bdf8; --green: #22c55e; --text: #f8fafc; --gold: #eab308; }
+.light-mode { --bg: #f1f5f9; --card: #ffffff; --neon: #0284c7; --green: #16a34a; --text: #1e293b; --gold: #ca8a04; }
+body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 10px; transition: 0.3s; }
+.btn-tema { position: fixed; top: 15px; right: 15px; background: var(--card); border: 2px solid var(--neon); color: var(--neon); padding: 8px 12px; border-radius: 20px; font-size: 0.75em; font-weight: 700; z-index: 1000; cursor: pointer; }
+.header { text-align: center; padding: 25px 20px; background: var(--card); border-bottom: 4px solid var(--neon); border-radius: 0 0 25px 25px; margin-bottom: 20px; position: relative; overflow: hidden; }
+.header::before { content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(90deg, transparent 45%, rgba(56,189,248,0.05) 50%, transparent 55%), linear-gradient(rgba(56,189,248,0.05) 50%, transparent 55%); background-size: 30px 30px; transform: rotate(15deg); z-index: 0; }
+.logo-img { width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--neon); margin-bottom: 12px; position: relative; z-index: 1; object-fit: cover; }
+.header h1, .header p, .header span { position: relative; z-index: 1; margin: 0; }
+.header h1 { font-size: 1.7em; }
+.header p { font-size: 1.1em; color: var(--neon); font-weight: 700; margin: 5px 0; }
+.header .dir { font-size: 0.75em; opacity: 0.8; display: block; margin-bottom: 5px; }
+.biblia { font-style: italic; font-size: 0.75em; color: var(--gold); font-weight: 600; }
+#buscador { width: 100%; padding: 15px; border-radius: 30px; border: 2px solid var(--neon); background: var(--card); color: var(--text); margin: 20px 0; outline: none; box-sizing: border-box; font-weight: 600; }
+.acordeon { background: var(--card); color: var(--neon); cursor: pointer; padding: 18px; width: 100%; border: 1px solid rgba(56,189,248,0.2); text-align: left; font-weight: 700; border-radius: 12px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; }
+.panel { padding: 0 5px; max-height: 0; overflow: hidden; transition: 0.3s ease-out; background: rgba(0,0,0,0.1); border-radius: 0 0 12px 12px; }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; padding: 15px 5px; }
-.caja { background: var(--card); padding: 12px; border-radius: 15px; text-align: center; }
-.precio { color: var(--green); font-weight: 800; display: block; margin: 8px 0; }
-.btn-wa { background: var(--green); color: #fff; text-decoration: none; padding: 8px; border-radius: 8px; font-size: 0.7em; display: block; }
+.caja { background: var(--card); padding: 12px; border-radius: 15px; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
+.caja h3 { font-size: 0.7em; margin: 0; min-height: 35px; }
+.precio { color: var(--green); font-size: 1.1em; font-weight: 800; margin: 8px 0; display: block; }
+.btn-wa { background: var(--green); color: #fff; text-decoration: none; padding: 8px; border-radius: 8px; font-size: 0.7em; font-weight: 700; display: block; }
+.badge { background: var(--gold); color: #000; font-size: 0.6em; padding: 2px 4px; border-radius: 4px; font-weight: 900; }
+.acordeon:after { content: '\002B'; } .active:after { content: "\2212"; }
 </style>
 </head>
 <body>
+<button class="btn-tema" onclick="cambiarTema()">🌓 MODO DÍA</button>
 <div class="header">
   <img src="WhatsApp Image 2026-03-30 at 8.47.32 PM.jpeg" class="logo-img">
   <h1>RESET TALLER</h1>
   <p>6107-3855</p>
-  <span style="font-size:0.8em; color:#eab308">"Pon en manos del Señor todas tus obras..."</span>
+  <span class="dir">Costa Rica, Alajuela, San Carlos, Aguas Zarcas</span>
+  <span class="biblia">"Pon en manos del Señor todas tus obras..." - Prov. 16:3</span>
 </div>
 
-<input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 BUSCAR MODELO...">
+<input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 BUSCAR IPHONE, SAMSUNG, HONOR...">
 
-<button class="acordeon" onclick="toggle(this)">📱 IPHONE</button>
-<div class="panel"><div class="grid" id="ip"></div></div>
+<button class="acordeon" onclick="toggle(this)">📱 IPHONE: TODOS (56)</button>
+<div class="panel"><div class="grid" id="ip_all"></div></div>
 
-<button class="acordeon" onclick="toggle(this)">📱 SAMSUNG</button>
-<div class="panel"><div class="grid" id="sa"></div></div>
+<button class="acordeon" onclick="toggle(this)">🛠️ CARGA Y TACTIL (31)</button>
+<div class="panel"><div class="grid" id="tc_all"></div></div>
+
+<button class="acordeon" onclick="toggle(this)">📱 HONOR (35)</button>
+<div class="panel"><div class="grid" id="ho_all"></div></div>
+
+<button class="acordeon" onclick="toggle(this)">📱 SAMSUNG (99)</button>
+<div class="panel"><div class="grid" id="sa_all"></div></div>
+
+<button class="acordeon" onclick="toggle(this)">📱 XIAOMI (44)</button>
+<div class="panel"><div class="grid" id="xi_all"></div></div>
+
+<button class="acordeon" onclick="toggle(this)">📱 HUAWEI (53)</button>
+<div class="panel"><div class="grid" id="hu_all"></div></div>
+
+<button class="acordeon" onclick="toggle(this)">📱 MOTOROLA (42)</button>
+<div class="panel"><div class="grid" id="mo_all"></div></div>
 
 <script src="datos.js"></script>
-
 <script>
-const fill=(d,id)=>{const c=document.getElementById(id);let h='';d.forEach(i=>{h+=`<div class="caja producto"><h3>${i[0]}</h3><span class="precio">${i[1]}</span><a href="https://wa.me/50661073855?text=Reparar+${i[0]}" class="btn-wa">REPARAR</a></div>`});c.innerHTML=h};
+const fill=(d,id)=>{const c=document.getElementById(id);if(!c||!d)return;let h='';d.forEach(i=>{const b=i[0].includes("ORIG")?'<span class="badge">ORIG</span>':'';h+=`<div class="caja producto"><h3>${i[0]} ${b}</h3><span class="precio">${i[1]}</span><a href="https://wa.me/50661073855?text=Reparar+${i[0]}" class="btn-wa">INSTALAR</a></div>`});c.innerHTML=h};
 
-// Llenamos las carpetas con la info que hay en datos.js
-fill(IPHONE, 'ip');
-fill(SAMSUNG, 'sa');
+fill(IP1.concat(IP2,IP3),'ip_all');
+fill(PUERTO.concat(TACT),'tc_all');
+fill(HONOR,'ho_all');
+fill(SAMSUNG,'sa_all');
+fill(XIAOMI,'xi_all');
+fill(HUAWEI,'hu_all');
+fill(MOTO,'mo_all');
 
 function toggle(b){b.classList.toggle("active");const p=b.nextElementSibling;p.style.maxHeight=p.style.maxHeight?null:p.scrollHeight+"px"}
-function buscar(){ /* código de búsqueda */ }
+function cambiarTema(){document.body.classList.toggle("light-mode");}
+function buscar(){
+  const v=document.getElementById('buscador').value.toLowerCase();
+  const p=document.getElementsByClassName('producto');
+  for(let i=0;i<p.length;i++){
+    const m=p[i].innerText.toLowerCase().includes(v);
+    p[i].style.display=m?"block":"none";
+    if(v!==""&&m){
+      const pan=p[i].parentElement.parentElement;
+      pan.style.maxHeight="none";
+      pan.previousElementSibling.classList.add("active");
+    }
+  }
+}
 </script>
 </body>
 </html>
