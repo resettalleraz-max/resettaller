@@ -41,50 +41,36 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--t
 <input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 BUSCAR IPHONE, SAMSUNG, PUERTO...">
 
 <h2 style="color:#cbd5e1">📱 IPHONE</h2>
-<button class="acordeon" onclick="toggle(this)">IPHONE: 6 AL 8 PLUS (8)</button>
-<div class="panel"><div class="grid" id="ip1"></div></div>
-<button class="acordeon" onclick="toggle(this)">IPHONE: X AL 11 PRO MAX (14)</button>
-<div class="panel"><div class="grid" id="ip2"></div></div>
-<button class="acordeon" onclick="toggle(this)">IPHONE: 12 AL 16 PRO MAX (34)</button>
-<div class="panel"><div class="grid" id="ip3"></div></div>
+<button class="acordeon" onclick="toggle(this)">IPHONE: 6 AL 8 PLUS (8)</button><div class="panel"><div class="grid" id="ip1"></div></div>
+<button class="acordeon" onclick="toggle(this)">IPHONE: X AL 11 PRO MAX (14)</button><div class="panel"><div class="grid" id="ip2"></div></div>
+<button class="acordeon" onclick="toggle(this)">IPHONE: 12 AL 16 PRO MAX (34)</button><div class="panel"><div class="grid" id="ip3"></div></div>
 
 <h2 style="color:var(--purple)">🛠️ REPARACIONES CARGA Y TACTIL</h2>
-<button class="acordeon" onclick="toggle(this)">RAM DE CARGA / PUERTOS (27)</button>
-<div class="panel"><div class="grid" id="puertos"></div></div>
-<button class="acordeon" onclick="toggle(this)">TÁCTILES SOLOS (4)</button>
-<div class="panel"><div class="grid" id="tactiles"></div></div>
+<button class="acordeon" onclick="toggle(this)">RAM DE CARGA / PUERTOS (27)</button><div class="panel"><div class="grid" id="puertos"></div></div>
+<button class="acordeon" onclick="toggle(this)">TÁCTILES SOLOS (4)</button><div class="panel"><div class="grid" id="tactiles"></div></div>
 
 <h2 style="color:var(--gold)">📱 HONOR</h2>
-<button class="acordeon" onclick="toggle(this)">HONOR: SOLO PANTALLAS (16)</button>
-<div class="panel"><div class="grid" id="ho1"></div></div>
-<button class="acordeon" onclick="toggle(this)">HONOR: CON MARCO (19)</button>
-<div class="panel"><div class="grid" id="ho2"></div></div>
+<button class="acordeon" onclick="toggle(this)">HONOR: SOLO PANTALLAS (16)</button><div class="panel"><div class="grid" id="ho1"></div></div>
+<button class="acordeon" onclick="toggle(this)">HONOR: CON MARCO (19)</button><div class="panel"><div class="grid" id="ho2"></div></div>
 
 <h2 style="color:var(--red)">📱 XIAOMI</h2>
-<button class="acordeon" onclick="toggle(this)">XIAOMI: SOLO PANTALLAS (33)</button>
-<div class="panel"><div class="grid" id="x1"></div></div>
-<button class="acordeon" onclick="toggle(this)">XIAOMI: CON MARCO (11)</button>
-<div class="panel"><div class="grid" id="x2"></div></div>
+<button class="acordeon" onclick="toggle(this)">XIAOMI: SOLO PANTALLAS (33)</button><div class="panel"><div class="grid" id="x1"></div></div>
+<button class="acordeon" onclick="toggle(this)">XIAOMI: CON MARCO (11)</button><div class="panel"><div class="grid" id="x2"></div></div>
 
 <h2 style="color:var(--green)">📱 SAMSUNG</h2>
-<button class="acordeon" onclick="toggle(this)">SAMSUNG: SOLO PANTALLAS (29)</button>
-<div class="panel"><div class="grid" id="s1"></div></div>
-<button class="acordeon" onclick="toggle(this)">SAMSUNG: CON MARCO (70)</button>
-<div class="panel"><div class="grid" id="s2"></div></div>
+<button class="acordeon" onclick="toggle(this)">SAMSUNG: SOLO PANTALLAS (29)</button><div class="panel"><div class="grid" id="s1"></div></div>
+<button class="acordeon" onclick="toggle(this)">SAMSUNG: CON MARCO (70)</button><div class="panel"><div class="grid" id="s2"></div></div>
 
 <h2 style="color:var(--neon)">📱 HUAWEI</h2>
-<button class="acordeon" onclick="toggle(this)">HUAWEI: SOLO PANTALLAS (37)</button>
-<div class="panel"><div class="grid" id="h1"></div></div>
-<button class="acordeon" onclick="toggle(this)">HUAWEI: CON MARCO (16)</button>
-<div class="panel"><div class="grid" id="h2"></div></div>
+<button class="acordeon" onclick="toggle(this)">HUAWEI: SOLO PANTALLAS (37)</button><div class="panel"><div class="grid" id="h1"></div></div>
+<button class="acordeon" onclick="toggle(this)">HUAWEI: CON MARCO (16)</button><div class="panel"><div class="grid" id="h2"></div></div>
 
 <h2 style="color:var(--orange)">📱 MOTOROLA</h2>
-<button class="acordeon" onclick="toggle(this)">MOTOROLA: SOLO PANTALLAS (29)</button>
-<div class="panel"><div class="grid" id="m1"></div></div>
-<button class="acordeon" onclick="toggle(this)">MOTOROLA: CON MARCO (13)</button>
-<div class="panel"><div class="grid" id="m2"></div></div>
+<button class="acordeon" onclick="toggle(this)">MOTOROLA: SOLO PANTALLAS (29)</button><div class="panel"><div class="grid" id="m1"></div></div>
+<button class="acordeon" onclick="toggle(this)">MOTOROLA: CON MARCO (13)</button><div class="panel"><div class="grid" id="m2"></div></div>
 
 <script>
+// --- INVENTARIO LIMPIO ---
 const ip1=[["6G","₡22,000"],["6G Plus","₡24,000"],["6S","₡23,000"],["6S Plus","₡26,000"],["7G","₡25,000"],["7 Plus","₡28,000"],["8G","₡26,000"],["8 Plus","₡30,000"]];
 const ip2=[["X OLED","₡45,000"],["X Incel","₡35,000"],["XS OLED","₡48,000"],["XS Incel","₡38,000"],["XR <span class='badge'>ORIG</span>","₡45,000"],["XR Incel","₡35,000"],["XS Max OLED","₡55,000"],["XS Max Incel","₡42,000"],["11 <span class='badge'>ORIG</span>","₡48,000"],["11 Incel","₡35,000"],["11 Pro OLED","₡55,000"],["11 Pro Incel","₡42,000"],["11 Pro Max OLED","₡65,000"],["11 Pro Max Incel","₡48,000"]];
 const ip3=[["12 OLED","₡65,000"],["12 / 12 Pro Incel","₡48,000"],["12 Pro Max <span class='badge'>ORIG</span>","₡110,000"],["12 Pro Max OLED","₡85,000"],["12 Pro Max Incel","₡55,000"],["13 SOFT","₡95,000"],["13 OLED","₡80,000"],["13 Incel","₡55,000"],["13 Pro SOFT","₡145,000"],["13 Pro OLED","₡125,000"],["13 Pro Incel","₡65,000"],["13 Pro Max SOFT","₡155,000"],["13 Pro Max OLED","₡135,000"],["13 Pro Max Incel","₡75,000"],["14 SOFT","₡120,000"],["14 OLED","₡105,000"],["14 Incel","₡65,000"],["14 Pro OLED","₡165,000"],["14 Pro Incel","₡85,000"],["14 Pro Max <span class='badge'>ORIG</span>","₡220,000"],["14 Pro Max OLED","₡185,000"],["14 Pro Max Incel","₡95,000"],["15 SOFT","₡165,000"],["15 OLED","₡145,000"],["15 Incel","₡85,000"],["15 Pro SOFT","₡210,000"],["15 Pro Incel","₡110,000"],["15 Pro Max OLED","₡245,000"],["15 Pro Max Incel","₡135,000"],["16 SOFT","₡265,000"],["16 OLED","₡245,000"],["16 Incel","₡155,000"],["16 Pro OLED","₡295,000"],["16 Pro Max SOFT","₡345,000"]];
@@ -95,7 +81,7 @@ const ho2=[["50 Lite (Col)","₡30,000"],["Honor 70","₡55,000"],["Honor 90","�
 const x1=[["Redmi A1","₡22,000"],["Redmi A3","₡24,000"],["Redmi A5","₡22,000"],["Redmi 9","₡24,000"],["Redmi 9A/9C/10A","₡22,000"],["Redmi 10","₡24,000"],["Redmi 10C","₡24,000"],["Redmi 12/13","₡26,000"],["Redmi 12C","₡24,000"],["Redmi 13C","₡24,000"],["Redmi 14C","₡26,000"],["Mi 9T","₡45,000"],["Mi 11T/Pro","₡65,000"],["Mi 11 Lite","₡45,000"],["Mi 12 Lite","₡55,000"],["Mi 12T","₡65,000"],["Note 8","₡24,000"],["Note 9","₡24,000"],["Note 9 Pro/9S","₡26,000"],["Note 10/10S","₡45,000"],["N10/11P/12P/X4P","₡55,000"],["N10 5G/M3 Pro","₡26,000"],["N11/11S/12S OLED","₡48,000"],["Note 12","₡45,000"],["Note 12 Pro 4G","₡45,000"],["Note 13/14","₡48,000"],["Note 13 Pro 4G","₡55,000"],["Note 13 Pro 5G","₡65,000"],["Note 13 Pro+ 5G","₡75,000"],["Poco X3","₡28,000"],["Poco X5P/N12P 5G","₡55,000"],["Poco M3/9T","₡24,000"],["Poco F3","₡55,000"]];
 const x2=[["Redmi A1","₡26,000"],["Redmi A3","₡28,000"],["Redmi 9","₡28,000"],["Redmi 9A/9C","₡26,000"],["Redmi 10C","₡28,000"],["Redmi 12C","₡28,000"],["Redmi 13C","₡28,000"],["Redmi 14C","₡30,000"],["Note 10S","₡52,000"],["Poco X3","₡32,000"],["Poco M3","₡28,000"]];
 const s1=[["J2P","₡16,000"],["J2P+T","₡18,000"],["J4","₡21,000"],["J4 Plus","₡23,000"],["J5P","₡18,000"],["J7","₡20,000"],["J7N","₡20,000"],["J7 2016","₡20,000"],["J7 Pro","₡25,000"],["J7P","₡18,000"],["J8","₡25,000"],["A01F","₡18,000"],["A01M","₡18,000"],["A01C","₡17,000"],["A02/M12","₡20,000"],["A02S/03S","₡20,000"],["A03C","₡19,000"],["A04","₡20,000"],["A04S","₡21,000"],["A05","₡22,000"],["A05S","₡22,000"],["A06","₡22,000"],["A10/S","₡19,000"],["A11","₡20,000"],["A12","₡20,000"],["A13/23","₡22,000"],["A14 4G","₡24,000"],["A14 5G","₡24,000"],["A20 OLED","₡26,000"]];
-const s2=[["A01","₡22,000"],["A02S","₡24,000"],["A03S","₡24,000"],["A03","₡23,000"],["A03C","₡23,000"],["A10","₡23,000"],["A10S","₡23,000"],["A11","₡24,000"],["A12","₡24,000"],["A13 4G","₡26,000"],["A15 <span class='badge'>ORIG</span>","₡45,000"],["A15 OLED","₡35,000"],["A16 <span class='badge'>ORIG</span>","₡48,000"],["A16 OLED","₡38,000"],["A20 OLED","₡30,000"],["A20S","₡25,000"],["A21S","₡25,000"],["A22 4G","₡32,000"],["A22 5G","₡28,000"],["A23","₡28,000"],["A24 <span class='badge'>ORIG</span>","₡48,000"],["A24 OLED","₡35,000"],["A25","₡45,000"],["A30 OLED","₡30,000"],["A30S OLED","₡30,000"],["A30S Gen","₡26,000"],["A31 <span class='badge'>ORIG</span>","₡45,000"],["A31 OLED","₡32,000"],["A32 <span class='badge'>ORIG</span>","₡48,000"],["A32 OLED","₡35,000"],["A33 <span class='badge'>ORIG</span>","₡52,000"],["A33 5G","₡38,000"],["A34 <span class='badge'>ORIG</span>","₡55,000"],["A34 OLED","₡42,000"],["A35 <span class='badge'>ORIG</span>","₡58,000"],["A35 OLED","₡45,000"],["A36 <span class='badge'>ORIG</span>","₡62,000"],["A50 OLED","₡32,000"],["A51 OLED","₡32,000"],["A52 <span class='badge'>ORIG</span>","₡60,000"],["A52 OLED","₡40,000"],["A53 <span class='badge'>ORIG</span>","₡65,000"],["A53 OLED","₡40,000"],["A54 <span class='badge'>ORIG</span>","₡70,000"],["A54 OLED","₡45,000"],["A55 <span class='badge'>ORIG</span>","₡75,000"],["A55 OLED","₡48,000"],["A56 <span class='badge'>ORIG</span>","₡80,000"],["A70","₡35,000"],["A71 <span class='badge'>ORIG</span>","₡65,000"],["A71 OLED","₡35,000"],["A72 <span class='badge'>ORIG</span>","₡70,000"],["A72 OLED","₡42,000"],["A73 <span class='badge'>ORIG</span>","₡75,000"],["A73 OLED","₡42,000"],["M32","₡32,000"],["S20FE","₡45,000"],["S21","₡55,000"],["S21FE","₡55,000"],["S22","₡65,000"],["S23","₡65,000"],["S23U <span class='badge'>ORIG</span>","₡145,000"],["A20S BIS","₡25,000"],["A21S BIS","₡25,000"],["A22 5G BIS","₡28,000"],["A23 BIS","₡28,000"],["A10 BIS","₡23,000"],["A10S BIS","₡23,000"],["A11 BIS","₡24,000"],["M10L","₡26,000"]];
+const s2=[["A01","₡22,000"],["A02S","₡24,000"],["A03S","₡24,000"],["A03","₡23,000"],["A03C","₡23,000"],["A10","₡23,000"],["A10S","₡23,000"],["A11","₡24,000"],["A12","₡24,000"],["A13 4G","₡26,000"],["A15 <span class='badge'>ORIG</span>","₡45,000"],["A15 OLED","₡35,000"],["A16 <span class='badge'>ORIG</span>","₡48,000"],["A16 OLED","₡38,000"],["A20 OLED","₡30,000"],["A20S","₡25,000"],["A21S","₡25,000"],["A22 4G","₡32,000"],["A22 5G","₡28,000"],["A23","₡28,000"],["A24 <span class='badge'>ORIG</span>","₡48,000"],["A24 OLED","₡35,000"],["A25","₡45,000"],["A30 OLED","₡30,000"],["A30S OLED","₡30,000"],["A30S Gen","₡26,000"],["A31 <span class='badge'>ORIG</span>","₡45,000"],["A31 OLED","₡32,000"],["A32 <span class='badge'>ORIG</span>","₡48,000"],["A32 OLED","₡35,000"],["A33 <span class='badge'>ORIG</span>","₡52,000"],["A33 5G","₡38,000"],["A34 <span class='badge'>ORIG</span>","₡55,000"],["A34 OLED","₡42,000"],["A35 <span class='badge'>ORIG</span>","₡58,000"],["A35 OLED","₡45,000"],["A36 <span class='badge'>ORIG</span>","₡62,000"],["A50 OLED","₡32,000"],["A51 OLED","₡32,000"],["A52 <span class='badge'>ORIG</span>","₡60,000"],["A52 OLED","₡40,000"],["A53 <span class='badge'>ORIG</span>","₡65,000"],["A53 OLED","₡40,000"],["A54 <span class='badge'>ORIG</span>","₡70,000"],["A54 OLED","₡45,000"],["A55 <span class='badge'>ORIG</span>","₡75,000"],["A55 OLED","₡48,000"],["A56 <span class='badge'>ORIG</span>","₡80,000"],["A70","₡35,000"],["A71 <span class='badge'>ORIG</span>","₡65,000"],["A71 OLED","₡35,000"],["A72 <span class='badge'>ORIG</span>","₡70,000"],["A72 OLED","₡42,000"],["A73 <span class='badge'>ORIG</span>","₡75,000"],["A73 OLED","₡42,000"],["M32","₡32,000"],["S20FE","₡45,000"],["S21","₡55,000"],["S21FE","₡55,000"],["S22","₡65,000"],["S23","₡65,000"],["S23U <span class='badge'>ORIG</span>","₡145,000"],["A20S","₡25,000"],["A21S","₡25,000"],["A22 5G","₡28,000"],["A23","₡28,000"],["A10","₡23,000"],["A10S","₡23,000"],["A11","₡24,000"],["M10L","₡26,000"]];
 const h1=[["P Smart","₡21,000"],["PS 2019","₡22,000"],["P8","₡18,000"],["P8 Lite","₡16,500"],["P10","₡22,000"],["P10 Lite","₡25,000"],["P20","₡24,000"],["P20 Lite","₡22,000"],["P30 Lite","₡25,000"],["P40 Lite","₡26,000"],["Y3 2017","₡17,000"],["Y5 2018","₡18,000"],["Y5 2019","₡19,000"],["Y6 2018","₡19,000"],["Y6P 2019","₡21,000"],["Y6P","₡22,000"],["Y7 2018","₡21,000"],["Y7P 2019","₡22,000"],["Y7P","₡25,000"],["Y7A","₡26,000"],["Y9 2018","₡26,000"],["Y9 2019","₡26,000"],["Y9P 2019","₡28,000"],["Y9S","₡32,000"],["Y9A","₡34,000"],["M10L","₡26,000"],["M20L","₡28,000"],["N5T","₡28,000"],["N9","₡35,000"],["N9 SE","₡35,000"],["N10","₡38,000"],["N10 SE","₡38,000"],["NY60","₡28,000"],["NY70","₡28,000"],["N8i","₡35,000"],["T1 7","₡22,000"],["T3 7","₡25,000"]];
 const h2=[["P Smart","₡24,000"],["PS 2019","₡25,000"],["P20 Lite","₡26,000"],["P30 Lite","₡30,000"],["P40 Lite","₡30,000"],["Y6P 2019","₡24,000"],["Y7 2018","₡24,000"],["Y7P 2019","₡25,000"],["Y7P","₡28,500"],["Y8S","₡30,000"],["Y9 2019","₡30,000"],["Y9P 2019","₡32,000"],["Y9S","₡36,000"],["Y9A","₡38,000"],["M20L","₡32,000"],["N5T","₡32,000"]];
 const m1=[["One","₡24,000"],["Macro/G8P","₡24,000"],["One Fusion","₡24,000"],["G04/G24","₡22,000"],["G8/Fast","₡24,000"],["G8 Power","₡24,000"],["G8 P. Lite","₡22,000"],["G8 Plus","₡25,000"],["G9 Power","₡24,000"],["G9 Plus","₡28,000"],["G9 Play","₡24,000"],["G10/20/30","₡24,000"],["G13/23/53","₡24,000"],["G14/54","₡24,000"],["G22/E32","₡24,000"],["G31/G71","₡35,000"],["G32","₡25,000"],["G42","₡35,000"],["G53/G23","₡24,000"],["G60/G51","₡28,000"],["G72","₡45,000"],["E6S/i","₡21,000"],["E6 Play","₡20,000"],["E7","₡22,000"],["E13","₡22,000"],["E20","₡22,000"],["E22","₡22,000"],["E40","₡22,000"],["Edge 30 Neo","₡55,000"]];
