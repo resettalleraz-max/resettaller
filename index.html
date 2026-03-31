@@ -9,16 +9,20 @@
         :root { --bg: #0a0f18; --card: #161e2d; --neon: #38bdf8; --green: #22c55e; --text: #f8fafc; }
         body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 10px; }
         .header { text-align: center; padding: 30px 15px; background: #111827; border-bottom: 4px solid var(--neon); border-radius: 0 0 25px 25px; margin-bottom: 20px; }
-        .logo-circulo { width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--neon); margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; background: rgba(56, 189, 248, 0.1); box-shadow: 0 0 15px var(--neon); font-weight: bold; color: var(--neon); font-size: 1.5em; }
+        .logo-circulo { width: 90px; height: 90px; border-radius: 50%; border: 3px solid var(--neon); margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; background: rgba(56, 189, 248, 0.1); box-shadow: 0 0 15px var(--neon); font-weight: bold; color: var(--neon); font-size: 1.5em; }
         #buscador { width: 100%; padding: 15px; border-radius: 30px; border: 2px solid var(--neon); margin-bottom: 20px; box-sizing: border-box; font-weight: 600; outline: none; background: #fff; color: #000; font-size: 16px; }
-        .acordeon { background: var(--card); color: var(--neon); cursor: pointer; padding: 18px; width: 100%; border: 1px solid rgba(56,189,248,0.2); text-align: left; font-size: 1em; font-weight: 700; border-radius: 12px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; }
-        .panel { padding: 0 5px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; padding: 15px 0; }
-        .caja { background: var(--card); padding: 15px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
-        .caja h3 { font-size: 0.75em; margin: 0; text-transform: uppercase; min-height: 35px; color: #cbd5e1; }
-        .precio { color: var(--green); font-size: 1.3em; font-weight: 800; margin: 10px 0; display: block; }
-        .btn-wa { background: var(--green); color: #000; text-decoration: none; padding: 10px; border-radius: 8px; font-weight: 700; text-transform: uppercase; font-size: 0.75em; }
-        .active:after { content: "\2212"; } .acordeon:after { content: '\002B'; }
+        
+        .acordeon { background: var(--card); color: var(--neon); cursor: pointer; padding: 18px; width: 100%; border: 1px solid rgba(56,189,248,0.2); text-align: left; font-size: 1em; font-weight: 700; border-radius: 12px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; outline: none; }
+        .panel { padding: 0 5px; max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; background: #0d1421; border-radius: 0 0 12px 12px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; padding: 15px 5px; }
+        .caja { background: var(--card); padding: 12px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
+        .caja h3 { font-size: 0.7em; margin: 0; text-transform: uppercase; min-height: 35px; color: #cbd5e1; line-height: 1.1; }
+        .precio { color: var(--green); font-size: 1.2em; font-weight: 800; margin: 8px 0; display: block; }
+        .btn-wa { background: var(--green); color: #000; text-decoration: none; padding: 8px; border-radius: 8px; font-weight: 700; text-transform: uppercase; font-size: 0.7em; }
+        
+        .acordeon:after { content: '\002B'; font-size: 1.3em; }
+        .active:after { content: "\2212"; }
     </style>
 </head>
 <body>
@@ -29,16 +33,16 @@
         <p>Aguas Zarcas | WhatsApp: 6107-3855</p>
     </div>
 
-    <input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 BUSCAR MODELO SAMSUNG O HUAWEI...">
+    <input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 BUSCAR MODELO...">
 
-    <h2 style="color:var(--green); margin-left:10px;">📱 SAMSUNG</h2>
+    <h2 style="color:var(--green); margin: 20px 0 10px 10px; font-size: 1.2em;">📱 SAMSUNG</h2>
     <button class="acordeon">SAMSUNG: SOLO PANTALLAS (29)</button>
     <div class="panel"><div class="grid" id="sam-solo"></div></div>
     
     <button class="acordeon">🖼️ SAMSUNG: CON MARCO (70)</button>
     <div class="panel"><div class="grid" id="sam-marco"></div></div>
 
-    <h2 style="color:var(--neon); margin-left:10px; margin-top:20px;">📱 HUAWEI</h2>
+    <h2 style="color:var(--neon); margin: 30px 0 10px 10px; font-size: 1.2em;">📱 HUAWEI</h2>
     <button class="acordeon">HUAWEI: SOLO PANTALLAS (37)</button>
     <div class="panel"><div class="grid" id="hua-solo"></div></div>
     
@@ -46,38 +50,48 @@
     <div class="panel"><div class="grid" id="hua-marco"></div></div>
 
     <script>
-        const samS = [["J2 PRIME","16,000"],["J4 NEGRO","21,000"],["J4 PLUS","23,000"],["J5 PRIME","18,000"],["J7 NEO","20,000"],["J7 PRIME","18,000"],["J7 PRO OLED","25,000"],["J8","25,000"],["A01","18,000"],["A01 CORE","17,000"],["A02/M12","20,000"],["A02S/A03/A04E","20,000"],["A03 CORE","19,000"],["A04","20,000"],["A04S","21,000"],["A05/A05S/A06","22,000"],["A10/A10S","19,000"],["A11","20,000"],["A12","20,000"],["A13/A23 4G","22,000"],["A14 4G/5G","24,000"],["A20 OLED","26,000"],["A20S","21,000"],["A21S","21,000"],["A22 5G","24,000"],["A30 OLED","26,000"],["A30S OLED","26,000"],["A50 OLED","28,000"]];
-        
-        const samM = [["A01","22,000"],["A02S/A03S","24,000"],["A03/CORE","23,000"],["A10/A10S","23,000"],["A11","24,000"],["A12","24,000"],["A13 4G","26,000"],["A15 ORIGINAL","45,000"],["A15 OLED","35,000"],["A16 ORIGINAL","48,000"],["A16 OLED","38,000"],["A20 OLED","30,000"],["A20S","25,000"],["A21S","25,000"],["A22 4G OLED","32,000"],["A22 5G","28,000"],["A23","28,000"],["A24 ORIGINAL","48,000"],["A24 OLED","35,000"],["A25 OLED","45,000"],["A30/A30S OLED","30,000"],["A31 ORIGINAL","45,000"],["A31 OLED","32,000"],["A32 ORIGINAL","48,000"],["A32 OLED","35,000"],["A33 ORIGINAL","52,000"],["A33 5G OLED","38,000"],["A34 ORIGINAL","55,000"],["A34 OLED","42,000"],["A35 ORIGINAL","58,000"],["A35 OLED","45,000"],["A50/A51 OLED","32,000"],["A52 ORIGINAL","60,000"],["A52 OLED","40,000"],["A53 ORIGINAL","65,000"],["A53 OLED","40,000"],["A54 ORIGINAL","70,000"],["A54 OLED","45,000"],["A55 ORIGINAL","75,000"],["A55 OLED","48,000"],["A70/A71 OLED","35,000"],["A72/A73 OLED","42,000"],["M32","32,000"],["S20 FE","45,000"],["S21/S21 FE","55,000"],["S22","65,000"],["S23","65,000"],["S23 ULTRA ORIGINAL","145,000"]];
-        
-        const huaS = [["P SMART","21,000"],["P SMART 2019","22,000"],["P8","18,000"],["P8 LITE","16,500"],["P10","22,000"],["P10 LITE","25,000"],["P20","24,000"],["P20 LITE","22,000"],["P30 LITE","25,000"],["P40 LITE","26,000"],["Y3 2017","17,000"],["Y5 2018","18,000"],["Y5 2019","19,000"],["Y6 2018","19,000"],["Y6 PRIME 2019","21,000"],["Y6P","22,000"],["Y7 2018","21,000"],["Y7 PRIME 2019","22,000"],["Y7P","25,000"],["Y7A","26,000"],["Y9 2018","26,000"],["Y9 2019/Y8S","26,000"],["Y9 PRIME 2019","28,000"],["Y9S","32,000"],["Y9A","34,000"],["MATE 10 LITE","26,000"],["MATE 20 LITE","28,000"],["NOVA 5T","28,000"],["NOVA 9/9 SE","35,000"],["NOVA 10/10 SE","38,000"],["NOVA Y60/Y70","28,000"],["NOVA 8i/HONOR 50 LITE","35,000"],["TABLET T1 7\"","22,000"],["TABLET T3 7\"","25,000"]];
-        
-        const huaM = [["P SMART","24,000"],["P SMART 2019","25,000"],["P20 LITE","26,000"],["P30 LITE","30,000"],["P40 LITE","30,000"],["Y6 PRIME 2019","24,000"],["Y7 2018","24,000"],["Y7 PRIME 2019","25,000"],["Y7P","28,500"],["Y8S","30,000"],["Y9 2019","30,000"],["Y9 PRIME 2019","32,000"],["Y9S","36,000"],["Y9A","38,000"],["MATE 20 LITE","32,000"],["NOVA 5T","32,000"]];
+        // DATOS CARGADOS
+        const sS = [["J2 PRIME","16,000"],["J4 NEGRO","21,000"],["J4 PLUS","23,000"],["J5 PRIME","18,000"],["J7 NEO","20,000"],["J7 PRIME","18,000"],["J7 PRO OLED","25,000"],["J8","25,000"],["A01","18,000"],["A01 CORE","17,000"],["A02/M12","20,000"],["A02S/A03/A04E","20,000"],["A03 CORE","19,000"],["A04","20,000"],["A04S","21,000"],["A05/A05S/A06","22,000"],["A10/A10S","19,000"],["A11","20,000"],["A12","20,000"],["A13/A23 4G","22,000"],["A14 4G/5G","24,000"],["A20 OLED","26,000"],["A20S","21,000"],["A21S","21,000"],["A22 5G","24,000"],["A30 OLED","26,000"],["A30S OLED","26,000"],["A50 OLED","28,000"]];
+        const sM = [["A01","22,000"],["A02S/A03S","24,000"],["A03/CORE","23,000"],["A10/A10S","23,000"],["A11","24,000"],["A12","24,000"],["A13 4G","26,000"],["A15 ORIGINAL","45,000"],["A15 OLED","35,000"],["A16 ORIGINAL","48,000"],["A16 OLED","38,000"],["A20 OLED","30,000"],["A20S","25,000"],["A21S","25,000"],["A22 4G OLED","32,000"],["A22 5G","28,000"],["A23","28,000"],["A24 ORIGINAL","48,000"],["A24 OLED","35,000"],["A25 OLED","45,000"],["A30/A30S OLED","30,000"],["A31 ORIGINAL","45,000"],["A31 OLED","32,000"],["A32 ORIGINAL","48,000"],["A32 OLED","35,000"],["A33 ORIGINAL","52,000"],["A33 5G OLED","38,000"],["A34 ORIGINAL","55,000"],["A34 OLED","42,000"],["A35 ORIGINAL","58,000"],["A35 OLED","45,000"],["A50/A51 OLED","32,000"],["A52 ORIGINAL","60,000"],["A52 OLED","40,000"],["A53 ORIGINAL","65,000"],["A53 OLED","40,000"],["A54 ORIGINAL","70,000"],["A54 OLED","45,000"],["A55 ORIGINAL","75,000"],["A55 OLED","48,000"],["A70/A71 OLED","35,000"],["A72/A73 OLED","42,000"],["M32","32,000"],["S20 FE","45,000"],["S21/S21 FE","55,000"],["S22","65,000"],["S23","65,000"],["S23 ULTRA ORIGINAL","145,000"]];
+        const hS = [["P SMART","21,000"],["P SMART 2019","22,000"],["P8","18,000"],["P8 LITE","16,500"],["P10","22,000"],["P10 LITE","25,000"],["P20","24,000"],["P20 LITE","22,000"],["P30 LITE","25,000"],["P40 LITE","26,000"],["Y3 2017","17,000"],["Y5 2018","18,000"],["Y5 2019","19,000"],["Y6 2018","19,000"],["Y6 PRIME 2019","21,000"],["Y6P","22,000"],["Y7 2018","21,000"],["Y7 PRIME 2019","22,000"],["Y7P","25,000"],["Y7A","26,000"],["Y9 2018","26,000"],["Y9 2019/Y8S","26,000"],["Y9 PRIME 2019","28,000"],["Y9S","32,000"],["Y9A","34,000"],["MATE 10 LITE","26,000"],["MATE 20 LITE","28,000"],["NOVA 5T","28,000"],["NOVA 9/9 SE","35,000"],["NOVA 10/10 SE","38,000"],["NOVA Y60/Y70","28,000"],["NOVA 8i/HONOR 50 LITE","35,000"],["TABLET T1 7\"","22,000"],["TABLET T3 7\"","25,000"]];
+        const hM = [["P SMART","24,000"],["P SMART 2019","25,000"],["P20 LITE","26,000"],["P30 LITE","30,000"],["P40 LITE","30,000"],["Y6 PRIME 2019","24,000"],["Y7 2018","24,000"],["Y7 PRIME 2019","25,000"],["Y7P","28,500"],["Y8S","30,000"],["Y9 2019","30,000"],["Y9 PRIME 2019","32,000"],["Y9S","36,000"],["Y9A","38,000"],["MATE 20 LITE","32,000"],["NOVA 5T","32,000"]];
 
-        function cargar(lista, id) {
-            const div = document.getElementById(id);
-            lista.forEach(p => {
-                div.innerHTML += <div class="caja producto"><h3>${p[0]}</h3><span class="precio">₡${p[1]}</span><a href="https://wa.me/50661073855?text=Consulto+por+${p[0].replace(/ /g,'+')}" class="btn-wa">WhatsApp</a></div>;
+        function fill(data, id) {
+            const container = document.getElementById(id);
+            data.forEach(item => {
+                container.innerHTML += `
+                    <div class="caja producto">
+                        <h3>${item[0]}</h3>
+                        <span class="precio">₡${item[1]}</span>
+                        <a href="https://wa.me/50661073855?text=Consulto+por+${item[0].replace(/ /g,'+')}" class="btn-wa">WhatsApp</a>
+                    </div>`;
             });
         }
-        cargar(samS, 'sam-solo'); cargar(samM, 'sam-marco'); cargar(huaS, 'hua-solo'); cargar(huaM, 'hua-marco');
+        fill(sS, 'sam-solo'); fill(sM, 'sam-marco'); fill(hS, 'hua-solo'); fill(hM, 'hua-marco');
 
-        var acc = document.getElementsByClassName("acordeon");
-        for (var i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
+        // REPARACIÓN ACORDEÓN
+        const acc = document.getElementsByClassName("acordeon");
+        for (let i = 0; i < acc.length; i++) {
+            acc[i].onclick = function() {
                 this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                panel.style.maxHeight = panel.style.maxHeight ? null : panel.scrollHeight + "px";
-            });
+                const panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            };
         }
 
         function buscar() {
-            let input = document.getElementById('buscador').value.toLowerCase();
-            let p = document.getElementsByClassName('producto');
-            for (let i = 0; i < p.length; i++) {
-                let coincide = p[i].innerText.toLowerCase().includes(input);
-                p[i].style.display = coincide ? "flex" : "none";
-                if(input !== "" && coincide) { p[i].parentElement.parentElement.style.maxHeight = "none"; }
+            const input = document.getElementById('buscador').value.toLowerCase();
+            const prods = document.getElementsByClassName('producto');
+            for (let i = 0; i < prods.length; i++) {
+                const match = prods[i].innerText.toLowerCase().includes(input);
+                prods[i].style.display = match ? "flex" : "none";
+                if(input !== "" && match) {
+                    prods[i].parentElement.parentElement.style.maxHeight = "none";
+                }
             }
         }
     </script>
