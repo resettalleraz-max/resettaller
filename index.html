@@ -8,37 +8,24 @@
 :root { --bg: #0a0f18; --card: #161e2d; --neon: #38bdf8; --green: #22c55e; --text: #f8fafc; --gold: #eab308; }
 .light-mode { --bg: #f1f5f9; --card: #ffffff; --neon: #0284c7; --green: #16a34a; --text: #1e293b; --gold: #ca8a04; }
 body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 10px; transition: 0.3s; }
-
-/* Botón Modo Día acomodado para no estorbar (según image_3.png) */
 .btn-tema { position: fixed; top: 25px; right: 25px; background: rgba(22,30,45,0.8); border: 2px solid var(--neon); color: var(--neon); padding: 8px 12px; border-radius: 20px; font-size: 0.75em; font-weight: 700; z-index: 1000; cursor: pointer; backdrop-filter: blur(5px); }
-
-/* ENCABEZADO CON IMAGEN DE FONDO ELECTRÓNICA */
-.header { text-align: center; padding: 40px 20px; border-bottom: 4px solid var(--neon); border-radius: 0 0 25px 25px; margin-bottom: 20px; position: relative; overflow: hidden; 
-  /* Imagen de fondo técnica (placa de circuitos nítida) */
-  background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000'); 
-  background-size: cover; background-position: center; }
-
-/* Capa oscura para que el texto resalte sobre la imagen */
+.header { text-align: center; padding: 40px 20px; border-bottom: 4px solid var(--neon); border-radius: 0 0 25px 25px; margin-bottom: 20px; position: relative; overflow: hidden; background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000'); background-size: cover; background-position: center; }
 .header::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10,15,24,0.7); z-index: 0; }
-
 .logo-img { width: 110px; height: 110px; border-radius: 50%; border: 4px solid var(--neon); margin-bottom: 15px; position: relative; z-index: 1; object-fit: cover; box-shadow: 0 0 15px rgba(56,189,248,0.5); }
-.header h1, .header p, .header span { position: relative; z-index: 1; margin: 0; font-weight: 700; /* Sombra para resaltar texto */ text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
-.header h1 { font-size: 2em; letter-spacing: 1px; }
+.header h1, .header p, .header .dir, .biblia { position: relative; z-index: 1; margin: 0; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
+.header h1 { font-size: 2em; }
 .header p { font-size: 1.2em; color: var(--neon); margin: 5px 0; }
 .header .dir { font-size: 0.8em; opacity: 0.9; display: block; margin-bottom: 5px; color: #ccc; }
 .biblia { font-style: italic; font-size: 0.8em; color: var(--gold); }
-
-#buscador { width: 100%; padding: 15px; border-radius: 30px; border: 2px solid var(--neon); background: var(--card); color: var(--text); margin: 20px 0; outline: none; box-sizing: border-box; font-weight: 600; font-size: 1em; }
-.acordeon { background: var(--card); color: var(--neon); cursor: pointer; padding: 18px; width: 100%; border: 1px solid rgba(56,189,248,0.2); text-align: left; font-weight: 700; border-radius: 12px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+#buscador { width: 100%; padding: 15px; border-radius: 30px; border: 2px solid var(--neon); background: var(--card); color: var(--text); margin: 20px 0; outline: none; box-sizing: border-box; font-weight: 600; }
+.acordeon { background: var(--card); color: var(--neon); cursor: pointer; padding: 18px; width: 100%; border: 1px solid rgba(56,189,248,0.2); text-align: left; font-weight: 700; border-radius: 12px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; }
 .panel { padding: 0 5px; max-height: 0; overflow: hidden; transition: 0.3s ease-out; background: rgba(0,0,0,0.1); border-radius: 0 0 12px 12px; }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; padding: 15px 5px; }
-.caja { background: var(--card); padding: 12px; border-radius: 15px; text-align: center; border: 1px solid rgba(255,255,255,0.05); transition: 0.2s; }
-.caja:hover { transform: scale(1.03); border-color: var(--neon); }
+.caja { background: var(--card); padding: 12px; border-radius: 15px; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
 .caja h3 { font-size: 0.75em; margin: 0; min-height: 35px; text-transform: uppercase; }
 .precio { color: var(--green); font-size: 1.2em; font-weight: 800; margin: 8px 0; display: block; }
-.btn-wa { background: var(--green); color: #fff; text-decoration: none; padding: 10px; border-radius: 8px; font-size: 0.75em; font-weight: 700; display: block; text-transform: uppercase; }
-.badge { background: var(--gold); color: #000; font-size: 0.6em; padding: 2px 4px; border-radius: 4px; font-weight: 900; position: relative; top: -2px; }
-.acordeon:after { content: '\002B'; font-size: 1.2em; } .active:after { content: "\2212"; }
+.btn-wa { background: var(--green); color: #fff; text-decoration: none; padding: 10px; border-radius: 8px; font-size: 0.75em; font-weight: 700; display: block; }
+.acordeon:after { content: '\002B'; } .active:after { content: "\2212"; }
 </style>
 </head>
 <body>
@@ -51,46 +38,57 @@ body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--t
   <span class="biblia">"Pon en manos del Señor todas tus obras..." - Prov. 16:3</span>
 </div>
 
-<input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 BUSCAR IPHONE, A34, X5 PLUS...">
+<input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 BUSCAR REPUESTO O ACCESORIO...">
 
-<button class="acordeon" onclick="toggle(this)">📱 IPHONE: TODOS (56)</button>
-<div class="panel"><div class="grid" id="ip_all"></div></div>
+<button class="acordeon" onclick="toggle(this)">📱 PANTALLAS (IPHONE, SAM, HONOR...)</button>
+<div class="panel"><div class="grid" id="pantallas"></div></div>
 
-<button class="acordeon" onclick="toggle(this)">🛠️ CARGA Y TACTIL (31)</button>
-<div class="panel"><div class="grid" id="tc_all"></div></div>
+<button class="acordeon" onclick="toggle(this)">🔌 FLEX (PRINCIPAL, CARGA, AUDIO, ENCENDIDO)</button>
+<div class="panel"><div class="grid" id="flex"></div></div>
 
-<button class="acordeon" onclick="toggle(this)">📱 HONOR (35)</button>
-<div class="panel"><div class="grid" id="ho_all"></div></div>
+<button class="acordeon" onclick="toggle(this)">🔊 AUDIO, TIMBRE, MICRÓFONO Y ANTENA</button>
+<div class="panel"><div class="grid" id="audio"></div></div>
 
-<button class="acordeon" onclick="toggle(this)">📱 SAMSUNG (99)</button>
-<div class="panel"><div class="grid" id="sa_all"></div></div>
+<button class="acordeon" onclick="toggle(this)">👆 BOTONES, HUELAS Y CONECTOR FPC</button>
+<div class="panel"><div class="grid" id="botones"></div></div>
 
-<button class="acordeon" onclick="toggle(this)">📱 XIAOMI (44)</button>
-<div class="panel"><div class="grid" id="xi_all"></div></div>
+<button class="acordeon" onclick="toggle(this)">⚡ CARGADORES (CUBOS Y CABLES)</button>
+<div class="panel"><div class="grid" id="cargadores"></div></div>
 
-<button class="acordeon" onclick="toggle(this)">📱 HUAWEI (53)</button>
-<div class="panel"><div class="grid" id="hu_all"></div></div>
+<button class="acordeon" onclick="toggle(this)">🚗 ACCESORIOS CARRO Y SOPORTES</button>
+<div class="panel"><div class="grid" id="carro"></div></div>
 
-<button class="acordeon" onclick="toggle(this)">📱 MOTOROLA (42)</button>
-<div class="panel"><div class="grid" id="mo_all"></div></div>
+<button class="acordeon" onclick="toggle(this)">📷 TAPAS, CÁMARAS Y LENTES</button>
+<div class="panel"><div class="grid" id="estetica"></div></div>
+
+<button class="acordeon" onclick="toggle(this)">🎧 AUDÍFONOS Y SMARTWATCH</button>
+<div class="panel"><div class="grid" id="gadgets"></div></div>
+
+<button class="acordeon" onclick="toggle(this)">🛠️ HERRAMIENTAS Y MALLAS DE SOLDAR</button>
+<div class="panel"><div class="grid" id="herramientas"></div></div>
+
+<button class="acordeon" onclick="toggle(this)">📦 OTROS (PORTASIM, GOMAS, ETC)</button>
+<div class="panel"><div class="grid" id="otros"></div></div>
 
 <script src="datos.js"></script>
 <script>
-const fill=(d,id)=>{const c=document.getElementById(id);if(!c||!d)return;let h='';d.forEach(i=>{const b=i[0].includes("ORIG")?'<span class="badge">ORIG</span>':'';h+=`<div class="caja producto"><h3>${i[0]} ${b}</h3><span class="precio">${i[1]}</span><a href="https://wa.me/50661073855?text=Reparar+${i[0]}" class="btn-wa">REPARAR</a></div>`});c.innerHTML=h};
+const fill=(d,id)=>{const c=document.getElementById(id);if(!c||!d)return;let h='';d.forEach(i=>{h+=`<div class="caja producto"><h3>${i[0]}</h3><span class="precio">${i[1]}</span><a href="https://wa.me/50661073855?text=Consulta+por+${i[0]}" class="btn-wa">CONSULTAR</a></div>`});c.innerHTML=h};
 
-// Cargar datos desde datos.js
-if(typeof IP1 !== 'undefined'){
-  fill(IP1.concat(IP2,IP3),'ip_all');
-  fill(PUERTO.concat(TACT),'tc_all');
-  fill(HONOR,'ho_all');
-  fill(SAMSUNG,'sa_all');
-  fill(XIAOMI,'xi_all');
-  fill(HUAWEI,'hu_all');
-  fill(MOTO,'mo_all');
+if(typeof PANTALLAS !== 'undefined'){
+  fill(PANTALLAS,'pantallas');
+  fill(FLEX,'flex');
+  fill(AUDIO,'audio');
+  fill(BOTONES,'botones');
+  fill(CARGADORES,'cargadores');
+  fill(CARRO,'carro');
+  fill(ESTETICA,'estetica');
+  fill(GADGETS,'gadgets');
+  fill(HERRAMIENTAS,'herramientas');
+  fill(OTROS,'otros');
 }
 
 function toggle(b){b.classList.toggle("active");const p=b.nextElementSibling;p.style.maxHeight=p.style.maxHeight?null:p.scrollHeight+"px"}
-function cambiarTema(){document.body.classList.contains("light-mode")?document.body.classList.remove("light-mode"):document.body.classList.add("light-mode");}
+function cambiarTema(){document.body.classList.toggle("light-mode");}
 function buscar(){
   const v=document.getElementById('buscador').value.toLowerCase();
   const p=document.getElementsByClassName('producto');
