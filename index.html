@@ -5,58 +5,65 @@
 <title>RESET TALLER</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0a0f18;--card:#161e2d;--neon:#38bdf8;--green:#22c55e;--orange:#f97316;--red:#e11d48;--gold:#eab308;--purple:#a855f7;--text:#f8fafc}
-.light-mode{--bg:#f1f5f9;--card:#fff;--neon:#0284c7;--green:#16a34a;--orange:#ea580c;--red:#be123c;--gold:#ca8a04;--purple:#9333ea;--text:#1e293b}
-body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);margin:0;padding:10px;transition:.3s}
-.btn-tema{position:fixed;top:15px;right:15px;background:var(--card);border:2px solid var(--neon);color:var(--neon);padding:8px 12px;border-radius:20px;font-size:.75em;font-weight:700;z-index:1000;cursor:pointer}
-.header{text-align:center;padding:20px;background:var(--card);border-bottom:4px solid var(--neon);border-radius:0 0 25px 25px;margin-bottom:20px}
-.logo-img{width:100px;height:100px;border-radius:50%;border:3px solid var(--neon);margin-bottom:12px;object-fit:cover}
-.header h1{font-size:1.7em;margin:0;letter-spacing:1px}
-.header p{font-size:1.1em;margin:5px 0;color:var(--neon);font-weight:700}
-.header span{font-size:.8em;opacity:.8;display:block;margin-bottom:8px}
-.biblia{font-style:italic;font-size:.75em;color:var(--gold);font-weight:600;display:block}
-.aviso{background:rgba(34,197,94,.15);border:2px solid var(--green);color:var(--green);padding:10px;border-radius:12px;font-size:.8em;text-align:center;font-weight:700;margin-bottom:20px}
-#buscador{width:100%;padding:15px;border-radius:30px;border:2px solid var(--neon);box-sizing:border-box;font-weight:600;margin-bottom:20px;outline:none}
-.acordeon{background:var(--card);color:var(--neon);cursor:pointer;padding:18px;width:100%;border:1px solid rgba(56,189,248,.2);text-align:left;font-weight:700;border-radius:12px;margin-top:10px;display:flex;justify-content:space-between;align-items:center}
-.panel{padding:0 5px;max-height:0;overflow:hidden;transition:max-height .3s ease-out;background:rgba(0,0,0,.1);border-radius:0 0 12px 12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(140px, 1fr));gap:10px;padding:15px 5px}
-.caja{background:var(--card);padding:12px;border-radius:15px;text-align:center;border:1px solid rgba(255,255,255,.05)}
-.caja h3{font-size:.7em;margin:0;color:var(--text);text-transform:uppercase;min-height:35px}
-.precio{color:var(--green);font-size:1.1em;font-weight:800;margin:8px 0;display:block}
-.btn-wa{background:var(--green);color:#fff;text-decoration:none;padding:8px;border-radius:8px;font-size:.7em;font-weight:700;display:block}
-.badge{background:#ffd700;color:#000;font-size:.6em;padding:2px 4px;border-radius:4px;font-weight:900}
-.acordeon:after{content:'\002B'}.active:after{content:"\2212"}
+:root { --bg: #0a0f18; --card: #161e2d; --neon: #38bdf8; --green: #22c55e; --orange: #f97316; --red: #e11d48; --gold: #eab308; --purple: #a855f7; --text: #f8fafc; }
+.light-mode { --bg: #f1f5f9; --card: #ffffff; --neon: #0284c7; --green: #16a34a; --orange: #ea580c; --red: #be123c; --gold: #ca8a04; --purple: #9333ea; --text: #1e293b; }
+body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 10px; transition: 0.3s; }
+.btn-tema { position: fixed; top: 15px; right: 15px; background: var(--card); border: 2px solid var(--neon); color: var(--neon); padding: 8px 12px; border-radius: 20px; font-size: 0.75em; font-weight: 700; z-index: 1000; cursor: pointer; }
+.header { text-align: center; padding: 25px 20px; background: var(--card); border-bottom: 4px solid var(--neon); border-radius: 0 0 25px 25px; margin-bottom: 20px; }
+.logo-img { width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--neon); margin-bottom: 12px; object-fit: cover; }
+.header h1 { font-size: 1.7em; margin: 0; letter-spacing: 1px; }
+.header p { font-size: 1.1em; margin: 5px 0; color: var(--neon); font-weight: 700; }
+.header span { font-size: 0.8em; opacity: 0.8; display: block; margin-bottom: 8px; }
+.biblia { font-style: italic; font-size: 0.75em; color: var(--gold); font-weight: 600; margin-top: 5px; display: block; }
+.aviso { background: rgba(34, 197, 94, 0.15); border: 2px solid var(--green); color: var(--green); padding: 10px; border-radius: 12px; font-size: 0.8em; text-align: center; font-weight: 700; margin-bottom: 20px; }
+#buscador { width: 100%; padding: 15px; border-radius: 30px; border: 2px solid var(--neon); box-sizing: border-box; font-weight: 600; margin-bottom: 20px; outline: none; }
+.acordeon { background: var(--card); color: var(--neon); cursor: pointer; padding: 18px; width: 100%; border: 1px solid rgba(56,189,248,0.2); text-align: left; font-weight: 700; border-radius: 12px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; }
+.panel { padding: 0 5px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(0,0,0,0.1); border-radius: 0 0 12px 12px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; padding: 15px 5px; }
+.caja { background: var(--card); padding: 12px; border-radius: 15px; text-align: center; border: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; justify-content: space-between; }
+.caja h3 { font-size: 0.75em; margin: 0; color: var(--text); text-transform: uppercase; min-height: 40px; }
+.precio { color: var(--green); font-size: 1.1em; font-weight: 800; margin: 8px 0; display: block; }
+.btn-wa { background: var(--green); color: #fff; text-decoration: none; padding: 8px; border-radius: 8px; font-size: 0.7em; font-weight: 700; display: block; }
+.badge { background: #ffd700; color: #000; font-size: 0.6em; padding: 2px 4px; border-radius: 4px; font-weight: 900; }
+.acordeon:after { content: '\002B'; } .active:after { content: "\2212"; }
 </style>
 </head>
 <body>
 <button class="btn-tema" onclick="cambiarTema()">🌓 MODO DÍA</button>
-<div class="header"><img src="WhatsApp Image 2026-03-30 at 8.47.32 PM.jpeg" class="logo-img"><h1>RESET TALLER</h1><p>6107-3855</p><span>Costa Rica, Alajuela, San Carlos, Aguas Zarcas</span><span class="biblia">"Pon en manos del Señor todas tus obras..." - Prov. 16:3</span></div>
+<div class="header">
+  <img src="WhatsApp Image 2026-03-30 at 8.47.32 PM.jpeg" class="logo-img">
+  <h1>RESET TALLER</h1>
+  <p>6107-3855</p>
+  <span>Costa Rica, Alajuela, San Carlos, Aguas Zarcas</span>
+  <span class="biblia">"Pon en manos del Señor todas tus obras, y tus proyectos se cumplirán" - Prov. 16:3</span>
+</div>
 <div class="aviso">✅ PRECIOS INCLUYEN REPUESTO E INSTALACIÓN</div>
-<input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 BUSCAR MODELO...">
+<input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 BUSCAR MODELO (IPHONE, A34, X5 PLUS)...">
 
-<button class="acordeon" onclick="toggle(this)">📱 IPHONE (56)</button><div class="panel"><div class="grid" id="ip"></div></div>
-<button class="acordeon" onclick="toggle(this)">🛠️ CARGA Y TACTIL (31)</button><div class="panel"><div class="grid" id="tc"></div></div>
-<button class="acordeon" onclick="toggle(this)">📱 HONOR (35)</button><div class="panel"><div class="grid" id="ho"></div></div>
-<button class="acordeon" onclick="toggle(this)">📱 SAMSUNG (99)</button><div class="panel"><div class="grid" id="sa"></div></div>
-<button class="acordeon" onclick="toggle(this)">📱 HUAWEI (53)</button><div class="panel"><div class="grid" id="hu"></div></div>
-<button class="acordeon" onclick="toggle(this)">📱 XIAOMI (44)</button><div class="panel"><div class="grid" id="xi"></div></div>
-<button class="acordeon" onclick="toggle(this)">📱 MOTOROLA (42)</button><div class="panel"><div class="grid" id="mo"></div></div>
+<button class="acordeon" onclick="toggle(this)">📱 IPHONE: TODOS LOS MODELOS (56)</button>
+<div class="panel"><div class="grid" id="ip_list"></div></div>
+
+<button class="acordeon" onclick="toggle(this)">📱 SAMSUNG: TODOS LOS MODELOS (99)</button>
+<div class="panel"><div class="grid" id="sam_list"></div></div>
+
+<button class="acordeon" onclick="toggle(this)">🛠️ CARGA Y TACTIL (31)</button>
+<div class="panel"><div class="grid" id="repara_list"></div></div>
+
+<button class="acordeon" onclick="toggle(this)">📱 HONOR (35)</button>
+<div class="panel"><div class="grid" id="hon_list"></div></div>
+
+<button class="acordeon" onclick="toggle(this)">📱 HUAWEI (53)</button>
+<div class="panel"><div class="grid" id="hua_list"></div></div>
+
+<button class="acordeon" onclick="toggle(this)">📱 XIAOMI (44)</button>
+<div class="panel"><div class="grid" id="xia_list"></div></div>
+
+<button class="acordeon" onclick="toggle(this)">📱 MOTOROLA (42)</button>
+<div class="panel"><div class="grid" id="mot_list"></div></div>
 
 <script>
-const fill=(d,id)=>{const c=document.getElementById(id);let h='';d.forEach(i=>{h+=`<div class="caja producto"><h3>${i[0]}</h3><span class="precio">${i[1]}</span><a href="https://wa.me/50661073855?text=Reparar+${i[0]}" class="btn-wa">REPARAR</a></div>`});c.innerHTML=h};
-
-// DATOS (VERSION CORREGIDA Y SEGURA)
-fill([["iPhone 11 <span class='badge'>ORIG</span>","₡48,000"],["iPhone 12 Pro Max OLED","₡85,000"],["iPhone 13 Pro Max","₡155,000"],["iPhone 14 Pro Max","₡220,000"]],'ip');
-fill([["Samsung A10","₡23,000"],["Samsung A15 <span class='badge'>ORIG</span>","₡45,000"],["Samsung A23","₡28,000"],["Samsung S23 Ultra <span class='badge'>ORIG</span>","₡145,000"]],'sa');
-fill([["Honor X5 Plus","₡22,000"],["Honor X6A Con Marco","₡26,000"],["Honor X8B <span class='badge'>ORIG</span>","₡52,000"]],'ho');
-fill([["Huawei P30 Lite","₡30,000"],["Nova 5T","₡32,000"],["Tablet T3 7.0","₡25,000"]],'hu');
-fill([["Redmi 13C","₡28,000"],["Redmi Note 11S","₡48,000"]],'xi');
-fill([["Moto G8 Power Lite","₡26,000"],["Moto G60 Con Marco","₡32,000"]],'mo');
-fill([["Puerto A10S","₡15,000"],["Táctil J2 Prime","₡12,000"]],'tc');
-
-function toggle(b){b.classList.toggle("active");const p=b.nextElementSibling;p.style.maxHeight=p.style.maxHeight?null:p.scrollHeight+"px"}
-function cambiarTema(){document.body.classList.toggle("light-mode")}
+function fill(d,id){const c=document.getElementById(id);let h='';d.forEach(i=>{h+=`<div class="caja producto"><h3>${i[0]}</h3><span class="precio">${i[1]}</span><a href="https://wa.me/50661073855?text=Instalar+${i[0]}" class="btn-wa">INSTALAR</a></div>`});c.innerHTML=h}
+function toggle(b){b.classList.toggle("active");const p=b.nextElementSibling;p.style.maxHeight=p.style.maxHeight?null:p.scrollHeight+"px";}
+function cambiarTema(){document.body.classList.toggle("light-mode");}
 function buscar(){const v=document.getElementById('buscador').value.toLowerCase();const p=document.getElementsByClassName('producto');for(let i=0;i<p.length;i++){const m=p[i].innerText.toLowerCase().includes(v);p[i].style.display=m?"flex":"none";if(v!==""&&m){const pan=p[i].parentElement.parentElement;pan.style.maxHeight="none";pan.previousElementSibling.classList.add("active")}}}
 </script>
-</body>
-</html>
