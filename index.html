@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RESET TALLER - Catálogo</title>
+    <title>RESET TALLER</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root { 
@@ -14,29 +14,37 @@
             --text: #f8fafc; 
             --gold: #eab308; 
         }
-        body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 10px; }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 10px; box-sizing: border-box; }
         .header { text-align: center; padding: 30px 15px; border-bottom: 4px solid var(--neon); border-radius: 0 0 25px 25px; margin-bottom: 20px; background: rgba(22,30,45,0.8); }
         .logo-img { width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--neon); margin-bottom: 10px; object-fit: cover; }
-        h1 { margin: 5px 0; font-size: 1.5em; letter-spacing: 2px; }
+        h1 { margin: 5px 0; font-size: 1.5em; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
+        .header p { color: var(--neon); font-weight: 700; margin:0; }
+
+        .buscador-container { max-width: 600px; margin: 15px auto; padding: 0 10px; }
+        #buscador { width: 100%; padding: 15px; border-radius: 30px; border: 2px solid var(--neon); background: var(--card); color: var(--text); outline: none; box-sizing: border-box; font-weight: 600; box-shadow: 0 0 15px rgba(56,189,248,0.2); }
+        #buscador::placeholder { color: rgba(248,250,252,0.5); }
+
+        .secciones-container { max-width: 800px; margin: 0 auto; }
         
-        #buscador { width: 100%; padding: 15px; border-radius: 30px; border: 2px solid var(--neon); background: var(--card); color: var(--text); margin: 15px 0; outline: none; box-sizing: border-box; font-weight: 600; box-shadow: 0 0 15px rgba(56,189,248,0.2); }
+        /* DISEÑO DE BOTONES CSS ORIGINAL */
+        .acordeon { background: var(--card); color: var(--neon); cursor: pointer; padding: 18px 25px; width: 100%; border: 2px solid rgba(56,189,248,0.2); text-align: left; font-weight: 700; border-radius: 12px; margin-top: 15px; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; transition: 0.3s; font-size: 1em; letter-spacing: 1px; }
+        .acordeon:hover { background: rgba(56,189,248,0.1); border-color: var(--neon); box-shadow: 0 0 10px rgba(56,189,248,0.3); }
         
-        .acordeon { background: var(--card); color: var(--neon); cursor: pointer; padding: 18px; width: 100%; border: 1px solid rgba(56,189,248,0.2); text-align: left; font-weight: 700; border-radius: 12px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; transition: 0.3s; }
-        .acordeon:hover { background: rgba(56,189,248,0.1); }
+        .panel { padding: 0 10px; max-height: 0; overflow: hidden; transition: 0.4s ease-out; background: rgba(0,0,0,0.2); border-radius: 0 0 12px 12px; margin: 0 5px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; padding: 25px 0; }
         
-        .panel { padding: 0 5px; max-height: 0; overflow: hidden; transition: 0.4s ease-out; background: rgba(0,0,0,0.2); border-radius: 0 0 12px 12px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; padding: 20px 5px; }
+        .caja { background: var(--card); padding: 18px; border-radius: 18px; text-align: center; border: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s; height: 100%; box-sizing: border-box; }
+        .caja:hover { transform: translateY(-5px); border-color: var(--neon); box-shadow: 0 0 15px rgba(56,189,248,0.2); }
+        .caja h3 { font-size: 0.85em; margin: 0; min-height: 40px; text-transform: uppercase; color: var(--text); font-weight: 600; line-height: 1.2; }
         
-        .caja { background: var(--card); padding: 15px; border-radius: 18px; text-align: center; border: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s; }
-        .caja:hover { transform: translateY(-5px); border-color: var(--neon); }
-        .caja h3 { font-size: 0.85em; margin: 0; min-height: 40px; text-transform: uppercase; color: var(--text); }
+        .precio { color: var(--green); font-size: 1.25em; font-weight: 800; margin: 12px 0; display: block; }
+        .btn-wa { background: var(--green); color: #fff; text-decoration: none; padding: 12px; border-radius: 10px; font-size: 0.75em; font-weight: 700; display: block; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+        .btn-wa:hover { opacity: 0.8; transform: scale(1.03); }
         
-        .precio { color: var(--green); font-size: 1.2em; font-weight: 800; margin: 10px 0; display: block; }
-        .btn-wa { background: var(--green); color: #fff; text-decoration: none; padding: 10px; border-radius: 10px; font-size: 0.75em; font-weight: 700; display: block; transition: 0.3s; }
-        .btn-wa:hover { opacity: 0.8; transform: scale(1.05); }
+        .separador-marca { grid-column: 1 / -1; background: rgba(56,189,248,0.1); color: var(--neon); padding: 12px; font-weight: 800; font-size: 0.9em; margin: 20px 0 5px 0; text-align: center; border-radius: 10px; border-left: 5px solid var(--neon); text-transform: uppercase; letter-spacing: 2px; }
         
-        .separador-marca { grid-column: 1 / -1; background: rgba(56,189,248,0.1); color: var(--neon); padding: 10px; font-weight: 800; font-size: 0.9em; margin: 15px 0 5px 0; text-align: center; border-radius: 8px; border-left: 5px solid var(--neon); }
-        .badge-count { background: var(--neon); color: #000; font-size: 0.85em; padding: 2px 12px; border-radius: 20px; font-weight: 800; margin-left: auto; margin-right: 10px; }
+        /* ESTILO PARA EL CONTADOR */
+        .badge-count { background: var(--neon); color: #000; font-size: 0.85em; padding: 3px 15px; border-radius: 20px; font-weight: 800; }
     </style>
 </head>
 <body>
@@ -44,23 +52,28 @@
 <div class="header">
     <img src="WhatsApp Image 2026-03-30 at 8.47.32 PM.jpeg" class="logo-img">
     <h1>RESET TALLER</h1>
-    <p style="color: var(--neon); font-weight: 700; margin:0;">📲 6107-3855</p>
+    <p>📲 6107-3855</p>
 </div>
 
-<input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 BUSCAR REPUESTO O MODELO...">
+<div class="buscador-container">
+    <input type="text" id="buscador" onkeyup="buscar()" placeholder="🔍 BUSCAR REPUESTO O MODELO...">
+</div>
 
-<button class="acordeon" onclick="toggle(this)">📱 PANTALLAS <span id="count-pantallas" class="badge-count">0</span></button>
-<div class="panel"><div class="grid" id="pantallas"></div></div>
+<div class="secciones-container">
+    <button class="acordeon" onclick="toggle(this)">📱 PANTALLAS <span id="count-pantallas" class="badge-count">0</span></button>
+    <div class="panel"><div class="grid" id="pantallas"></div></div>
 
-<button class="acordeon" onclick="toggle(this)">🔌 CARGA Y FLEX <span id="count-flex" class="badge-count">0</span></button>
-<div class="panel"><div class="grid" id="flex"></div></div>
+    <button class="acordeon" onclick="toggle(this)">🔌 CARGA Y FLEX <span id="count-flex" class="badge-count">0</span></button>
+    <div class="panel"><div class="grid" id="flex"></div></div>
 
-<button class="acordeon" onclick="toggle(this)">🛠️ HERRAMIENTAS <span id="count-herramientas" class="badge-count">0</span></button>
-<div class="panel"><div class="grid" id="herramientas"></div></div>
+    <button class="acordeon" onclick="toggle(this)">🛠️ HERRAMIENTAS <span id="count-herramientas" class="badge-count">0</span></button>
+    <div class="panel"><div class="grid" id="herramientas"></div></div>
+</div>
 
 <script src="datos.js"></script>
 
 <script>
+    // Recuperar el diseño y la funcionalidad del buscador corregido
     const render = (lista, contenedorId, contadorId) => {
         const cont = document.getElementById(contenedorId);
         const badge = document.getElementById(contadorId);
@@ -74,8 +87,8 @@
                 html += `<div class="separador-marca">${prod[1]}</div>`;
             } else {
                 totalArticulos++;
-                // Lógica para poner en ORO las Originales y Soft
                 const nombre = prod[0].toUpperCase();
+                // Identificar originales para color oro
                 let estiloOro = (nombre.includes("ORIGINAL") || nombre.includes("SOFT") || nombre.includes("OLED")) ? 'style="color:var(--gold)"' : '';
                 
                 html += `
@@ -91,12 +104,12 @@
         if (badge) badge.innerText = totalArticulos;
     };
 
-    // Ejecutar renderizado inicial
+    // Renderizado inicial
     render(PANTALLAS, 'pantallas', 'count-pantallas');
     render(FLEX, 'flex', 'count-flex');
     render(HERRAMIENTAS, 'herramientas', 'count-herramientas');
 
-    // Función Acordeón
+    // Función Acordeón Original (Corregida la transición)
     function toggle(boton) {
         boton.classList.toggle("active");
         var panel = boton.nextElementSibling;
@@ -104,10 +117,12 @@
             panel.style.maxHeight = null;
         } else {
             panel.style.maxHeight = panel.scrollHeight + "px";
+            // Forzar recálculo para abrir suavemente
+            setTimeout(()=>{ panel.style.maxHeight = panel.scrollHeight + "px"; }, 10);
         }
     }
 
-    // Buscador Real
+    // Buscador Inteligente
     function buscar() {
         let input = document.getElementById('buscador').value.toLowerCase();
         let cajas = document.getElementsByClassName('caja');
@@ -115,11 +130,24 @@
 
         for (let i = 0; i < cajas.length; i++) {
             let texto = cajas[i].innerText.toLowerCase();
-            cajas[i].style.display = texto.includes(input) ? "flex" : "none";
+            if(texto.includes(input)){
+                cajas[i].style.display = "flex";
+            } else {
+                cajas[i].style.display = "none";
+            }
         }
-        // Ocultar separadores si se está buscando algo específico
+        
+        // Ajuste para separadores de marca y recálculo de altura de paneles abiertos
         for (let j = 0; j < separadores.length; j++) {
             separadores[j].style.display = input.length > 0 ? "none" : "block";
+        }
+        
+        // Si hay un panel abierto, recalcular su altura para que no se corte
+        let paneles = document.getElementsByClassName('panel');
+        for(let k=0; k<paneles.length; k++){
+            if(paneles[k].style.maxHeight && paneles[k].style.maxHeight !== "0px"){
+                 paneles[k].style.maxHeight = paneles[k].scrollHeight + "px";
+            }
         }
     }
 </script>
