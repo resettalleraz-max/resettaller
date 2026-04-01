@@ -34,14 +34,19 @@ const PANTALLAS = [
     ["Samsung A03/A03 Core (S/M)", "₡22,000"], ["Samsung J2 Core (S/M)", "₡18,000"], ["Samsung J4/J4 Plus (S/M)", "₡22,000"],
     ["Samsung J6/J6 Plus (S/M)", "₡22,000"], ["Samsung J7 Neo (S/M)", "₡20,000"], ["Samsung J7 Prime (S/M)", "₡20,000"],
 
-    ["TITULO", "HUAWEI"],
+   ["TITULO", "HUAWEI"],
     ["SUBTITULO", "Pantallas CON MARCO"],
     ["Huawei Y9 2019 (C/M)", "₡20,000"], ["Huawei Y9 Prime (C/M)", "₡22,000"], ["Huawei P30 Lite (C/M)", "₡22,000"],
-    ["Huawei Nova 5T (C/M)", "₡22,000"], ["Huawei P40 Lite (C/M)", "₡22,000"], ["Huawei Nova 10 / 11i (C/M)", "₡38,000"],
-    
-    ["SUBTITULO", "Pantallas SIN MARCO"],
-    ["Huawei Y5/Y6 2018-19 (S/M)", "₡15,000"], ["Huawei Y7/Y7 Prime (S/M)", "₡16,000"], ["Huawei P10/P20 Lite (S/M)", "₡15,000"],
-    ["Huawei Nova 3 / 3i (S/M)", "₡18,000"], ["Huawei Y5P / Y6P / Y7P (S/M)", "₡18,000"],
+    ["Huawei Nova 5T (C/M)", "₡22,000"], ["Huawei P40 Lite (C/M)", "₡22,000"], ["Huawei Mate 10 Lite (C/M)", "₡20,000"],
+    ["Huawei Mate 20 Lite (C/M)", "₡25,000"], ["Huawei Nova 7i / 7SE (C/M)", "₡25,000"], ["Huawei Nova 10 / 11i (C/M)", "₡38,000"],
+    ["Huawei Honor 8X / 9X (C/M)", "₡22,000"],
+
+    ["SUBTITULO", "Pantallas SIN MARCO (Solo Repuesto)"],
+    ["Huawei Y5/Y6 2018-19 (S/M)", "₡15,000"], ["Huawei Y7/Y7 Prime (S/M)", "₡16,000"], ["Huawei Y8S/Y9 2019 (S/M)", "₡18,000"], 
+    ["Huawei P10/P20 Lite (S/M)", "₡15,000"], ["Huawei P30 Lite (S/M)", "₡20,000"], ["Huawei Nova 9/10 SE (S/M)", "₡35,000"],
+    ["Huawei Mate 10 / 20 (S/M)", "₡25,000"], ["Huawei P20 / P20 Pro (S/M)", "₡25,000"], ["Huawei P30 / P30 Pro (S/M)", "₡55,000"],
+    ["Huawei P40 Lite / P40 Pro (S/M)", "₡35,000"], ["Huawei P50 / P50 Pro (S/M)", "₡75,000"], ["Huawei Nova 3 / 3i (S/M)", "₡18,000"],
+    ["Huawei Nova 8 / 8i (S/M)", "₡35,000"], ["Huawei Y5P / Y6P / Y7P (S/M)", "₡18,000"], ["Huawei Y8P / Y9A (S/M)", "₡28,000"],
 
    ["TITULO", "HONOR"],
     ["SUBTITULO", "Pantallas CON MARCO"],
