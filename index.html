@@ -50,7 +50,6 @@
             let mainFolder = null;
             let subFolder = null;
 
-            // PRIMERO: Procesar los datos para contar
             PANTALLAS.forEach((item) => {
                 const [tipo, valor] = item;
                 if (tipo === "TITULO") {
@@ -75,15 +74,13 @@
                 }
             });
 
-            // SEGUNDO: Dibujar en pantalla
             estructura.forEach((main, mIdx) => {
                 if (main.contador === 0 && filtro !== '') return;
-                
                 const mId = `m-${mIdx}`;
                 const mDiv = document.createElement('div');
                 mDiv.innerHTML = `
-                    <button onclick="toggle('${mId}')" class="w-full bg-slate-800 p-4 rounded-2xl flex justify-between items-center mb-2 border-l-4 border-orange-500 shadow-md">
-                        <span class="font-black uppercase text-slate-100 text-sm tracking-wider">${main.nombre} <span class="text-orange-500 ml-2">[${main.contador}]</span></span>
+                    <button onclick="toggle('${mId}')" class="w-full bg-slate-800 p-4 rounded-2xl flex justify-between items-center mb-2 border-l-4 border-orange-500">
+                        <span class="font-black uppercase text-slate-100 text-sm tracking-wider">${main.nombre} <span class="text-orange-500 ml-2">${main.contador}</span></span>
                         <i id="icon-${mId}" class="fa fa-chevron-down text-orange-500 transition-transform"></i>
                     </button>
                     <div id="${mId}" class="hidden space-y-2 mb-4 px-1"></div>
@@ -95,28 +92,24 @@
                     if (sub.contador === 0 && filtro !== '') return;
                     const sId = `s-${mIdx}-${sIdx}`;
                     const sDiv = document.createElement('div');
-                    sDiv.className = "mt-1";
                     sDiv.innerHTML = `
-                        <button onclick="toggle('${sId}')" class="w-full bg-slate-700/50 p-3 rounded-xl flex justify-between items-center mb-1 border border-slate-600 shadow">
-                            <span class="font-bold text-blue-300 text-xs uppercase">${sub.nombre} <span class="text-slate-400 ml-1">(${sub.contador})</span></span>
+                        <button onclick="toggle('${sId}')" class="w-full bg-slate-700/50 p-3 rounded-xl flex justify-between items-center mb-1 border border-slate-600">
+                            <span class="font-bold text-blue-300 text-xs uppercase">${sub.nombre} <span class="text-slate-400 ml-1">${sub.contador}</span></span>
                             <i id="icon-${sId}" class="fa fa-plus text-[10px] text-slate-400 transition-transform"></i>
                         </button>
                         <div id="${sId}" class="hidden space-y-1 mt-1 ml-3 border-l-2 border-slate-700 pl-3"></div>
                     `;
                     mContent.appendChild(sDiv);
                     const sContent = sDiv.querySelector(`#${sId}`);
-
                     sub.items.forEach(repuesto => sContent.appendChild(crearCard(repuesto)));
                 });
 
-                // Items que están en la carpeta principal pero fuera de una subcarpeta
                 main.items.forEach(repuesto => {
                     if (!main.subs.some(s => s.items.includes(repuesto))) {
                         mContent.appendChild(crearCard(repuesto));
                     }
                 });
             });
-
             document.getElementById('contador-items').innerText = `${totalGeneral} Total`;
         }
 
@@ -128,11 +121,8 @@
                 <span class="text-xs font-semibold text-slate-200 uppercase">${tipo}</span>
                 <div class="flex items-center gap-3">
                     <span class="text-orange-500 font-black text-sm tracking-tight">${valor}</span>
-                    <a href="https://wa.me/50661073855?text=Hola, consulto por: ${tipo.replace(/<[^>]*>?/gm, '')}" class="bg-green-600 p-2 rounded-lg text-white">
-                        <i class="fab fa-whatsapp text-sm"></i>
-                    </a>
-                </div>
-            `;
+                    <a href="https://wa.me/50661073855?text=Consulta: ${tipo.replace(/<[^>]*>?/gm, '')}" class="bg-green-600 p-2 rounded-lg"><i class="fab fa-whatsapp text-sm"></i></a>
+                </div>`;
             return card;
         }
 
@@ -140,7 +130,6 @@
             document.getElementById(id).classList.toggle('hidden');
             document.getElementById(`icon-${id}`).classList.toggle('rotate-180');
         }
-
         buscador.addEventListener('input', (e) => renderizar(e.target.value));
         renderizar();
     </script>
