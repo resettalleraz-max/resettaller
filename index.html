@@ -175,12 +175,24 @@
                 <th>Precio</th>
             </tr>
         </thead>
-        <tbody id="cuerpo-herramientas">
-            </tbody>
+        <tbody id="lista-herramientas">
+        </tbody>
     </table>
 </div>
 
 <script>
+    (function() {
+        const cuerpo = document.getElementById('lista-herramientas');
+        if (typeof HERRAMIENTAS !== 'undefined' && cuerpo) {
+            HERRAMIENTAS.forEach(item => {
+                if(item[0] !== "TITULO" && item[0] !== "SUBTITULO") {
+                    let fila = `<tr><td>${item[0]}</td><td>${item[1]}</td></tr>`;
+                    cuerpo.innerHTML += fila;
+                }
+            });
+        }
+    })();
+</script>
     // Esta línea es la que "activa" la conexión con datos.js
     renderTable(HERRAMIENTAS, "cuerpo-herramientas");
 </script>
