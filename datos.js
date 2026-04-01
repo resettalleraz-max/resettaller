@@ -182,3 +182,5 @@ const PANTALLAS = [
     ["SAMSUNG J7 PRIME (G610)", "₡24,500"],
     ["SAMSUNG J1 (J100)", "₡20,000"],
     ["SAMSUNG J1 MINI PRIME (J106)", "₡20,000"]
+];
+
