@@ -31,7 +31,7 @@
     <div class="px-4 mb-6">
         <div class="relative">
             <i class="fa fa-search absolute left-4 top-3.5 text-slate-500"></i>
-            <input type="text" id="buscador" placeholder="Busca tu modelo..." 
+            <input type="text" id="buscador" placeholder="Busca tu modelo o herramienta..." 
                 class="w-full bg-slate-800 rounded-2xl py-3 pl-12 pr-4 text-sm outline-none focus:ring-2 focus:ring-[var(--tecnico)] shadow-lg transition-colors">
         </div>
     </div>
@@ -39,18 +39,15 @@
     <main id="lista-repuestos" class="px-4 space-y-3"></main>
 
     <nav class="fixed bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur-sm border-t border-slate-800 flex justify-around items-center py-3 text-[10px] font-bold text-slate-400 shadow-2xl rounded-t-2xl transition-colors">
-        
         <div class="text-center text-[var(--tecnico)] w-1/3">
             <i class="fa fa-box-open text-xl mb-1"></i><br>
             <span id="contador-items">0 Total</span>
         </div>
-
         <div class="w-1/3 flex justify-center">
             <a href="https://wa.me/50661073855" class="text-center hover:text-green-400 transition">
                 <i class="fab fa-whatsapp text-2xl mb-1 text-green-500"></i><br>WHATSAPP
             </a>
         </div>
-
         <div class="w-1/3 flex justify-center">
             <button onclick="cambiarModo()" class="text-center hover:text-[var(--tecnico)] transition p-2">
                 <i id="icono-modo" class="fa fa-moon text-xl mb-1"></i><br>MODO
@@ -76,10 +73,15 @@
             contenedor.innerHTML = '';
             let totalGeneral = 0;
             let estructura = [];
+
+            // Combinamos todas las listas de datos.js
+            const todasLasListas = [...PANTALLAS];
+            if (typeof HERRAMIENTAS !== 'undefined') todasLasListas.push(...HERRAMIENTAS);
+
             let mainFolder = null;
             let subFolder = null;
 
-            PANTALLAS.forEach((item) => {
+            todasLasListas.forEach((item) => {
                 const [tipo, valor] = item;
                 if (tipo === "TITULO") {
                     mainFolder = { nombre: valor, subs: [], items: [], contador: 0 };
@@ -87,7 +89,7 @@
                     subFolder = null;
                 } else if (tipo === "SUBTITULO") {
                     subFolder = { nombre: valor, items: [], contador: 0 };
-                    mainFolder.subs.push(subFolder);
+                    if (mainFolder) mainFolder.subs.push(subFolder);
                 } else {
                     if (tipo.toLowerCase().includes(filtro.toLowerCase())) {
                         totalGeneral++;
@@ -166,39 +168,3 @@
     </script>
 </body>
 </html>
-<div class="container">
-    <h2 class="category-title">HERRAMIENTAS DE PRECISIÓN</h2>
-    <table id="tabla-herramientas">
-        <thead>
-            <tr>
-                <th>Descripción</th>
-                <th>Precio</th>
-            </tr>
-        </thead>
-        <tbody id="cuerpo-herramientas">
-            </tbody>
-    </table>
-</div>
-
-<script>
-    // Usamos la función oficial de tu página para que quede en carpeta
-    if (typeof renderTable === 'function' && typeof HERRAMIENTAS !== 'undefined') {
-        renderTable(HERRAMIENTAS, "cuerpo-herramientas");
-    }
-</script>
-<script>
-    (function() {
-        const cuerpo = document.getElementById('lista-herramientas');
-        if (typeof HERRAMIENTAS !== 'undefined' && cuerpo) {
-            HERRAMIENTAS.forEach(item => {
-                if(item[0] !== "TITULO" && item[0] !== "SUBTITULO") {
-                    let fila = `<tr><td>${item[0]}</td><td>${item[1]}</td></tr>`;
-                    cuerpo.innerHTML += fila;
-                }
-            });
-        }
-    })();
-</script>
-    // Esta línea es la que "activa" la conexión con datos.js
-    renderTable(HERRAMIENTAS, "cuerpo-herramientas");
-</script>
