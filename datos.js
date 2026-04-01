@@ -157,12 +157,12 @@ const PANTALLAS = [
 
     ["TITULO", "HERRAMIENTAS DE PRECISIÓN"],
     ["SUBTITULO", "Soldadura y Apertura"],
-    ["Estación de Calor / Cautín", "₡45,000"], 
-    ["Multímetro Digital Profesional", "₡15,000"],
-    ["Lámpara UV (Para secado de goma)", "₡8,000"],
-    ["Juego de Espátulas de Metal", "₡5,000"],
-    ["Pinzas Anti-estáticas (Kit)", "₡6,000"],
+    ["Estación de Calor / Cautín", "₡48,000"], 
+    ["Multímetro Digital Profesional", "₡18,500"],
+    ["Lámpara UV (Para secado de goma)", "₡8,500"],
+    ["Juego de Espátulas de Metal", "₡5,500"],
+    ["Pinzas Anti-estáticas (Kit)", "₡6,500"],
     ["Malla para desoldar (Goot Wick)", "₡3,500"],
-    ["Microscopio Digital USB", "₡25,000"],
-    ["Manta Térmica de Silicón", "₡10,000"]
+    ["Microscopio Digital USB", "₡28,000"],
+    ["Manta Térmica de Silicón", "₡12,000"]
 ];
