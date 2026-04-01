@@ -7,26 +7,64 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style> 
-        :root { --accent: #22d3ee; --price: #4ade80; --bg: #0b1120; }
-        body { background-color: var(--bg); }
-        .glass { background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        :root { --accent: #22d3ee; --price: #4ade80; --bg-dark: #0b1120; --bg-light: #f1f5f9; }
+        
+        /* Transición suave para el modo día/noche */
+        body { transition: background-color 0.4s, color 0.4s; }
+        
+        /* MODO OSCURO (Default) */
+        body.dark { background-color: var(--bg-dark); color: #e2e8f0; }
+        body.dark .glass { background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255, 255, 255, 0.05); }
+        body.dark .text-main { color: white; }
+
+        /* MODO DÍA */
+        body.light { background-color: var(--bg-light); color: #1e293b; }
+        body.light .glass { background: white; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        body.light .text-main { color: #0f172a; }
+        body.light header { background: white; border-bottom: 1px solid #e2e8f0; }
+
         .rotate-icon { transform: rotate(135deg); color: #f87171 !important; }
         .icon-plus { transition: transform 0.3s ease; }
         .tag-repuesto { transition: all 0.2s; border: 1px solid rgba(255, 255, 255, 0.05); }
-        .tag-repuesto:active { transform: scale(0.96); border-color: var(--accent); background: rgba(34, 211, 238, 0.1); }
+        
+        .img-banner {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 1.5rem;
+            margin-top: 1rem;
+            filter: brightness(0.8);
+        }
     </style>
 </head>
-<body class="text-slate-200 min-h-screen pb-12 font-sans">
+<body class="dark min-h-screen pb-12 font-sans">
 
-    <header class="p-10 text-center border-b border-white/5 bg-slate-900/20 mb-6">
+    <div class="fixed top-6 right-6 z-50">
+        <button onclick="toggleTheme()" class="glass p-3 rounded-full w-12 h-12 flex items-center justify-center">
+            <i id="theme-icon" class="fa fa-moon text-[var(--accent)] text-lg"></i>
+        </button>
+    </div>
+
+    <header class="p-8 text-center mb-6">
         <img src="WhatsApp Image 2026-03-30 at 8.47.32 PM.jpeg" alt="Reset Taller" 
-            class="w-28 h-28 mx-auto rounded-full border-4 border-[var(--accent)] mb-4 object-cover shadow-2xl">
-        <h1 class="text-4xl font-black tracking-tighter text-white uppercase italic">RESET TALLER</h1>
+            class="w-24 h-24 mx-auto rounded-full border-4 border-[var(--accent)] mb-4 object-cover shadow-2xl">
+        
+        <h1 class="text-3xl font-black tracking-tighter text-main uppercase italic">RESET TALLER</h1>
         <p class="text-[var(--accent)] text-[10px] font-bold tracking-[0.3em] uppercase mt-1">San Carlos, Aguas Zarcas</p>
         
+        <div class="px-4">
+            <img src="https://images.unsplash.com/photo-1597733336794-12d05021d510?q=80&w=1000&auto=format&fit=crop" 
+                 alt="Electrónica Celular" class="img-banner shadow-lg">
+        </div>
+
+        <p class="mt-4 text-xs italic opacity-70 px-8">
+            "Todo lo puedo en Cristo que me fortalece." <br>
+            <span class="font-bold not-italic text-[10px] uppercase tracking-widest">— Filipenses 4:13 —</span>
+        </p>
+        
         <div class="mt-6 inline-flex items-center gap-3 px-5 py-2 rounded-2xl border border-green-500/30 bg-green-500/10">
-            <i class="fa fa-screwdriver-wrench text-green-400 text-sm"></i>
-            <p class="text-[10px] text-green-400 font-black uppercase tracking-wider">
+            <i class="fa fa-screwdriver-wrench text-green-500 text-sm"></i>
+            <p class="text-[9px] text-green-500 font-black uppercase tracking-wider">
                 Precio Incluye Repuesto + Mano de Obra
             </p>
         </div>
@@ -36,7 +74,7 @@
         <div class="relative">
             <i class="fa fa-search absolute left-4 top-4 text-slate-500"></i>
             <input type="text" id="buscador" placeholder="Busca tu modelo..." 
-                class="w-full bg-slate-900/80 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-sm outline-none focus:border-[var(--accent)] transition-all shadow-inner">
+                class="glass w-full rounded-2xl py-4 pl-12 pr-4 text-sm outline-none focus:border-[var(--accent)] transition-all">
         </div>
     </div>
 
@@ -46,11 +84,24 @@
     <script>
         const contenedor = document.getElementById('lista-repuestos');
         const buscador = document.getElementById('buscador');
+        const body = document.body;
+        const themeIcon = document.getElementById('theme-icon');
+
+        // FUNCIÓN CAMBIO DE TEMA
+        function toggleTheme() {
+            if(body.classList.contains('dark')) {
+                body.classList.replace('dark', 'light');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                body.classList.replace('light', 'dark');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            }
+            renderizar(buscador.value);
+        }
 
         function renderizar(filtro = '') {
             contenedor.innerHTML = '';
             let estructura = [];
-            // Aquí cargamos todas las variables que definamos en datos.js
             const listas = (typeof PANTALLAS !== 'undefined') ? PANTALLAS : [];
 
             let mainFolder = null;
@@ -76,8 +127,8 @@
                 const mId = `m-${mIdx}`;
                 const mDiv = document.createElement('div');
                 mDiv.innerHTML = `
-                    <button onclick="toggle('${mId}')" class="glass w-full p-5 rounded-2xl flex justify-between items-center mb-3 shadow-xl">
-                        <span class="font-black text-lg tracking-tight uppercase italic text-white">${main.nombre}</span>
+                    <button onclick="toggle('${mId}')" class="glass w-full p-5 rounded-2xl flex justify-between items-center mb-3">
+                        <span class="font-black text-lg tracking-tight uppercase italic text-main">${main.nombre}</span>
                         <div class="flex items-center gap-4">
                             <span class="text-[10px] font-bold text-[var(--accent)] bg-[var(--accent)]/10 px-2 py-1 rounded-lg">${main.contador}</span>
                             <i id="icon-${mId}" class="fa fa-plus text-slate-500 text-sm icon-plus"></i>
@@ -110,9 +161,9 @@
             const [nombre, precio] = item;
             const card = document.createElement('a');
             card.href = `https://wa.me/50661073855?text=Consulta por: ${nombre}`;
-            card.className = `tag-repuesto glass p-4 rounded-2xl flex flex-col items-center text-center justify-between`;
+            card.className = `tag-repuesto glass p-4 rounded-2xl flex flex-col items-center text-center justify-between transition active:scale-95`;
             card.innerHTML = `
-                <span class="text-[10px] font-bold uppercase mb-3 text-slate-300 leading-tight">${nombre}</span>
+                <span class="text-[10px] font-bold uppercase mb-3 leading-tight opacity-80">${nombre}</span>
                 <div class="w-full pt-3 border-t border-white/5 flex items-center justify-center gap-2">
                     <span class="text-[var(--price)] font-black text-sm tracking-tighter">${precio}</span>
                     <i class="fab fa-whatsapp text-green-500"></i>
