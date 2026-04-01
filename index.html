@@ -175,11 +175,17 @@
                 <th>Precio</th>
             </tr>
         </thead>
-        <tbody id="lista-herramientas">
-        </tbody>
+        <tbody id="cuerpo-herramientas">
+            </tbody>
     </table>
 </div>
 
+<script>
+    // Usamos la función oficial de tu página para que quede en carpeta
+    if (typeof renderTable === 'function' && typeof HERRAMIENTAS !== 'undefined') {
+        renderTable(HERRAMIENTAS, "cuerpo-herramientas");
+    }
+</script>
 <script>
     (function() {
         const cuerpo = document.getElementById('lista-herramientas');
