@@ -3,56 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Taller - Inventario Pro</title>
+    <title>Reset Taller - San Carlos</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style> 
-        /* Colores Base */
-        :root { --tecnico: #a5f3fc; --verde-repuesto: #22c55e; --borde-base: #334155; }
+        :root { --tecnico: #a5f3fc; --verde-repuesto: #22c55e; }
         .rotate-icon { transform: rotate(135deg); color: #ef4444 !important; }
         .icon-plus { transition: transform 0.3s ease; }
         
-        /* Estilos Modo Claro */
-        body.modo-claro { background-color: #f1f5f9; color: #1e293b; }
-        .modo-claro header { background-color: #ffffff; border-bottom: 2px solid #e2e8f0; }
-        .modo-claro .btn-categoria { background-color: #ffffff; color: #1e293b; }
+        body.modo-claro { background-color: #f8fafc; color: #1e293b; }
+        .modo-claro header { background-image: none !important; background-color: #ffffff; border-bottom-color: #e2e8f0; }
         .modo-claro .tag-repuesto { background-color: #ffffff; border-color: #e2e8f0; color: #1e293b; }
+        .modo-claro .btn-categoria { background-color: #ffffff; border-color: #e2e8f0; color: #1e293b; }
         .modo-claro input { background-color: #ffffff; border-color: #e2e8f0; color: #1e293b; }
 
-        /* Estilo de Etiquetas (Grid) */
         .tag-repuesto { 
-            background: rgba(15, 23, 42, 0.4);
+            background: rgba(15, 23, 42, 0.5);
             border: 1px solid rgba(51, 65, 85, 0.5);
             transition: all 0.2s;
         }
         .tag-repuesto:active { transform: scale(0.95); border-color: var(--verde-repuesto); }
+
+        .bg-portada { 
+            background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), 
+            url('https://images.unsplash.com/photo-1591799264318-7e698ddb7c1d?q=80&w=1000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
     </style>
 </head>
 <body id="cuerpo" class="bg-[#0b1120] text-white min-h-screen pb-10 transition-colors duration-500 font-sans">
 
-    <header class="relative p-10 text-center border-b border-slate-800 bg-[#0f172a]/80 mb-6 rounded-b-[3.5rem] shadow-2xl overflow-hidden">
+    <header class="relative p-10 text-center border-b border-slate-800 mb-6 bg-portada rounded-b-[3.5rem] shadow-2xl">
         <button onclick="cambiarModo()" class="absolute top-6 right-6 z-20 bg-slate-800 p-3 rounded-full border border-slate-700 hover:scale-110 transition active:scale-90">
             <i id="icono-modo" class="fa fa-moon text-lg text-slate-400"></i>
         </button>
 
         <div class="relative z-10">
             <img src="WhatsApp Image 2026-03-30 at 8.47.32 PM.jpeg" alt="Reset Taller" 
-                class="w-32 h-32 mx-auto rounded-full border-4 border-[var(--tecnico)] mb-5 object-cover shadow-2xl">
+                class="w-32 h-32 mx-auto rounded-full border-4 border-[var(--tecnico)] mb-5 object-cover shadow-2xl shadow-[var(--tecnico)]/20">
             
             <h1 class="text-4xl font-black italic text-[var(--tecnico)] uppercase tracking-tighter drop-shadow-md">RESET TALLER</h1>
-            <p class="text-slate-400 text-[10px] font-bold tracking-[0.3em] uppercase mt-1">San Carlos, Aguas Zarcas</p>
+            <p class="text-slate-400 text-[10px] font-bold tracking-[0.3em] uppercase mt-1">Alajuela, San Carlos, Aguas Zarcas</p>
+            
+            <p class="text-slate-300 text-xs italic mt-3 px-6 leading-relaxed">
+                "Todo lo puedo en Cristo que me fortalece." <br>
+                <span class="text-[10px] not-italic font-bold text-slate-500">- Filipenses 4:13 -</span>
+            </p>
             <div class="w-24 h-1 bg-gradient-to-r from-transparent via-[var(--tecnico)] to-transparent mx-auto mt-4 rounded-full shadow-[0_0_10px_rgba(165,243,252,0.4)]"></div>
         </div>
     </header>
 
     <div class="px-4 mb-6">
-        <div class="relative mb-2 group">
+        <div class="bg-green-600/10 border border-green-500/30 p-4 rounded-2xl flex items-center gap-4">
+            <div class="bg-green-500/20 p-3 rounded-xl border border-green-500/40 text-green-500">
+                <i class="fa fa-screwdriver-wrench text-xl"></i>
+            </div>
+            <div>
+                <h4 class="font-black text-xs uppercase tracking-tight text-green-400">Precios Finales</h4>
+                <p class="text-[10px] text-slate-300 opacity-90 leading-tight">El costo indicado ya incluye el **repuesto** y la **mano de obra**. ¡Garantía de calidad!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="px-4 mb-6">
+        <div class="relative group">
             <i class="fa fa-search absolute left-4 top-3.5 text-slate-600 group-focus-within:text-[var(--tecnico)] transition-colors"></i>
             <input type="text" id="buscador" placeholder="Busca tu repuesto..." 
-                class="w-full bg-[#0f172a] border border-slate-800 rounded-xl py-3.5 pl-11 pr-4 text-sm outline-none focus:border-[var(--tecnico)] transition-all shadow-inner">
+                class="w-full bg-[#0f172a] border border-slate-800 rounded-xl py-3.5 pl-11 pr-4 text-sm outline-none focus:border-[var(--tecnico)] shadow-inner">
         </div>
-        <div class="text-right px-1">
-            <span id="contador-items" class="text-[9px] font-black text-slate-500 bg-slate-800/50 px-3 py-1.5 rounded-full border border-slate-700 uppercase tracking-widest">0 TOTAL REPUESTOS</span>
+        <div class="text-right px-1 mt-2">
+            <span id="contador-items" class="text-[9px] font-black text-slate-500 bg-slate-800/50 px-3 py-1.5 rounded-full border border-slate-700 uppercase">0 REPUESTOS</span>
         </div>
     </div>
 
@@ -71,29 +92,32 @@
             renderizar(buscador.value);
         }
 
-        // FUNCIÓN MEJORADA PARA COLORES POR MARCA
-        function getEstiloMarca(nombre) {
+        function getIcono(nombre) {
             const n = nombre.toUpperCase();
-            if (n.includes("IPHONE")) return 'border-[#a5f3fc] text-[#a5f3fc] drop-shadow-[0_0_5px_rgba(165,243,252,0.3)]';
-            if (n.includes("SAMSUNG")) return 'border-[#38bdf8] text-[#38bdf8] drop-shadow-[0_0_5px_rgba(56,189,248,0.3)]';
-            if (n.includes("HUAWEI")) return 'border-[#f87171] text-[#f87171] drop-shadow-[0_0_5px_rgba(248,113,113,0.3)]';
-            if (n.includes("MOTOROLA") || n.includes("MOTO ")) return 'border-[#c084fc] text-[#c084fc] drop-shadow-[0_0_5px_rgba(192,132,252,0.3)]';
-            if (n.includes("XIAOMI")) return 'border-[#fdba74] text-[#fdba74] drop-shadow-[0_0_5px_rgba(253,186,116,0.3)]';
-            if (n.includes("BATER")) return 'border-[#fb923c] text-[#fb923c] drop-shadow-[0_0_5px_rgba(251,146,60,0.3)]';
-            return 'border-slate-800 text-white'; // Base si no coincide
+            if (n.includes("IPHONE")) return '<i class="fab fa-apple"></i>';
+            if (n.includes("SAMSUNG")) return '<i class="fa fa-mobile-screen-button"></i>';
+            if (n.includes("HUAWEI")) return '<i class="fa fa-microchip"></i>';
+            if (n.includes("XIAOMI")) return '<i class="fa fa-bolt-lightning"></i>';
+            if (n.includes("MOTOROLA") || n.includes("MOTO ")) return '<i class="fa fa-m"></i>';
+            if (n.includes("BATER")) return '<i class="fa fa-battery-three-quarters"></i>';
+            if (n.includes("FLEX") || n.includes("PIN ")) return '<i class="fa fa-usb"></i>';
+            return '<i class="fa fa-folder-open"></i>';
         }
 
         function renderizar(filtro = '') {
             contenedor.innerHTML = '';
             let totalGeneral = 0;
             let estructura = [];
-            const todasLasListas = [...PANTALLAS];
-            if (typeof HERRAMIENTAS !== 'undefined') todasLasListas.push(...HERRAMIENTAS);
+            
+            const listas = [];
+            if (typeof PANTALLAS !== 'undefined') listas.push(...PANTALLAS);
+            if (typeof BATERIAS !== 'undefined') listas.push(...BATERIAS);
+            if (typeof HERRAMIENTAS !== 'undefined') listas.push(...HERRAMIENTAS);
 
             let mainFolder = null;
             let subFolder = null;
 
-            todasLasListas.forEach((item) => {
+            listas.forEach((item) => {
                 const [tipo, valor] = item;
                 if (tipo === "TITULO") {
                     mainFolder = { nombre: valor, subs: [], items: [], contador: 0 };
@@ -117,12 +141,10 @@
                 if (main.contador === 0 && filtro !== '') return;
                 const mId = `m-${mIdx}`;
                 const mDiv = document.createElement('div');
-                const estiloMarca = getEstiloMarca(main.nombre);
-
-                // DISEÑO DE TÍTULO CON COLORES, PERO SIN LOGOS
                 mDiv.innerHTML = `
-                    <button onclick="toggle('${mId}')" class="btn-categoria w-full ${esClaro ? 'bg-white border-slate-200' : 'bg-[#0f172a] ' + estiloMarca} p-4 rounded-2xl flex justify-between items-center mb-2.5 shadow-lg border-2 transition-all active:scale-95">
+                    <button onclick="toggle('${mId}')" class="btn-categoria w-full ${esClaro ? 'bg-white border-slate-200 text-slate-800' : 'bg-[#0f172a] border-slate-800 text-slate-100'} p-4.5 rounded-2xl flex justify-between items-center mb-2.5 shadow-lg border-2 transition active:scale-95">
                         <div class="flex items-center gap-3.5">
+                            <span class="text-[var(--tecnico)] text-2xl">${getIcono(main.nombre)}</span>
                             <span class="font-black uppercase text-lg italic tracking-tighter">${main.nombre}</span>
                         </div>
                         <div class="flex items-center gap-4">
@@ -130,33 +152,17 @@
                             <i id="icon-${mId}" class="fa fa-plus text-slate-600 text-base icon-plus"></i>
                         </div>
                     </button>
-                    <div id="${mId}" class="hidden space-y-4 pb-6"></div>
+                    <div id="${mId}" class="hidden mt-3 grid grid-cols-2 gap-2.5 pb-6"></div>
                 `;
                 contenedor.appendChild(mDiv);
                 const mContent = mDiv.querySelector(`#${mId}`);
 
-                // Renderizar Subtítulos (Marcos)
                 main.subs.forEach(sub => {
-                    if (sub.contador === 0) return;
-                    const subDiv = document.createElement('div');
-                    subDiv.innerHTML = `
-                        <h3 class="text-[10px] font-black text-slate-600 uppercase tracking-[0.2em] mb-2 px-3">${sub.nombre}</h3>
-                        <div class="grid grid-cols-2 gap-2.5"></div>
-                    `;
-                    mContent.appendChild(subDiv);
-                    const grid = subDiv.querySelector('div');
-                    sub.items.forEach(item => grid.appendChild(crearCard(item, esClaro)));
+                    sub.items.forEach(item => mContent.appendChild(crearCard(item, esClaro)));
                 });
-
-                // Items que no tienen subcategoría
-                if (main.items.length > 0) {
-                    const extraGrid = document.createElement('div');
-                    extraGrid.className = "grid grid-cols-2 gap-2.5";
-                    mContent.appendChild(extraGrid);
-                    main.items.forEach(item => extraGrid.appendChild(crearCard(item, esClaro)));
-                }
+                main.items.forEach(item => mContent.appendChild(crearCard(item, esClaro)));
             });
-            document.getElementById('contador-items').innerText = `${totalGeneral} TOTAL REPUESTOS`;
+            document.getElementById('contador-items').innerText = `${totalGeneral} REPUESTOS`;
         }
 
         function crearCard(item, esClaro) {
@@ -169,560 +175,7 @@
                 <div class="flex items-center gap-3">
                     <span class="text-[var(--verde-repuesto)] font-black text-xs tracking-tight">${precio}</span>
                     <i class="fab fa-whatsapp text-green-500 text-sm"></i>
-                </div>
-            `;
-            return card;
-        }
-
-        function toggle(id) {
-            document.getElementById(id).classList.toggle('hidden');
-            document.getElementById(`icon-${id}`).classList.toggle('rotate-icon');
-        }
-        buscador.addEventListener('input', (e) => renderizar(e.target.value));
-        renderizar();
-    </script>
-</body>
-</html><!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Taller - Inventario Pro</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style> 
-        /* Colores Base */
-        :root { --tecnico: #a5f3fc; --verde-repuesto: #22c55e; --borde-base: #334155; }
-        .rotate-icon { transform: rotate(135deg); color: #ef4444 !important; }
-        .icon-plus { transition: transform 0.3s ease; }
-        
-        /* Estilos Modo Claro */
-        body.modo-claro { background-color: #f1f5f9; color: #1e293b; }
-        .modo-claro header { background-color: #ffffff; border-bottom: 2px solid #e2e8f0; }
-        .modo-claro .btn-categoria { background-color: #ffffff; color: #1e293b; }
-        .modo-claro .tag-repuesto { background-color: #ffffff; border-color: #e2e8f0; color: #1e293b; }
-        .modo-claro input { background-color: #ffffff; border-color: #e2e8f0; color: #1e293b; }
-
-        /* Estilo de Etiquetas (Grid) */
-        .tag-repuesto { 
-            background: rgba(15, 23, 42, 0.4);
-            border: 1px solid rgba(51, 65, 85, 0.5);
-            transition: all 0.2s;
-        }
-        .tag-repuesto:active { transform: scale(0.95); border-color: var(--verde-repuesto); }
-    </style>
-</head>
-<body id="cuerpo" class="bg-[#0b1120] text-white min-h-screen pb-10 transition-colors duration-500 font-sans">
-
-    <header class="relative p-10 text-center border-b border-slate-800 bg-[#0f172a]/80 mb-6 rounded-b-[3.5rem] shadow-2xl overflow-hidden">
-        <button onclick="cambiarModo()" class="absolute top-6 right-6 z-20 bg-slate-800 p-3 rounded-full border border-slate-700 hover:scale-110 transition active:scale-90">
-            <i id="icono-modo" class="fa fa-moon text-lg text-slate-400"></i>
-        </button>
-
-        <div class="relative z-10">
-            <img src="WhatsApp Image 2026-03-30 at 8.47.32 PM.jpeg" alt="Reset Taller" 
-                class="w-32 h-32 mx-auto rounded-full border-4 border-[var(--tecnico)] mb-5 object-cover shadow-2xl">
-            
-            <h1 class="text-4xl font-black italic text-[var(--tecnico)] uppercase tracking-tighter drop-shadow-md">RESET TALLER</h1>
-            <p class="text-slate-400 text-[10px] font-bold tracking-[0.3em] uppercase mt-1">San Carlos, Aguas Zarcas</p>
-            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-[var(--tecnico)] to-transparent mx-auto mt-4 rounded-full shadow-[0_0_10px_rgba(165,243,252,0.4)]"></div>
-        </div>
-    </header>
-
-    <div class="px-4 mb-6">
-        <div class="relative mb-2 group">
-            <i class="fa fa-search absolute left-4 top-3.5 text-slate-600 group-focus-within:text-[var(--tecnico)] transition-colors"></i>
-            <input type="text" id="buscador" placeholder="Busca tu repuesto..." 
-                class="w-full bg-[#0f172a] border border-slate-800 rounded-xl py-3.5 pl-11 pr-4 text-sm outline-none focus:border-[var(--tecnico)] transition-all shadow-inner">
-        </div>
-        <div class="text-right px-1">
-            <span id="contador-items" class="text-[9px] font-black text-slate-500 bg-slate-800/50 px-3 py-1.5 rounded-full border border-slate-700 uppercase tracking-widest">0 TOTAL REPUESTOS</span>
-        </div>
-    </div>
-
-    <main id="lista-repuestos" class="px-4 space-y-4"></main>
-
-    <script src="datos.js"></script>
-    <script>
-        const contenedor = document.getElementById('lista-repuestos');
-        const buscador = document.getElementById('buscador');
-        const cuerpo = document.body;
-
-        function cambiarModo() {
-            cuerpo.classList.toggle('modo-claro');
-            const esClaro = cuerpo.classList.contains('modo-claro');
-            document.getElementById('icono-modo').className = esClaro ? 'fa fa-sun text-lg' : 'fa fa-moon text-lg';
-            renderizar(buscador.value);
-        }
-
-        // FUNCIÓN MEJORADA PARA COLORES POR MARCA
-        function getEstiloMarca(nombre) {
-            const n = nombre.toUpperCase();
-            if (n.includes("IPHONE")) return 'border-[#a5f3fc] text-[#a5f3fc] drop-shadow-[0_0_5px_rgba(165,243,252,0.3)]';
-            if (n.includes("SAMSUNG")) return 'border-[#38bdf8] text-[#38bdf8] drop-shadow-[0_0_5px_rgba(56,189,248,0.3)]';
-            if (n.includes("HUAWEI")) return 'border-[#f87171] text-[#f87171] drop-shadow-[0_0_5px_rgba(248,113,113,0.3)]';
-            if (n.includes("MOTOROLA") || n.includes("MOTO ")) return 'border-[#c084fc] text-[#c084fc] drop-shadow-[0_0_5px_rgba(192,132,252,0.3)]';
-            if (n.includes("XIAOMI")) return 'border-[#fdba74] text-[#fdba74] drop-shadow-[0_0_5px_rgba(253,186,116,0.3)]';
-            if (n.includes("BATER")) return 'border-[#fb923c] text-[#fb923c] drop-shadow-[0_0_5px_rgba(251,146,60,0.3)]';
-            return 'border-slate-800 text-white'; // Base si no coincide
-        }
-
-        function renderizar(filtro = '') {
-            contenedor.innerHTML = '';
-            let totalGeneral = 0;
-            let estructura = [];
-            const todasLasListas = [...PANTALLAS];
-            if (typeof HERRAMIENTAS !== 'undefined') todasLasListas.push(...HERRAMIENTAS);
-
-            let mainFolder = null;
-            let subFolder = null;
-
-            todasLasListas.forEach((item) => {
-                const [tipo, valor] = item;
-                if (tipo === "TITULO") {
-                    mainFolder = { nombre: valor, subs: [], items: [], contador: 0 };
-                    estructura.push(mainFolder);
-                    subFolder = null;
-                } else if (tipo === "SUBTITULO") {
-                    subFolder = { nombre: valor, items: [], contador: 0 };
-                    if (mainFolder) mainFolder.subs.push(subFolder);
-                } else {
-                    if (tipo.toLowerCase().includes(filtro.toLowerCase())) {
-                        totalGeneral++;
-                        if (subFolder) { subFolder.items.push(item); subFolder.contador++; mainFolder.contador++; }
-                        else if (mainFolder) { mainFolder.items.push(item); mainFolder.contador++; }
-                    }
-                }
-            });
-
-            const esClaro = cuerpo.classList.contains('modo-claro');
-
-            estructura.forEach((main, mIdx) => {
-                if (main.contador === 0 && filtro !== '') return;
-                const mId = `m-${mIdx}`;
-                const mDiv = document.createElement('div');
-                const estiloMarca = getEstiloMarca(main.nombre);
-
-                // DISEÑO DE TÍTULO CON COLORES, PERO SIN LOGOS
-                mDiv.innerHTML = `
-                    <button onclick="toggle('${mId}')" class="btn-categoria w-full ${esClaro ? 'bg-white border-slate-200' : 'bg-[#0f172a] ' + estiloMarca} p-4 rounded-2xl flex justify-between items-center mb-2.5 shadow-lg border-2 transition-all active:scale-95">
-                        <div class="flex items-center gap-3.5">
-                            <span class="font-black uppercase text-lg italic tracking-tighter">${main.nombre}</span>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <span class="text-[var(--tecnico)] font-black text-sm">${main.contador}</span>
-                            <i id="icon-${mId}" class="fa fa-plus text-slate-600 text-base icon-plus"></i>
-                        </div>
-                    </button>
-                    <div id="${mId}" class="hidden space-y-4 pb-6"></div>
-                `;
-                contenedor.appendChild(mDiv);
-                const mContent = mDiv.querySelector(`#${mId}`);
-
-                // Renderizar Subtítulos (Marcos)
-                main.subs.forEach(sub => {
-                    if (sub.contador === 0) return;
-                    const subDiv = document.createElement('div');
-                    subDiv.innerHTML = `
-                        <h3 class="text-[10px] font-black text-slate-600 uppercase tracking-[0.2em] mb-2 px-3">${sub.nombre}</h3>
-                        <div class="grid grid-cols-2 gap-2.5"></div>
-                    `;
-                    mContent.appendChild(subDiv);
-                    const grid = subDiv.querySelector('div');
-                    sub.items.forEach(item => grid.appendChild(crearCard(item, esClaro)));
-                });
-
-                // Items que no tienen subcategoría
-                if (main.items.length > 0) {
-                    const extraGrid = document.createElement('div');
-                    extraGrid.className = "grid grid-cols-2 gap-2.5";
-                    mContent.appendChild(extraGrid);
-                    main.items.forEach(item => extraGrid.appendChild(crearCard(item, esClaro)));
-                }
-            });
-            document.getElementById('contador-items').innerText = `${totalGeneral} TOTAL REPUESTOS`;
-        }
-
-        function crearCard(item, esClaro) {
-            const [nombre, precio] = item;
-            const card = document.createElement('a');
-            card.href = `https://wa.me/50661073855?text=Consulta: ${nombre}`;
-            card.className = `tag-repuesto p-4 rounded-xl flex flex-col items-center text-center justify-between shadow-sm transition active:scale-95`;
-            card.innerHTML = `
-                <span class="text-[10px] font-bold uppercase mb-2 opacity-90 leading-tight">${nombre}</span>
-                <div class="flex items-center gap-3">
-                    <span class="text-[var(--verde-repuesto)] font-black text-xs tracking-tight">${precio}</span>
-                    <i class="fab fa-whatsapp text-green-500 text-sm"></i>
-                </div>
-            `;
-            return card;
-        }
-
-        function toggle(id) {
-            document.getElementById(id).classList.toggle('hidden');
-            document.getElementById(`icon-${id}`).classList.toggle('rotate-icon');
-        }
-        buscador.addEventListener('input', (e) => renderizar(e.target.value));
-        renderizar();
-    </script>
-</body>
-</html><!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Taller - Inventario Pro</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style> 
-        /* Colores Base */
-        :root { --tecnico: #a5f3fc; --verde-repuesto: #22c55e; --borde-base: #334155; }
-        .rotate-icon { transform: rotate(135deg); color: #ef4444 !important; }
-        .icon-plus { transition: transform 0.3s ease; }
-        
-        /* Estilos Modo Claro */
-        body.modo-claro { background-color: #f1f5f9; color: #1e293b; }
-        .modo-claro header { background-color: #ffffff; border-bottom: 2px solid #e2e8f0; }
-        .modo-claro .btn-categoria { background-color: #ffffff; color: #1e293b; }
-        .modo-claro .tag-repuesto { background-color: #ffffff; border-color: #e2e8f0; color: #1e293b; }
-        .modo-claro input { background-color: #ffffff; border-color: #e2e8f0; color: #1e293b; }
-
-        /* Estilo de Etiquetas (Grid) */
-        .tag-repuesto { 
-            background: rgba(15, 23, 42, 0.4);
-            border: 1px solid rgba(51, 65, 85, 0.5);
-            transition: all 0.2s;
-        }
-        .tag-repuesto:active { transform: scale(0.95); border-color: var(--verde-repuesto); }
-    </style>
-</head>
-<body id="cuerpo" class="bg-[#0b1120] text-white min-h-screen pb-10 transition-colors duration-500 font-sans">
-
-    <header class="relative p-10 text-center border-b border-slate-800 bg-[#0f172a]/80 mb-6 rounded-b-[3.5rem] shadow-2xl overflow-hidden">
-        <button onclick="cambiarModo()" class="absolute top-6 right-6 z-20 bg-slate-800 p-3 rounded-full border border-slate-700 hover:scale-110 transition active:scale-90">
-            <i id="icono-modo" class="fa fa-moon text-lg text-slate-400"></i>
-        </button>
-
-        <div class="relative z-10">
-            <img src="WhatsApp Image 2026-03-30 at 8.47.32 PM.jpeg" alt="Reset Taller" 
-                class="w-32 h-32 mx-auto rounded-full border-4 border-[var(--tecnico)] mb-5 object-cover shadow-2xl">
-            
-            <h1 class="text-4xl font-black italic text-[var(--tecnico)] uppercase tracking-tighter drop-shadow-md">RESET TALLER</h1>
-            <p class="text-slate-400 text-[10px] font-bold tracking-[0.3em] uppercase mt-1">San Carlos, Aguas Zarcas</p>
-            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-[var(--tecnico)] to-transparent mx-auto mt-4 rounded-full shadow-[0_0_10px_rgba(165,243,252,0.4)]"></div>
-        </div>
-    </header>
-
-    <div class="px-4 mb-6">
-        <div class="relative mb-2 group">
-            <i class="fa fa-search absolute left-4 top-3.5 text-slate-600 group-focus-within:text-[var(--tecnico)] transition-colors"></i>
-            <input type="text" id="buscador" placeholder="Busca tu repuesto..." 
-                class="w-full bg-[#0f172a] border border-slate-800 rounded-xl py-3.5 pl-11 pr-4 text-sm outline-none focus:border-[var(--tecnico)] transition-all shadow-inner">
-        </div>
-        <div class="text-right px-1">
-            <span id="contador-items" class="text-[9px] font-black text-slate-500 bg-slate-800/50 px-3 py-1.5 rounded-full border border-slate-700 uppercase tracking-widest">0 TOTAL REPUESTOS</span>
-        </div>
-    </div>
-
-    <main id="lista-repuestos" class="px-4 space-y-4"></main>
-
-    <script src="datos.js"></script>
-    <script>
-        const contenedor = document.getElementById('lista-repuestos');
-        const buscador = document.getElementById('buscador');
-        const cuerpo = document.body;
-
-        function cambiarModo() {
-            cuerpo.classList.toggle('modo-claro');
-            const esClaro = cuerpo.classList.contains('modo-claro');
-            document.getElementById('icono-modo').className = esClaro ? 'fa fa-sun text-lg' : 'fa fa-moon text-lg';
-            renderizar(buscador.value);
-        }
-
-        // FUNCIÓN MEJORADA PARA COLORES POR MARCA
-        function getEstiloMarca(nombre) {
-            const n = nombre.toUpperCase();
-            if (n.includes("IPHONE")) return 'border-[#a5f3fc] text-[#a5f3fc] drop-shadow-[0_0_5px_rgba(165,243,252,0.3)]';
-            if (n.includes("SAMSUNG")) return 'border-[#38bdf8] text-[#38bdf8] drop-shadow-[0_0_5px_rgba(56,189,248,0.3)]';
-            if (n.includes("HUAWEI")) return 'border-[#f87171] text-[#f87171] drop-shadow-[0_0_5px_rgba(248,113,113,0.3)]';
-            if (n.includes("MOTOROLA") || n.includes("MOTO ")) return 'border-[#c084fc] text-[#c084fc] drop-shadow-[0_0_5px_rgba(192,132,252,0.3)]';
-            if (n.includes("XIAOMI")) return 'border-[#fdba74] text-[#fdba74] drop-shadow-[0_0_5px_rgba(253,186,116,0.3)]';
-            if (n.includes("BATER")) return 'border-[#fb923c] text-[#fb923c] drop-shadow-[0_0_5px_rgba(251,146,60,0.3)]';
-            return 'border-slate-800 text-white'; // Base si no coincide
-        }
-
-        function renderizar(filtro = '') {
-            contenedor.innerHTML = '';
-            let totalGeneral = 0;
-            let estructura = [];
-            const todasLasListas = [...PANTALLAS];
-            if (typeof HERRAMIENTAS !== 'undefined') todasLasListas.push(...HERRAMIENTAS);
-
-            let mainFolder = null;
-            let subFolder = null;
-
-            todasLasListas.forEach((item) => {
-                const [tipo, valor] = item;
-                if (tipo === "TITULO") {
-                    mainFolder = { nombre: valor, subs: [], items: [], contador: 0 };
-                    estructura.push(mainFolder);
-                    subFolder = null;
-                } else if (tipo === "SUBTITULO") {
-                    subFolder = { nombre: valor, items: [], contador: 0 };
-                    if (mainFolder) mainFolder.subs.push(subFolder);
-                } else {
-                    if (tipo.toLowerCase().includes(filtro.toLowerCase())) {
-                        totalGeneral++;
-                        if (subFolder) { subFolder.items.push(item); subFolder.contador++; mainFolder.contador++; }
-                        else if (mainFolder) { mainFolder.items.push(item); mainFolder.contador++; }
-                    }
-                }
-            });
-
-            const esClaro = cuerpo.classList.contains('modo-claro');
-
-            estructura.forEach((main, mIdx) => {
-                if (main.contador === 0 && filtro !== '') return;
-                const mId = `m-${mIdx}`;
-                const mDiv = document.createElement('div');
-                const estiloMarca = getEstiloMarca(main.nombre);
-
-                // DISEÑO DE TÍTULO CON COLORES, PERO SIN LOGOS
-                mDiv.innerHTML = `
-                    <button onclick="toggle('${mId}')" class="btn-categoria w-full ${esClaro ? 'bg-white border-slate-200' : 'bg-[#0f172a] ' + estiloMarca} p-4 rounded-2xl flex justify-between items-center mb-2.5 shadow-lg border-2 transition-all active:scale-95">
-                        <div class="flex items-center gap-3.5">
-                            <span class="font-black uppercase text-lg italic tracking-tighter">${main.nombre}</span>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <span class="text-[var(--tecnico)] font-black text-sm">${main.contador}</span>
-                            <i id="icon-${mId}" class="fa fa-plus text-slate-600 text-base icon-plus"></i>
-                        </div>
-                    </button>
-                    <div id="${mId}" class="hidden space-y-4 pb-6"></div>
-                `;
-                contenedor.appendChild(mDiv);
-                const mContent = mDiv.querySelector(`#${mId}`);
-
-                // Renderizar Subtítulos (Marcos)
-                main.subs.forEach(sub => {
-                    if (sub.contador === 0) return;
-                    const subDiv = document.createElement('div');
-                    subDiv.innerHTML = `
-                        <h3 class="text-[10px] font-black text-slate-600 uppercase tracking-[0.2em] mb-2 px-3">${sub.nombre}</h3>
-                        <div class="grid grid-cols-2 gap-2.5"></div>
-                    `;
-                    mContent.appendChild(subDiv);
-                    const grid = subDiv.querySelector('div');
-                    sub.items.forEach(item => grid.appendChild(crearCard(item, esClaro)));
-                });
-
-                // Items que no tienen subcategoría
-                if (main.items.length > 0) {
-                    const extraGrid = document.createElement('div');
-                    extraGrid.className = "grid grid-cols-2 gap-2.5";
-                    mContent.appendChild(extraGrid);
-                    main.items.forEach(item => extraGrid.appendChild(crearCard(item, esClaro)));
-                }
-            });
-            document.getElementById('contador-items').innerText = `${totalGeneral} TOTAL REPUESTOS`;
-        }
-
-        function crearCard(item, esClaro) {
-            const [nombre, precio] = item;
-            const card = document.createElement('a');
-            card.href = `https://wa.me/50661073855?text=Consulta: ${nombre}`;
-            card.className = `tag-repuesto p-4 rounded-xl flex flex-col items-center text-center justify-between shadow-sm transition active:scale-95`;
-            card.innerHTML = `
-                <span class="text-[10px] font-bold uppercase mb-2 opacity-90 leading-tight">${nombre}</span>
-                <div class="flex items-center gap-3">
-                    <span class="text-[var(--verde-repuesto)] font-black text-xs tracking-tight">${precio}</span>
-                    <i class="fab fa-whatsapp text-green-500 text-sm"></i>
-                </div>
-            `;
-            return card;
-        }
-
-        function toggle(id) {
-            document.getElementById(id).classList.toggle('hidden');
-            document.getElementById(`icon-${id}`).classList.toggle('rotate-icon');
-        }
-        buscador.addEventListener('input', (e) => renderizar(e.target.value));
-        renderizar();
-    </script>
-</body>
-</html><!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Taller - Inventario Pro</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style> 
-        /* Colores Base */
-        :root { --tecnico: #a5f3fc; --verde-repuesto: #22c55e; --borde-base: #334155; }
-        .rotate-icon { transform: rotate(135deg); color: #ef4444 !important; }
-        .icon-plus { transition: transform 0.3s ease; }
-        
-        /* Estilos Modo Claro */
-        body.modo-claro { background-color: #f1f5f9; color: #1e293b; }
-        .modo-claro header { background-color: #ffffff; border-bottom: 2px solid #e2e8f0; }
-        .modo-claro .btn-categoria { background-color: #ffffff; color: #1e293b; }
-        .modo-claro .tag-repuesto { background-color: #ffffff; border-color: #e2e8f0; color: #1e293b; }
-        .modo-claro input { background-color: #ffffff; border-color: #e2e8f0; color: #1e293b; }
-
-        /* Estilo de Etiquetas (Grid) */
-        .tag-repuesto { 
-            background: rgba(15, 23, 42, 0.4);
-            border: 1px solid rgba(51, 65, 85, 0.5);
-            transition: all 0.2s;
-        }
-        .tag-repuesto:active { transform: scale(0.95); border-color: var(--verde-repuesto); }
-    </style>
-</head>
-<body id="cuerpo" class="bg-[#0b1120] text-white min-h-screen pb-10 transition-colors duration-500 font-sans">
-
-    <header class="relative p-10 text-center border-b border-slate-800 bg-[#0f172a]/80 mb-6 rounded-b-[3.5rem] shadow-2xl overflow-hidden">
-        <button onclick="cambiarModo()" class="absolute top-6 right-6 z-20 bg-slate-800 p-3 rounded-full border border-slate-700 hover:scale-110 transition active:scale-90">
-            <i id="icono-modo" class="fa fa-moon text-lg text-slate-400"></i>
-        </button>
-
-        <div class="relative z-10">
-            <img src="WhatsApp Image 2026-03-30 at 8.47.32 PM.jpeg" alt="Reset Taller" 
-                class="w-32 h-32 mx-auto rounded-full border-4 border-[var(--tecnico)] mb-5 object-cover shadow-2xl">
-            
-            <h1 class="text-4xl font-black italic text-[var(--tecnico)] uppercase tracking-tighter drop-shadow-md">RESET TALLER</h1>
-            <p class="text-slate-400 text-[10px] font-bold tracking-[0.3em] uppercase mt-1">San Carlos, Aguas Zarcas</p>
-            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-[var(--tecnico)] to-transparent mx-auto mt-4 rounded-full shadow-[0_0_10px_rgba(165,243,252,0.4)]"></div>
-        </div>
-    </header>
-
-    <div class="px-4 mb-6">
-        <div class="relative mb-2 group">
-            <i class="fa fa-search absolute left-4 top-3.5 text-slate-600 group-focus-within:text-[var(--tecnico)] transition-colors"></i>
-            <input type="text" id="buscador" placeholder="Busca tu repuesto..." 
-                class="w-full bg-[#0f172a] border border-slate-800 rounded-xl py-3.5 pl-11 pr-4 text-sm outline-none focus:border-[var(--tecnico)] transition-all shadow-inner">
-        </div>
-        <div class="text-right px-1">
-            <span id="contador-items" class="text-[9px] font-black text-slate-500 bg-slate-800/50 px-3 py-1.5 rounded-full border border-slate-700 uppercase tracking-widest">0 TOTAL REPUESTOS</span>
-        </div>
-    </div>
-
-    <main id="lista-repuestos" class="px-4 space-y-4"></main>
-
-    <script src="datos.js"></script>
-    <script>
-        const contenedor = document.getElementById('lista-repuestos');
-        const buscador = document.getElementById('buscador');
-        const cuerpo = document.body;
-
-        function cambiarModo() {
-            cuerpo.classList.toggle('modo-claro');
-            const esClaro = cuerpo.classList.contains('modo-claro');
-            document.getElementById('icono-modo').className = esClaro ? 'fa fa-sun text-lg' : 'fa fa-moon text-lg';
-            renderizar(buscador.value);
-        }
-
-        // FUNCIÓN MEJORADA PARA COLORES POR MARCA
-        function getEstiloMarca(nombre) {
-            const n = nombre.toUpperCase();
-            if (n.includes("IPHONE")) return 'border-[#a5f3fc] text-[#a5f3fc] drop-shadow-[0_0_5px_rgba(165,243,252,0.3)]';
-            if (n.includes("SAMSUNG")) return 'border-[#38bdf8] text-[#38bdf8] drop-shadow-[0_0_5px_rgba(56,189,248,0.3)]';
-            if (n.includes("HUAWEI")) return 'border-[#f87171] text-[#f87171] drop-shadow-[0_0_5px_rgba(248,113,113,0.3)]';
-            if (n.includes("MOTOROLA") || n.includes("MOTO ")) return 'border-[#c084fc] text-[#c084fc] drop-shadow-[0_0_5px_rgba(192,132,252,0.3)]';
-            if (n.includes("XIAOMI")) return 'border-[#fdba74] text-[#fdba74] drop-shadow-[0_0_5px_rgba(253,186,116,0.3)]';
-            if (n.includes("BATER")) return 'border-[#fb923c] text-[#fb923c] drop-shadow-[0_0_5px_rgba(251,146,60,0.3)]';
-            return 'border-slate-800 text-white'; // Base si no coincide
-        }
-
-        function renderizar(filtro = '') {
-            contenedor.innerHTML = '';
-            let totalGeneral = 0;
-            let estructura = [];
-            const todasLasListas = [...PANTALLAS];
-            if (typeof HERRAMIENTAS !== 'undefined') todasLasListas.push(...HERRAMIENTAS);
-
-            let mainFolder = null;
-            let subFolder = null;
-
-            todasLasListas.forEach((item) => {
-                const [tipo, valor] = item;
-                if (tipo === "TITULO") {
-                    mainFolder = { nombre: valor, subs: [], items: [], contador: 0 };
-                    estructura.push(mainFolder);
-                    subFolder = null;
-                } else if (tipo === "SUBTITULO") {
-                    subFolder = { nombre: valor, items: [], contador: 0 };
-                    if (mainFolder) mainFolder.subs.push(subFolder);
-                } else {
-                    if (tipo.toLowerCase().includes(filtro.toLowerCase())) {
-                        totalGeneral++;
-                        if (subFolder) { subFolder.items.push(item); subFolder.contador++; mainFolder.contador++; }
-                        else if (mainFolder) { mainFolder.items.push(item); mainFolder.contador++; }
-                    }
-                }
-            });
-
-            const esClaro = cuerpo.classList.contains('modo-claro');
-
-            estructura.forEach((main, mIdx) => {
-                if (main.contador === 0 && filtro !== '') return;
-                const mId = `m-${mIdx}`;
-                const mDiv = document.createElement('div');
-                const estiloMarca = getEstiloMarca(main.nombre);
-
-                // DISEÑO DE TÍTULO CON COLORES, PERO SIN LOGOS
-                mDiv.innerHTML = `
-                    <button onclick="toggle('${mId}')" class="btn-categoria w-full ${esClaro ? 'bg-white border-slate-200' : 'bg-[#0f172a] ' + estiloMarca} p-4 rounded-2xl flex justify-between items-center mb-2.5 shadow-lg border-2 transition-all active:scale-95">
-                        <div class="flex items-center gap-3.5">
-                            <span class="font-black uppercase text-lg italic tracking-tighter">${main.nombre}</span>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <span class="text-[var(--tecnico)] font-black text-sm">${main.contador}</span>
-                            <i id="icon-${mId}" class="fa fa-plus text-slate-600 text-base icon-plus"></i>
-                        </div>
-                    </button>
-                    <div id="${mId}" class="hidden space-y-4 pb-6"></div>
-                `;
-                contenedor.appendChild(mDiv);
-                const mContent = mDiv.querySelector(`#${mId}`);
-
-                // Renderizar Subtítulos (Marcos)
-                main.subs.forEach(sub => {
-                    if (sub.contador === 0) return;
-                    const subDiv = document.createElement('div');
-                    subDiv.innerHTML = `
-                        <h3 class="text-[10px] font-black text-slate-600 uppercase tracking-[0.2em] mb-2 px-3">${sub.nombre}</h3>
-                        <div class="grid grid-cols-2 gap-2.5"></div>
-                    `;
-                    mContent.appendChild(subDiv);
-                    const grid = subDiv.querySelector('div');
-                    sub.items.forEach(item => grid.appendChild(crearCard(item, esClaro)));
-                });
-
-                // Items que no tienen subcategoría
-                if (main.items.length > 0) {
-                    const extraGrid = document.createElement('div');
-                    extraGrid.className = "grid grid-cols-2 gap-2.5";
-                    mContent.appendChild(extraGrid);
-                    main.items.forEach(item => extraGrid.appendChild(crearCard(item, esClaro)));
-                }
-            });
-            document.getElementById('contador-items').innerText = `${totalGeneral} TOTAL REPUESTOS`;
-        }
-
-        function crearCard(item, esClaro) {
-            const [nombre, precio] = item;
-            const card = document.createElement('a');
-            card.href = `https://wa.me/50661073855?text=Consulta: ${nombre}`;
-            card.className = `tag-repuesto p-4 rounded-xl flex flex-col items-center text-center justify-between shadow-sm transition active:scale-95`;
-            card.innerHTML = `
-                <span class="text-[10px] font-bold uppercase mb-2 opacity-90 leading-tight">${nombre}</span>
-                <div class="flex items-center gap-3">
-                    <span class="text-[var(--verde-repuesto)] font-black text-xs tracking-tight">${precio}</span>
-                    <i class="fab fa-whatsapp text-green-500 text-sm"></i>
-                </div>
-            `;
+                </div>`;
             return card;
         }
 
