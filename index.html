@@ -7,50 +7,51 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style> 
-        :root { --tecnico: #38bdf8; }
+        /* Nuevo color: Celeste Mate, suave y profesional */
+        :root { --tecnico: #a5f3fc; --bg-oscuro: #0f172a; --borde-oscuro: #334155; }
         .rotate-180 { transform: rotate(180deg); }
-        /* Estilos para el Modo Claro */
-        body.modo-claro { background-color: #f1f5f9; color: #1e293b; }
-        .modo-claro header { background-color: rgba(255, 255, 255, 0.8); border-bottom-color: #cbd5e1; }
-        .modo-claro .card-repuesto { background-color: #ffffff; border-color: #e2e8f0; color: #1e293b; shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
-        .modo-claro .btn-categoria { background-color: #ffffff; border-color: #cbd5e1; color: #1e293b; }
-        .modo-claro input { background-color: #ffffff; border-color: #cbd5e1; color: #1e293b; }
         
-        .local-glow { filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.8)); border: 4px solid var(--tecnico); }
-        .bg-portada { 
-            background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8)), 
-            url('https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?q=80&w=1000&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-        }
+        /* Estilos para el Modo Claro */
+        body.modo-claro { background-color: #f8fafc; color: #1e293b; }
+        .modo-claro header { background-color: #ffffff; border-bottom-color: #e2e8f0; }
+        .modo-claro .card-repuesto { background-color: #ffffff; border-color: #e2e8f0; color: #1e293b; shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+        .modo-claro .btn-categoria { background-color: #ffffff; border-color: #e2e8f0; color: #1e293b; shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.03); }
+        .modo-claro input { background-color: #ffffff; border-color: #e2e8f0; color: #1e293b; }
+        .modo-claro #icono-modo { color: #f59e0b; } /* Sol Amarillo */
+        .modo-claro .btn-modo { background-color: #f1f5f9; border-color: #e2e8f0; }
+
+        /* Brillo sutil y limpio para la foto */
+        .local-glow { filter: drop-shadow(0 0 10px rgba(165, 243, 252, 0.5)); border: 3px solid var(--tecnico); }
+        .card-repuesto { transition: border-color 0.3s, transform 0.2s; }
+        .card-repuesto:active { transform: scale(0.98); border-color: var(--tecnico); }
     </style>
 </head>
-<body id="cuerpo" class="bg-slate-950 text-white min-h-screen pb-10 transition-colors duration-500 font-sans">
+<body id="cuerpo" class="bg-[#0b1120] text-white min-h-screen pb-10 transition-colors duration-500 font-sans">
 
-    <header class="relative p-10 text-center border-b border-slate-800 mb-6 rounded-b-[3.5rem] shadow-2xl overflow-hidden bg-portada">
+    <header class="relative p-10 text-center border-b border-slate-800 mb-6 rounded-b-[3rem] shadow-2xl overflow-hidden bg-[#0f172a]/80">
         
-        <button onclick="cambiarModo()" class="absolute top-6 right-6 z-20 bg-slate-900/50 p-3 rounded-full border border-slate-700 text-[var(--tecnico)] hover:scale-110 transition active:scale-90">
-            <i id="icono-modo" class="fa fa-moon text-xl"></i>
+        <button onclick="cambiarModo()" class="btn-modo absolute top-6 right-6 z-20 bg-slate-800 p-3 rounded-full border border-slate-700 hover:scale-110 transition active:scale-90">
+            <i id="icono-modo" class="fa fa-moon text-lg text-slate-400"></i>
         </button>
 
-        <div class="relative z-10 mt-4">
-            <img src="WhatsApp Image 2026-03-30 at 8.47.32 PM.jpeg" alt="Reset Taller" 
+        <div class="relative z-10">
+            <img src="WhatsApp Image 2026-03-30 at 8.47.32 PM.jpeg" alt="Reset Taller Local" 
                 class="w-32 h-32 mx-auto rounded-full local-glow mb-5 object-cover shadow-2xl">
             
-            <h1 class="text-4xl font-black italic text-[var(--tecnico)] uppercase tracking-tighter drop-shadow-lg">RESET TALLER</h1>
-            <p class="text-slate-300 text-[10px] font-bold tracking-[0.3em] uppercase mt-1">Servicio Técnico Profesional</p>
-            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-[var(--tecnico)] to-transparent mx-auto mt-4 rounded-full shadow-[0_0_15px_#38bdf8]"></div>
+            <h1 class="text-4xl font-black italic text-[var(--tecnico)] uppercase tracking-tighter drop-shadow-md">RESET TALLER</h1>
+            <p class="text-slate-400 text-[10px] font-bold tracking-[0.3em] uppercase mt-1">Servicio Técnico Profesional</p>
+            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-[var(--tecnico)] to-transparent mx-auto mt-4 rounded-full shadow-[0_0_10px_rgba(165,243,252,0.4)]"></div>
         </div>
     </header>
 
     <div class="px-4 mb-6">
         <div class="relative mb-2 group">
-            <i class="fa fa-search absolute left-4 top-3.5 text-slate-500 group-focus-within:text-[var(--tecnico)] transition-colors"></i>
-            <input type="text" id="buscador" placeholder="Busca modelo o repuesto..." 
-                class="w-full bg-slate-900 border border-slate-800 rounded-xl py-3.5 pl-11 pr-4 text-sm outline-none focus:border-[var(--tecnico)] transition-all shadow-inner">
+            <i class="fa fa-search absolute left-4 top-3.5 text-slate-600 group-focus-within:text-[var(--tecnico)] transition-colors"></i>
+            <input type="text" id="buscador" placeholder="Busca tu repuesto..." 
+                class="w-full bg-[#0f172a] border border-slate-800 rounded-xl py-3.5 pl-11 pr-4 text-sm outline-none focus:border-[var(--tecnico)] transition-all shadow-inner">
         </div>
         <div class="text-right px-1">
-            <span id="contador-items" class="text-[9px] font-black text-[var(--tecnico)] bg-[var(--tecnico)]/10 px-3 py-1.5 rounded-full border border-[var(--tecnico)]/20 uppercase tracking-widest">0 TOTAL</span>
+            <span id="contador-items" class="text-[9px] font-black text-slate-500 bg-slate-800/50 px-3 py-1.5 rounded-full border border-slate-700 uppercase tracking-widest">0 Total Repuestos</span>
         </div>
     </div>
 
@@ -63,18 +64,14 @@
         const cuerpo = document.body;
         const iconoModo = document.getElementById('icono-modo');
 
-        // FUNCIÓN DE CAMBIO DE MODO CORREGIDA
         function cambiarModo() {
             cuerpo.classList.toggle('modo-claro');
             const esClaro = cuerpo.classList.contains('modo-claro');
-            
-            // Cambia el icono
-            iconoModo.className = esClaro ? 'fa fa-sun text-xl' : 'fa fa-moon text-xl';
-            
-            // Re-renderiza para aplicar colores de las cards
+            iconoModo.className = esClaro ? 'fa fa-sun text-lg' : 'fa fa-moon text-lg';
             renderizar(buscador.value);
         }
 
+        // ICONOS AUTOMÁTICOS POR PALABRA CLAVE
         function getIcono(nombre) {
             const n = nombre.toUpperCase();
             if (n.includes("IPHONE")) return '<i class="fab fa-apple"></i>';
@@ -82,8 +79,14 @@
             if (n.includes("HUAWEI")) return '<i class="fa fa-microchip"></i>';
             if (n.includes("XIAOMI")) return '<i class="fa fa-bolt-lightning"></i>';
             if (n.includes("MOTOROLA") || n.includes("MOTO ")) return '<i class="fa fa-m"></i>';
+            if (n.includes("HONOR")) return '<i class="fa fa-medal"></i>';
             if (n.includes("BATER")) return '<i class="fa fa-battery-three-quarters"></i>';
             if (n.includes("FLEX") || n.includes("PIN ")) return '<i class="fa fa-usb"></i>';
+            if (n.includes("TAPA")) return '<i class="fa fa-clone"></i>';
+            if (n.includes("TABLET")) return '<i class="fa fa-tablet-screen-button"></i>';
+            if (n.includes("INSUMO") || n.includes("HERRAMIENTA")) return '<i class="fa fa-screwdriver-wrench"></i>';
+            if (n.includes("ACCESORIO") || n.includes("CARGA")) return '<i class="fa fa-headset"></i>';
+            if (n.includes("WATCH") || n.includes("RELOJ")) return '<i class="fa fa-clock"></i>';
             return '<i class="fa fa-folder-open"></i>';
         }
 
@@ -128,14 +131,14 @@
                 const mId = `m-${mIdx}`;
                 const mDiv = document.createElement('div');
                 mDiv.innerHTML = `
-                    <button onclick="toggle('${mId}')" class="btn-categoria w-full ${esClaro ? 'bg-white border-slate-300 text-slate-800' : 'bg-slate-900 border-slate-800 text-white'} p-4 rounded-2xl flex justify-between items-center mb-2 shadow-lg transition-colors">
+                    <button onclick="toggle('${mId}')" class="btn-categoria w-full ${esClaro ? 'bg-white border-slate-200 text-slate-800' : 'bg-[#0f172a] border-slate-800 text-slate-100'} p-4 rounded-2xl flex justify-between items-center mb-2.5 shadow-lg transition-colors hover:border-slate-700">
                         <div class="flex items-center gap-3.5">
-                            <span class="text-[var(--tecnico)] text-2xl">${getIcono(main.nombre)}</span>
+                            <span class="text-[var(--tecnico)] text-2xl drop-shadow-[0_0_5px_rgba(165,243,252,0.3)]">${getIcono(main.nombre)}</span>
                             <span class="font-black uppercase text-lg tracking-tight">${main.nombre}</span>
                         </div>
                         <div class="flex items-center gap-4">
                             <span class="text-[var(--tecnico)] font-black text-sm">${main.contador}</span>
-                            <i id="icon-${mId}" class="fa fa-chevron-down text-slate-500 text-xs transition-transform"></i>
+                            <i id="icon-${mId}" class="fa fa-chevron-down text-slate-600 text-xs transition-transform"></i>
                         </div>
                     </button>
                     <div id="${mId}" class="hidden space-y-2 mb-5 px-1"></div>
@@ -148,11 +151,11 @@
                     const sId = `s-${mIdx}-${sIdx}`;
                     const sDiv = document.createElement('div');
                     sDiv.innerHTML = `
-                        <button onclick="toggle('${sId}')" class="w-full ${esClaro ? 'bg-slate-100 border-slate-200' : 'bg-slate-800/40 border-slate-700/50'} p-2.5 rounded-xl flex justify-between items-center mb-1.5 border">
-                            <span class="font-bold text-[10px] uppercase text-slate-400">${sub.nombre}</span>
-                            <span class="text-[var(--tecnico)] font-bold text-[10px] bg-[var(--tecnico)]/10 px-2 py-0.5 rounded">${sub.contador}</span>
+                        <button onclick="toggle('${sId}')" class="w-full ${esClaro ? 'bg-slate-100 border-slate-200' : 'bg-slate-800/30 border-slate-700/50'} p-2.5 rounded-xl flex justify-between items-center mb-1.5 border shadow-inner">
+                            <span class="font-bold text-[10px] uppercase ${esClaro ? 'text-slate-500' : 'text-slate-400'} tracking-wider">${sub.nombre}</span>
+                            <span class="text-[var(--tecnico)] font-bold text-[10px] bg-[var(--tecnico)]/10 px-2 py-0.5 rounded shadow-sm">${sub.contador}</span>
                         </button>
-                        <div id="${sId}" class="hidden space-y-1 mt-1 ml-3 border-l-2 border-slate-700/30 pl-4"></div>
+                        <div id="${sId}" class="hidden space-y-1 mt-1 ml-3 border-l-2 border-slate-800 pl-4"></div>
                     `;
                     mContent.appendChild(sDiv);
                     const sContent = sDiv.querySelector(`#${sId}`);
@@ -165,18 +168,18 @@
                     }
                 });
             });
-            document.getElementById('contador-items').innerText = `${totalGeneral} TOTAL`;
+            document.getElementById('contador-items').innerText = `${totalGeneral} TOTAL REPUESTOS`;
         }
 
         function crearCard(item, esClaro) {
             const [tipo, valor] = item;
             const card = document.createElement('div');
-            card.className = `card-repuesto ${esClaro ? 'bg-white border-slate-200 text-slate-800' : 'bg-slate-900/40 border-slate-800 text-white'} p-4 rounded-xl flex justify-between items-center border mx-1 shadow-sm transition-all`;
+            card.className = `card-repuesto ${esClaro ? 'bg-white border-slate-100 text-slate-700' : 'bg-slate-900/30 border-slate-800 text-slate-200'} p-4 rounded-xl flex justify-between items-center border mx-1 shadow-sm transition-all hover:border-slate-700`;
             card.innerHTML = `
-                <span class="text-[11px] font-bold uppercase">${tipo}</span>
+                <span class="text-[11px] font-bold uppercase tracking-tight">${tipo}</span>
                 <div class="flex items-center gap-4">
                     <span class="text-[var(--tecnico)] font-black text-sm tracking-tight">${valor}</span>
-                    <a href="https://wa.me/50661073855?text=Consulta: ${tipo}" class="text-green-500 hover:scale-110 transition"><i class="fab fa-whatsapp text-xl"></i></a>
+                    <a href="https://wa.me/50661073855?text=Consulta: ${tipo}" class="text-green-500 hover:scale-110 transition active:scale-95"><i class="fab fa-whatsapp text-xl"></i></a>
                 </div>`;
             return card;
         }
