@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style> 
         .rotate-180 { transform: rotate(180deg); } 
-        :root { --tecnico: #38bdf8; }
+        :root { --tecnico: #38bdf8; --reset-yellow: #eab308; }
         .modo-claro { background-color: #f1f5f9; color: #1e293b; }
         .modo-claro .bg-header { background-color: #ffffff; border-color: #e2e8f0; }
         .modo-claro .bg-card { background-color: #ffffff; border-color: #e2e8f0; }
@@ -111,10 +111,11 @@
                 if (main.contador === 0 && filtro !== '') return;
                 const mId = `m-${mIdx}`;
                 const mDiv = document.createElement('div');
+                // ESTA ES LA PARTE QUE CORREGIMOS PARA QUE SE VEA COMO LA FOTO
                 mDiv.innerHTML = `
-                    <button onclick="toggle('${mId}')" class="w-full ${esClaro ? 'bg-white' : 'bg-slate-900'} p-5 rounded-2xl flex justify-between items-center mb-2 border-l-4 border-[var(--tecnico)] shadow-lg transition-colors">
-                        <span class="font-black uppercase ${esClaro ? 'text-slate-800' : 'text-slate-100'} text-sm tracking-wider">${main.nombre} <span class="text-[var(--tecnico)] ml-2">${main.contador}</span></span>
-                        <i id="icon-${mId}" class="fa fa-chevron-down text-[var(--tecnico)] transition-transform"></i>
+                    <button onclick="toggle('${mId}')" class="w-full bg-[#eab308] p-4 rounded-2xl flex justify-between items-center mb-2 shadow-[0_4px_15px_rgba(234,179,8,0.3)] transition-all active:scale-95">
+                        <span class="font-black uppercase text-[#1a1a1a] text-sm tracking-widest">${main.nombre} <span class="bg-[#1a1a1a] text-[#eab308] px-2 py-0.5 rounded-full text-[10px] ml-2">${main.contador}</span></span>
+                        <i id="icon-${mId}" class="fa fa-chevron-down text-[#1a1a1a] transition-transform"></i>
                     </button>
                     <div id="${mId}" class="hidden space-y-2 mb-4 px-1"></div>
                 `;
