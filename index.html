@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Taller</title>
+    <title>Reset Taller | Catálogo Profesional</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style> 
@@ -13,14 +13,14 @@
         /* PORTADA TIPO FACEBOOK */
         .portada {
             position: relative;
-            height: 200px;
+            height: 220px;
             width: 100%;
-            background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?q=80&w=1200&auto=format&fit=crop');
+            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1591799264318-7e698ddb7c1d?q=80&w=1200&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
         }
 
-        /* FOTO DE PERFIL MONTADA */
+        /* LOGO MONTADO SOBRE PORTADA */
         .foto-perfil {
             position: absolute;
             bottom: -50px;
@@ -34,7 +34,7 @@
             border-radius: 50%;
             border: 4px solid var(--bg);
             object-fit: cover;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
         }
 
         .contenedor-info {
@@ -43,9 +43,21 @@
         }
 
         .glass { background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
-        .tag-repuesto { background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .tag-repuesto { background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.2s; }
+        .tag-repuesto:active { transform: scale(0.95); }
         .rotate-icon { transform: rotate(135deg); color: #f87171 !important; }
         .icon-plus { transition: transform 0.3s ease; }
+
+        /* BURBUJA DE CONTADOR */
+        .badge-count { 
+            background: rgba(34, 211, 238, 0.15); 
+            border: 1px solid var(--accent); 
+            color: var(--accent); 
+            font-size: 11px; 
+            padding: 2px 10px; 
+            border-radius: 99px; 
+            font-weight: 800; 
+        }
     </style>
 </head>
 <body class="pb-10">
@@ -57,14 +69,14 @@
     </header>
 
     <div class="contenedor-info">
-        <h1 class="text-3xl font-black italic uppercase tracking-tighter text-white">RESET TALLER</h1>
+        <h1 class="text-3xl font-black italic uppercase tracking-tighter">RESET TALLER</h1>
         <p class="text-[var(--accent)] text-[11px] font-bold uppercase tracking-[0.2em]">San Carlos, Aguas Zarcas</p>
         
-        <p class="mt-4 text-[13px] font-bold text-green-400 uppercase">
+        <p class="mt-4 text-[14px] font-bold text-green-400 uppercase tracking-tight">
             La reparación incluye el precio total
         </p>
 
-        <p class="mt-3 text-[11px] italic opacity-60">
+        <p class="mt-2 text-[10px] italic opacity-60">
             "Todo lo puedo en Cristo que me fortalece." — Fil. 4:13
         </p>
     </div>
@@ -72,8 +84,8 @@
     <div class="px-5 mt-8 mb-6">
         <div class="relative">
             <i class="fa fa-search absolute left-4 top-4 text-slate-500"></i>
-            <input type="text" id="buscador" placeholder="Busca tu modelo..." 
-                class="glass w-full rounded-2xl py-4 pl-12 pr-4 text-sm outline-none focus:border-[var(--accent)]">
+            <input type="text" id="buscador" placeholder="Busca tu modelo (Ej: A10, P30, iPhone 11)..." 
+                class="glass w-full rounded-2xl py-4 pl-12 pr-4 text-sm outline-none focus:border-[var(--accent)] transition-all">
         </div>
     </div>
 
@@ -91,47 +103,63 @@
             let mainFolder = null;
             let subFolder = null;
 
+            // 1. ORGANIZAR Y CONTAR
             listas.forEach((item) => {
                 const [tipo, valor] = item;
                 if (tipo === "TITULO") {
-                    mainFolder = { nombre: valor, subs: [], items: [], contador: 0 };
+                    mainFolder = { nombre: valor, subs: [], items: [], total: 0 };
                     estructura.push(mainFolder);
                     subFolder = null;
                 } else if (tipo === "SUBTITULO") {
-                    subFolder = { nombre: valor, items: [], contador: 0 };
+                    subFolder = { nombre: valor, items: [], total: 0 };
                     if (mainFolder) mainFolder.subs.push(subFolder);
-                } else if (tipo.toLowerCase().includes(filtro.toLowerCase())) {
-                    if (subFolder) { subFolder.items.push(item); subFolder.contador++; mainFolder.contador++; }
-                    else if (mainFolder) { mainFolder.items.push(item); mainFolder.contador++; }
+                } else if (tipo.toLowerCase().includes(filtro.toLowerCase()) || 
+                           (mainFolder && mainFolder.nombre.toLowerCase().includes(filtro.toLowerCase()))) {
+                    if (subFolder) { 
+                        subFolder.items.push(item); 
+                        subFolder.total++; 
+                        mainFolder.total++; 
+                    } else if (mainFolder) { 
+                        mainFolder.items.push(item); 
+                        mainFolder.total++; 
+                    }
                 }
             });
 
+            // 2. DIBUJAR CARPETAS
             estructura.forEach((main, mIdx) => {
-                if (main.contador === 0 && filtro !== '') return;
+                if (main.total === 0 && filtro !== '') return;
                 const mId = `m-${mIdx}`;
                 const mDiv = document.createElement('div');
                 mDiv.innerHTML = `
-                    <button onclick="toggle('${mId}')" class="glass w-full p-5 rounded-2xl flex justify-between items-center mb-2">
-                        <span class="font-black text-lg uppercase italic tracking-tighter">${main.nombre}</span>
-                        <div class="flex items-center gap-4">
-                            <span class="text-[10px] font-bold text-[var(--accent)]">${main.contador}</span>
-                            <i id="icon-${mId}" class="fa fa-plus text-slate-500 text-sm icon-plus"></i>
+                    <button onclick="toggle('${mId}')" class="glass w-full p-5 rounded-2xl flex justify-between items-center mb-2 shadow-lg transition active:scale-95">
+                        <div class="flex items-center gap-3">
+                            <span class="font-black text-lg uppercase italic tracking-tighter">${main.nombre}</span>
+                            <span class="badge-count">${main.total}</span>
                         </div>
+                        <i id="icon-${mId}" class="fa fa-plus text-slate-500 text-sm icon-plus"></i>
                     </button>
                     <div id="${mId}" class="hidden space-y-4 pb-4 mt-2"></div>
                 `;
                 contenedor.appendChild(mDiv);
                 const mContent = mDiv.querySelector(`#${mId}`);
 
+                // DIBUJAR SUBCATEGORÍAS
                 main.subs.forEach(sub => {
-                    if (sub.contador === 0) return;
+                    if (sub.total === 0) return;
                     const subDiv = document.createElement('div');
-                    subDiv.innerHTML = `<h3 class="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-2 px-2">${sub.nombre}</h3>
-                                      <div class="grid grid-cols-2 gap-2"></div>`;
+                    subDiv.innerHTML = `
+                        <div class="flex justify-between items-center mb-2 px-2 mt-4">
+                            <h3 class="text-[9px] font-black text-slate-500 uppercase tracking-widest">${sub.nombre}</h3>
+                            <span class="text-[9px] font-bold text-[var(--accent)] border border-[var(--accent)]/30 px-2 rounded-md">${sub.total}</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2"></div>
+                    `;
                     mContent.appendChild(subDiv);
-                    sub.items.forEach(item => subDiv.querySelector('div').appendChild(crearCard(item)));
+                    sub.items.forEach(item => subDiv.querySelector('.grid').appendChild(crearCard(item)));
                 });
 
+                // DIBUJAR ITEMS SUELTOS
                 if (main.items.length > 0) {
                     const grid = document.createElement('div');
                     grid.className = "grid grid-cols-2 gap-2";
@@ -144,11 +172,13 @@
         function crearCard(item) {
             const [nombre, precio] = item;
             const card = document.createElement('a');
-            card.href = `https://wa.me/50661073855?text=Consulta: ${nombre}`;
-            card.className = "tag-repuesto p-4 rounded-xl flex flex-col items-center text-center justify-between";
-            card.innerHTML = `<span class="text-[9px] font-bold uppercase mb-2 opacity-80">${nombre}</span>
-                            <div class="flex items-center gap-2"><span class="text-[var(--price)] font-black text-xs">${precio}</span>
-                            <i class="fab fa-whatsapp text-green-500 text-sm"></i></div>`;
+            card.href = `https://wa.me/50661073855?text=Consulta Reset Taller por: ${nombre}`;
+            card.className = "tag-repuesto p-4 rounded-xl flex flex-col items-center text-center justify-between shadow-inner";
+            card.innerHTML = `<span class="text-[9px] font-bold uppercase mb-2 opacity-80 leading-tight">${nombre}</span>
+                            <div class="flex items-center gap-2">
+                                <span class="text-[var(--price)] font-black text-xs">${precio}</span>
+                                <i class="fab fa-whatsapp text-green-500 text-sm"></i>
+                            </div>`;
             return card;
         }
 
@@ -156,6 +186,7 @@
             document.getElementById(id).classList.toggle('hidden');
             document.getElementById(`icon-${id}`).classList.toggle('rotate-icon');
         }
+
         buscador.addEventListener('input', (e) => renderizar(e.target.value));
         renderizar();
     </script>
