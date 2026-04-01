@@ -10,8 +10,8 @@
 <body class="bg-gray-900 text-gray-100 font-sans min-h-screen">
     <div class="max-w-md mx-auto p-4 pb-24">
         <div class="text-center mb-6">
-            <h1 class="text-3xl font-extrabold text-yellow-500 tracking-tighter">RESET TALLER</h1>
-            <p class="text-gray-400 text-sm">Reparación Profesional de Electrónica</p>
+            <h1 class="text-3xl font-extrabold text-yellow-500 tracking-tighter italic">RESET TALLER</h1>
+            <p class="text-gray-400 text-xs uppercase tracking-widest">Expertos en Microelectrónica</p>
         </div>
 
         <div class="relative mb-6">
@@ -20,20 +20,19 @@
                 class="w-full bg-gray-800 border-none rounded-2xl py-3 pl-12 pr-4 text-white focus:ring-2 focus:ring-yellow-500 shadow-xl outline-none">
         </div>
 
-        <div id="lista-productos" class="space-y-3">
-            </div>
+        <div id="contenedor-categorias" class="space-y-4"></div>
     </div>
 
     <div class="fixed bottom-0 left-0 right-0 bg-gray-800 border-t border-gray-700 p-4 shadow-2xl z-50">
         <div class="max-w-md mx-auto flex justify-between items-center text-xs text-gray-400">
             <div class="text-center flex-1">
-                <i class="fas fa-mobile-alt text-lg text-yellow-500 block mb-1"></i>
-                <span id="contador">0</span> Repuestos
+                <i class="fas fa-box text-lg text-yellow-500 block mb-1"></i>
+                <span id="contador">0</span> Items
             </div>
             <div class="text-center flex-1 border-x border-gray-700">
                 <a href="https://wa.me/50661073855" class="block">
                     <i class="fab fa-whatsapp text-lg text-green-500 block mb-1"></i>
-                    WhatsApp
+                    Consulta General
                 </a>
             </div>
             <div class="text-center flex-1">
@@ -45,35 +44,64 @@
 
     <script src="datos.js"></script>
     <script>
-        const lista = document.getElementById('lista-productos');
+        const contenedor = document.getElementById('contenedor-categorias');
         const buscador = document.getElementById('buscador');
-        const contador = document.getElementById('contador');
+        const contadorElem = document.getElementById('contador');
+        const WHATSAPP_NUM = "50661073855";
 
-        function mostrarProductos(filtro = '') {
-            lista.innerHTML = '';
+        function renderizar(filtro = '') {
+            contenedor.innerHTML = '';
             let total = 0;
-            
-            PANTALLAS.forEach(p => {
+            let currentList = null;
+
+            PANTALLAS.forEach((p, index) => {
                 if (p[0] === "TITULO") {
-                    if (!filtro) {
-                        lista.innerHTML += `<h2 class="text-yellow-500 font-bold text-sm uppercase tracking-widest mt-6 mb-2 border-b border-gray-800 pb-1">${p[1]}</h2>`;
-                    }
-                } else {
+                    const sectionId = `section-${index}`;
+                    const categoryDiv = document.createElement('div');
+                    categoryDiv.className = "bg-gray-800 rounded-xl overflow-hidden border border-gray-700 shadow-lg mb-3";
+                    
+                    categoryDiv.innerHTML = `
+                        <button onclick="toggleSection('${sectionId}')" class="w-full p-4 flex justify-between items-center bg-gray-800 hover:bg-gray-700 transition-colors">
+                            <span class="font-bold text-yellow-500 tracking-wide uppercase text-sm">${p[1].replace(/---/g, '').trim()}</span>
+                            <i id="icon-${sectionId}" class="fas fa-chevron-down text-gray-500 transition-transform"></i>
+                        </button>
+                        <div id="${sectionId}" class="${filtro ? '' : 'hidden'} border-t border-gray-700 bg-gray-900/50">
+                            <div class="p-2 space-y-2" id="content-${sectionId}"></div>
+                        </div>
+                    `;
+                    contenedor.appendChild(categoryDiv);
+                    currentList = document.getElementById(`content-${sectionId}`);
+                } else if (currentList) {
+                    const nombreLimpio = p[0].replace(/<[^>]*>?/gm, ''); // Quita el HTML para el mensaje de WA
                     if (p[0].toLowerCase().includes(filtro.toLowerCase())) {
                         total++;
-                        lista.innerHTML += `
-                            <div class="bg-gray-800 p-4 rounded-xl flex justify-between items-center border border-gray-700 hover:border-yellow-500 transition-all">
-                                <span class="font-medium text-gray-200">${p[0]}</span>
-                                <span class="text-yellow-500 font-bold text-lg">${p[1]}</span>
+                        const mensaje = encodeURIComponent(`Hola Reset Taller, me interesa la pantalla de ${nombreLimpio} por ${p[1]}. ¿Tienen disponibilidad?`);
+                        
+                        currentList.innerHTML += `
+                            <div class="flex justify-between items-center p-3 bg-gray-800/40 rounded-lg border border-gray-700/50 hover:border-gray-500 transition-all">
+                                <div class="flex flex-col">
+                                    <span class="text-sm text-gray-200">${p[0]}</span>
+                                    <span class="text-yellow-500 font-bold text-lg">${p[1]}</span>
+                                </div>
+                                <a href="https://wa.me/${WHATSAPP_NUM}?text=${mensaje}" target="_blank" class="bg-green-600 hover:bg-green-500 text-white p-3 rounded-full shadow-lg transition-transform active:scale-95">
+                                    <i class="fab fa-whatsapp text-xl"></i>
+                                </a>
                             </div>`;
                     }
                 }
             });
-            contador.innerText = total;
+            contadorElem.innerText = total;
         }
 
-        buscador.addEventListener('input', (e) => mostrarProductos(e.target.value));
-        window.onload = () => mostrarProductos();
+        function toggleSection(id) {
+            const el = document.getElementById(id);
+            const icon = document.getElementById(`icon-${id}`);
+            el.classList.toggle('hidden');
+            icon.style.transform = el.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
+
+        buscador.addEventListener('input', (e) => renderizar(e.target.value));
+        window.onload = () => renderizar();
     </script>
 </body>
 </html>
