@@ -86,10 +86,19 @@ const PANTALLAS = [
     ["Poco M4 Pro / M5 / M5S (S/M)", "₡25,000"], ["Xiaomi 11T / 11T Pro (S/M)", "₡48,000"],
     ["Xiaomi 12 Lite (S/M)", "₡48,000"],
     
-    ["TITULO", "MOTOROLA"],
-    ["SUBTITULO", "Pantallas CON MARCO"],
+   ["TITULO", "MOTOROLA"],
+    ["SUBTITULO", "Pantallas CON MARCO (C/M)"],
     ["Moto G60 / G60S (C/M)", "₡28,000"], ["Moto G72 / G32 (C/M)", "₡45,000"],
     ["Moto G9 Plus / G9 Power (C/M)", "₡25,000"], ["Moto Edge 20 Lite / 30 Neo (C/M)", "₡58,000"],
+    
+    ["SUBTITULO", "Pantallas SIN MARCO (S/M)"],
+    ["Moto E6S / E7 / E20 / E40 (S/M)", "₡18,000"], ["Moto G8 / G9 / G10 Play (S/M)", "₡20,000"],
+    ["Moto G13 / G23 / G53 (S/M)", "₡22,000"], ["Moto G24 / G04 / G04S (S/M)", "₡22,000"],
+    ["Moto G6 / G6 Play (S/M)", "₡18,000"], ["Moto G7 / G7 Play / G7 Power (S/M)", "₡18,000"],
+    ["Moto G8 Plus / G8 Power (S/M)", "₡20,000"], ["Moto G20 / G30 / G31 (S/M)", "₡22,000"],
+    ["Moto G50 5G / G51 (S/M)", "₡25,000"], ["Moto One / One Action (S/M)", "₡25,000"],
+    ["Moto One Fusion (S/M)", "₡25,000"], ["Moto Z2 Play / Z3 Play (S/M)", "₡28,000"], 
+    ["Moto E5 / E5 Play / E5 Plus (S/M)", "₡18,000"], ["Moto E6 Plus / E6 Play (S/M)", "₡18,000"],
     
     ["SUBTITULO", "Pantallas SIN MARCO"],
     ["Moto E6S / E7 / E20 / E40 (S/M)", "₡18,000"], ["Moto G8 / G9 / G10 Play (S/M)", "₡20,000"],
