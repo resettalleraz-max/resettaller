@@ -1,7 +1,12 @@
 const PANTALLAS = [
-    ["TITULO","--- PRUEBA DE SISTEMA ---"],
-    ["Servicio Técnico Reset","OK"],
-    ["Sistema de Catálogo","ACTIVO"]
+    ["TITULO","--- IPHONE (INCELL / GENÉRICA) ---"],
+    ["iPhone 6G","₡10,000"], ["iPhone 6G Plus","₡11,000"], ["iPhone 6S","₡10,000"], ["iPhone 6S Plus","₡11,000"], ["iPhone 7G","₡12,000"], ["iPhone 7 Plus","₡13,000"], ["iPhone 8G","₡12,000"], ["iPhone 8 Plus","₡13,000"], ["iPhone X Incell","₡20,000"], ["iPhone XS Incell","₡20,000"], ["iPhone XR Incell","₡20,000"], ["iPhone 11 Incell","₡20,000"], ["iPhone 11 Pro Incell","₡20,000"], ["iPhone 11 Pro Max Incell","₡23,000"], ["iPhone 12/12 Pro Incell","₡25,000"], ["iPhone 12 Pro Max Incell","₡29,000"], ["iPhone 13 Incell","₡29,000"], ["iPhone 13 Pro Incell","₡31,000"], ["iPhone 13 Pro Max Incell","₡35,000"], ["iPhone 14 Incell","₡33,000"], ["iPhone 14 Plus Incell","₡36,000"], ["iPhone 14 Pro Incell","₡45,000"], ["iPhone 14 Pro Max Incell","₡53,000"], ["iPhone 15 Incell","₡36,000"], ["iPhone 15 Plus Incell","₡43,000"], ["iPhone 15 Pro Incell","₡45,000"], ["iPhone 15 Pro Max Incell","₡60,000"], ["iPhone 16 Pro Max Incell","₡60,000"],
+    
+    ["TITULO","--- IPHONE (OLED / ORIGINAL) ---"],
+    ["<span style='color:#eab308'>iPhone X OLED</span>","₡28,000"], ["<span style='color:#eab308'>iPhone XS OLED</span>","₡28,000"], ["<span style='color:#eab308'>iPhone XS Max OLED</span>","₡31,000"], ["<span style='color:#eab308'>iPhone XR ORIGINAL</span>","₡28,000"], ["<span style='color:#eab308'>iPhone 11 ORIGINAL</span>","₡28,000"], ["<span style='color:#eab308'>iPhone 11 Pro OLED</span>","₡29,000"], ["<span style='color:#eab308'>iPhone 11 Pro Max OLED</span>","₡31,000"], ["<span style='color:#eab308'>iPhone 12/12 Pro OLED</span>","₡35,000"], ["<span style='color:#eab308'>iPhone 12 Pro Max ORIGINAL</span>","₡53,000"], ["<span style='color:#eab308'>iPhone 13 OLED Soft</span>","₡44,000"], ["<span style='color:#eab308'>iPhone 13 Pro ORIGINAL</span>","₡100,000"], ["<span style='color:#eab308'>iPhone 13 Pro Max Soft</span>","₡50,000"], ["<span style='color:#eab308'>iPhone 13 Pro Max ORIGINAL</span>","₡105,000"], ["<span style='color:#eab308'>iPhone 14 Pro ORIGINAL</span>","₡93,000"], ["<span style='color:#eab308'>iPhone 14 Pro Max ORIGINAL</span>","₡103,000"], ["<span style='color:#eab308'>iPhone 15 Pro ORIGINAL</span>","₡85,000"], ["<span style='color:#eab308'>iPhone 15 Pro Max OLED</span>","₡87,000"], ["<span style='color:#eab308'>iPhone 15 Pro Max ORIGINAL</span>","₡105,000"], ["<span style='color:#eab308'>iPhone 16 Pro Max Soft ORIGINAL</span>","₡105,000"],
+
+    ["TITULO","--- HONOR / HUAWEI ---"],
+    ["Honor 50 Lite","₡17,000"], ["<span style='color:#eab308'>Honor 50 Lite (Marco) ORIGINAL</span>","₡22,000"], ["Honor X6 / X6S","₡15,000"], ["Honor X7 / X7A","₡15,000"], ["Honor X8 / X8A","₡15,000"], ["<span style='color:#eab308'>Honor X9A ORIGINAL</span>","₡33,000"], ["Honor 90 Lite","₡16,000"], ["<span style='color:#eab308'>Honor 90 Lite (Marco) ORIGINAL</span>","₡18,000"], ["Huawei Y9 Prime 2019","₡16,000"], ["<span style='color:#eab308'>Huawei Nova 9 SOFT OLED</span>","₡33,000"]
 ];
 
 const FLEX = [];
