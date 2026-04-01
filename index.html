@@ -9,213 +9,140 @@
     <style> .rotate-180 { transform: rotate(180deg); } </style>
 </head>
 <body class="bg-slate-900 text-white min-h-screen pb-24">
-    <header class="p-6 text-center">
-        <h1 class="text-3xl font-black italic text-orange-500 uppercase">RESET TALLER</h1>
-        <p class="text-blue-400 text-[10px] font-bold tracking-widest uppercase">Expertos en Microelectrónica</p>
+
+    <header class="p-6 text-center border-b border-slate-800 mb-6">
+        <h1 class="text-3xl font-black italic text-orange-500 uppercase tracking-tighter">RESET TALLER</h1>
+        <p class="text-blue-400 text-[10px] font-bold tracking-[0.3em] uppercase mt-1">Electronics & Micro Repair</p>
     </header>
+
     <div class="px-4 mb-6">
-        <input type="text" id="buscador" placeholder="¿Qué modelo buscás?..." class="w-full bg-slate-800 rounded-2xl py-3 px-4 text-sm outline-none focus:ring-2 focus:ring-orange-500">
+        <div class="relative">
+            <i class="fa fa-search absolute left-4 top-3.5 text-slate-500"></i>
+            <input type="text" id="buscador" placeholder="Busca tu modelo..." 
+                class="w-full bg-slate-800 rounded-2xl py-3 pl-12 pr-4 text-sm outline-none focus:ring-2 focus:ring-orange-500 shadow-lg">
+        </div>
     </div>
+
     <main id="lista-repuestos" class="px-4 space-y-3"></main>
-    <nav class="fixed bottom-0 left-0 right-0 bg-slate-800/95 border-t border-slate-700 flex justify-around py-3 text-[10px] font-bold text-slate-400">
-        <div class="text-center text-orange-500"><i class="fa fa-box text-lg mb-1"></i><br><span id="contador-items">0 Items</span></div>
-        <a href="https://wa.me/50661073855" class="text-center"><i class="fab fa-whatsapp text-lg mb-1"></i><br>WhatsApp</a>
-        <div class="text-center"><i class="fa fa-tools text-lg mb-1"></i><br>Reset Taller</div>
+
+    <nav class="fixed bottom-0 left-0 right-0 bg-slate-800/95 backdrop-blur-sm border-t border-slate-700 flex justify-around py-3 text-[10px] font-bold text-slate-400">
+        <div class="text-center text-orange-500">
+            <i class="fa fa-box-open text-lg mb-1"></i><br>
+            <span id="contador-items">0 Total</span>
+        </div>
+        <a href="https://wa.me/50661073855" class="text-center hover:text-green-400 transition">
+            <i class="fab fa-whatsapp text-lg mb-1"></i><br>WhatsApp
+        </a>
+        <div class="text-center">
+            <i class="fa fa-microchip text-lg mb-1"></i><br>61073855
+        </div>
     </nav>
+
     <script src="datos.js"></script>
     <script>
         const contenedor = document.getElementById('lista-repuestos');
         const buscador = document.getElementById('buscador');
+
         function renderizar(filtro = '') {
-            contenedor.innerHTML = ''; let total = 0; let currentMain = null; let currentSub = null;
-            PANTALLAS.forEach((item, index) => {
+            contenedor.innerHTML = '';
+            let totalGeneral = 0;
+            let estructura = [];
+            let mainFolder = null;
+            let subFolder = null;
+
+            // PRIMERO: Procesar los datos para contar
+            PANTALLAS.forEach((item) => {
                 const [tipo, valor] = item;
                 if (tipo === "TITULO") {
-                    const id = `m-${index}`;
-                    const d = document.createElement('div');
-                    d.innerHTML = `<button onclick="toggle('${id}')" class="w-full bg-slate-800 p-4 rounded-2xl flex justify-between items-center mb-2 border-l-4 border-orange-500"><span class="font-black uppercase text-sm">${valor}</span><i id="icon-${id}" class="fa fa-chevron-down transition-transform"></i></button><div id="${id}" class="hidden space-y-2 mb-4 px-1"></div>`;
-                    contenedor.appendChild(d); currentMain = d.querySelector(`#${id}`); currentSub = null;
+                    mainFolder = { nombre: valor, subs: [], items: [], contador: 0 };
+                    estructura.push(mainFolder);
+                    subFolder = null;
                 } else if (tipo === "SUBTITULO") {
-                    const id = `s-${index}`;
-                    const d = document.createElement('div');
-                    d.innerHTML = `<button onclick="toggle('${id}')" class="w-full bg-slate-700/50 p-3 rounded-xl flex justify-between items-center mb-1 border border-slate-600"><span class="font-bold text-blue-300 text-xs uppercase">${valor}</span><i id="icon-${id}" class="fa fa-plus text-[10px] transition-transform"></i></button><div id="${id}" class="hidden space-y-1 mt-1 ml-3 border-l border-slate-700 pl-3"></div>`;
-                    currentMain.appendChild(d); currentSub = d.querySelector(`#${id}`);
-                } else if (tipo.toLowerCase().includes(filtro.toLowerCase())) {
-                    total++; const card = document.createElement('div');
-                    card.className = "bg-slate-800/40 p-3 rounded-xl flex justify-between items-center border border-slate-700/50";
-                    card.innerHTML = `<span class="text-xs uppercase">${tipo}</span><div class="flex items-center gap-3"><span class="text-orange-500 font-black text-sm">${valor}</span><a href="https://wa.me/50661073855?text=Consulta: ${tipo.replace(/<[^>]*>?/gm, '')}" class="bg-green-600 p-2 rounded-lg text-white"><i class="fab fa-whatsapp"></i></a></div>`;
-                    (currentSub || currentMain).appendChild(card);
+                    subFolder = { nombre: valor, items: [], contador: 0 };
+                    mainFolder.subs.push(subFolder);
+                } else {
+                    if (tipo.toLowerCase().includes(filtro.toLowerCase())) {
+                        totalGeneral++;
+                        if (subFolder) {
+                            subFolder.items.push(item);
+                            subFolder.contador++;
+                            mainFolder.contador++;
+                        } else if (mainFolder) {
+                            mainFolder.items.push(item);
+                            mainFolder.contador++;
+                        }
+                    }
                 }
             });
-            document.getElementById('contador-items').innerText = `${total} Items`;
-        }
-        function toggle(id) { document.getElementById(id).classList.toggle('hidden'); document.getElementById(`icon-${id}`).classList.toggle('rotate-180'); }
-        buscador.addEventListener('input', (e) => renderizar(e.target.value)); renderizar();
-    </script>
-</body>
-</html><!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Taller</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style> .rotate-180 { transform: rotate(180deg); } </style>
-</head>
-<body class="bg-slate-900 text-white min-h-screen pb-24">
-    <header class="p-6 text-center">
-        <h1 class="text-3xl font-black italic text-orange-500 uppercase">RESET TALLER</h1>
-        <p class="text-blue-400 text-[10px] font-bold tracking-widest uppercase">Expertos en Microelectrónica</p>
-    </header>
-    <div class="px-4 mb-6">
-        <input type="text" id="buscador" placeholder="¿Qué modelo buscás?..." class="w-full bg-slate-800 rounded-2xl py-3 px-4 text-sm outline-none focus:ring-2 focus:ring-orange-500">
-    </div>
-    <main id="lista-repuestos" class="px-4 space-y-3"></main>
-    <nav class="fixed bottom-0 left-0 right-0 bg-slate-800/95 border-t border-slate-700 flex justify-around py-3 text-[10px] font-bold text-slate-400">
-        <div class="text-center text-orange-500"><i class="fa fa-box text-lg mb-1"></i><br><span id="contador-items">0 Items</span></div>
-        <a href="https://wa.me/50661073855" class="text-center"><i class="fab fa-whatsapp text-lg mb-1"></i><br>WhatsApp</a>
-        <div class="text-center"><i class="fa fa-tools text-lg mb-1"></i><br>Reset Taller</div>
-    </nav>
-    <script src="datos.js"></script>
-    <script>
-        const contenedor = document.getElementById('lista-repuestos');
-        const buscador = document.getElementById('buscador');
-        function renderizar(filtro = '') {
-            contenedor.innerHTML = ''; let total = 0; let currentMain = null; let currentSub = null;
-            PANTALLAS.forEach((item, index) => {
-                const [tipo, valor] = item;
-                if (tipo === "TITULO") {
-                    const id = `m-${index}`;
-                    const d = document.createElement('div');
-                    d.innerHTML = `<button onclick="toggle('${id}')" class="w-full bg-slate-800 p-4 rounded-2xl flex justify-between items-center mb-2 border-l-4 border-orange-500"><span class="font-black uppercase text-sm">${valor}</span><i id="icon-${id}" class="fa fa-chevron-down transition-transform"></i></button><div id="${id}" class="hidden space-y-2 mb-4 px-1"></div>`;
-                    contenedor.appendChild(d); currentMain = d.querySelector(`#${id}`); currentSub = null;
-                } else if (tipo === "SUBTITULO") {
-                    const id = `s-${index}`;
-                    const d = document.createElement('div');
-                    d.innerHTML = `<button onclick="toggle('${id}')" class="w-full bg-slate-700/50 p-3 rounded-xl flex justify-between items-center mb-1 border border-slate-600"><span class="font-bold text-blue-300 text-xs uppercase">${valor}</span><i id="icon-${id}" class="fa fa-plus text-[10px] transition-transform"></i></button><div id="${id}" class="hidden space-y-1 mt-1 ml-3 border-l border-slate-700 pl-3"></div>`;
-                    currentMain.appendChild(d); currentSub = d.querySelector(`#${id}`);
-                } else if (tipo.toLowerCase().includes(filtro.toLowerCase())) {
-                    total++; const card = document.createElement('div');
-                    card.className = "bg-slate-800/40 p-3 rounded-xl flex justify-between items-center border border-slate-700/50";
-                    card.innerHTML = `<span class="text-xs uppercase">${tipo}</span><div class="flex items-center gap-3"><span class="text-orange-500 font-black text-sm">${valor}</span><a href="https://wa.me/50661073855?text=Consulta: ${tipo.replace(/<[^>]*>?/gm, '')}" class="bg-green-600 p-2 rounded-lg text-white"><i class="fab fa-whatsapp"></i></a></div>`;
-                    (currentSub || currentMain).appendChild(card);
-                }
+
+            // SEGUNDO: Dibujar en pantalla
+            estructura.forEach((main, mIdx) => {
+                if (main.contador === 0 && filtro !== '') return;
+                
+                const mId = `m-${mIdx}`;
+                const mDiv = document.createElement('div');
+                mDiv.innerHTML = `
+                    <button onclick="toggle('${mId}')" class="w-full bg-slate-800 p-4 rounded-2xl flex justify-between items-center mb-2 border-l-4 border-orange-500 shadow-md">
+                        <span class="font-black uppercase text-slate-100 text-sm tracking-wider">${main.nombre} <span class="text-orange-500 ml-2">[${main.contador}]</span></span>
+                        <i id="icon-${mId}" class="fa fa-chevron-down text-orange-500 transition-transform"></i>
+                    </button>
+                    <div id="${mId}" class="hidden space-y-2 mb-4 px-1"></div>
+                `;
+                contenedor.appendChild(mDiv);
+                const mContent = mDiv.querySelector(`#${mId}`);
+
+                main.subs.forEach((sub, sIdx) => {
+                    if (sub.contador === 0 && filtro !== '') return;
+                    const sId = `s-${mIdx}-${sIdx}`;
+                    const sDiv = document.createElement('div');
+                    sDiv.className = "mt-1";
+                    sDiv.innerHTML = `
+                        <button onclick="toggle('${sId}')" class="w-full bg-slate-700/50 p-3 rounded-xl flex justify-between items-center mb-1 border border-slate-600 shadow">
+                            <span class="font-bold text-blue-300 text-xs uppercase">${sub.nombre} <span class="text-slate-400 ml-1">(${sub.contador})</span></span>
+                            <i id="icon-${sId}" class="fa fa-plus text-[10px] text-slate-400 transition-transform"></i>
+                        </button>
+                        <div id="${sId}" class="hidden space-y-1 mt-1 ml-3 border-l-2 border-slate-700 pl-3"></div>
+                    `;
+                    mContent.appendChild(sDiv);
+                    const sContent = sDiv.querySelector(`#${sId}`);
+
+                    sub.items.forEach(repuesto => sContent.appendChild(crearCard(repuesto)));
+                });
+
+                // Items que están en la carpeta principal pero fuera de una subcarpeta
+                main.items.forEach(repuesto => {
+                    if (!main.subs.some(s => s.items.includes(repuesto))) {
+                        mContent.appendChild(crearCard(repuesto));
+                    }
+                });
             });
-            document.getElementById('contador-items').innerText = `${total} Items`;
+
+            document.getElementById('contador-items').innerText = `${totalGeneral} Total`;
         }
-        function toggle(id) { document.getElementById(id).classList.toggle('hidden'); document.getElementById(`icon-${id}`).classList.toggle('rotate-180'); }
-        buscador.addEventListener('input', (e) => renderizar(e.target.value)); renderizar();
-    </script>
-</body>
-</html><!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Taller</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style> .rotate-180 { transform: rotate(180deg); } </style>
-</head>
-<body class="bg-slate-900 text-white min-h-screen pb-24">
-    <header class="p-6 text-center">
-        <h1 class="text-3xl font-black italic text-orange-500 uppercase">RESET TALLER</h1>
-        <p class="text-blue-400 text-[10px] font-bold tracking-widest uppercase">Expertos en Microelectrónica</p>
-    </header>
-    <div class="px-4 mb-6">
-        <input type="text" id="buscador" placeholder="¿Qué modelo buscás?..." class="w-full bg-slate-800 rounded-2xl py-3 px-4 text-sm outline-none focus:ring-2 focus:ring-orange-500">
-    </div>
-    <main id="lista-repuestos" class="px-4 space-y-3"></main>
-    <nav class="fixed bottom-0 left-0 right-0 bg-slate-800/95 border-t border-slate-700 flex justify-around py-3 text-[10px] font-bold text-slate-400">
-        <div class="text-center text-orange-500"><i class="fa fa-box text-lg mb-1"></i><br><span id="contador-items">0 Items</span></div>
-        <a href="https://wa.me/50661073855" class="text-center"><i class="fab fa-whatsapp text-lg mb-1"></i><br>WhatsApp</a>
-        <div class="text-center"><i class="fa fa-tools text-lg mb-1"></i><br>Reset Taller</div>
-    </nav>
-    <script src="datos.js"></script>
-    <script>
-        const contenedor = document.getElementById('lista-repuestos');
-        const buscador = document.getElementById('buscador');
-        function renderizar(filtro = '') {
-            contenedor.innerHTML = ''; let total = 0; let currentMain = null; let currentSub = null;
-            PANTALLAS.forEach((item, index) => {
-                const [tipo, valor] = item;
-                if (tipo === "TITULO") {
-                    const id = `m-${index}`;
-                    const d = document.createElement('div');
-                    d.innerHTML = `<button onclick="toggle('${id}')" class="w-full bg-slate-800 p-4 rounded-2xl flex justify-between items-center mb-2 border-l-4 border-orange-500"><span class="font-black uppercase text-sm">${valor}</span><i id="icon-${id}" class="fa fa-chevron-down transition-transform"></i></button><div id="${id}" class="hidden space-y-2 mb-4 px-1"></div>`;
-                    contenedor.appendChild(d); currentMain = d.querySelector(`#${id}`); currentSub = null;
-                } else if (tipo === "SUBTITULO") {
-                    const id = `s-${index}`;
-                    const d = document.createElement('div');
-                    d.innerHTML = `<button onclick="toggle('${id}')" class="w-full bg-slate-700/50 p-3 rounded-xl flex justify-between items-center mb-1 border border-slate-600"><span class="font-bold text-blue-300 text-xs uppercase">${valor}</span><i id="icon-${id}" class="fa fa-plus text-[10px] transition-transform"></i></button><div id="${id}" class="hidden space-y-1 mt-1 ml-3 border-l border-slate-700 pl-3"></div>`;
-                    currentMain.appendChild(d); currentSub = d.querySelector(`#${id}`);
-                } else if (tipo.toLowerCase().includes(filtro.toLowerCase())) {
-                    total++; const card = document.createElement('div');
-                    card.className = "bg-slate-800/40 p-3 rounded-xl flex justify-between items-center border border-slate-700/50";
-                    card.innerHTML = `<span class="text-xs uppercase">${tipo}</span><div class="flex items-center gap-3"><span class="text-orange-500 font-black text-sm">${valor}</span><a href="https://wa.me/50661073855?text=Consulta: ${tipo.replace(/<[^>]*>?/gm, '')}" class="bg-green-600 p-2 rounded-lg text-white"><i class="fab fa-whatsapp"></i></a></div>`;
-                    (currentSub || currentMain).appendChild(card);
-                }
-            });
-            document.getElementById('contador-items').innerText = `${total} Items`;
+
+        function crearCard(item) {
+            const [tipo, valor] = item;
+            const card = document.createElement('div');
+            card.className = "bg-slate-800/40 p-3 rounded-xl flex justify-between items-center border border-slate-700/50 mx-1";
+            card.innerHTML = `
+                <span class="text-xs font-semibold text-slate-200 uppercase">${tipo}</span>
+                <div class="flex items-center gap-3">
+                    <span class="text-orange-500 font-black text-sm tracking-tight">${valor}</span>
+                    <a href="https://wa.me/50661073855?text=Hola, consulto por: ${tipo.replace(/<[^>]*>?/gm, '')}" class="bg-green-600 p-2 rounded-lg text-white">
+                        <i class="fab fa-whatsapp text-sm"></i>
+                    </a>
+                </div>
+            `;
+            return card;
         }
-        function toggle(id) { document.getElementById(id).classList.toggle('hidden'); document.getElementById(`icon-${id}`).classList.toggle('rotate-180'); }
-        buscador.addEventListener('input', (e) => renderizar(e.target.value)); renderizar();
-    </script>
-</body>
-</html><!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Taller</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style> .rotate-180 { transform: rotate(180deg); } </style>
-</head>
-<body class="bg-slate-900 text-white min-h-screen pb-24">
-    <header class="p-6 text-center">
-        <h1 class="text-3xl font-black italic text-orange-500 uppercase">RESET TALLER</h1>
-        <p class="text-blue-400 text-[10px] font-bold tracking-widest uppercase">Expertos en Microelectrónica</p>
-    </header>
-    <div class="px-4 mb-6">
-        <input type="text" id="buscador" placeholder="¿Qué modelo buscás?..." class="w-full bg-slate-800 rounded-2xl py-3 px-4 text-sm outline-none focus:ring-2 focus:ring-orange-500">
-    </div>
-    <main id="lista-repuestos" class="px-4 space-y-3"></main>
-    <nav class="fixed bottom-0 left-0 right-0 bg-slate-800/95 border-t border-slate-700 flex justify-around py-3 text-[10px] font-bold text-slate-400">
-        <div class="text-center text-orange-500"><i class="fa fa-box text-lg mb-1"></i><br><span id="contador-items">0 Items</span></div>
-        <a href="https://wa.me/50661073855" class="text-center"><i class="fab fa-whatsapp text-lg mb-1"></i><br>WhatsApp</a>
-        <div class="text-center"><i class="fa fa-tools text-lg mb-1"></i><br>Reset Taller</div>
-    </nav>
-    <script src="datos.js"></script>
-    <script>
-        const contenedor = document.getElementById('lista-repuestos');
-        const buscador = document.getElementById('buscador');
-        function renderizar(filtro = '') {
-            contenedor.innerHTML = ''; let total = 0; let currentMain = null; let currentSub = null;
-            PANTALLAS.forEach((item, index) => {
-                const [tipo, valor] = item;
-                if (tipo === "TITULO") {
-                    const id = `m-${index}`;
-                    const d = document.createElement('div');
-                    d.innerHTML = `<button onclick="toggle('${id}')" class="w-full bg-slate-800 p-4 rounded-2xl flex justify-between items-center mb-2 border-l-4 border-orange-500"><span class="font-black uppercase text-sm">${valor}</span><i id="icon-${id}" class="fa fa-chevron-down transition-transform"></i></button><div id="${id}" class="hidden space-y-2 mb-4 px-1"></div>`;
-                    contenedor.appendChild(d); currentMain = d.querySelector(`#${id}`); currentSub = null;
-                } else if (tipo === "SUBTITULO") {
-                    const id = `s-${index}`;
-                    const d = document.createElement('div');
-                    d.innerHTML = `<button onclick="toggle('${id}')" class="w-full bg-slate-700/50 p-3 rounded-xl flex justify-between items-center mb-1 border border-slate-600"><span class="font-bold text-blue-300 text-xs uppercase">${valor}</span><i id="icon-${id}" class="fa fa-plus text-[10px] transition-transform"></i></button><div id="${id}" class="hidden space-y-1 mt-1 ml-3 border-l border-slate-700 pl-3"></div>`;
-                    currentMain.appendChild(d); currentSub = d.querySelector(`#${id}`);
-                } else if (tipo.toLowerCase().includes(filtro.toLowerCase())) {
-                    total++; const card = document.createElement('div');
-                    card.className = "bg-slate-800/40 p-3 rounded-xl flex justify-between items-center border border-slate-700/50";
-                    card.innerHTML = `<span class="text-xs uppercase">${tipo}</span><div class="flex items-center gap-3"><span class="text-orange-500 font-black text-sm">${valor}</span><a href="https://wa.me/50661073855?text=Consulta: ${tipo.replace(/<[^>]*>?/gm, '')}" class="bg-green-600 p-2 rounded-lg text-white"><i class="fab fa-whatsapp"></i></a></div>`;
-                    (currentSub || currentMain).appendChild(card);
-                }
-            });
-            document.getElementById('contador-items').innerText = `${total} Items`;
+
+        function toggle(id) {
+            document.getElementById(id).classList.toggle('hidden');
+            document.getElementById(`icon-${id}`).classList.toggle('rotate-180');
         }
-        function toggle(id) { document.getElementById(id).classList.toggle('hidden'); document.getElementById(`icon-${id}`).classList.toggle('rotate-180'); }
-        buscador.addEventListener('input', (e) => renderizar(e.target.value)); renderizar();
+
+        buscador.addEventListener('input', (e) => renderizar(e.target.value));
+        renderizar();
     </script>
 </body>
 </html>
