@@ -6,102 +6,119 @@
     <title>Reset Taller - Catálogo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .sub-folder { display: none; }
+        .sub-folder.active { display: block; }
+        .rotate-icon { transform: rotate(180deg); }
+    </style>
 </head>
-<body class="bg-gray-900 text-gray-100 font-sans min-h-screen">
-    <div class="max-w-md mx-auto p-4 pb-24">
-        <div class="text-center mb-6">
-            <h1 class="text-3xl font-extrabold text-yellow-500 tracking-tighter italic">RESET TALLER</h1>
-            <p class="text-gray-400 text-xs uppercase tracking-widest">Expertos en Microelectrónica</p>
-        </div>
+<body class="bg-slate-900 text-white font-sans min-h-screen pb-20">
 
-        <div class="relative mb-6">
-            <i class="fas fa-search absolute left-4 top-3.5 text-gray-500"></i>
+    <header class="p-6 text-center">
+        <h1 class="text-3xl font-black italic text-orange-500 tracking-tighter">RESET TALLER</h1>
+        <p class="text-blue-400 text-xs font-bold tracking-widest uppercase">Expertos en Microelectrónica</p>
+    </header>
+
+    <div class="px-4 mb-6">
+        <div class="relative">
+            <i class="fa fa-search absolute left-4 top-3.5 text-slate-500"></i>
             <input type="text" id="buscador" placeholder="Buscar modelo (ej: iPhone 11)..." 
-                class="w-full bg-gray-800 border-none rounded-2xl py-3 pl-12 pr-4 text-white focus:ring-2 focus:ring-yellow-500 shadow-xl outline-none">
-        </div>
-
-        <div id="contenedor-categorias" class="space-y-4"></div>
-    </div>
-
-    <div class="fixed bottom-0 left-0 right-0 bg-gray-800 border-t border-gray-700 p-4 shadow-2xl z-50">
-        <div class="max-w-md mx-auto flex justify-between items-center text-xs text-gray-400">
-            <div class="text-center flex-1">
-                <i class="fas fa-box text-lg text-yellow-500 block mb-1"></i>
-                <span id="contador">0</span> Items
-            </div>
-            <div class="text-center flex-1 border-x border-gray-700">
-                <a href="https://wa.me/50661073855" class="block">
-                    <i class="fab fa-whatsapp text-lg text-green-500 block mb-1"></i>
-                    Consulta General
-                </a>
-            </div>
-            <div class="text-center flex-1">
-                <i class="fas fa-tools text-lg text-blue-500 block mb-1"></i>
-                Reset Taller
-            </div>
+                class="w-full bg-slate-800 border-none rounded-2xl py-3 pl-12 pr-4 text-sm focus:ring-2 focus:ring-orange-500 outline-none">
         </div>
     </div>
+
+    <main id="lista-repuestos" class="px-4 space-y-3"></main>
+
+    <nav class="fixed bottom-0 left-0 right-0 bg-slate-800/95 backdrop-blur border-t border-slate-700 flex justify-around py-3 text-[10px] font-bold uppercase text-slate-400">
+        <div class="text-center text-orange-500">
+            <i class="fa fa-box text-lg mb-1"></i><br>
+            <span id="contador-items">0 Items</span>
+        </div>
+        <a href="https://wa.me/50661073855" class="text-center hover:text-green-400 transition">
+            <i class="fab fa-whatsapp text-lg mb-1"></i><br>
+            Consulta General
+        </a>
+        <div class="text-center">
+            <i class="fa fa-tools text-lg mb-1"></i><br>
+            Reset Taller
+        </div>
+    </nav>
 
     <script src="datos.js"></script>
     <script>
-        const contenedor = document.getElementById('contenedor-categorias');
+        const contenedor = document.getElementById('lista-repuestos');
         const buscador = document.getElementById('buscador');
-        const contadorElem = document.getElementById('contador');
-        const WHATSAPP_NUM = "50661073855";
+        let totalItems = 0;
 
         function renderizar(filtro = '') {
             contenedor.innerHTML = '';
-            let total = 0;
-            let currentList = null;
+            totalItems = 0;
+            let currentFolder = null;
+            let currentSubFolder = null;
 
-            PANTALLAS.forEach((p, index) => {
-                if (p[0] === "TITULO") {
-                    const sectionId = `section-${index}`;
-                    const categoryDiv = document.createElement('div');
-                    categoryDiv.className = "bg-gray-800 rounded-xl overflow-hidden border border-gray-700 shadow-lg mb-3";
-                    
-                    categoryDiv.innerHTML = `
-                        <button onclick="toggleSection('${sectionId}')" class="w-full p-4 flex justify-between items-center bg-gray-800 hover:bg-gray-700 transition-colors">
-                            <span class="font-bold text-yellow-500 tracking-wide uppercase text-sm">${p[1].replace(/---/g, '').trim()}</span>
-                            <i id="icon-${sectionId}" class="fas fa-chevron-down text-gray-500 transition-transform"></i>
+            PANTALLAS.forEach((item, index) => {
+                const [nombre, precio] = item;
+
+                if (nombre === "TITULO") {
+                    // Crear Carpeta Principal
+                    const folderId = `folder-${index}`;
+                    currentFolder = document.createElement('div');
+                    currentFolder.innerHTML = `
+                        <button onclick="toggle('${folderId}')" class="w-full bg-slate-800 p-4 rounded-2xl flex justify-between items-center mb-2">
+                            <span class="font-black text-orange-400 uppercase tracking-tight text-sm">${precio}</span>
+                            <i class="fa fa-chevron-down text-blue-500 transition-transform" id="icon-${folderId}"></i>
                         </button>
-                        <div id="${sectionId}" class="${filtro ? '' : 'hidden'} border-t border-gray-700 bg-gray-900/50">
-                            <div class="p-2 space-y-2" id="content-${sectionId}"></div>
-                        </div>
+                        <div id="${folderId}" class="hidden space-y-2 mb-4 px-2"></div>
                     `;
-                    contenedor.appendChild(categoryDiv);
-                    currentList = document.getElementById(`content-${sectionId}`);
-                } else if (currentList) {
-                    const nombreLimpio = p[0].replace(/<[^>]*>?/gm, ''); // Quita el HTML para el mensaje de WA
-                    if (p[0].toLowerCase().includes(filtro.toLowerCase())) {
-                        total++;
-                        const mensaje = encodeURIComponent(`Hola Reset Taller, me interesa la pantalla de ${nombreLimpio} por ${p[1]}. ¿Tienen disponibilidad?`);
-                        
-                        currentList.innerHTML += `
-                            <div class="flex justify-between items-center p-3 bg-gray-800/40 rounded-lg border border-gray-700/50 hover:border-gray-500 transition-all">
-                                <div class="flex flex-col">
-                                    <span class="text-sm text-gray-200">${p[0]}</span>
-                                    <span class="text-yellow-500 font-bold text-lg">${p[1]}</span>
-                                </div>
-                                <a href="https://wa.me/${WHATSAPP_NUM}?text=${mensaje}" target="_blank" class="bg-green-600 hover:bg-green-500 text-white p-3 rounded-full shadow-lg transition-transform active:scale-95">
-                                    <i class="fab fa-whatsapp text-xl"></i>
+                    contenedor.appendChild(currentFolder);
+                    currentSubFolder = null;
+                } else if (nombre === "SUBTITULO") {
+                    // Crear Sub-carpeta
+                    const subId = `sub-${index}`;
+                    const subDiv = document.createElement('div');
+                    subDiv.innerHTML = `
+                        <button onclick="toggle('${subId}')" class="w-full bg-slate-700/50 p-3 rounded-xl flex justify-between items-center mb-1 border border-slate-700">
+                            <span class="font-bold text-slate-300 text-xs uppercase">${precio}</span>
+                            <i class="fa fa-plus text-xs text-slate-500" id="icon-${subId}"></i>
+                        </button>
+                        <div id="${subId}" class="hidden space-y-1 mb-2 ml-2 border-l-2 border-slate-700 pl-2"></div>
+                    `;
+                    currentFolder.querySelector('div').appendChild(subDiv);
+                    currentSubFolder = subDiv.querySelector(`#${subId}`);
+                } else {
+                    if (nombre.toLowerCase().includes(filtro.toLowerCase())) {
+                        totalItems++;
+                        const card = document.createElement('div');
+                        card.className = "bg-slate-800/40 p-3 rounded-xl flex justify-between items-center border border-slate-700/50";
+                        card.innerHTML = `
+                            <span class="text-sm font-medium">${nombre}</span>
+                            <div class="flex items-center gap-3">
+                                <span class="text-orange-500 font-black text-sm">${precio}</span>
+                                <a href="https://wa.me/50661073855?text=Hola, consulto por: ${nombre}" class="bg-green-600 p-2 rounded-lg hover:bg-green-500">
+                                    <i class="fab fa-whatsapp text-white"></i>
                                 </a>
-                            </div>`;
+                            </div>
+                        `;
+                        if (currentSubFolder) {
+                            currentSubFolder.appendChild(card);
+                        } else if (currentFolder) {
+                            currentFolder.querySelector('div').appendChild(card);
+                        }
                     }
                 }
             });
-            contadorElem.innerText = total;
+            document.getElementById('contador-items').innerText = `${totalItems} Items`;
         }
 
-        function toggleSection(id) {
+        function toggle(id) {
             const el = document.getElementById(id);
             const icon = document.getElementById(`icon-${id}`);
             el.classList.toggle('hidden');
-            icon.style.transform = el.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+            icon.classList.toggle('rotate-icon');
         }
 
         buscador.addEventListener('input', (e) => renderizar(e.target.value));
-        window.onload = () => renderizar();
+        renderizar();
     </script>
 </body>
 </html>
