@@ -14,6 +14,7 @@
         body.modo-claro { background-color: #f8fafc; color: #1e293b; }
         .modo-claro .tag-repuesto { background-color: #ffffff; border-color: #e2e8f0; color: #1e293b; }
         .modo-claro .btn-categoria { background-color: #ffffff; border-color: #e2e8f0; color: #1e293b; }
+        .modo-claro .banner-info { background-color: #f0fdf4; border-color: #bbf7d0; color: #166534; }
         
         .tag-repuesto { 
             background: rgba(30, 41, 59, 0.6);
@@ -21,11 +22,17 @@
             transition: all 0.2s;
         }
         .tag-repuesto:active { transform: scale(0.95); border-color: var(--verde-repuesto); }
+        
+        /* Estilo del Banner */
+        .banner-info {
+            background: rgba(22, 101, 52, 0.2);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
     </style>
 </head>
 <body id="cuerpo" class="bg-[#0b1120] text-white min-h-screen pb-10 transition-colors duration-500 font-sans">
 
-    <header class="relative p-10 text-center border-b border-slate-800 mb-6 bg-[#0f172a]/80 rounded-b-[3rem]">
+    <header class="relative p-10 text-center border-b border-slate-800 bg-[#0f172a]/80 rounded-b-[3rem]">
         <button onclick="cambiarModo()" class="absolute top-6 right-6 p-2 rounded-full border border-slate-700 bg-slate-800/50">
             <i id="icono-modo" class="fa fa-moon text-lg text-slate-400"></i>
         </button>
@@ -37,9 +44,25 @@
         </div>
     </header>
 
-    <div class="px-4 mb-6">
-        <input type="text" id="buscador" placeholder="Busca tu repuesto..." 
-            class="w-full bg-[#0f172a] border border-slate-800 rounded-xl py-3.5 px-11 text-sm outline-none focus:border-[var(--tecnico)]">
+    <div class="px-4 mt-6">
+        <div class="banner-info p-4 rounded-2xl flex items-center gap-4 shadow-lg">
+            <div class="bg-green-500/20 p-3 rounded-xl border border-green-500/40 text-green-500">
+                <i class="fa fa-screwdriver-wrench text-xl"></i>
+            </div>
+            <div>
+                <h4 class="font-black text-xs uppercase tracking-tight">Precios Finales</h4>
+                <p class="text-[10px] opacity-80 leading-tight">El costo indicado ya incluye el **repuesto** y la **mano de obra**. ¡Sin cargos extra!</p>
+                <span class="text-[9px] font-bold text-green-500 uppercase mt-1 inline-block">✅ Trabajo 100% Garantizado</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="px-4 mt-6 mb-6">
+        <div class="relative">
+            <i class="fa fa-search absolute left-4 top-3.5 text-slate-500"></i>
+            <input type="text" id="buscador" placeholder="¿Qué modelo buscas?" 
+                class="w-full bg-[#0f172a] border border-slate-800 rounded-xl py-3.5 px-11 text-sm outline-none focus:border-[var(--tecnico)] transition-all">
+        </div>
     </div>
 
     <main id="lista-repuestos" class="px-4 space-y-4"></main>
@@ -62,6 +85,7 @@
             if (n.includes("IPHONE")) return '<i class="fab fa-apple"></i>';
             if (n.includes("SAMSUNG")) return '<i class="fa fa-mobile-screen-button"></i>';
             if (n.includes("BATER")) return '<i class="fa fa-battery-three-quarters"></i>';
+            if (n.includes("FLEX")) return '<i class="fa fa-usb"></i>';
             return '<i class="fa fa-box-open"></i>';
         }
 
@@ -99,7 +123,7 @@
                 const mId = `m-${mIdx}`;
                 const mDiv = document.createElement('div');
                 mDiv.innerHTML = `
-                    <button onclick="toggle('${mId}')" class="btn-categoria w-full ${esClaro ? 'bg-white text-slate-800' : 'bg-[#0f172a] text-slate-100'} p-4 rounded-2xl flex justify-between items-center mb-2.5 shadow-lg border border-slate-800">
+                    <button onclick="toggle('${mId}')" class="btn-categoria w-full ${esClaro ? 'bg-white text-slate-800 border-slate-200' : 'bg-[#0f172a] text-slate-100 border-slate-800'} p-4 rounded-2xl flex justify-between items-center mb-2 shadow-lg border">
                         <div class="flex items-center gap-3.5">
                             <span class="text-[var(--tecnico)] text-2xl">${getIcono(main.nombre)}</span>
                             <span class="font-black uppercase text-lg italic">${main.nombre}</span>
@@ -111,7 +135,6 @@
                 contenedor.appendChild(mDiv);
                 const mContent = mDiv.querySelector(`#${mId}`);
 
-                // RENDERIZAR SUBTÍTULOS (CON MARCO / SIN MARCO)
                 main.subs.forEach(sub => {
                     if (sub.contador === 0) return;
                     const subDiv = document.createElement('div');
@@ -124,7 +147,6 @@
                     sub.items.forEach(item => grid.appendChild(crearCard(item, esClaro)));
                 });
 
-                // Items que no tienen subcategoría
                 if (main.items.length > 0) {
                     const extraGrid = document.createElement('div');
                     extraGrid.className = "grid grid-cols-2 gap-2.5";
