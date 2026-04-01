@@ -6,23 +6,18 @@
     <title>Reset Taller - Catálogo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .sub-folder { display: none; }
-        .sub-folder.active { display: block; }
-        .rotate-icon { transform: rotate(180deg); }
-    </style>
 </head>
 <body class="bg-slate-900 text-white font-sans min-h-screen pb-20">
 
     <header class="p-6 text-center">
-        <h1 class="text-3xl font-black italic text-orange-500 tracking-tighter">RESET TALLER</h1>
-        <p class="text-blue-400 text-xs font-bold tracking-widest uppercase">Expertos en Microelectrónica</p>
+        <h1 class="text-3xl font-black italic text-orange-500 tracking-tighter uppercase">RESET TALLER</h1>
+        <p class="text-blue-400 text-[10px] font-bold tracking-[0.3em] uppercase">Expertos en Microelectrónica</p>
     </header>
 
     <div class="px-4 mb-6">
         <div class="relative">
             <i class="fa fa-search absolute left-4 top-3.5 text-slate-500"></i>
-            <input type="text" id="buscador" placeholder="Buscar modelo (ej: iPhone 11)..." 
+            <input type="text" id="buscador" placeholder="¿Qué modelo buscás?..." 
                 class="w-full bg-slate-800 border-none rounded-2xl py-3 pl-12 pr-4 text-sm focus:ring-2 focus:ring-orange-500 outline-none">
         </div>
     </div>
@@ -34,13 +29,11 @@
             <i class="fa fa-box text-lg mb-1"></i><br>
             <span id="contador-items">0 Items</span>
         </div>
-        <a href="https://wa.me/50661073855" class="text-center hover:text-green-400 transition">
-            <i class="fab fa-whatsapp text-lg mb-1"></i><br>
-            Consulta General
+        <a href="https://wa.me/50661073855" class="text-center">
+            <i class="fab fa-whatsapp text-lg mb-1"></i><br>Consultas
         </a>
         <div class="text-center">
-            <i class="fa fa-tools text-lg mb-1"></i><br>
-            Reset Taller
+            <i class="fa fa-tools text-lg mb-1"></i><br>Reset Taller
         </div>
     </nav>
 
@@ -48,75 +41,45 @@
     <script>
         const contenedor = document.getElementById('lista-repuestos');
         const buscador = document.getElementById('buscador');
-        let totalItems = 0;
 
         function renderizar(filtro = '') {
             contenedor.innerHTML = '';
-            totalItems = 0;
+            let total = 0;
             let currentFolder = null;
-            let currentSubFolder = null;
 
             PANTALLAS.forEach((item, index) => {
                 const [nombre, precio] = item;
 
                 if (nombre === "TITULO") {
-                    // Crear Carpeta Principal
-                    const folderId = `folder-${index}`;
-                    currentFolder = document.createElement('div');
-                    currentFolder.innerHTML = `
-                        <button onclick="toggle('${folderId}')" class="w-full bg-slate-800 p-4 rounded-2xl flex justify-between items-center mb-2">
-                            <span class="font-black text-orange-400 uppercase tracking-tight text-sm">${precio}</span>
-                            <i class="fa fa-chevron-down text-blue-500 transition-transform" id="icon-${folderId}"></i>
+                    const id = `f-${index}`;
+                    const folder = document.createElement('div');
+                    folder.innerHTML = `
+                        <button onclick="document.getElementById('${id}').classList.toggle('hidden')" class="w-full bg-slate-800 p-4 rounded-2xl flex justify-between items-center mb-2 border-l-4 border-orange-500">
+                            <span class="font-black text-slate-200 uppercase tracking-wide text-sm">${precio}</span>
+                            <i class="fa fa-chevron-down text-slate-500"></i>
                         </button>
-                        <div id="${folderId}" class="hidden space-y-2 mb-4 px-2"></div>
+                        <div id="${id}" class="hidden space-y-2 mb-4"></div>
                     `;
-                    contenedor.appendChild(currentFolder);
-                    currentSubFolder = null;
-                } else if (nombre === "SUBTITULO") {
-                    // Crear Sub-carpeta
-                    const subId = `sub-${index}`;
-                    const subDiv = document.createElement('div');
-                    subDiv.innerHTML = `
-                        <button onclick="toggle('${subId}')" class="w-full bg-slate-700/50 p-3 rounded-xl flex justify-between items-center mb-1 border border-slate-700">
-                            <span class="font-bold text-slate-300 text-xs uppercase">${precio}</span>
-                            <i class="fa fa-plus text-xs text-slate-500" id="icon-${subId}"></i>
-                        </button>
-                        <div id="${subId}" class="hidden space-y-1 mb-2 ml-2 border-l-2 border-slate-700 pl-2"></div>
-                    `;
-                    currentFolder.querySelector('div').appendChild(subDiv);
-                    currentSubFolder = subDiv.querySelector(`#${subId}`);
+                    contenedor.appendChild(folder);
+                    currentFolder = folder.querySelector(`#${id}`);
                 } else {
                     if (nombre.toLowerCase().includes(filtro.toLowerCase())) {
-                        totalItems++;
+                        total++;
                         const card = document.createElement('div');
-                        card.className = "bg-slate-800/40 p-3 rounded-xl flex justify-between items-center border border-slate-700/50";
+                        card.className = "bg-slate-800/40 p-3 rounded-xl flex justify-between items-center border border-slate-700/50 mx-1";
                         card.innerHTML = `
-                            <span class="text-sm font-medium">${nombre}</span>
+                            <span class="text-xs font-semibold text-slate-300 uppercase">${nombre}</span>
                             <div class="flex items-center gap-3">
                                 <span class="text-orange-500 font-black text-sm">${precio}</span>
-                                <a href="https://wa.me/50661073855?text=Hola, consulto por: ${nombre}" class="bg-green-600 p-2 rounded-lg hover:bg-green-500">
-                                    <i class="fab fa-whatsapp text-white"></i>
-                                </a>
+                                <a href="https://wa.me/50661073855?text=Hola, consulto por: ${nombre.replace(/<[^>]*>?/gm, '')}" class="bg-green-600 p-2 rounded-lg"><i class="fab fa-whatsapp"></i></a>
                             </div>
                         `;
-                        if (currentSubFolder) {
-                            currentSubFolder.appendChild(card);
-                        } else if (currentFolder) {
-                            currentFolder.querySelector('div').appendChild(card);
-                        }
+                        currentFolder.appendChild(card);
                     }
                 }
             });
-            document.getElementById('contador-items').innerText = `${totalItems} Items`;
+            document.getElementById('contador-items').innerText = `${total} Items`;
         }
-
-        function toggle(id) {
-            const el = document.getElementById(id);
-            const icon = document.getElementById(`icon-${id}`);
-            el.classList.toggle('hidden');
-            icon.classList.toggle('rotate-icon');
-        }
-
         buscador.addEventListener('input', (e) => renderizar(e.target.value));
         renderizar();
     </script>
