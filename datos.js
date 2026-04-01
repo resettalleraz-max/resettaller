@@ -153,11 +153,8 @@ const PANTALLAS = [
     
     ["TITULO", "SERVICIOS TÉCNICOS"],
     ["Revisión y Diagnóstico", "₡5,000"], ["Limpieza de Puerto de Carga", "₡5,000"],
-    ["Mantenimiento por Humedad", "₡15,000"], ["Traspaso de Información", "₡10,000"]
-];
+    ["Mantenimiento por Humedad", "₡15,000"], ["Traspaso de Información", "₡10,000"],
 
-const FLEX = [];
-const HERRAMIENTAS = [
     ["TITULO", "HERRAMIENTAS DE PRECISIÓN"],
     ["SUBTITULO", "Soldadura y Apertura"],
     ["Estación de Calor / Cautín", "₡45,000"], 
