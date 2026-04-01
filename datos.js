@@ -57,6 +57,13 @@ const PANTALLAS = [
     ["SUBTITULO", "Serie Moto E y G"],
     ["Moto E6S / E7 / E20 / E40", "₡18,000"], ["Moto G8 / G9 / G10 Play", "₡20,000"], ["Moto G13 / G23 / G53", "₡22,000"],
     ["Moto G24 / G04 / G04S", "₡22,000"], ["Moto G60 / G60S", "₡25,000"], ["Moto G72 / G32", "₡28,000"],
+    ["Moto G6 / G6 Play", "₡18,000"], ["Moto G7 / G7 Play / G7 Power", "₡18,000"],
+    ["Moto G8 Plus / G8 Power", "₡20,000"], ["Moto G9 Plus / G9 Power", "₡22,000"],
+    ["Moto G20 / G30 / G31", "₡22,000"], ["Moto G50 5G / G51", "₡22,000"],
+    ["Moto One / One Action / One Vision", "₡22,000"], ["Moto One Fusion", "₡22,000"],
+    ["Moto Z2 Play / Z3 Play", "₡25,000"], ["Moto E5 / E5 Play / E5 Plus", "₡18,000"],
+    ["Moto E6 Plus / E6 Play", "₡18,000"], ["Moto Edge 20 Lite / 30 Neo", "₡35,000"],
+    
     ["TITULO", "BATERÍAS"],
     ["SUBTITULO", "iPhone (Calidad Original)"],
     ["Batería iPhone 6G / 6S", "₡15,000"], ["Batería iPhone 7G / 8G", "₡16,000"],
