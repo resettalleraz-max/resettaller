@@ -14,7 +14,7 @@
         .text-versiculo { color: #94a3b8; font-style: italic; }
         
         .titulo-seccion { 
-            font-size: 26px; 
+            font-size: 24px; 
             font-weight: 900; 
             text-align: left; 
             padding: 30px 10px 10px 5px;
@@ -113,6 +113,7 @@
 
         function obtenerNombreCorto(nombre) {
             const n = nombre.toUpperCase();
+            // BLOQUE DE PANTALLAS UNIFICADO
             if (n.includes("IPHONE") || n.includes("SAMSUNG") || n.includes("MOTOROLA") || n.includes("XIAOMI") || n.includes("HUAWEI") || n.includes("HONOR")) return "PANTALLAS";
             if (n.includes("BATERÍA")) return "BATERÍAS";
             if (n.includes("FLEX") || n.includes("CARGA")) return "FLEX";
@@ -123,6 +124,7 @@
             if (n.includes("WATCH") || n.includes("SMART")) return "SMARTWATCH";
             if (n.includes("SERVICIO")) return "SERVICIOS";
             if (n.includes("HERRAMIENTA")) return "HERRAMIENTAS";
+            if (n.includes("TABLET")) return "REPUESTOS TABLET";
             return nombre;
         }
 
@@ -146,7 +148,7 @@
                     subFolder = { nombre: valor, items: [], contador: 0 };
                     if (mainFolder) mainFolder.subs.push(subFolder);
                 } else {
-                    totalGeneral++; // CONTADOR CORREGIDO
+                    totalGeneral++; 
                     if (tipo.toLowerCase().includes(filtro.toLowerCase()) || (mainFolder && mainFolder.nombre.toLowerCase().includes(filtro.toLowerCase()))) {
                         if (subFolder) { subFolder.items.push(item); subFolder.contador++; mainFolder.contador++; }
                         else if (mainFolder) { mainFolder.items.push(item); mainFolder.contador++; }
@@ -217,8 +219,9 @@
             const card = document.createElement('div');
             card.className = `${esClaro ? 'bg-white border-slate-200' : 'bg-slate-800/40 border-slate-700/50'} p-4 rounded-xl flex flex-col gap-2 border mx-1 shadow-sm`;
             
-            let idRepuesto = obtenerNombreCorto(categoria).slice(0, -1);
-            if (idRepuesto === "FLEX") idRepuesto = "FLEX";
+            let idRepuesto = obtenerNombreCorto(categoria);
+            if (idRepuesto.endsWith('S')) idRepuesto = idRepuesto.slice(0, -1);
+            if (idRepuesto.includes("REPUESTO TABLET")) idRepuesto = "REPUESTO";
 
             card.innerHTML = `
                 <div class="flex justify-between items-start">
