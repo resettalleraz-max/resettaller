@@ -10,7 +10,6 @@
         .rotate-180 { transform: rotate(180deg); } 
         :root { --tecnico: #38bdf8; }
         .modo-claro { background-color: #f1f5f9; color: #1e293b; }
-        .modo-claro .bg-header { background-color: #ffffff; border-color: #e2e8f0; }
         .modo-claro input { background-color: #ffffff; color: #1e293b; border: 1px solid #cbd5e1; }
         .text-versiculo { color: #94a3b8; font-style: italic; }
         
@@ -21,8 +20,6 @@
             padding: 30px 10px 10px 5px;
             letter-spacing: 1px;
             color: white;
-            display: block;
-            width: 100%;
             text-transform: uppercase;
         }
         .modo-claro .titulo-seccion { color: #0f172a; }
@@ -39,7 +36,6 @@
             box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
             transition: all 0.2s;
         }
-        .btn-home:active { scale: 0.9; }
     </style>
 </head>
 <body id="cuerpo" class="bg-slate-950 text-white min-h-screen pb-24 transition-colors duration-300">
@@ -79,7 +75,7 @@
 
     <main id="lista-repuestos" class="px-4 space-y-3"></main>
 
-    <nav class="fixed bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur-sm border-t border-slate-800 flex justify-around items-center py-3 text-[10px] font-bold text-slate-400 z-50 transition-colors">
+    <nav class="fixed bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur-sm border-t border-slate-800 flex justify-around items-center py-3 text-[10px] font-bold text-slate-400 z-50">
         <div class="text-center text-[var(--tecnico)] w-1/3">
             <i class="fa fa-box-open text-xl mb-1"></i><br>
             <span id="contador-items">0 Total</span>
@@ -115,10 +111,9 @@
             renderizar(buscador.value);
         }
 
-        // DICCIONARIO DE NOMBRES CORTOS
         function obtenerNombreCorto(nombre) {
             const n = nombre.toUpperCase();
-            if (n.includes("IPHONE") || n.includes("SAMSUNG") || n.includes("MOTOROLA") || n.includes("XIAOMI")) return "PANTALLAS";
+            if (n.includes("IPHONE") || n.includes("SAMSUNG") || n.includes("MOTOROLA") || n.includes("XIAOMI") || n.includes("HUAWEI") || n.includes("HONOR")) return "PANTALLAS";
             if (n.includes("BATERÍA")) return "BATERÍAS";
             if (n.includes("FLEX") || n.includes("CARGA")) return "FLEX";
             if (n.includes("TAPA")) return "TAPAS";
@@ -151,8 +146,7 @@
                     subFolder = { nombre: valor, items: [], contador: 0 };
                     if (mainFolder) mainFolder.subs.push(subFolder);
                 } else {
-                    // SUMA TOTAL CORREGIDA
-                    totalGeneral++; 
+                    totalGeneral++; // CONTADOR CORREGIDO
                     if (tipo.toLowerCase().includes(filtro.toLowerCase()) || (mainFolder && mainFolder.nombre.toLowerCase().includes(filtro.toLowerCase()))) {
                         if (subFolder) { subFolder.items.push(item); subFolder.contador++; mainFolder.contador++; }
                         else if (mainFolder) { mainFolder.items.push(item); mainFolder.contador++; }
@@ -166,7 +160,6 @@
             estructura.forEach((main, mIdx) => {
                 if (main.contador === 0 && filtro !== '') return;
 
-                // TÍTULOS AUTOMÁTICOS
                 if (filtro === '') {
                     let cat = obtenerNombreCorto(main.nombre);
                     if (seccionPuesta !== cat) {
@@ -224,7 +217,7 @@
             const card = document.createElement('div');
             card.className = `${esClaro ? 'bg-white border-slate-200' : 'bg-slate-800/40 border-slate-700/50'} p-4 rounded-xl flex flex-col gap-2 border mx-1 shadow-sm`;
             
-            let idRepuesto = obtenerNombreCorto(categoria).slice(0, -1); // Quita la 'S' final para que diga "PANTALLA" en vez de "PANTALLAS"
+            let idRepuesto = obtenerNombreCorto(categoria).slice(0, -1);
             if (idRepuesto === "FLEX") idRepuesto = "FLEX";
 
             card.innerHTML = `
