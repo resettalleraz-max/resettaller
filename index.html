@@ -13,6 +13,7 @@
         .modo-claro .bg-header { background-color: #ffffff; border-color: #e2e8f0; }
         .modo-claro .bg-card { background-color: #ffffff; border-color: #e2e8f0; }
         .modo-claro input { background-color: #ffffff; color: #1e293b; border: 1px solid #cbd5e1; }
+        .text-versiculo { color: #94a3b8; font-style: italic; }
     </style>
 </head>
 <body id="cuerpo" class="bg-slate-950 text-white min-h-screen pb-24 transition-colors duration-300">
@@ -21,18 +22,42 @@
         <div class="absolute inset-0 z-0 opacity-20">
             <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover">
         </div>
-        <div class="relative z-10">
+        
+        <div class="relative z-10 flex flex-col items-center">
+            <div class="-mt-6 mb-4 relative">
+                <img src="https://raw.githubusercontent.com/resettalleraz-max/resettaller/main/WhatsApp%20Image%202026-03-30%20at%208.47.32%20PM.jpeg" 
+                     alt="Logo Reset Taller" 
+                     class="w-24 h-24 rounded-full border-4 border-[var(--tecnico)] shadow-[0_0_20px_rgba(56,189,248,0.6)] object-cover bg-slate-900">
+            </div>
+            
             <h1 class="text-4xl font-black italic text-[var(--tecnico)] uppercase tracking-tighter">RESET TALLER</h1>
             <p class="text-slate-300 text-xs font-bold tracking-[0.2em] uppercase mt-2">Servicio Técnico Profesional</p>
+            
             <div class="w-20 h-1 bg-[var(--tecnico)] mx-auto mt-4 rounded-full shadow-[0_0_10px_#38bdf8]"></div>
+            
+            <p class="text-versiculo text-[11px] mt-3 max-w-xs mx-auto px-4">
+                "Mira que te mando que te esfuerces y seas valiente; no temas ni desmayes, porque Jehová tu Dios estará contigo en dondequiera que vayas." <br><b>Josué 1:9</b>
+            </p>
+            
+            <p class="text-slate-500 text-[10px] font-mono mt-2 italic uppercase tracking-widest">
+                Alajuela, San Carlos, Aguas Zarcas
+            </p>
         </div>
     </header>
 
-    <div class="px-4 mb-6">
+    <div class="px-4 mb-3">
         <div class="relative">
             <i class="fa fa-search absolute left-4 top-3.5 text-slate-500"></i>
             <input type="text" id="buscador" placeholder="Busca tu modelo o herramienta..." 
                 class="w-full bg-slate-800 rounded-2xl py-3 pl-12 pr-4 text-sm outline-none focus:ring-2 focus:ring-[var(--tecnico)] shadow-lg transition-colors">
+        </div>
+    </div>
+
+    <div class="px-4 mb-6">
+        <div class="bg-slate-900 border border-slate-800 p-2 rounded-xl text-center shadow-md">
+            <p class="text-[var(--tecnico)] font-bold text-xs uppercase tracking-wider">
+                ⚡ EL PRECIO INCLUYE LA REPARACIÓN 🛠️
+            </p>
         </div>
     </div>
 
@@ -74,7 +99,6 @@
             let totalGeneral = 0;
             let estructura = [];
 
-            // Combinamos todas las listas de datos.js
             const todasLasListas = [...PANTALLAS];
             if (typeof HERRAMIENTAS !== 'undefined') todasLasListas.push(...HERRAMIENTAS);
 
