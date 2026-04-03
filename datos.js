@@ -206,7 +206,8 @@ const datos = [
     { modelos: "15 PRO OLED SOFT", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 187000 },
     { modelos: "15 PRO INCEL", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 100000 },
     { modelos: "15 PRO MAX OLED", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 189000 },
-    { modelos: "15 PRO MAX INCEL", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 130000 },
-    { modelos: "16 OLED SOFT", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 175000 },
+    { modelos: "15 PRO MAX INCEL", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 130000 },{ modelos: "16 OLED SOFT", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 175000 },
     { modelos: "16 PRO OLED", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 155000 },
-    { modelos: "16 PRO MAX SOFT", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 225000 }]; 
+    { modelos: "16 PRO MAX SOFT", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 225000 }
+];
+   
