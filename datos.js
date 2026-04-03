@@ -18,6 +18,23 @@ const datos = [
     { modelos: "P30 LITE + MARCO", categoria: "HUAWEI", subcategoria: "CON MARCO", precios: 47000 },
     { modelos: "P40 LITE", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 41000 },
     { modelos: "P40 LITE + MARCO", categoria: "HUAWEI", subcategoria: "CON MARCO", precios: 47000 },
-    { modelos: "Y3 2017", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 33000 }
-
-];
+    { modelos: "Y3 2017", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 33000 },{ modelos: "Y5 2018", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 33000 },
+{ modelos: "Y5 2019", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 33000 },
+{ modelos: "Y6 2018", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 36000 },
+{ modelos: "Y6 PRIME 2019", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 36000 },
+{ modelos: "Y6 PRIME 2019 + MARCO", categoria: "HUAWEI", subcategoria: "CON MARCO", precios: 42000 },
+{ modelos: "Y6P", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 38000 },
+{ modelos: "Y7 2018", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 33000 },
+{ modelos: "Y7 2018 + MARCO", categoria: "HUAWEI", subcategoria: "CON MARCO", precios: 38000 },
+{ modelos: "Y7 PRIME 2019", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 36000 },
+{ modelos: "Y7 PRIME 2019 + MARCO", categoria: "HUAWEI", subcategoria: "CON MARCO", precios: 42000 },
+{ modelos: "Y7P", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 38000 },
+{ modelos: "Y7P + MARCO", categoria: "HUAWEI", subcategoria: "CON MARCO", precios: 46000 },
+{ modelos: "Y7A", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 38000 },
+{ modelos: "Y8S + MARCO", categoria: "HUAWEI", subcategoria: "CON MARCO", precios: 46000 },
+{ modelos: "Y9 2018", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 34000 },
+{ modelos: "Y9 2019/Y8S", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 40000 },
+{ modelos: "Y9 2019 + MARCO", categoria: "HUAWEI", subcategoria: "CON MARCO", precios: 46000 },
+{ modelos: "Y9 PRIME 2019", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 42000 },
+{ modelos: "Y9 PRIME 2019 + MARCO", categoria: "HUAWEI", subcategoria: "CON MARCO", precios: 50000 },
+{ modelos: "Y9S", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 42000 }];
