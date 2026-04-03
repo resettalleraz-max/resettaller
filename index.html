@@ -78,14 +78,14 @@
 
     function buscar() {
         const q = document.getElementById('bus').value.trim().toUpperCase();
-        const f = productos.filter(p => p.modelos.toUpperCase().includes(q) || p.categoria.toUpperCase().includes(q));
+        const f = datos.filter(p => p.modelos.toUpperCase().includes(q) || p.categoria.toUpperCase().includes(q));
         render(f, q !== "");
     }
 
     function render(lista, expandir) {
         const h = document.getElementById('mainAcc');
         h.innerHTML = "";
-        document.getElementById('txtItems').innerText = productos.length + " Items";
+        document.getElementById('txtItems').innerText = datos.length + " Items";
 
         categoriasBase.forEach((c, i) => {
             const items = lista.filter(p => p.categoria === c);
@@ -138,7 +138,6 @@
         </div>`;
     }
 
-    // ✅ FUNCIÓN CORREGIDA PARA LEER modeloss Y precios
     function card(p) {
         return `<div class="col-12 col-md-6 px-1"><div class="card-prod d-flex justify-content-between align-items-center mb-2">
             <div><div class="fw-bold" style="font-size:0.9rem; color:#f1f5f9">${p.modelos}</div><div class="precio-tag">₡${p.precios}</div></div>
@@ -146,7 +145,7 @@
         </div></div>`;
     }
 
-    window.onload = () => render(productos, false);
+    window.onload = () => render(datos, false);
 </script>
 </body>
 </html>
