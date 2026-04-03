@@ -27,7 +27,7 @@
         body { background-color: var(--bg-color); font-family: 'Segoe UI', sans-serif; color: var(--text-color); padding-bottom: 90px; transition: background-color 0.5s, color 0.5s; }
         
         .hero-section { padding: 50px 0 30px; text-align: center; background-image: linear-gradient(rgba(0,0,0,0.85), var(--bg-color)), url('https://images.unsplash.com/photo-1597733336794-12d05021d510?q=80&w=1974&auto=format&fit=crop'); background-size: cover; background-position: center; }
-        .hero-logo { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--neon-cyan); box-shadow: 0 0 20px var(--neon-cyan); object-fit: cover; margin-bottom: 15px; }
+        .hero-logo { width: 120px; height: 120px border-radius: 50%; border: 4px solid var(--neon-cyan); box-shadow: 0 0 20px var(--neon-cyan); object-fit: cover; margin-bottom: 15px; }
         .hero-title { font-size: 3.5rem; font-weight: 900; color: var(--neon-cyan); text-shadow: 0 0 15px var(--neon-cyan); margin: 0; }
         .hero-divider { width: 150px; height: 4px; background: var(--neon-cyan); margin: 15px auto; box-shadow: 0 0 15px var(--neon-cyan); border-radius: 10px; }
         .hero-bible { font-size: 0.95rem; font-style: italic; opacity: 0.8; margin-bottom: 10px; }
@@ -43,8 +43,18 @@
         .accordion-button:not(.collapsed) { background-color: #1e293b; color: var(--neon-cyan); }
         body.modo-dia .accordion-button:not(.collapsed) { background-color: #e2e8f0; color: #0d6efd; }
 
-        /* 👇 ESTO ES LO QUE CAMBIÉ: NÚMEROS A LA DERECHA 👇 */
-        .badge-count { margin-left: auto; margin-right: 0; background: rgba(0,255,255,0.1); color: var(--neon-cyan); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; border: 1px solid var(--neon-cyan); }
+        /* 👇 CAMBIO FUERTE: NÚMEROS A LA DERECHA 👇 */
+        .badge-count { 
+            position: absolute; 
+            right: 20px; 
+            background: rgba(0,255,255,0.1); 
+            color: var(--neon-cyan); 
+            padding: 4px 12px; 
+            border-radius: 20px; 
+            font-size: 0.8rem; 
+            font-weight: bold; 
+            border: 1px solid var(--neon-cyan); 
+        }
 
         .card-prod { background: var(--card-bg); border-radius: 12px; padding: 15px; margin-bottom: 10px; border: 1px solid var(--border-color); }
         .precio-tag { color: var(--neon-cyan); font-weight: 800; font-size: 1.3rem; }
