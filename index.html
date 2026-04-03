@@ -10,7 +10,7 @@
         :root { 
             --neon-cyan: #00ffff; 
             --emerald-green: #25d366; 
-            --bg-color: #0a0e17; /* OSCURO POR DEFECTO */
+            --bg-color: #0a0e17; 
             --text-color: #ffffff;
             --card-bg: rgba(255,255,255,0.04);
             --border-color: rgba(0,255,255,0.1);
@@ -43,7 +43,8 @@
         .accordion-button:not(.collapsed) { background-color: #1e293b; color: var(--neon-cyan); }
         body.modo-dia .accordion-button:not(.collapsed) { background-color: #e2e8f0; color: #0d6efd; }
 
-        .badge-count { margin-left: auto; background: rgba(0,255,255,0.1); color: var(--neon-cyan); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; border: 1px solid var(--neon-cyan); }
+        /* 👇 ESTO ES LO QUE CAMBIÉ: NÚMEROS A LA DERECHA 👇 */
+        .badge-count { margin-left: auto; margin-right: 0; background: rgba(0,255,255,0.1); color: var(--neon-cyan); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; border: 1px solid var(--neon-cyan); }
 
         .card-prod { background: var(--card-bg); border-radius: 12px; padding: 15px; margin-bottom: 10px; border: 1px solid var(--border-color); }
         .precio-tag { color: var(--neon-cyan); font-weight: 800; font-size: 1.3rem; }
