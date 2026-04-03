@@ -8,176 +8,260 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-red: #ff3b3b;
-            --primary-blue: #0d6efd;
-            --secondary-green: #25d366;
-            --bg-dark: #0a0e17;
+            --primary-neon: #00ffff; /* Celeste Neón/Cian (NUEVO COLOR) */
+            --primary-blue: #0d6efd; /* Azul de acento */
+            --secondary-green: #25d366; /* Verde WhatsApp */
+            --bg-dark: #0a0e17; /* Fondo general ultra oscuro */
+            --text-light: #ffffff;
         }
 
-        body { background-color: var(--bg-dark); font-family: 'Segoe UI', sans-serif; color: white; }
+        body { background-color: var(--bg-dark); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: var(--text-light); }
         
-        /* --- Portada RESET TALLER --- */
+        /* --- Sección de Portada (Hero con Fondo Técnico) --- */
         .hero-section {
             background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(10, 14, 23, 1)), 
-                              url('https://images.unsplash.com/photo-1597733336794-12d05021d510?q=80&w=1974&auto=format&fit=crop');
+                              url('https://images.unsplash.com/photo-1597733336794-12d05021d510?q=80&w=1974&auto=format&fit=crop'); /* Imagen de Electrónica de Fondo */
             background-size: cover;
             background-position: center;
-            padding: 50px 0 30px;
+            padding: 60px 0 40px;
             text-align: center;
+            border-bottom: 2px solid rgba(255,255,255,0.05);
         }
 
         .hero-logo {
-            width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--primary-blue);
-            box-shadow: 0 0 20px rgba(13, 110, 253, 0.5); cursor: pointer; object-fit: cover; margin-bottom: 20px;
+            width: 125px;
+            height: 125px;
+            border-radius: 50%;
+            border: 4px solid var(--primary-neon); /* Borde neón */
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.5); /* Brillo neón */
+            cursor: pointer;
+            object-fit: cover;
+            margin-bottom: 25px;
+            transition: 0.3s;
         }
+        .hero-logo:hover { transform: scale(1.05); }
 
-        .hero-title { font-size: 3.5rem; font-weight: 900; text-transform: uppercase; color: var(--primary-red); margin: 0; letter-spacing: 2px; }
-        .hero-subtitle { font-size: 1.2rem; font-weight: 500; color: white; margin-bottom: 10px; text-transform: uppercase; }
-        .hero-divider { width: 100px; height: 3px; background: var(--primary-blue); margin: 10px auto; box-shadow: 0 0 10px var(--primary-blue); }
-        .hero-bible { font-size: 0.95rem; font-style: italic; opacity: 0.8; margin: 15px auto; max-width: 600px; color: #cbd5e1; }
-        .hero-address { font-size: 0.8rem; opacity: 0.5; text-transform: uppercase; letter-spacing: 2px; }
+        /* EL NOMBRE EN CELESTE NEÓN */
+        .hero-title { font-size: 3.5rem; font-weight: 900; text-transform: uppercase; color: var(--primary-neon); letter-spacing: 3px; margin: 0; text-shadow: 0 0 15px rgba(0, 255, 255, 0.7); }
+        
+        .hero-subtitle { font-size: 1.3rem; font-weight: 500; color: white; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+        
+        /* Divisor neón */
+        .hero-divider { width: 100px; height: 3px; background: var(--primary-neon); margin: 15px auto; border-radius: 2px; box-shadow: 0 0 10px var(--primary-neon); }
 
-        .btn-catalog { background-color: var(--secondary-green); color: white; font-weight: bold; padding: 12px 25px; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; margin-top: 20px; }
+        .hero-bible { font-size: 1rem; font-style: italic; opacity: 0.8; margin: 20px auto; max-width: 650px; color: #cbd5e1; line-height: 1.6; }
+        .hero-address { font-size: 0.85rem; font-weight: 300; opacity: 0.6; text-transform: uppercase; letter-spacing: 2px; color: #94a3b8; }
 
-        /* --- Buscador e Inicio --- */
-        .search-container { background: rgba(255,255,255,0.05); border-radius: 15px; padding: 15px; margin-bottom: 30px; border: 1px solid rgba(255,255,255,0.1); }
-        .search-input { background: rgba(255,255,255,0.1) !important; border: 1px solid rgba(255,255,255,0.2) !important; color: white !important; border-radius: 10px; padding: 12px; }
+        /* --- Botón Ver Catálogo con Fotos --- */
+        .btn-catalog { background-color: var(--secondary-green); color: white; font-weight: bold; padding: 12px 30px; border-radius: 50px; border: none; font-size: 1.1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; margin-top: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .btn-catalog:hover { background-color: #128c7e; color: white; transform: translateY(-3px); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
+
+        /* --- Buscador y Inicio (Estilo Oscuro) --- */
+        .search-container { background: rgba(255,255,255,0.03); border-radius: 15px; padding: 15px; margin-bottom: 30px; border: 1px solid rgba(255,255,255,0.05); }
+        .search-input { background: rgba(255,255,255,0.05) !important; border: 1px solid rgba(255,255,255,0.1) !important; color: white !important; border-radius: 10px; padding: 12px; }
+        .search-input::placeholder { color: rgba(255,255,255,0.4); }
+        .search-input:focus { border-color: var(--primary-neon); box-shadow: none; }
         .btn-home { background: var(--primary-blue); color: white; border-radius: 10px; border: none; width: 50px; height: 50px; font-size: 1.3rem; transition: 0.3s; }
+        .btn-home:hover { background: #0b5ed7; transform: scale(1.05); }
 
-        /* --- Acordeones --- */
-        .accordion-item { border: none; background: rgba(255,255,255,0.02); margin-bottom: 10px; border-radius: 15px !important; overflow: hidden; }
-        .accordion-button { font-weight: 700; text-transform: uppercase; color: white; padding: 18px; background: transparent; font-size: 0.9rem; }
+        /* --- Acordeones (Carpetas) --- */
+        .accordion-item { border: none; background: rgba(255,255,255,0.02); margin-bottom: 12px; border-radius: 15px !important; overflow: hidden; border: 1px solid rgba(255,255,255,0.03); }
+        .accordion-button { font-weight: 700; text-transform: uppercase; color: white; padding: 20px; background: transparent; font-size: 0.95rem; letter-spacing: 1px; }
         .accordion-button::after { filter: invert(1); }
-        .accordion-button:not(.collapsed) { background-color: var(--primary-blue); color: white; }
+        .accordion-button:not(.collapsed) { background-color: var(--primary-blue); color: white; box-shadow: none; }
 
-        .badge-count { background: rgba(255,255,255,0.1); color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; margin-left: auto; font-weight: bold; }
+        /* Sub-Acordeón (Sin/Con Marco) */
+        .sub-accordion .accordion-item { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.05); margin-bottom: 6px; }
+        .sub-accordion .accordion-button { font-size: 0.85rem; color: #94a3b8; padding: 15px 20px; text-transform: none; font-weight: 600; }
+        .sub-accordion .accordion-button:not(.collapsed) { background: #1e293b; color: var(--primary-neon); }
 
-        /* --- Productos --- */
-        .card-producto { border: none; border-radius: 12px; background: rgba(255,255,255,0.04); transition: 0.3s; margin-bottom: 10px; padding: 15px; border: 1px solid rgba(255,255,255,0.05); }
-        .precio-tag { font-size: 1.3rem; color: var(--primary-blue); font-weight: 800; display: block; }
-        .btn-ws { background-color: var(--secondary-green); color: white; font-weight: bold; border-radius: 15px; font-size: 0.8rem; padding: 8px 15px; text-decoration: none; border: none; }
+        /* --- Badge de Cantidad --- */
+        .badge-count { background: rgba(255,255,255,0.1); color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; margin-left: auto; border: 1px solid rgba(255,255,255,0.1); }
+        .accordion-button:not(.collapsed) .badge-count { background: white; color: var(--primary-blue); border-color: white; }
 
-        footer { padding: 40px 0; text-align: center; opacity: 0.5; font-size: 0.8rem; }
+        /* --- Tarjetas de Productos --- */
+        .card-producto { border: none; border-radius: 12px; background: rgba(255,255,255,0.03); transition: 0.3s ease; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.03); }
+        .card-producto:hover { background: rgba(255,255,255,0.06); transform: translateY(-3px); border-color: rgba(0, 255, 255, 0.3); }
+        
+        .precio-tag { font-size: 1.5rem; color: var(--primary-neon); font-weight: 800; display: block; margin-top: 5px; }
+        
+        .btn-ws { background-color: var(--secondary-green); color: white; font-weight: bold; border-radius: 20px; font-size: 0.85rem; padding: 9px 20px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; border: none; transition: 0.3s; }
+        .btn-ws:hover { background-color: #128c7e; color: white; transform: scale(1.05); }
+
+        footer { background: rgba(0,0,0,0.2); color: rgba(255,255,255,0.5); padding: 40px 0; margin-top: 50px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
     </style>
 </head>
 <body>
 
-<div class="container hero-section">
-    <img src="WhatsApp Image 2026-03-30 at 8.47.32 PM.jpeg" class="hero-logo" onclick="location.reload()">
+<div class="container hero-section shadow">
+    <img src="WhatsApp Image 2026-03-30 at 8.47.32 PM.jpeg" alt="Logo RESET TALLER" class="hero-logo" onclick="location.reload()">
+    
     <h1 class="hero-title">RESET TALLER</h1>
     <p class="hero-subtitle">Servicio Técnico Profesional</p>
+    
     <div class="hero-divider"></div>
-    <p class="hero-bible">"Mira que te mando que te esfuerces y seas valiente..."<br><strong>Josué 1:9</strong></p>
-    <p class="hero-address">Alajuela, San Carlos, Aguas Zarcas</p>
-    <a href="https://wa.me/50661073855" class="btn-catalog" target="_blank"><i class="fab fa-whatsapp"></i> VER CATÁLOGO CON FOTOS</a>
+    
+    <p class="hero-bible">
+        "Mira que te mando que te esfuerces y seas valiente..."<br>
+        <strong>Josué 1:9</strong>
+    </p>
+    
+    <p class="hero-address">
+        Alajuela, San Carlos, Aguas Zarcas
+    </p>
+
+    <a href="https://wa.me/50661073855?text=Hola RESET TALLER, me gustaría ver el catálogo con fotos." 
+       class="btn-catalog" target="_blank">
+        <i class="fab fa-whatsapp"></i> VER CATÁLOGO CON FOTOS
+    </a>
 </div>
 
-<div class="container my-4">
-    <div class="search-container d-flex gap-2 shadow-lg">
-        <input type="text" id="searchInput" class="form-control search-input" placeholder="Escribí modelo (G7, P30, Pantalla)..." onkeyup="filtrar()">
-        <button class="btn-home" onclick="location.reload()" title="Inicio"><i class="fas fa-home"></i></button>
+<div class="container my-5 pb-5">
+    
+    <div class="search-container shadow-sm">
+        <div class="d-flex gap-2">
+            <input type="text" id="searchInput" class="form-control search-input" 
+                   placeholder="Busca tu modelo (ej: Huawei Y9)..." onkeyup="filtrarCatalogo()">
+            <button class="btn-home shadow" onclick="location.reload()">
+                <i class="fas fa-home"></i>
+            </button>
+        </div>
     </div>
     
     <div class="accordion" id="catPrincipal"></div>
 </div>
 
 <footer>
-    <p>&copy; 2026 RESET TALLER | San Carlos, Costa Rica</p>
+    <div class="container">
+        <p class="mb-2 fw-bold text-white">RESET TALLER</p>
+        <p class="small mb-1">&copy; 2026. Especialistas en reparación de celulares y repuestos de calidad.</p>
+        <p class="small opacity-75">San Carlos, Costa Rica.</p>
+    </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="datos.js"></script>
 <script>
     const whatsappNum = "50661073855";
-    const categoriasBase = ["HUAWEI", "SAMSUNG", "IPHONE", "MOTOROLA", "XIAOMI", "HONOR", "TACTIL", "RAM CARGA", "TARJETA CARGA", "FLEX PRINCIPAL", "CARGADORES", "AUDIFONOS", "TAPAS"];
+    
+    const categoriasBase = [
+        "HUAWEI", "SAMSUNG", "IPHONE", "MOTOROLA", "XIAOMI", "HONOR", 
+        "TACTIL", "RAM CARGA", "TARJETA CARGA", "FLEX PRINCIPAL", 
+        "FLEX ANTENA", "TIMBRE Y MICROFONO", "AURICULAR", "FLEX AUDIO", 
+        "FLEX DE ENCENDIDO", "BOTONES", "HUELLAS", "CONECTOR FPC", 
+        "CARGADORES", "CUBOS", "CABLES", "AUDIFONOS", "REL0J", "TAPAS", 
+        "CAMARA Y PORTA SIM", "LENTES CAMARA", "GOMAS Y OTROS", "HERRAMIENTA Y OTROS"
+    ];
 
-    function filtrar() {
-        const query = document.getElementById('searchInput').value.trim().toUpperCase();
-        if (query === "") {
-            render(productos, false);
-            return;
-        }
-        const filtrados = productos.filter(p => 
-            p.modelo.toUpperCase().includes(query) || 
-            (p.subcategoria && p.subcategoria.toUpperCase().includes(query)) ||
-            p.categoria.toUpperCase().includes(query)
-        );
-        render(filtrados, true); 
-    }
-
-    function render(lista, expandir) {
-        const h = document.getElementById('catPrincipal');
-        h.innerHTML = ""; 
+    // Función principal para cargar el catálogo
+    function cargarCatalogo(listaDeProductos) {
+        const contenedor = document.getElementById('catPrincipal');
+        if(!contenedor) return;
+        contenedor.innerHTML = ""; 
 
         categoriasBase.forEach((cat, index) => {
-            const items = lista.filter(p => p.categoria === cat);
-            if (items.length > 0) {
-                const id = "c" + index;
-                const show = expandir ? "show" : "";
-                const btn = expandir ? "" : "collapsed";
+            const idCat = "collapse" + index;
+            // Filtramos los productos que pertenecen a esta categoría
+            const prodsDeCat = listaDeProductos.filter(p => p.categoria === cat);
+            
+            if (prodsDeCat.length > 0) {
+                // Separar pantallas por subcategoría
+                const sinMarco = prodsDeCat.filter(p => p.subcategoria === "SIN MARCO");
+                const conMarco = prodsDeCat.filter(p => p.subcategoria === "CON MARCO");
+                const otros = prodsDeCat.filter(p => p.subcategoria !== "SIN MARCO" && p.subcategoria !== "CON MARCO");
 
-                const sinM = items.filter(p => p.subcategoria === "SIN MARCO");
-                const conM = items.filter(p => p.subcategoria === "CON MARCO");
-                const otros = items.filter(p => p.subcategoria !== "SIN MARCO" && p.subcategoria !== "CON MARCO");
+                let contentHtml = "";
 
-                let subHtml = "";
-                if (sinM.length > 0 || conM.length > 0) {
-                    subHtml = `<div class="accordion">`;
-                    if (sinM.length > 0) subHtml += subBloque(index, "SIN", "PANTALLAS SIN MARCO", sinM, expandir);
-                    if (conM.length > 0) subHtml += subBloque(index, "CON", "PANTALLAS CON MARCO", conM, expandir);
-                    if (otros.length > 0) subHtml += `<div class="row pt-2">${otros.map(p => card(p)).join('')}</div>`;
-                    subHtml += `</div>`;
+                // Si hay pantallas con/sin marco, crear sub-acordeón
+                if(sinMarco.length > 0 || conMarco.length > 0) {
+                    contentHtml = `<div class="accordion sub-accordion" id="sub${index}">`;
+                    
+                    if(sinMarco.length > 0) {
+                        contentHtml += generarSubCarpeta(index, "SIN", "PANTALLAS SIN MARCO", sinMarco);
+                    }
+                    if(conMarco.length > 0) {
+                        contentHtml += generarSubCarpeta(index, "CON", "PANTALLAS CON MARCO", conMarco);
+                    }
+                    // Otros repuestos de la marca
+                    if(otros.length > 0) {
+                        contentHtml += `<div class="row pt-3">${otros.map(p => generarTarjetaProducto(p)).join('')}</div>`;
+                    }
+                    contentHtml += `</div>`;
                 } else {
-                    subHtml = `<div class="row">${items.map(p => card(p)).join('')}</div>`;
+                    // Si no son pantallas, mostrar tarjetas directamente
+                    contentHtml = `<div class="row">${prodsDeCat.map(p => generarTarjetaProducto(p)).join('')}</div>`;
                 }
 
-                h.innerHTML += `
+                contenedor.innerHTML += `
                     <div class="accordion-item shadow-sm">
                         <h2 class="accordion-header">
-                            <button class="accordion-button ${btn}" type="button" data-bs-toggle="collapse" data-bs-target="#${id}">
-                                <span><i class="fas fa-tools me-2 text-primary"></i> ${cat}</span>
-                                <span class="badge-count">${items.length}</span>
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#${idCat}">
+                                <span><i class="fas fa-tools me-3 text-primary"></i> ${cat}</span>
+                                <span class="badge-count">${prodsDeCat.length}</span>
                             </button>
                         </h2>
-                        <div id="${id}" class="accordion-collapse collapse ${show}" data-bs-parent="#catPrincipal">
-                            <div class="accordion-body p-3">${subHtml}</div>
+                        <div id="${idCat}" class="accordion-collapse collapse" data-bs-parent="#catPrincipal">
+                            <div class="accordion-body p-3 p-md-4 bg-black bg-opacity-10">
+                                ${contentHtml}
+                            </div>
                         </div>
                     </div>`;
             }
         });
     }
 
-    function subBloque(idx, tipo, tit, data, exp) {
-        const id = `s${idx}${tipo}`;
-        const s = exp ? "show" : "";
-        const b = exp ? "" : "collapsed";
+    // Función para generar sub-carpetas (acordeón nivel 2)
+    function generarSubCarpeta(parentIdx, tipo, titulo, lista) {
         return `
-            <div class="accordion-item border-0 mb-2" style="background: rgba(255,255,255,0.05)">
+            <div class="accordion-item shadow-none border-0 mb-2">
                 <h2 class="accordion-header">
-                    <button class="accordion-button ${b} py-2" style="font-size:0.85rem" type="button" data-bs-toggle="collapse" data-bs-target="#${id}">
-                        ${tit} <span class="badge-count">${data.length}</span>
+                    <button class="accordion-button collapsed py-2" type="button" data-bs-toggle="collapse" data-bs-target="#s${parentIdx}${tipo}">
+                        <span>${titulo}</span>
+                        <span class="badge-count">${lista.length}</span>
                     </button>
                 </h2>
-                <div id="${id}" class="accordion-collapse collapse ${s}">
-                    <div class="accordion-body"><div class="row">${data.map(p => card(p)).join('')}</div></div>
-                </div>
-            </div>`;
-    }
-
-    function card(p) {
-        return `
-            <div class="col-12 col-md-6 px-1">
-                <div class="card-producto d-flex justify-content-between align-items-center">
-                    <div>
-                        <h6 class="mb-0 fw-bold" style="font-size:0.9rem; color:#e2e8f0">${p.modelo}</h6>
-                        <span class="precio-tag">₡${p.precio}</span>
+                <div id="s${parentIdx}${tipo}" class="accordion-collapse collapse">
+                    <div class="accordion-body p-2 p-md-3 bg-dark bg-opacity-20">
+                        <div class="row">${lista.map(p => generarTarjetaProducto(p)).join('')}</div>
                     </div>
-                    <a href="https://wa.me/${whatsappNum}?text=Hola Reset Taller, consulto por: ${p.modelo}" target="_blank" class="btn-ws">PEDIR</a>
                 </div>
             </div>`;
     }
 
-    window.onload = () => render(productos, false);
+    // Función para generar la tarjeta de cada producto
+    function generarTarjetaProducto(p) {
+        return `
+            <div class="col-12 col-md-6 px-2">
+                <div class="card card-producto p-3 shadow-sm h-100 border-0">
+                    <div class="d-flex justify-content-between align-items-center gap-2">
+                        <div class="flex-grow-1">
+                            <h6 class="mb-1 fw-bold text-light" style="font-size: 0.95rem;">${p.modelo}</h6>
+                            <span class="precio-tag">₡${p.precio}</span>
+                        </div>
+                        <div class="text-end flex-shrink-0">
+                            <a href="https://wa.me/${whatsappNum}?text=Hola RESET TALLER, consulto por: ${p.modelo} (${p.categoria})" 
+                               target="_blank" class="btn btn-ws shadow-sm">
+                               PEDIR
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    // Buscador Inteligente
+    function filtrarCatalogo() {
+        const query = document.getElementById('searchInput').value.toUpperCase();
+        const productosFiltrados = productos.filter(p => {
+            return p.modelo.toUpperCase().includes(query) || 
+                   p.categoria.toUpperCase().includes(query);
+        });
+        cargarCatalogo(productosFiltrados);
+    }
+
+    // Iniciar
+    window.onload = () => cargarCatalogo(productos);
 </script>
 </body>
 </html>
