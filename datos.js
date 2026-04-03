@@ -1,8 +1,6 @@
 const productos = [
 
-// ==============================================
 // HUAWEI
-// ==============================================
 { modelos: "Y5 2018", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 26000 },
 { modelos: "Y5 2019", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 26000 },
 { modelos: "Y6 2018", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 28000 },
@@ -23,6 +21,10 @@ const productos = [
 { modelos: "Nova 3i", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 38000 },
 { modelos: "Nova 5T", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 50000 },
 { modelos: "Nova 7i", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 46000 },
+{ modelos: "Nova 3", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 42000 },
+{ modelos: "Nova 3i", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 38000 },
+{ modelos: "Nova 5T", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 50000 },
+{ modelos: "Nova 7i", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 46000 },
 { modelos: "Nova 9 SE", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 66000 },
 { modelos: "P20 Lite", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 36000 },
 { modelos: "P30 Lite", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 44000 },
@@ -33,9 +35,7 @@ const productos = [
 { modelos: "Mate 10 Lite", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 36000 },
 { modelos: "Mate 20 Lite", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 40000 },
 
-// ==============================================
 // SAMSUNG
-// ==============================================
 { modelos: "A01 Core", categoria: "SAMSUNG", subcategoria: "SIN MARCO", precios: 26000 },
 { modelos: "A02", categoria: "SAMSUNG", subcategoria: "SIN MARCO", precios: 28000 },
 { modelos: "A02S", categoria: "SAMSUNG", subcategoria: "SIN MARCO", precios: 30000 },
@@ -89,9 +89,7 @@ const productos = [
 { modelos: "J7 Prime", categoria: "SAMSUNG", subcategoria: "SIN MARCO", precios: 32000 },
 { modelos: "J7 Pro", categoria: "SAMSUNG", subcategoria: "SIN MARCO", precios: 34000 },
 
-// ==============================================
 // IPHONE
-// ==============================================
 { modelos: "iPhone 6 / 6G", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 30000 },
 { modelos: "iPhone 6 Plus", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 34000 },
 { modelos: "iPhone 7 / 7G", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 34000 },
@@ -118,15 +116,13 @@ const productos = [
 { modelos: "iPhone 14 Pro", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 120000 },
 { modelos: "iPhone 14 Pro Max", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 130000 },
 { modelos: "iPhone 15", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 110000 },
-{ modelos: "iPhone{ modelos: "iPhone 15 Plus", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 120000 },
+{ modelos: "iPhone 15 Plus", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 120000 },
 { modelos: "iPhone 15 Pro", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 130000 },
 { modelos: "iPhone 15 Pro Max", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 140000 },
 { modelos: "iPhone SE 2020", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 44000 },
 { modelos: "iPhone SE 2022", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 50000 },
 
-// ==============================================
 // MOTOROLA
-// ==============================================
 { modelos: "Moto E6 Play", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precios: 26000 },
 { modelos: "Moto E6 Plus", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precios: 28000 },
 { modelos: "Moto E7", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precios: 28000 },
@@ -148,9 +144,7 @@ const productos = [
 { modelos: "Moto One Hyper", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precios: 38000 },
 { modelos: "Moto One Zoom", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precios: 42000 },
 
-// ==============================================
 // XIAOMI
-// ==============================================
 { modelos: "Redmi 8", categoria: "XIAOMI", subcategoria: "SIN MARCO", precios: 30000 },
 { modelos: "Redmi 8A", categoria: "XIAOMI", subcategoria: "SIN MARCO", precios: 28000 },
 { modelos: "Redmi 9", categoria: "XIAOMI", subcategoria: "SIN MARCO", precios: 32000 },
@@ -175,9 +169,7 @@ const productos = [
 { modelos: "Poco M3", categoria: "XIAOMI", subcategoria: "SIN MARCO", precios: 34000 },
 { modelos: "Poco M4 Pro", categoria: "XIAOMI", subcategoria: "SIN MARCO", precios: 40000 },
 
-// ==============================================
 // HONOR
-// ==============================================
 { modelos: "Honor 8X", categoria: "HONOR", subcategoria: "SIN MARCO", precios: 32000 },
 { modelos: "Honor 9C", categoria: "HONOR", subcategoria: "SIN MARCO", precios: 30000 },
 { modelos: "Honor 9S", categoria: "HONOR", subcategoria: "SIN MARCO", precios: 28000 },
@@ -185,18 +177,14 @@ const productos = [
 { modelos: "Honor 10X Lite", categoria: "HONOR", subcategoria: "SIN MARCO", precios: 36000 },
 { modelos: "Honor 50 Lite", categoria: "HONOR", subcategoria: "SIN MARCO", precios: 42000 },
 
-// ==============================================
 // TACTILES
-// ==============================================
 { modelos: "Táctil Genérico 4\"", categoria: "TACTIL", precios: 14000 },
 { modelos: "Táctil Genérico 5\"", categoria: "TACTIL", precios: 16000 },
 { modelos: "Táctil Genérico 6\"", categoria: "TACTIL", precios: 18000 },
 { modelos: "Táctil Huawei Y5/Y6", categoria: "TACTIL", precios: 16000 },
 { modelos: "Táctil Samsung J4/J6/J7", categoria: "TACTIL", precios: 16000 },
 
-// ==============================================
-// RAM CARGA / FLEX CARGA
-// ==============================================
+// RAM CARGA
 { modelos: "Flex Carga Samsung J4/J6/J7", categoria: "RAM CARGA", precios: 12000 },
 { modelos: "Flex Carga Samsung A10/A20/A30", categoria: "RAM CARGA", precios: 14000 },
 { modelos: "Flex Carga Huawei Y6/Y7/Y9", categoria: "RAM CARGA", precios: 12000 },
@@ -205,42 +193,32 @@ const productos = [
 { modelos: "Flex Carga Xiaomi Redmi 9/Note 9", categoria: "RAM CARGA", precios: 14000 },
 { modelos: "Flex Carga iPhone 6/7/8", categoria: "RAM CARGA", precios: 16000 },
 
-// ==============================================
 // TARJETA CARGA
-// ==============================================
 { modelos: "Tarjeta Carga iPhone 6G/7G", categoria: "TARJETA CARGA", precios: 20000 },
 { modelos: "Tarjeta Carga iPhone 8G/X", categoria: "TARJETA CARGA", precios: 26000 },
 { modelos: "Tarjeta Carga iPhone 11/12", categoria: "TARJETA CARGA", precios: 32000 },
 { modelos: "Tarjeta Carga Samsung A10/A20", categoria: "TARJETA CARGA", precios: 18000 },
 { modelos: "Tarjeta Carga Samsung A30/A50", categoria: "TARJETA CARGA", precios: 22000 },
 
-// ==============================================
 // FLEX PRINCIPAL
-// ==============================================
 { modelos: "Flex Principal Samsung A10/A20", categoria: "FLEX PRINCIPAL", precios: 16000 },
 { modelos: "Flex Principal Samsung A30/A50", categoria: "FLEX PRINCIPAL", precios: 18000 },
 { modelos: "Flex Principal Huawei Y7/Y9", categoria: "FLEX PRINCIPAL", precios: 16000 },
 
-// ==============================================
 // CARGADORES
-// ==============================================
 { modelos: "Cargador Samsung Carga Rápida", categoria: "CARGADORES", precios: 14000 },
 { modelos: "Cargador Huawei Carga Rápida", categoria: "CARGADORES", precios: 14000 },
 { modelos: "Cargador Tipo C Genérico", categoria: "CARGADORES", precios: 10000 },
 { modelos: "Cable Tipo C", categoria: "CARGADORES", precios: 6000 },
 { modelos: "Cable Micro USB", categoria: "CARGADORES", precios: 5000 },
 
-// ==============================================
 // AUDIFONOS
-// ==============================================
 { modelos: "Audífonos Alámbricos 3.5mm", categoria: "AUDIFONOS", precios: 10000 },
 { modelos: "Audífonos Tipo C", categoria: "AUDIFONOS", precios: 12000 },
 { modelos: "Audífonos Bluetooth Básicos", categoria: "AUDIFONOS", precios: 16000 },
 { modelos: "Audífonos Bluetooth Gamer", categoria: "AUDIFONOS", precios: 24000 },
 
-// ==============================================
 // TAPAS TRASERAS
-// ==============================================
 { modelos: "Tapa Trasera Huawei Y5/Y6", categoria: "TAPAS", precios: 10000 },
 { modelos: "Tapa Trasera Huawei Y7/Y9", categoria: "TAPAS", precios: 12000 },
 { modelos: "Tapa Trasera Samsung A10", categoria: "TAPAS", precios: 12000 },
