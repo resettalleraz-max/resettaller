@@ -1,23 +1,47 @@
 const productos = [
-    {
-        id: 1,
-        nombre: "Pantalla iPhone 11",
-        descripcion: "Calidad Incell, incluye instalación.",
-        precio: "45,000",
-        stock: true
-    },
-    {
-        id: 2,
-        nombre: "Perfume Nautica Voyage (100ml)",
-        descripcion: "Fragancia fresca para caballero.",
-        precio: "18,500",
-        stock: true
-    },
-    {
-        id: 3,
-        nombre: "Batería Samsung S20",
-        descripcion: "Repuesto original con garantía.",
-        precio: "22,000",
-        stock: false
-    }
+    // --- SERIE P ---
+    { id: 1, marca: "HUAWEI", modelo: "P SMART", descripcion: "Pantalla LCD (Negro)", precio: "32,000", stock: true },
+    { id: 2, marca: "HUAWEI", modelo: "P SMART + MARCO", descripcion: "Pantalla LCD con Marco (Negro)", precio: "38,000", stock: true },
+    { id: 3, marca: "HUAWEI", modelo: "P SMART 2019", descripcion: "Pantalla LCD (Negro)", precio: "35,000", stock: true },
+    { id: 4, marca: "HUAWEI", modelo: "P SMART 2019 + MARCO", descripcion: "Pantalla LCD con Marco (Negro)", precio: "40,000", stock: true },
+    { id: 5, marca: "HUAWEI", modelo: "P8", descripcion: "Pantalla LCD (Negro)", precio: "32,000", stock: true },
+    { id: 6, marca: "HUAWEI", modelo: "P8 LITE", descripcion: "Pantalla LCD (Negro)", precio: "25,000", stock: true },
+    { id: 7, marca: "HUAWEI", modelo: "P10 / P10 LITE", descripcion: "Pantalla LCD (Negro/Blanco)", precio: "35,000", stock: true },
+    { id: 8, marca: "HUAWEI", modelo: "P20", descripcion: "Pantalla LCD (Negro)", precio: "42,000", stock: true },
+    { id: 9, marca: "HUAWEI", modelo: "P20 LITE", descripcion: "Pantalla LCD (Negro)", precio: "35,000", stock: true },
+    { id: 10, marca: "HUAWEI", modelo: "P20 LITE + MARCO", descripcion: "Pantalla LCD con Marco (Negro)", precio: "40,000", stock: true },
+    { id: 11, marca: "HUAWEI", modelo: "P30 LITE", descripcion: "Pantalla LCD (Negro)", precio: "40,000", stock: true },
+    { id: 12, marca: "HUAWEI", modelo: "P30 LITE + MARCO", descripcion: "Pantalla LCD con Marco (Negro/Azul)", precio: "45,000", stock: true },
+    { id: 13, marca: "HUAWEI", modelo: "P40 LITE", descripcion: "Pantalla LCD (Negro)", precio: "40,000", stock: true },
+    { id: 14, marca: "HUAWEI", modelo: "P40 LITE + MARCO", descripcion: "Pantalla LCD con Marco (Negro/Verde)", precio: "45,000", stock: true },
+
+    // --- SERIE Y ---
+    { id: 15, marca: "HUAWEI", modelo: "Y3 2017", descripcion: "Pantalla LCD (Negro)", precio: "32,000", stock: true },
+    { id: 16, marca: "HUAWEI", modelo: "Y5 2018 / 2019", descripcion: "Pantalla LCD (Negro/Blanco)", precio: "32,000", stock: true },
+    { id: 17, marca: "HUAWEI", modelo: "Y6 2018 / PRIME 2019", descripcion: "Pantalla LCD (Negro)", precio: "36,000", stock: true },
+    { id: 18, marca: "HUAWEI", modelo: "Y6 PRIME 2019 + MARCO", descripcion: "Pantalla LCD con Marco (Negro)", precio: "42,000", stock: true },
+    { id: 19, marca: "HUAWEI", modelo: "Y6P / Y7P", descripcion: "Pantalla LCD (Negro)", precio: "38,000", stock: true },
+    { id: 20, marca: "HUAWEI", modelo: "Y7 2018 / PRIME 2019", descripcion: "Pantalla LCD (Negro)", precio: "35,000", stock: true },
+    { id: 21, marca: "HUAWEI", modelo: "Y7 2018 + MARCO", descripcion: "Pantalla LCD con Marco (Negro)", precio: "40,000", stock: true },
+    { id: 22, marca: "HUAWEI", modelo: "Y8S / Y9 2018", descripcion: "Pantalla LCD (Negro)", precio: "42,000", stock: true },
+    { id: 23, marca: "HUAWEI", modelo: "Y9 2019 / Y8S", descripcion: "Pantalla LCD (Negro)", precio: "40,000", stock: true },
+    { id: 24, marca: "HUAWEI", modelo: "Y9 2019 + MARCO", descripcion: "Pantalla LCD con Marco (Negro)", precio: "45,000", stock: true },
+    { id: 25, marca: "HUAWEI", modelo: "Y9 PRIME 2019", descripcion: "Pantalla LCD (Negro)", precio: "42,000", stock: true },
+    { id: 26, marca: "HUAWEI", modelo: "Y9 PRIME 2019 + MARCO", descripcion: "Pantalla LCD con Marco (Negro/Azul)", precio: "48,000", stock: true },
+    { id: 27, marca: "HUAWEI", modelo: "Y9S / Y9A", descripcion: "Pantalla LCD (Negro)", precio: "42,000", stock: true },
+    { id: 28, marca: "HUAWEI", modelo: "Y9S + MARCO", descripcion: "Pantalla LCD con Marco (Negro)", precio: "48,000", stock: true },
+
+    // --- SERIE MATE & NOVA (Segunda Foto) ---
+    { id: 29, marca: "HUAWEI", modelo: "MATE 10 LITE", descripcion: "Pantalla LCD (Negro)", precio: "32,000", stock: true },
+    { id: 30, marca: "HUAWEI", modelo: "MATE 20 LITE", descripcion: "Pantalla LCD (Negro)", precio: "36,000", stock: true },
+    { id: 31, marca: "HUAWEI", modelo: "MATE 20 LITE + MARCO", descripcion: "Pantalla LCD con Marco (Negro)", precio: "44,000", stock: true },
+    { id: 32, marca: "HUAWEI", modelo: "NOVA 5T", descripcion: "Pantalla LCD (Negro)", precio: "40,000", stock: true },
+    { id: 33, marca: "HUAWEI", modelo: "NOVA 5T + MARCO", descripcion: "Pantalla LCD con Marco (Negro/Azul)", precio: "45,000", stock: true },
+    { id: 34, marca: "HUAWEI", modelo: "NOVA 9", descripcion: "Pantalla LCD Calidad Premium", precio: "65,000", stock: true },
+    { id: 35, marca: "HUAWEI", modelo: "NOVA 9 SE", descripcion: "Pantalla LCD Calidad Premium", precio: "45,000", stock: true },
+    { id: 36, marca: "HUAWEI", modelo: "NOVA 10", descripcion: "Pantalla LCD Calidad Premium", precio: "60,000", stock: true },
+    { id: 37, marca: "HUAWEI", modelo: "NOVA 10 SE", descripcion: "Pantalla LCD Calidad Premium", precio: "72,000", stock: true },
+    { id: 38, marca: "HUAWEI", modelo: "NOVA Y60 / Y70", descripcion: "Pantalla LCD (Negro)", precio: "40,000", stock: true },
+    { id: 39, marca: "HUAWEI", modelo: "NOVA 8i / HONOR 50 LITE", descripcion: "Pantalla LCD (Negro)", precio: "45,000", stock: true },
+    { id: 40, marca: "HUAWEI", modelo: "TABLET T1 / T3 (7\")", descripcion: "Repuesto Pantalla Tablet", precio: "35,000", stock: true }
 ];
