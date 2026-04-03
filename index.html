@@ -4,12 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset Taller</title>
-    
     <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/resettalleraz-max/resettaller/main/WhatsApp%20Image%202026-03-30%20at%208.47.32%20PM.jpeg">
     <link rel="icon" href="https://raw.githubusercontent.com/resettalleraz-max/resettaller/main/WhatsApp%20Image%202026-03-30%20at%208.47.32%20PM.jpeg">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Reset Taller">
-
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style> 
@@ -18,30 +14,9 @@
         .modo-claro { background-color: #f1f5f9; color: #1e293b; }
         .modo-claro input { background-color: #ffffff; color: #1e293b; border: 1px solid #cbd5e1; }
         .text-versiculo { color: #94a3b8; font-style: italic; }
-        
-        .titulo-seccion { 
-            font-size: 24px; 
-            font-weight: 900; 
-            text-align: left; 
-            padding: 30px 10px 10px 5px;
-            letter-spacing: 1px;
-            color: white;
-            text-transform: uppercase;
-        }
+        .titulo-seccion { font-size: 24px; font-weight: 900; text-align: left; padding: 30px 10px 10px 5px; letter-spacing: 1px; color: white; text-transform: uppercase; }
         .modo-claro .titulo-seccion { color: #0f172a; }
-
-        .btn-home {
-            background-color: #38bdf8;
-            color: #0f172a;
-            width: 45px;
-            height: 45px;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
-            transition: all 0.2s;
-        }
+        .btn-home { background-color: #38bdf8; color: #0f172a; width: 45px; height: 45px; border-radius: 15px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(56, 189, 248, 0.4); transition: all 0.2s; }
     </style>
 </head>
 <body id="cuerpo" class="bg-slate-950 text-white min-h-screen pb-24 transition-colors duration-300">
@@ -59,11 +34,8 @@
                 <h1 class="text-4xl font-black italic text-[var(--tecnico)] uppercase tracking-tighter">RESET TALLER</h1>
                 <p class="text-slate-300 text-xs font-bold tracking-[0.2em] uppercase mt-2">Servicio Técnico Profesional</p>
             </div>
-            
-            <div class="w-20 h-1 bg-[var(--tecnico)] mx-auto mt-4 rounded-full shadow-[0_0_10px_#38bdf8]"></div>
-            
             <p class="text-versiculo text-[11px] mt-3 px-4 italic">"Mira que te mando que te esfuerces y seas valiente..." <br><b>Josué 1:9</b></p>
-            <p class="text-slate-500 text-[10px] font-mono mt-2 italic uppercase tracking-widest mb-6">Alajuela, San Carlos, Aguas Zarcas</p>
+            <p class="text-slate-500 text-[10px] font-mono mt-2 italic uppercase tracking-widest mb-6 text-center">Alajuela, San Carlos, Aguas Zarcas</p>
 
             <a href="https://wa.me/c/50661073855" target="_blank" class="bg-green-600 hover:bg-green-700 text-white text-[11px] font-black py-3 px-6 rounded-full shadow-[0_0_20px_rgba(22,163,74,0.5)] flex items-center gap-2 transition-all active:scale-95 uppercase tracking-wider">
                 <i class="fab fa-whatsapp text-lg"></i> Ver Catálogo con Fotos
@@ -80,8 +52,8 @@
         <button onclick="irAlInicio()" class="btn-home"><i class="fa fa-home text-xl"></i></button>
     </div>
 
-    <div class="px-4 mb-6">
-        <div class="bg-slate-900 border border-slate-800 p-2 rounded-xl text-center shadow-md">
+    <div class="px-4 mb-6 text-center">
+        <div class="bg-slate-900 border border-slate-800 p-2 rounded-xl shadow-md">
             <p class="text-[var(--tecnico)] font-bold text-xs uppercase tracking-wider">⚡ EL PRECIO INCLUYE LA REPARACIÓN 🛠️</p>
         </div>
     </div>
@@ -111,41 +83,16 @@
         const buscador = document.getElementById('buscador');
         const cuerpo = document.getElementById('cuerpo');
 
-        function irAlInicio() {
-            buscador.value = '';
-            renderizar('');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function cambiarModo() {
-            cuerpo.classList.toggle('modo-claro');
-            const esClaro = cuerpo.classList.contains('modo-claro');
-            document.getElementById('icono-modo').className = esClaro ? 'fa fa-sun text-xl mb-1' : 'fa fa-moon text-xl mb-1';
-            renderizar(buscador.value);
-        }
-
-        function obtenerNombreCorto(nombre) {
-            const n = nombre.toUpperCase();
-            if (n.includes("IPHONE") || n.includes("SAMSUNG") || n.includes("MOTOROLA") || n.includes("XIAOMI") || n.includes("HUAWEI") || n.includes("HONOR")) return "PANTALLAS";
-            if (n.includes("BATERÍA")) return "BATERÍAS";
-            if (n.includes("FLEX") || n.includes("CARGA")) return "FLEX";
-            if (n.includes("TAPA")) return "TAPAS";
-            if (n.includes("VIDRIO")) return "VIDRIOS";
-            if (n.includes("INSUMO")) return "INSUMOS";
-            if (n.includes("ACCESORIO")) return "ACCESORIOS";
-            if (n.includes("WATCH") || n.includes("SMART")) return "SMARTWATCH";
-            if (n.includes("SERVICIO")) return "SERVICIOS";
-            if (n.includes("HERRAMIENTA")) return "HERRAMIENTAS";
-            if (n.includes("TABLET")) return "REPUESTOS TABLET";
-            return nombre;
-        }
+        function irAlInicio() { buscador.value = ''; renderizar(''); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+        function cambiarModo() { cuerpo.classList.toggle('modo-claro'); const esClaro = cuerpo.classList.contains('modo-claro'); document.getElementById('icono-modo').className = esClaro ? 'fa fa-sun text-xl mb-1' : 'fa fa-moon text-xl mb-1'; renderizar(buscador.value); }
+        function obtenerNombreCorto(nombre) { return "PANTALLAS"; }
 
         function renderizar(filtro = '') {
             contenedor.innerHTML = '';
             let totalGeneral = 0;
-            const todasLasListas = [...PANTALLAS];
-            if (typeof HERRAMIENTAS !== 'undefined') todasLasListas.push(...HERRAMIENTAS);
-
+            // Verificamos que PANTALLAS exista en datos.js
+            const todasLasListas = (typeof PANTALLAS !== 'undefined') ? [...PANTALLAS] : [];
+            
             let estructura = [];
             let mainFolder = null;
             let subFolder = null;
@@ -160,8 +107,8 @@
                     subFolder = { nombre: valor, items: [], contador: 0 };
                     if (mainFolder) mainFolder.subs.push(subFolder);
                 } else {
-                    totalGeneral++; 
                     if (tipo.toLowerCase().includes(filtro.toLowerCase()) || (mainFolder && mainFolder.nombre.toLowerCase().includes(filtro.toLowerCase()))) {
+                        totalGeneral++; 
                         if (subFolder) { subFolder.items.push(item); subFolder.contador++; mainFolder.contador++; }
                         else if (mainFolder) { mainFolder.items.push(item); mainFolder.contador++; }
                     }
@@ -169,29 +116,15 @@
             });
 
             const esClaro = cuerpo.classList.contains('modo-claro');
-            let seccionPuesta = "";
-
             estructura.forEach((main, mIdx) => {
-                if (main.contador === 0 && filtro !== '') return;
-
-                if (filtro === '') {
-                    let cat = obtenerNombreCorto(main.nombre);
-                    if (seccionPuesta !== cat) {
-                        const t = document.createElement('div');
-                        t.className = "titulo-seccion";
-                        t.innerText = cat;
-                        contenedor.appendChild(t);
-                        seccionPuesta = cat;
-                    }
-                }
-
+                if (main.contador === 0) return;
                 const mId = `m-${mIdx}`;
                 const mDiv = document.createElement('div');
                 const estaAbierto = filtro !== '' ? '' : 'hidden';
                 const rotacion = filtro !== '' ? 'rotate-180' : '';
 
                 mDiv.innerHTML = `
-                    <button onclick="toggle('${mId}')" class="w-full ${esClaro ? 'bg-white border-slate-200 shadow-sm' : 'bg-slate-900 border-slate-800 shadow-md'} p-5 rounded-2xl flex justify-between items-center mb-2 border-l-4 border-[var(--tecnico)] border">
+                    <button onclick="toggle('${mId}')" class="w-full ${esClaro ? 'bg-white border-slate-200' : 'bg-slate-900 border-slate-800'} p-5 rounded-2xl flex justify-between items-center mb-2 border-l-4 border-[var(--tecnico)] border shadow-md">
                         <span class="font-black uppercase ${esClaro ? 'text-slate-800' : 'text-slate-100'} text-sm tracking-wider">${main.nombre} <span class="text-[var(--tecnico)] ml-2">${main.contador}</span></span>
                         <i id="icon-${mId}" class="fa fa-chevron-down text-[var(--tecnico)] transition-transform ${rotacion}"></i>
                     </button>
@@ -201,62 +134,44 @@
                 const mContent = mDiv.querySelector(`#${mId}`);
 
                 main.subs.forEach((sub, sIdx) => {
-                    if (sub.contador === 0 && filtro !== '') return;
+                    if (sub.contador === 0) return;
                     const sId = `s-${mIdx}-${sIdx}`;
                     const sDiv = document.createElement('div');
-                    const estaAbiertoSub = filtro !== '' ? '' : 'hidden';
                     sDiv.innerHTML = `
-                        <button onclick="toggle('${sId}')" class="w-full ${esClaro ? 'bg-slate-200' : 'bg-slate-800'} p-3 rounded-xl flex justify-between items-center mb-1 border ${esClaro ? 'border-slate-300' : 'border-slate-700'}">
-                            <span class="font-bold ${esClaro ? 'text-slate-600' : 'text-slate-300'} text-xs uppercase">${sub.nombre}</span>
+                        <button onclick="toggle('${sId}')" class="w-full ${esClaro ? 'bg-slate-200' : 'bg-slate-800'} p-3 rounded-xl flex justify-between items-center mb-1 border border-slate-700">
+                            <span class="font-bold text-xs uppercase">${sub.nombre}</span>
                             <i id="icon-${sId}" class="fa fa-plus text-[10px] text-slate-500"></i>
                         </button>
-                        <div id="${sId}" class="${estaAbiertoSub} space-y-1 mt-1 ml-3 border-l-2 border-slate-400 pl-3"></div>
+                        <div id="${sId}" class="hidden space-y-1 mt-1 ml-3 border-l-2 border-slate-400 pl-3"></div>
                     `;
                     mContent.appendChild(sDiv);
-                    const sContent = sDiv.querySelector(`#${sId}`);
-                    sub.items.forEach(repuesto => sContent.appendChild(crearCard(repuesto, esClaro, main.nombre)));
+                    sub.items.forEach(repuesto => sDiv.querySelector(`#${sId}`).appendChild(crearCard(repuesto, esClaro, "PANTALLA")));
                 });
-
-                main.items.forEach(repuesto => {
-                    if (!main.subs.some(s => s.items.includes(repuesto))) {
-                        mContent.appendChild(crearCard(repuesto, esClaro, main.nombre));
-                    }
-                });
+                main.items.forEach(repuesto => { if (!main.subs.some(s => s.items.includes(repuesto))) mContent.appendChild(crearCard(repuesto, esClaro, "PANTALLA")); });
             });
             document.getElementById('contador-items').innerText = `${totalGeneral} Total`;
         }
 
-        function crearCard(item, esClaro, categoria) {
+        function crearCard(item, esClaro, cat) {
             const [tipo, valor] = item;
             const card = document.createElement('div');
-            card.className = `${esClaro ? 'bg-white border-slate-200' : 'bg-slate-800/40 border-slate-700/50'} p-4 rounded-xl flex flex-col gap-2 border mx-1 shadow-sm`;
-            
-            let idRepuesto = obtenerNombreCorto(categoria);
-            if (idRepuesto.endsWith('S')) idRepuesto = idRepuesto.slice(0, -1);
-            if (idRepuesto.includes("REPUESTO TABLET")) idRepuesto = "REPUESTO";
-
+            card.className = `${esClaro ? 'bg-white border-slate-200' : 'bg-slate-800/40 border-slate-700/50'} p-4 rounded-xl flex flex-col gap-2 border shadow-sm`;
             card.innerHTML = `
                 <div class="flex justify-between items-start">
                     <div class="flex flex-col">
-                        <span class="text-[10px] font-bold text-[var(--tecnico)] uppercase tracking-widest mb-1">${idRepuesto} DISPONIBLE:</span>
-                        <span class="text-sm font-black ${esClaro ? 'text-slate-800' : 'text-white'} uppercase leading-tight">${tipo}</span>
+                        <span class="text-[10px] font-bold text-[var(--tecnico)] uppercase tracking-widest mb-1">REPUESTO DISPONIBLE:</span>
+                        <span class="text-sm font-black uppercase leading-tight">${tipo}</span>
                     </div>
                     <span class="text-[var(--tecnico)] font-black text-lg tracking-tighter">${valor}</span>
                 </div>
                 <div class="flex justify-between items-center mt-2 pt-2 border-t border-slate-700/30">
-                    <span class="text-[9px] text-slate-500 font-bold uppercase italic">Precio incluye Instalación</span>
-                    <a href="https://wa.me/50661073855?text=Hola Reset Taller, consulto disponibilidad de: ${idRepuesto} ${tipo}" 
-                       class="bg-green-600 px-4 py-1.5 rounded-lg text-white text-[10px] font-bold flex items-center gap-2 active:scale-95 transition-all">
-                       <i class="fab fa-whatsapp"></i> PEDIR AHORA
-                    </a>
+                    <span class="text-[9px] text-slate-500 font-bold uppercase italic">Incluye Reparación 🛠️</span>
+                    <a href="https://wa.me/50661073855?text=Ocupo disponibilidad para: ${tipo}" class="bg-green-600 px-4 py-1.5 rounded-lg text-white text-[10px] font-bold active:scale-95 transition-all">PEDIR AHORA</a>
                 </div>`;
             return card;
         }
 
-        function toggle(id) {
-            document.getElementById(id).classList.toggle('hidden');
-            document.getElementById(`icon-${id}`).classList.toggle('rotate-180');
-        }
+        function toggle(id) { document.getElementById(id).classList.toggle('hidden'); document.getElementById(`icon-${id}`).classList.toggle('rotate-180'); }
         buscador.addEventListener('input', (e) => renderizar(e.target.value));
         renderizar();
     </script>
