@@ -37,4 +37,21 @@ const datos = [
 { modelos: "Y9 2019 + MARCO", categoria: "HUAWEI", subcategoria: "CON MARCO", precios: 46000 },
 { modelos: "Y9 PRIME 2019", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 42000 },
 { modelos: "Y9 PRIME 2019 + MARCO", categoria: "HUAWEI", subcategoria: "CON MARCO", precios: 50000 },
-{ modelos: "Y9S", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 42000 }];
+{ modelos: "Y9S", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 42000 },{ modelos: "Y9S + MARCO", categoria: "HUAWEI", subcategoria: "CON MARCO", precios: 50000 },
+{ modelos: "Y9A", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 42000 },
+{ modelos: "Y9A + MARCO", categoria: "HUAWEI", subcategoria: "CON MARCO", precios: 48000 },
+{ modelos: "MATE 10 LITE", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 33000 },
+{ modelos: "MATE 20 LITE", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 36000 },
+{ modelos: "MATE 20 LITE + MARCO", categoria: "HUAWEI", subcategoria: "CON MARCO", precios: 44000 },
+{ modelos: "NOVA 5T", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 40000 },
+{ modelos: "NOVA 5T + MARCO", categoria: "HUAWEI", subcategoria: "CON MARCO", precios: 46000 },
+{ modelos: "NOVA 9", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 79000 },
+{ modelos: "NOVA 9 SE", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 46000 },
+{ modelos: "NOVA 10", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 70000 },
+{ modelos: "NOVA 10 SE", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 82000 },
+{ modelos: "NOVA Y60", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 40000 },
+{ modelos: "NOVA Y70", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 40000 },
+{ modelos: "NOVA 8i / HONOR 50 LITE", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 46000 },
+{ modelos: "T1 7\"", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 40000 },
+{ modelos: "T3 7\"", categoria: "HUAWEI", subcategoria: "SIN MARCO", precios: 40000 }
+];
