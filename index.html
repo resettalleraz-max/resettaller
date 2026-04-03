@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { 
-            --neon-cyan: #4cc9f0; /* 🟦 COLOR SUAVE, NADA CHILLANTE */
+            --neon-cyan: #8899a6; /* 🩶 COLOR MUY SUAVE, GRIS-AZULADO */
             --emerald-green: #25d366; 
             --bg-color: #0a0e17; 
             --text-color: #ffffff;
             --card-bg: rgba(255,255,255,0.04);
-            --border-color: rgba(76, 201, 240, 0.2);
+            --border-color: rgba(136, 153, 166, 0.3);
         }
         
         /* MODO DÍA: TODO BLANCO Y BRILLANTE */
@@ -26,22 +26,22 @@
 
         body { background-color: var(--bg-color); font-family: 'Segoe UI', sans-serif; color: var(--text-color); padding-bottom: 90px; transition: background-color 0.5s, color 0.5s; }
         
-        /* 🆕 IMAGEN DE PORTADA: TEMA ELECTRÓNICA */
-        .hero-section { padding: 50px 0 30px; text-align: center; background-image: linear-gradient(rgba(0,0,0,0.85), var(--bg-color)), url('https://images.unsplash.com/photo-1596638732037-29bb2d385235?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; }
+        /* 🆕 IMAGEN DE FONDO: TEMA ELECTRÓNICA / REPARACIÓN */
+        .hero-section { padding: 50px 0 30px; text-align: center; background-image: linear-gradient(rgba(0,0,0,0.85), var(--bg-color)), url('https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; }
         
-        /* 🟢 LOGO DEL TALLER: IGUAL, REDONDO Y PERFECTO */
+        /* 🟢 LOGO ARREGLADO AL 100% */
         .hero-logo { 
             width: 120px; 
             height: 120px; 
             border-radius: 50%; 
             border: 4px solid var(--neon-cyan); 
-            box-shadow: 0 0 15px var(--neon-cyan); 
+            box-shadow: none; /* 🚫 QUITÉ EL BRILLO */
             object-fit: cover; 
             margin-bottom: 15px; 
         }
         
-        .hero-title { font-size: 3.5rem; font-weight: 900; color: var(--neon-cyan); text-shadow: 0 0 10px var(--neon-cyan); margin: 0; }
-        .hero-divider { width: 150px; height: 4px; background: var(--neon-cyan); margin: 15px auto; box-shadow: 0 0 10px var(--neon-cyan); border-radius: 10px; }
+        .hero-title { font-size: 3.5rem; font-weight: 900; color: var(--neon-cyan); text-shadow: none; margin: 0; }
+        .hero-divider { width: 150px; height: 4px; background: var(--neon-cyan); margin: 15px auto; box-shadow: none; border-radius: 10px; }
         .hero-bible { font-size: 0.95rem; font-style: italic; opacity: 0.8; margin-bottom: 10px; }
         .hero-address { font-size: 0.8rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
 
@@ -59,7 +59,7 @@
         .badge-count { 
             position: absolute; 
             right: 20px; 
-            background: rgba(76, 201, 240, 0.1); 
+            background: rgba(136, 153, 166, 0.1); 
             color: var(--neon-cyan); 
             padding: 4px 12px; 
             border-radius: 20px; 
