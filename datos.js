@@ -167,7 +167,8 @@ const datos = [
     { modelos: "8 PLUS", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 33000 },
     { modelos: "X OLED", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 71000 },
     { modelos: "X INCELL", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 50000 },
-    { modelos: "XS OLED", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 71000 },{ modelos: "XS INCELL", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 50000 },
+    { modelos: "XS OLED", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 71000 },
+    { modelos: "XS INCELL", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 50000 },
     { modelos: "XR ORIGINAL", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 71000 },
     { modelos: "XR INCEL", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 50000 },
     { modelos: "XS MAX OLED", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 77000 },
@@ -175,7 +176,7 @@ const datos = [
     { modelos: "11 ORIGINAL", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 71000 },
     { modelos: "11 INCELL", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 50000 },
     { modelos: "11 PRO OLED", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 73000 },
-    { modelos: "11 PRO INCELL", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 50000 },
+    { modelos: "11 PRO INCELL", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 68000 },
     { modelos: "11 PRO MAX OLED", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 77000 },
     { modelos: "11 PRO MAX INCELL", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 56000 },
     { modelos: "12 OLED", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 85000 },
@@ -185,5 +186,5 @@ const datos = [
     { modelos: "12 PRO MAX INCELL", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 73000 },
     { modelos: "13 OLED SOFT", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 103000 },
     { modelos: "13 OLED", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 95000 },
-    { modelos: "13 INCELL", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 73000 },
-    { modelos: "13 PRO OLED SOFT", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 113000 },];
+    { modelos: "13 INCELL", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 68000 },
+    { modelos: "13 PRO OLED SOFT", categoria: "IPHONE", subcategoria: "SIN MARCO", precios: 113000 }]; 
