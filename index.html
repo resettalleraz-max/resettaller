@@ -8,40 +8,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --neon-cyan: #00ffff; --emerald-green: #25d366; --bg-dark: #0a0e17; --text-white: #ffffff; }
-        body { background-color: var(--bg-dark); font-family: 'Segoe UI', sans-serif; color: var(--text-white); padding-bottom: 90px; }
+        body { background-color: var(--bg-dark); font-family: 'Segoe UI', sans-serif; color: var(--text-white); padding-bottom: 90px; transition: 0.3s; }
+        body.modo-noche { --bg-dark: #000000; }
         
         .hero-section { padding: 50px 0 30px; text-align: center; background-image: linear-gradient(rgba(0,0,0,0.85), var(--bg-dark)), url('https://images.unsplash.com/photo-1597733336794-12d05021d510?q=80&w=1974&auto=format&fit=crop'); background-size: cover; background-position: center; }
-        .hero-logo { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--neon-cyan); box-shadow: 0 0 20px var(--neon-cyan); object-fit: cover; margin-bottom: 15px; cursor: pointer; }
+        .hero-logo { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--neon-cyan); box-shadow: 0 0 20px var(--neon-cyan); object-fit: cover; margin-bottom: 15px; }
         .hero-title { font-size: 3.5rem; font-weight: 900; color: var(--neon-cyan); text-shadow: 0 0 15px var(--neon-cyan); margin: 0; }
-        .hero-subtitle { font-size: 1.2rem; color: white; font-weight: 500; margin-bottom: 5px; }
         .hero-divider { width: 150px; height: 4px; background: var(--neon-cyan); margin: 15px auto; box-shadow: 0 0 15px var(--neon-cyan); border-radius: 10px; }
         .hero-bible { font-size: 0.95rem; font-style: italic; opacity: 0.8; margin-bottom: 10px; }
         .hero-address { font-size: 0.8rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
 
-        .btn-catalog { background-color: var(--emerald-green); color: white; font-weight: bold; padding: 12px 25px; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
+        .btn-catalog { background-color: var(--emerald-green); color: white; font-weight: bold; padding: 12px 25px; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
 
         .search-box { background: rgba(255,255,255,0.05); border-radius: 15px; padding: 10px; margin: 25px 0; border: 1px solid rgba(0,255,255,0.1); }
         .btn-home { background: #0d6efd; color: white; border-radius: 10px; border: none; width: 45px; height: 45px; }
 
-        /* --- Acordeones LIMPIOS (Sin iconos) --- */
         .accordion-item { border: none; background: rgba(255,255,255,0.03); margin-bottom: 10px; border-radius: 15px !important; border: 1px solid rgba(0,255,255,0.1); }
         .accordion-button { font-weight: 700; text-transform: uppercase; color: var(--text-white); background: transparent; padding: 18px; display: flex; align-items: center; width: 100%; }
         .accordion-button:not(.collapsed) { background-color: #1e293b; color: var(--neon-cyan); }
-        .accordion-button::after { filter: invert(1); margin-left: 15px; }
-        
-        /* Contadores alineados a la derecha */
         .badge-count { margin-left: auto; background: rgba(0,255,255,0.1); color: var(--neon-cyan); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; border: 1px solid var(--neon-cyan); }
 
-        .sub-accordion .accordion-item { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); }
-
-        /* --- Productos --- */
         .card-prod { background: rgba(255,255,255,0.04); border-radius: 12px; padding: 15px; margin-bottom: 10px; border: 1px solid rgba(255,255,255,0.05); }
         .precio-tag { color: var(--neon-cyan); font-weight: 800; font-size: 1.3rem; }
         .btn-ws { background-color: var(--emerald-green); color: white; border-radius: 8px; padding: 8px 15px; text-decoration: none; font-weight: bold; font-size: 0.85rem; }
 
-        /* Barra Inferior */
         .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; height: 75px; background: #0f172a; display: flex; justify-content: space-around; align-items: center; border-top: 2px solid var(--neon-cyan); z-index: 1000; }
-        .nav-item { text-align: center; color: white; text-decoration: none; flex: 1; border: none; background: none; }
+        .nav-item { text-align: center; color: white; text-decoration: none; flex: 1; border: none; background: none; cursor: default; }
+        .nav-item.clickable { cursor: pointer; }
         .nav-item i { font-size: 1.3rem; color: var(--neon-cyan); display: block; }
         .nav-item span { font-size: 0.65rem; font-weight: bold; text-transform: uppercase; color: #94a3b8; }
     </style>
@@ -51,14 +44,10 @@
 <div class="container hero-section">
     <img src="WhatsApp Image 2026-03-30 at 8.47.32 PM.jpeg" class="hero-logo" onclick="location.reload()">
     <h1 class="hero-title">RESET TALLER</h1>
-    <p class="hero-subtitle">Servicio Técnico Profesional</p>
     <div class="hero-divider"></div>
     <p class="hero-bible">"Mira que te mando que te esfuerces y seas valiente..." - Josué 1:9</p>
     <p class="hero-address">Alajuela, San Carlos, Aguas Zarcas</p>
-    
-    <a href="https://wa.me/50661073855" class="btn-catalog" target="_blank">
-        <i class="fab fa-whatsapp"></i> VER CATÁLOGO CON FOTOS
-    </a>
+    <a href="https://wa.me/50661073855" class="btn-catalog" target="_blank"><i class="fab fa-whatsapp"></i> VER CATÁLOGO CON FOTOS</a>
 </div>
 
 <div class="container my-4">
@@ -70,11 +59,15 @@
 </div>
 
 <div class="bottom-nav">
-    <button class="nav-item" onclick="alert('Inventario Total: ' + productos.length + ' artículos')">
+    <div class="nav-item">
         <i class="fas fa-box-open"></i><span id="txtItems">Cargando...</span>
-    </button>
-    <a href="https://wa.me/50661073855" class="nav-item" target="_blank"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
-    <button class="nav-item"><i class="fas fa-moon"></i><span>Noche</span></button>
+    </div>
+    <a href="https://wa.me/50661073855" class="nav-item clickable" target="_blank">
+        <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
+    </a>
+    <div class="nav-item clickable" onclick="document.body.classList.toggle('modo-noche')">
+        <i class="fas fa-moon"></i><span>Noche</span>
+    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
