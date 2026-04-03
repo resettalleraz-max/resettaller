@@ -1,58 +1,133 @@
-const productos = [
-    // --- HUAWEI SIN MARCO ---
-    { id: 1, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "P SMART", precio: "32,000" },
-    { id: 3, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "P SMART 2019", precio: "34,000" },
-    { id: 5, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "P8", precio: "32,000" },
-    { id: 6, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "P8 LITE", precio: "26,000" },
-    { id: 7, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "P10", precio: "34,000" },
-    { id: 8, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "P10 LITE", precio: "34,000" },
-    { id: 9, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "P20", precio: "42,000" },
-    { id: 10, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "P20 LITE", precio: "34,000" },
-    { id: 12, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "P30 LITE", precio: "40,000" },
-    { id: 14, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "P40 LITE", precio: "40,000" },
-    { id: 16, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "Y3 2017", precio: "32,000" },
-    { id: 17, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "Y5 2018", precio: "32,000" },
-    { id: 18, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "Y5 2019", precio: "32,000" },
-    { id: 19, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "Y6 2018", precio: "36,000" },
-    { id: 20, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "Y6 PRIME 2019", precio: "36,000" },
-    { id: 22, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "Y6P", precio: "38,000" },
-    { id: 23, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "Y7 2018", precio: "32,000" },
-    { id: 25, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "Y7 PRIME 2019", precio: "36,000" },
-    { id: 27, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "Y7P", precio: "38,000" },
-    { id: 29, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "Y7A", precio: "38,000" },
-    { id: 31, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "Y9 2018", precio: "34,000" },
-    { id: 32, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "Y9 2019/Y8S", precio: "40,000" },
-    { id: 34, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "Y9 PRIME 2019", precio: "42,000" },
-    { id: 36, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "Y9S", precio: "42,000" },
-    { id: 38, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "Y9A", precio: "42,000" },
-    { id: 40, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "MATE 10 LITE", precio: "32,000" },
-    { id: 41, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "MATE 20 LITE", precio: "36,000" },
-    { id: 43, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "NOVA 5T", precio: "40,000" },
-    { id: 45, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "NOVA 9", precio: "76,000" },
-    { id: 46, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "NOVA 9 SE", precio: "46,000" },
-    { id: 47, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "NOVA 10", precio: "70,000" },
-    { id: 48, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "NOVA 10 SE", precio: "82,000" },
-    { id: 49, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "NOVA Y60", precio: "40,000" },
-    { id: 50, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "NOVA Y70", precio: "40,000" },
-    { id: 51, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "NOVA 8i/ HONOR 50 LITE", precio: "46,000" },
-    { id: 52, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "TABLET T1 7\"", precio: "40,000" },
-    { id: 53, categoria: "HUAWEI", subcategoria: "SIN MARCO", modelo: "TABLET T3 7\"", precio: "40,000" },
+// Continuación IPHONE
+{ modelo: "iPhone 14 Pro Max", categoria: "IPHONE", subcategoria: "SIN MARCO", precio: 130000 },
+{ modelo: "iPhone 15", categoria: "IPHONE", subcategoria: "SIN MARCO", precio: 110000 },
+{ modelo: "iPhone 15 Plus", categoria: "IPHONE", subcategoria: "SIN MARCO", precio: 120000 },
+{ modelo: "iPhone 15 Pro", categoria: "IPHONE", subcategoria: "SIN MARCO", precio: 130000 },
+{ modelo: "iPhone 15 Pro Max", categoria: "IPHONE", subcategoria: "SIN MARCO", precio: 140000 },
+{ modelo: "iPhone SE 2020", categoria: "IPHONE", subcategoria: "SIN MARCO", precio: 44000 },
+{ modelo: "iPhone SE 2022", categoria: "IPHONE", subcategoria: "SIN MARCO", precio: 50000 },
 
-    // --- HUAWEI CON MARCO ---
-    { id: 2, categoria: "HUAWEI", subcategoria: "CON MARCO", modelo: "P SMART", precio: "38,000" },
-    { id: 4, categoria: "HUAWEI", subcategoria: "CON MARCO", modelo: "P SMART 2019", precio: "40,000" },
-    { id: 11, categoria: "HUAWEI", subcategoria: "CON MARCO", modelo: "P20 LITE", precio: "40,000" },
-    { id: 13, categoria: "HUAWEI", subcategoria: "CON MARCO", modelo: "P30 LITE", precio: "46,000" },
-    { id: 15, categoria: "HUAWEI", subcategoria: "CON MARCO", modelo: "P40 LITE", precio: "46,000" },
-    { id: 21, categoria: "HUAWEI", subcategoria: "CON MARCO", modelo: "Y6 PRIME 2019", precio: "42,000" },
-    { id: 24, categoria: "HUAWEI", subcategoria: "CON MARCO", modelo: "Y7 2018", precio: "38,000" },
-    { id: 26, categoria: "HUAWEI", subcategoria: "CON MARCO", modelo: "Y7 PRIME 2019", precio: "42,000" },
-    { id: 28, categoria: "HUAWEI", subcategoria: "CON MARCO", modelo: "Y7P", precio: "46,000" },
-    { id: 30, categoria: "HUAWEI", subcategoria: "CON MARCO", modelo: "Y8S", precio: "46,000" },
-    { id: 33, categoria: "HUAWEI", subcategoria: "CON MARCO", modelo: "Y9 2019", precio: "46,000" },
-    { id: 35, categoria: "HUAWEI", subcategoria: "CON MARCO", modelo: "Y9 PRIME 2019", precio: "50,000" },
-    { id: 37, categoria: "HUAWEI", subcategoria: "CON MARCO", modelo: "Y9S", precio: "50,000" },
-    { id: 39, categoria: "HUAWEI", subcategoria: "CON MARCO", modelo: "Y9A", precio: "48,000" },
-    { id: 42, categoria: "HUAWEI", subcategoria: "CON MARCO", modelo: "MATE 20 LITE", precio: "44,000" },
-    { id: 44, categoria: "HUAWEI", subcategoria: "CON MARCO", modelo: "NOVA 5T", precio: "46,000" }
+// ==============================================
+// MOTOROLA
+// ==============================================
+{ modelo: "Moto E6 Play", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 26000 },
+{ modelo: "Moto E6 Plus", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 28000 },
+{ modelo: "Moto E7", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 28000 },
+{ modelo: "Moto E7 Power", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 30000 },
+{ modelo: "Moto G7 Play", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 30000 },
+{ modelo: "Moto G7 Power", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 32000 },
+{ modelo: "Moto G8 Play", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 32000 },
+{ modelo: "Moto G8 Power", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 34000 },
+{ modelo: "Moto G9 Play", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 34000 },
+{ modelo: "Moto G9 Plus", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 38000 },
+{ modelo: "Moto G10", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 36000 },
+{ modelo: "Moto G20", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 38000 },
+{ modelo: "Moto G30", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 40000 },
+{ modelo: "Moto G50", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 44000 },
+{ modelo: "Moto G60", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 48000 },
+{ modelo: "Moto Edge 20", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 56000 },
+{ modelo: "Moto Edge 30", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 62000 },
+{ modelo: "Moto One Fusion", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 36000 },
+{ modelo: "Moto One Hyper", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 38000 },
+{ modelo: "Moto One Zoom", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 42000 },
+
+// ==============================================
+// XIAOMI
+// ==============================================
+{ modelo: "Redmi 8", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 30000 },
+{ modelo: "Redmi 8A", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 28000 },
+{ modelo: "Redmi 9", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 32000 },
+{ modelo: "Redmi 9A", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 30000 },
+{ modelo: "Redmi 9C", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 30000 },
+{ modelo: "Redmi 9T", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 34000 },
+{ modelo: "Redmi 10", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 36000 },
+{ modelo: "Redmi 10C", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 34000 },
+{ modelo: "Redmi Note 8", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 34000 },
+{ modelo: "Redmi Note 8 Pro", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 38000 },
+{ modelo: "Redmi Note 9", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 36000 },
+{ modelo: "Redmi Note 9S", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 38000 },
+{ modelo: "Redmi Note 9 Pro", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 40000 },
+{ modelo: "Redmi Note 10", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 42000 },
+{ modelo: "Redmi Note 10S", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 44000 },
+{ modelo: "Redmi Note 10 Pro", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 48000 },
+{ modelo: "Redmi Note 11", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 44000 },
+{ modelo: "Redmi Note 11S", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 46000 },
+{ modelo: "Redmi Note 12", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 48000 },
+{ modelo: "Poco X3", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 40000 },
+{ modelo: "Poco X3 Pro", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 44000 },
+{ modelo: "Poco M3", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 34000 },
+{ modelo: "Poco M4 Pro", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 40000 },
+
+// ==============================================
+// HONOR
+// ==============================================
+{ modelo: "Honor 8X", categoria: "HONOR", subcategoria: "SIN MARCO", precio: 32000 },
+{ modelo: "Honor 9C", categoria: "HONOR", subcategoria: "SIN MARCO", precio: 30000 },
+{ modelo: "Honor 9S", categoria: "HONOR", subcategoria: "SIN MARCO", precio: 28000 },
+{ modelo: "Honor 10 Lite", categoria: "HONOR", subcategoria: "SIN MARCO", precio: 32000 },
+{ modelo: "Honor 10X Lite", categoria: "HONOR", subcategoria: "SIN MARCO", precio: 36000 },
+{ modelo: "Honor 50 Lite", categoria: "HONOR", subcategoria: "SIN MARCO", precio: 42000 },
+
+// ==============================================
+// TACTILES
+// ==============================================
+{ modelo: "Táctil Genérico 4\"", categoria: "TACTIL", precio: 14000 },
+{ modelo: "Táctil Genérico 5\"", categoria: "TACTIL", precio: 16000 },
+{ modelo: "Táctil Genérico 6\"", categoria: "TACTIL", precio: 18000 },
+{ modelo: "Táctil Huawei Y5/Y6", categoria: "TACTIL", precio: 16000 },
+{ modelo: "Táctil Samsung J4/J6/J7", categoria: "TACTIL", precio: 16000 },
+
+// ==============================================
+// RAM CARGA / FLEX CARGA
+// ==============================================
+{ modelo: "Flex Carga Samsung J4/J6/J7", categoria: "RAM CARGA", precio: 12000 },
+{ modelo: "Flex Carga Samsung A10/A20/A30", categoria: "RAM CARGA", precio: 14000 },
+{ modelo: "Flex Carga Huawei Y6/Y7/Y9", categoria: "RAM CARGA", precio: 12000 },
+{ modelo: "Flex Carga Huawei P30/P40", categoria: "RAM CARGA", precio: 16000 },
+{ modelo: "Flex Carga Motorola G7/G8/G9", categoria: "RAM CARGA", precio: 14000 },
+{ modelo: "Flex Carga Xiaomi Redmi 9/Note 9", categoria: "RAM CARGA", precio: 14000 },
+{ modelo: "Flex Carga iPhone 6/7/8", categoria: "RAM CARGA", precio: 16000 },
+
+// ==============================================
+// TARJETA CARGA
+// ==============================================
+{ modelo: "Tarjeta Carga iPhone 6G/7G", categoria: "TARJETA CARGA", precio: 20000 },
+{ modelo: "Tarjeta Carga iPhone 8G/X", categoria: "TARJETA CARGA", precio: 26000 },
+{ modelo: "Tarjeta Carga iPhone 11/12", categoria: "TARJETA CARGA", precio: 32000 },
+{ modelo: "Tarjeta Carga Samsung A10/A20", categoria: "TARJETA CARGA", precio: 18000 },
+{ modelo: "Tarjeta Carga Samsung A30/A50", categoria: "TARJETA CARGA", precio: 22000 },
+
+// ==============================================
+// FLEX PRINCIPAL
+// ==============================================
+{ modelo: "Flex Principal Samsung A10/A20", categoria: "FLEX PRINCIPAL", precio: 16000 },
+{ modelo: "Flex Principal Samsung A30/A50", categoria: "FLEX PRINCIPAL", precio: 18000 },
+{ modelo: "Flex Principal Huawei Y7/Y9", categoria: "FLEX PRINCIPAL", precio: 16000 },
+
+// ==============================================
+// CARGADORES
+// ==============================================
+{ modelo: "Cargador Samsung Carga Rápida", categoria: "CARGADORES", precio: 14000 },
+{ modelo: "Cargador Huawei Carga Rápida", categoria: "CARGADORES", precio: 14000 },
+{ modelo: "Cargador Tipo C Genérico", categoria: "CARGADORES", precio: 10000 },
+{ modelo: "Cable Tipo C", categoria: "CARGADORES", precio: 6000 },
+{ modelo: "Cable Micro USB", categoria: "CARGADORES", precio: 5000 },
+
+// ==============================================
+// AUDIFONOS
+// ==============================================
+{ modelo: "Audífonos Alámbricos 3.5mm", categoria: "AUDIFONOS", precio: 10000 },
+{ modelo: "Audífonos Tipo C", categoria: "AUDIFONOS", precio: 12000 },
+{ modelo: "Audífonos Bluetooth Básicos", categoria: "AUDIFONOS", precio: 16000 },
+{ modelo: "Audífonos Bluetooth Gamer", categoria: "AUDIFONOS", precio: 24000 },
+
+// ==============================================
+// TAPAS TRASERAS
+// ==============================================
+{ modelo: "Tapa Trasera Huawei Y5/Y6", categoria: "TAPAS", precio: 10000 },
+{ modelo: "Tapa Trasera Huawei Y7/Y9", categoria: "TAPAS", precio: 12000 },
+{ modelo: "Tapa Trasera Samsung A10", categoria: "TAPAS", precio: 12000 },
+{ modelo: "Tapa Trasera Samsung A20", categoria: "TAPAS", precio: 14000 },
+{ modelo: "Tapa Trasera Samsung A30/A50", categoria: "TAPAS", precio: 16000 },
+{ modelo: "Tapa Trasera Moto G7 Play", categoria: "TAPAS", precio: 12000 }
 ];
