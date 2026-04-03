@@ -10,30 +10,32 @@
         :root { --neon-cyan: #00ffff; --emerald-green: #25d366; --bg-dark: #0a0e17; --text-white: #ffffff; }
         body { background-color: var(--bg-dark); font-family: 'Segoe UI', sans-serif; color: var(--text-white); padding-bottom: 90px; }
         
-        .hero-section { padding: 50px 0 30px; text-align: center; background-image: linear-gradient(rgba(0,0,0,0.8), var(--bg-dark)), url('https://images.unsplash.com/photo-1597733336794-12d05021d510?q=80&w=1974&auto=format&fit=crop'); background-size: cover; background-position: center; }
-        .hero-logo { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--neon-cyan); box-shadow: 0 0 20px var(--neon-cyan); object-fit: cover; margin-bottom: 15px; }
+        .hero-section { padding: 50px 0 30px; text-align: center; background-image: linear-gradient(rgba(0,0,0,0.85), var(--bg-dark)), url('https://images.unsplash.com/photo-1597733336794-12d05021d510?q=80&w=1974&auto=format&fit=crop'); background-size: cover; background-position: center; }
+        .hero-logo { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--neon-cyan); box-shadow: 0 0 20px var(--neon-cyan); object-fit: cover; margin-bottom: 15px; cursor: pointer; }
         .hero-title { font-size: 3.5rem; font-weight: 900; color: var(--neon-cyan); text-shadow: 0 0 15px var(--neon-cyan); margin: 0; }
-        .hero-divider { width: 150px; height: 4px; background: var(--neon-cyan); margin: 15px auto; box-shadow: 0 0 15px var(--neon-cyan); }
+        .hero-subtitle { font-size: 1.2rem; color: white; font-weight: 500; margin-bottom: 5px; }
+        .hero-divider { width: 150px; height: 4px; background: var(--neon-cyan); margin: 15px auto; box-shadow: 0 0 15px var(--neon-cyan); border-radius: 10px; }
+        .hero-bible { font-size: 0.95rem; font-style: italic; opacity: 0.8; margin-bottom: 10px; }
+        .hero-address { font-size: 0.8rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
 
-        /* --- Buscador e Inicio --- */
-        .search-box { background: rgba(255,255,255,0.05); border-radius: 15px; padding: 10px; margin-bottom: 25px; border: 1px solid rgba(0,255,255,0.1); }
-        .btn-home { background: #0d6efd; color: white; border-radius: 10px; border: none; width: 45px; height: 45px; transition: 0.3s; }
-        .btn-home:hover { transform: scale(1.1); }
+        .btn-catalog { background-color: var(--emerald-green); color: white; font-weight: bold; padding: 12px 25px; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
 
-        /* --- Acordeones y Números a la DERECHA --- */
+        .search-box { background: rgba(255,255,255,0.05); border-radius: 15px; padding: 10px; margin: 25px 0; border: 1px solid rgba(0,255,255,0.1); }
+        .btn-home { background: #0d6efd; color: white; border-radius: 10px; border: none; width: 45px; height: 45px; }
+
+        /* --- Acordeones LIMPIOS (Sin iconos) --- */
         .accordion-item { border: none; background: rgba(255,255,255,0.03); margin-bottom: 10px; border-radius: 15px !important; border: 1px solid rgba(0,255,255,0.1); }
-        .accordion-button { font-weight: 700; color: var(--text-white); background: transparent; padding: 18px; display: flex; align-items: center; width: 100%; }
+        .accordion-button { font-weight: 700; text-transform: uppercase; color: var(--text-white); background: transparent; padding: 18px; display: flex; align-items: center; width: 100%; }
         .accordion-button:not(.collapsed) { background-color: #1e293b; color: var(--neon-cyan); }
-        .accordion-button::after { filter: invert(1); margin-left: 10px; }
+        .accordion-button::after { filter: invert(1); margin-left: 15px; }
         
-        /* EL TRUCO PARA LA DERECHA */
+        /* Contadores alineados a la derecha */
         .badge-count { margin-left: auto; background: rgba(0,255,255,0.1); color: var(--neon-cyan); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; border: 1px solid var(--neon-cyan); }
 
         .sub-accordion .accordion-item { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); }
 
         /* --- Productos --- */
-        .card-prod { background: rgba(255,255,255,0.04); border-radius: 12px; padding: 15px; margin-bottom: 10px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
-        .card-prod:hover { background: rgba(255,255,255,0.08); transform: translateY(-3px); }
+        .card-prod { background: rgba(255,255,255,0.04); border-radius: 12px; padding: 15px; margin-bottom: 10px; border: 1px solid rgba(255,255,255,0.05); }
         .precio-tag { color: var(--neon-cyan); font-weight: 800; font-size: 1.3rem; }
         .btn-ws { background-color: var(--emerald-green); color: white; border-radius: 8px; padding: 8px 15px; text-decoration: none; font-weight: bold; font-size: 0.85rem; }
 
@@ -49,13 +51,18 @@
 <div class="container hero-section">
     <img src="WhatsApp Image 2026-03-30 at 8.47.32 PM.jpeg" class="hero-logo" onclick="location.reload()">
     <h1 class="hero-title">RESET TALLER</h1>
+    <p class="hero-subtitle">Servicio Técnico Profesional</p>
     <div class="hero-divider"></div>
     <p class="hero-bible">"Mira que te mando que te esfuerces y seas valiente..." - Josué 1:9</p>
     <p class="hero-address">Alajuela, San Carlos, Aguas Zarcas</p>
+    
+    <a href="https://wa.me/50661073855" class="btn-catalog" target="_blank">
+        <i class="fab fa-whatsapp"></i> VER CATÁLOGO CON FOTOS
+    </a>
 </div>
 
 <div class="container my-4">
-    <div class="search-box d-flex gap-2 shadow-sm">
+    <div class="search-box d-flex gap-2">
         <input type="text" id="bus" class="form-control bg-transparent text-white border-0" placeholder="Escribí modelo (G7, P30, Pantalla)..." onkeyup="buscar()">
         <button class="btn-home" onclick="location.reload()"><i class="fas fa-home"></i></button>
     </div>
@@ -107,10 +114,10 @@
                 }
 
                 h.innerHTML += `
-                <div class="accordion-item">
+                <div class="accordion-item shadow-sm">
                     <h2 class="accordion-header">
                         <button class="accordion-button ${expandir ? '' : 'collapsed'}" type="button" data-bs-toggle="collapse" data-bs-target="#${id}">
-                            <span><i class="fas fa-tools me-2 text-primary"></i> ${c}</span>
+                            <span>${c}</span>
                             <span class="badge-count">${items.length}</span>
                         </button>
                     </h2>
