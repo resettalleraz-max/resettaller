@@ -78,7 +78,8 @@
 
     function buscar() {
         const q = document.getElementById('bus').value.trim().toUpperCase();
-        const f = datos.filter(p => p.modelos.toUpperCase().includes(q) || p.categoria.toUpperCase().includes(q));
+        // 👇 ESTA ES LA LÍNEA QUE MODIFICAMOS PARA QUE BUSQUE EN TODO 👇
+        const f = datos.filter(p => (`${p.categoria} ${p.modelos} ${p.subcategoria}`).toUpperCase().includes(q));
         render(f, q !== "");
     }
 
