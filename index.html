@@ -1,133 +1,151 @@
-// Continuación IPHONE
-{ modelo: "iPhone 14 Pro Max", categoria: "IPHONE", subcategoria: "SIN MARCO", precio: 130000 },
-{ modelo: "iPhone 15", categoria: "IPHONE", subcategoria: "SIN MARCO", precio: 110000 },
-{ modelo: "iPhone 15 Plus", categoria: "IPHONE", subcategoria: "SIN MARCO", precio: 120000 },
-{ modelo: "iPhone 15 Pro", categoria: "IPHONE", subcategoria: "SIN MARCO", precio: 130000 },
-{ modelo: "iPhone 15 Pro Max", categoria: "IPHONE", subcategoria: "SIN MARCO", precio: 140000 },
-{ modelo: "iPhone SE 2020", categoria: "IPHONE", subcategoria: "SIN MARCO", precio: 44000 },
-{ modelo: "iPhone SE 2022", categoria: "IPHONE", subcategoria: "SIN MARCO", precio: 50000 },
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESET TALLER - Catálogo Oficial</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --neon-cyan: #00ffff; --emerald-green: #25d366; --bg-dark: #0a0e17; --text-white: #ffffff; }
+        body { background-color: var(--bg-dark); font-family: 'Segoe UI', sans-serif; color: var(--text-white); padding-bottom: 90px; transition: 0.3s; }
+        body.modo-noche { --bg-dark: #000000; }
+        
+        .hero-section { padding: 50px 0 30px; text-align: center; background-image: linear-gradient(rgba(0,0,0,0.85), var(--bg-dark)), url('https://images.unsplash.com/photo-1597733336794-12d05021d510?q=80&w=1974&auto=format&fit=crop'); background-size: cover; background-position: center; }
+        .hero-logo { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--neon-cyan); box-shadow: 0 0 20px var(--neon-cyan); object-fit: cover; margin-bottom: 15px; }
+        .hero-title { font-size: 3.5rem; font-weight: 900; color: var(--neon-cyan); text-shadow: 0 0 15px var(--neon-cyan); margin: 0; }
+        .hero-divider { width: 150px; height: 4px; background: var(--neon-cyan); margin: 15px auto; box-shadow: 0 0 15px var(--neon-cyan); border-radius: 10px; }
+        .hero-bible { font-size: 0.95rem; font-style: italic; opacity: 0.8; margin-bottom: 10px; }
+        .hero-address { font-size: 0.8rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
 
-// ==============================================
-// MOTOROLA
-// ==============================================
-{ modelo: "Moto E6 Play", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 26000 },
-{ modelo: "Moto E6 Plus", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 28000 },
-{ modelo: "Moto E7", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 28000 },
-{ modelo: "Moto E7 Power", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 30000 },
-{ modelo: "Moto G7 Play", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 30000 },
-{ modelo: "Moto G7 Power", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 32000 },
-{ modelo: "Moto G8 Play", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 32000 },
-{ modelo: "Moto G8 Power", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 34000 },
-{ modelo: "Moto G9 Play", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 34000 },
-{ modelo: "Moto G9 Plus", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 38000 },
-{ modelo: "Moto G10", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 36000 },
-{ modelo: "Moto G20", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 38000 },
-{ modelo: "Moto G30", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 40000 },
-{ modelo: "Moto G50", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 44000 },
-{ modelo: "Moto G60", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 48000 },
-{ modelo: "Moto Edge 20", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 56000 },
-{ modelo: "Moto Edge 30", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 62000 },
-{ modelo: "Moto One Fusion", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 36000 },
-{ modelo: "Moto One Hyper", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 38000 },
-{ modelo: "Moto One Zoom", categoria: "MOTOROLA", subcategoria: "SIN MARCO", precio: 42000 },
+        .btn-catalog { background-color: var(--emerald-green); color: white; font-weight: bold; padding: 12px 25px; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
 
-// ==============================================
-// XIAOMI
-// ==============================================
-{ modelo: "Redmi 8", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 30000 },
-{ modelo: "Redmi 8A", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 28000 },
-{ modelo: "Redmi 9", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 32000 },
-{ modelo: "Redmi 9A", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 30000 },
-{ modelo: "Redmi 9C", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 30000 },
-{ modelo: "Redmi 9T", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 34000 },
-{ modelo: "Redmi 10", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 36000 },
-{ modelo: "Redmi 10C", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 34000 },
-{ modelo: "Redmi Note 8", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 34000 },
-{ modelo: "Redmi Note 8 Pro", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 38000 },
-{ modelo: "Redmi Note 9", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 36000 },
-{ modelo: "Redmi Note 9S", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 38000 },
-{ modelo: "Redmi Note 9 Pro", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 40000 },
-{ modelo: "Redmi Note 10", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 42000 },
-{ modelo: "Redmi Note 10S", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 44000 },
-{ modelo: "Redmi Note 10 Pro", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 48000 },
-{ modelo: "Redmi Note 11", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 44000 },
-{ modelo: "Redmi Note 11S", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 46000 },
-{ modelo: "Redmi Note 12", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 48000 },
-{ modelo: "Poco X3", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 40000 },
-{ modelo: "Poco X3 Pro", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 44000 },
-{ modelo: "Poco M3", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 34000 },
-{ modelo: "Poco M4 Pro", categoria: "XIAOMI", subcategoria: "SIN MARCO", precio: 40000 },
+        .search-box { background: rgba(255,255,255,0.05); border-radius: 15px; padding: 10px; margin: 25px 0; border: 1px solid rgba(0,255,255,0.1); }
+        .btn-home { background: #0d6efd; color: white; border-radius: 10px; border: none; width: 45px; height: 45px; }
 
-// ==============================================
-// HONOR
-// ==============================================
-{ modelo: "Honor 8X", categoria: "HONOR", subcategoria: "SIN MARCO", precio: 32000 },
-{ modelo: "Honor 9C", categoria: "HONOR", subcategoria: "SIN MARCO", precio: 30000 },
-{ modelo: "Honor 9S", categoria: "HONOR", subcategoria: "SIN MARCO", precio: 28000 },
-{ modelo: "Honor 10 Lite", categoria: "HONOR", subcategoria: "SIN MARCO", precio: 32000 },
-{ modelo: "Honor 10X Lite", categoria: "HONOR", subcategoria: "SIN MARCO", precio: 36000 },
-{ modelo: "Honor 50 Lite", categoria: "HONOR", subcategoria: "SIN MARCO", precio: 42000 },
+        .accordion-item { border: none; background: rgba(255,255,255,0.03); margin-bottom: 10px; border-radius: 15px !important; border: 1px solid rgba(0,255,255,0.1); }
+        .accordion-button { font-weight: 700; text-transform: uppercase; color: var(--text-white); background: transparent; padding: 18px; display: flex; align-items: center; width: 100%; }
+        .accordion-button:not(.collapsed) { background-color: #1e293b; color: var(--neon-cyan); }
+        .badge-count { margin-left: auto; background: rgba(0,255,255,0.1); color: var(--neon-cyan); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; border: 1px solid var(--neon-cyan); }
 
-// ==============================================
-// TACTILES
-// ==============================================
-{ modelo: "Táctil Genérico 4\"", categoria: "TACTIL", precio: 14000 },
-{ modelo: "Táctil Genérico 5\"", categoria: "TACTIL", precio: 16000 },
-{ modelo: "Táctil Genérico 6\"", categoria: "TACTIL", precio: 18000 },
-{ modelo: "Táctil Huawei Y5/Y6", categoria: "TACTIL", precio: 16000 },
-{ modelo: "Táctil Samsung J4/J6/J7", categoria: "TACTIL", precio: 16000 },
+        .card-prod { background: rgba(255,255,255,0.04); border-radius: 12px; padding: 15px; margin-bottom: 10px; border: 1px solid rgba(255,255,255,0.05); }
+        .precio-tag { color: var(--neon-cyan); font-weight: 800; font-size: 1.3rem; }
+        .btn-ws { background-color: var(--emerald-green); color: white; border-radius: 8px; padding: 8px 15px; text-decoration: none; font-weight: bold; font-size: 0.85rem; }
 
-// ==============================================
-// RAM CARGA / FLEX CARGA
-// ==============================================
-{ modelo: "Flex Carga Samsung J4/J6/J7", categoria: "RAM CARGA", precio: 12000 },
-{ modelo: "Flex Carga Samsung A10/A20/A30", categoria: "RAM CARGA", precio: 14000 },
-{ modelo: "Flex Carga Huawei Y6/Y7/Y9", categoria: "RAM CARGA", precio: 12000 },
-{ modelo: "Flex Carga Huawei P30/P40", categoria: "RAM CARGA", precio: 16000 },
-{ modelo: "Flex Carga Motorola G7/G8/G9", categoria: "RAM CARGA", precio: 14000 },
-{ modelo: "Flex Carga Xiaomi Redmi 9/Note 9", categoria: "RAM CARGA", precio: 14000 },
-{ modelo: "Flex Carga iPhone 6/7/8", categoria: "RAM CARGA", precio: 16000 },
+        .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; height: 75px; background: #0f172a; display: flex; justify-content: space-around; align-items: center; border-top: 2px solid var(--neon-cyan); z-index: 1000; }
+        .nav-item { text-align: center; color: white; text-decoration: none; flex: 1; border: none; background: none; cursor: default; }
+        .nav-item.clickable { cursor: pointer; }
+        .nav-item i { font-size: 1.3rem; color: var(--neon-cyan); display: block; }
+        .nav-item span { font-size: 0.65rem; font-weight: bold; text-transform: uppercase; color: #94a3b8; }
+    </style>
+</head>
+<body>
 
-// ==============================================
-// TARJETA CARGA
-// ==============================================
-{ modelo: "Tarjeta Carga iPhone 6G/7G", categoria: "TARJETA CARGA", precio: 20000 },
-{ modelo: "Tarjeta Carga iPhone 8G/X", categoria: "TARJETA CARGA", precio: 26000 },
-{ modelo: "Tarjeta Carga iPhone 11/12", categoria: "TARJETA CARGA", precio: 32000 },
-{ modelo: "Tarjeta Carga Samsung A10/A20", categoria: "TARJETA CARGA", precio: 18000 },
-{ modelo: "Tarjeta Carga Samsung A30/A50", categoria: "TARJETA CARGA", precio: 22000 },
+<div class="container hero-section">
+    <img src="WhatsApp Image 2026-03-30 at 8.47.32 PM.jpeg" class="hero-logo" onclick="location.reload()">
+    <h1 class="hero-title">RESET TALLER</h1>
+    <div class="hero-divider"></div>
+    <p class="hero-bible">"Mira que te mando que te esfuerces y seas valiente..." - Josué 1:9</p>
+    <p class="hero-address">Alajuela, San Carlos, Aguas Zarcas</p>
+    <a href="https://wa.me/50661073855" class="btn-catalog" target="_blank"><i class="fab fa-whatsapp"></i> VER CATÁLOGO CON FOTOS</a>
+</div>
 
-// ==============================================
-// FLEX PRINCIPAL
-// ==============================================
-{ modelo: "Flex Principal Samsung A10/A20", categoria: "FLEX PRINCIPAL", precio: 16000 },
-{ modelo: "Flex Principal Samsung A30/A50", categoria: "FLEX PRINCIPAL", precio: 18000 },
-{ modelo: "Flex Principal Huawei Y7/Y9", categoria: "FLEX PRINCIPAL", precio: 16000 },
+<div class="container my-4">
+    <div class="search-box d-flex gap-2">
+        <input type="text" id="bus" class="form-control bg-transparent text-white border-0" placeholder="Escribí modelo (G7, P30, Pantalla)..." onkeyup="buscar()">
+        <button class="btn-home" onclick="location.reload()"><i class="fas fa-home"></i></button>
+    </div>
+    <div class="accordion" id="mainAcc"></div>
+</div>
 
-// ==============================================
-// CARGADORES
-// ==============================================
-{ modelo: "Cargador Samsung Carga Rápida", categoria: "CARGADORES", precio: 14000 },
-{ modelo: "Cargador Huawei Carga Rápida", categoria: "CARGADORES", precio: 14000 },
-{ modelo: "Cargador Tipo C Genérico", categoria: "CARGADORES", precio: 10000 },
-{ modelo: "Cable Tipo C", categoria: "CARGADORES", precio: 6000 },
-{ modelo: "Cable Micro USB", categoria: "CARGADORES", precio: 5000 },
+<div class="bottom-nav">
+    <div class="nav-item">
+        <i class="fas fa-box-open"></i><span id="txtItems">Cargando...</span>
+    </div>
+    <a href="https://wa.me/50661073855" class="nav-item clickable" target="_blank">
+        <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
+    </a>
+    <div class="nav-item clickable" onclick="document.body.classList.toggle('modo-noche')">
+        <i class="fas fa-moon"></i><span>Noche</span>
+    </div>
+</div>
 
-// ==============================================
-// AUDIFONOS
-// ==============================================
-{ modelo: "Audífonos Alámbricos 3.5mm", categoria: "AUDIFONOS", precio: 10000 },
-{ modelo: "Audífonos Tipo C", categoria: "AUDIFONOS", precio: 12000 },
-{ modelo: "Audífonos Bluetooth Básicos", categoria: "AUDIFONOS", precio: 16000 },
-{ modelo: "Audífonos Bluetooth Gamer", categoria: "AUDIFONOS", precio: 24000 },
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="datos.js"></script>
+<script>
+    const whatsapp = "50661073855";
+    const categoriasBase = ["HUAWEI", "SAMSUNG", "IPHONE", "MOTOROLA", "XIAOMI", "HONOR", "TACTIL", "RAM CARGA", "TARJETA CARGA", "FLEX PRINCIPAL", "CARGADORES", "AUDIFONOS", "TAPAS"];
 
-// ==============================================
-// TAPAS TRASERAS
-// ==============================================
-{ modelo: "Tapa Trasera Huawei Y5/Y6", categoria: "TAPAS", precio: 10000 },
-{ modelo: "Tapa Trasera Huawei Y7/Y9", categoria: "TAPAS", precio: 12000 },
-{ modelo: "Tapa Trasera Samsung A10", categoria: "TAPAS", precio: 12000 },
-{ modelo: "Tapa Trasera Samsung A20", categoria: "TAPAS", precio: 14000 },
-{ modelo: "Tapa Trasera Samsung A30/A50", categoria: "TAPAS", precio: 16000 },
-{ modelo: "Tapa Trasera Moto G7 Play", categoria: "TAPAS", precio: 12000 }
-];
+    function buscar() {
+        const q = document.getElementById('bus').value.trim().toUpperCase();
+        const f = productos.filter(p => p.modelo.toUpperCase().includes(q) || p.categoria.toUpperCase().includes(q));
+        render(f, q !== "");
+    }
+
+    function render(lista, expandir) {
+        const h = document.getElementById('mainAcc');
+        h.innerHTML = "";
+        document.getElementById('txtItems').innerText = productos.length + " Items";
+
+        categoriasBase.forEach((c, i) => {
+            const items = lista.filter(p => p.categoria === c);
+            if(items.length > 0) {
+                const id = "cat" + i;
+                const sinM = items.filter(p => p.subcategoria === "SIN MARCO");
+                const conM = items.filter(p => p.subcategoria === "CON MARCO");
+                const otros = items.filter(p => p.subcategoria !== "SIN MARCO" && p.subcategoria !== "CON MARCO");
+
+                let subHtml = "";
+                if(sinM.length > 0 || conM.length > 0) {
+                    subHtml = `<div class="accordion sub-accordion">
+                        ${genSub(i, "sin", "PANTALLAS SIN MARCO", sinM, expandir)}
+                        ${genSub(i, "con", "PANTALLAS CON MARCO", conM, expandir)}
+                        ${otros.length > 0 ? `<div class="row pt-2">${otros.map(p => card(p)).join('')}</div>` : ''}
+                    </div>`;
+                } else {
+                    subHtml = `<div class="row">${items.map(p => card(p)).join('')}</div>`;
+                }
+
+                h.innerHTML += `
+                <div class="accordion-item shadow-sm">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button ${expandir ? '' : 'collapsed'}" type="button" data-bs-toggle="collapse" data-bs-target="#${id}">
+                            <span>${c}</span>
+                            <span class="badge-count">${items.length}</span>
+                        </button>
+                    </h2>
+                    <div id="${id}" class="accordion-collapse collapse ${expandir ? 'show' : ''}" data-bs-parent="#mainAcc">
+                        <div class="accordion-body">${subHtml}</div>
+                    </div>
+                </div>`;
+            }
+        });
+    }
+
+    function genSub(idx, tipo, tit, lista, exp) {
+        if(lista.length === 0) return "";
+        const id = `s${idx}${tipo}`;
+        return `
+        <div class="accordion-item border-0">
+            <h2 class="accordion-header">
+                <button class="accordion-button ${exp ? '' : 'collapsed'} py-2" style="font-size:0.85rem" type="button" data-bs-toggle="collapse" data-bs-target="#${id}">
+                    <span>${tit}</span><span class="badge-count">${lista.length}</span>
+                </button>
+            </h2>
+            <div id="${id}" class="accordion-collapse collapse ${exp ? 'show' : ''}">
+                <div class="accordion-body bg-dark bg-opacity-25"><div class="row">${lista.map(p => card(p)).join('')}</div></div>
+            </div>
+        </div>`;
+    }
+
+    function card(p) {
+        return `<div class="col-12 col-md-6 px-1"><div class="card-prod d-flex justify-content-between align-items-center mb-2">
+            <div><div class="fw-bold" style="font-size:0.9rem; color:#f1f5f9">${p.modelo}</div><div class="precio-tag">₡${p.precio}</div></div>
+            <a href="https://wa.me/${whatsapp}?text=Hola Reset Taller, consulto por: ${p.modelo}" class="btn-ws" target="_blank">PEDIR</a>
+        </div></div>`;
+    }
+
+    window.onload = () => render(productos, false);
+</script>
+</body>
+</html>
