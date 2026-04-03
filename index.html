@@ -8,71 +8,78 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { 
-            --neon-cyan: #8899a6; /* 🩶 COLOR SUAVE, GRIS-AZULADO */
+            --color-principal: #2c5aa0; /* 🟦 AZUL PROFESIONAL Y ELEGANTE */
             --emerald-green: #25d366; 
-            --bg-color: #f8fafc; /* ☀️ FONDO CLARO / BLANCO */
+            --bg-color: #f8fafc; 
             --text-color: #0f172a;
             --card-bg: #ffffff;
             --border-color: #dee2e6;
         }
+        
+        /* MODO NOCHE: FONDO OSCURO */
+        body.modo-noche { 
+            --bg-color: #0a0e17; 
+            --text-color: #f8fafc;
+            --card-bg: #1e293b;
+            --border-color: #334155;
+        }
 
         body { background-color: var(--bg-color); font-family: 'Segoe UI', sans-serif; color: var(--text-color); padding-bottom: 90px; transition: background-color 0.5s, color 0.5s; }
         
-        /* 🆕 FONDO CLARO Y LIMPIO */
-        .hero-section { padding: 50px 0 30px; text-align: center; background-color: #e9ecef; border-bottom: 2px solid var(--neon-cyan); }
+        /* PORTADA LIMPIA */
+        .hero-section { padding: 50px 0 30px; text-align: center; background-color: transparent; border-bottom: 2px solid var(--color-principal); }
         
-        /* 🟢 LOGO REDONDO Y PERFECTO */
+        /* LOGO Y TITULO CON COLOR BONITO */
         .hero-logo { 
             width: 120px; 
             height: 120px; 
             border-radius: 50%; 
-            border: 4px solid var(--neon-cyan); 
+            border: 4px solid var(--color-principal); 
             box-shadow: none; 
             object-fit: cover; 
             margin-bottom: 15px; 
         }
         
-        .hero-title { font-size: 3.5rem; font-weight: 900; color: var(--neon-cyan); text-shadow: none; margin: 0; }
-        .hero-divider { width: 150px; height: 4px; background: var(--neon-cyan); margin: 15px auto; box-shadow: none; border-radius: 10px; }
+        .hero-title { font-size: 3.5rem; font-weight: 900; color: var(--color-principal); text-shadow: none; margin: 0; }
+        .hero-divider { width: 150px; height: 4px; background: var(--color-principal); margin: 15px auto; box-shadow: none; border-radius: 10px; }
         .hero-bible { font-size: 0.95rem; font-style: italic; opacity: 0.8; margin-bottom: 10px; }
         .hero-address { font-size: 0.8rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
 
         .btn-catalog { background-color: var(--emerald-green); color: white; font-weight: bold; padding: 12px 25px; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
 
-        .search-box { background: #ffffff; border-radius: 15px; padding: 10px; margin: 25px 0; border: 1px solid var(--border-color); }
+        .search-box { background: var(--card-bg); border-radius: 15px; padding: 10px; margin: 25px 0; border: 1px solid var(--border-color); }
         .btn-home { background: #0d6efd; color: white; border-radius: 10px; border: none; width: 45px; height: 45px; }
 
         .accordion-item { border: none; background: var(--card-bg); margin-bottom: 10px; border-radius: 15px !important; border: 1px solid var(--border-color); }
         .accordion-button { font-weight: 700; text-transform: uppercase; color: var(--text-color); background: transparent; padding: 18px; display: flex; align-items: center; width: 100%; position: relative; }
-        .accordion-button:not(.collapsed) { background-color: #e9ecef; color: var(--neon-cyan); }
+        .accordion-button:not(.collapsed) { background-color: rgba(44, 90, 160, 0.1); color: var(--color-principal); }
 
-        /* 👉 NÚMEROS A LA DERECHA */
+        /* 👉 NÚMEROS CORREGIDOS: FUERA DE LA FLECHA */
         .badge-count { 
             position: absolute; 
-            right: 20px; 
-            background: rgba(136, 153, 166, 0.1); 
-            color: var(--neon-cyan); 
+            right: 40px; /* 🚀 MOVÍ MÁS A LA DERECHA */
+            background: rgba(44, 90, 160, 0.1); 
+            color: var(--color-principal); 
             padding: 4px 12px; 
             border-radius: 20px; 
             font-size: 0.8rem; 
             font-weight: bold; 
-            border: 1px solid var(--neon-cyan); 
+            border: 1px solid var(--color-principal); 
         }
 
         .card-prod { background: var(--card-bg); border-radius: 12px; padding: 15px; margin-bottom: 10px; border: 1px solid var(--border-color); }
-        .precio-tag { color: var(--neon-cyan); font-weight: 800; font-size: 1.3rem; }
+        .precio-tag { color: var(--color-principal); font-weight: 800; font-size: 1.3rem; }
         .btn-ws { background-color: var(--emerald-green); color: white; border-radius: 8px; padding: 8px 15px; text-decoration: none; font-weight: bold; font-size: 0.85rem; }
 
-        .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; height: 75px; background: #e9ecef; display: flex; justify-content: space-around; align-items: center; border-top: 2px solid var(--neon-cyan); z-index: 1000; }
+        .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; height: 75px; background: var(--card-bg); display: flex; justify-content: space-around; align-items: center; border-top: 2px solid var(--color-principal); z-index: 1000; }
         .nav-item { text-align: center; color: var(--text-color); text-decoration: none; flex: 1; border: none; cursor: default; }
         .nav-item.clickable { cursor: pointer; }
-        .nav-item i { font-size: 1.3rem; color: var(--neon-cyan); display: block; }
+        .nav-item i { font-size: 1.3rem; color: var(--color-principal); display: block; }
         .nav-item span { font-size: 0.65rem; font-weight: bold; text-transform: uppercase; color: #6c757d; }
     </style>
 </head>
 <body>
 
-<!-- 🟢 AQUI EMPIEZA SOLO UNA VEZ LA PORTADA -->
 <div class="container hero-section">
     <img src="WhatsApp Image 2026-03-30 at 8.47.32 PM.jpeg" class="hero-logo" onclick="location.reload()">
     <h1 class="hero-title">RESET TALLER</h1>
@@ -81,11 +88,10 @@
     <p class="hero-address">Alajuela, San Carlos, Aguas Zarcas</p>
     <a href="https://wa.me/50661073855" class="btn-catalog" target="_blank"><i class="fab fa-whatsapp"></i> VER CATÁLOGO CON FOTOS</a>
 </div>
-<!-- 🟢 AQUI TERMINA LA PORTADA -->
 
 <div class="container my-4">
     <div class="search-box d-flex gap-2">
-        <input type="text" id="bus" class="form-control bg-white text-dark border-0" placeholder="Escribí modelo (G7, P30, Pantalla)..." onkeyup="buscar()">
+        <input type="text" id="bus" class="form-control bg-transparent border-0" placeholder="Escribí modelo (G7, P30, Pantalla)..." onkeyup="buscar()">
         <button class="btn-home" onclick="location.reload()"><i class="fas fa-home"></i></button>
     </div>
     <div class="accordion" id="mainAcc"></div>
@@ -109,26 +115,25 @@
     const whatsapp = "50661073855";
     const categoriasBase = ["HUAWEI", "SAMSUNG", "IPHONE", "MOTOROLA", "XIAOMI", "HONOR", "TACTIL", "RAM CARGA", "TARJETA CARGA", "FLEX PRINCIPAL", "CARGADORES", "AUDIFONOS", "TAPAS"];
 
-    // FUNCIÓN PARA CAMBIAR SOL / LUNA
+    // FUNCIÓN PARA CAMBIAR SOL / LUNA (FUNCIONANDO AL 100%)
     function cambiarModo() {
-        document.body.classList.toggle('modo-dia');
+        document.body.classList.toggle('modo-noche');
         const icono = document.getElementById('iconoModo');
         const texto = document.getElementById('txtModo');
 
-        if(document.body.classList.contains('modo-dia')) {
-            icono.classList.remove('fa-moon');
-            icono.classList.add('fa-sun');
-            texto.innerText = "Día";
-        } else {
+        if(document.body.classList.contains('modo-noche')) {
             icono.classList.remove('fa-sun');
             icono.classList.add('fa-moon');
             texto.innerText = "Noche";
+        } else {
+            icono.classList.remove('fa-moon');
+            icono.classList.add('fa-sun');
+            texto.innerText = "Día";
         }
     }
 
     function buscar() {
         const q = document.getElementById('bus').value.trim().toUpperCase();
-        // BUSCADOR POTENTE: Busca en Marca, Modelo y Tipo
         const f = datos.filter(p => (`${p.categoria} ${p.modelos} ${p.subcategoria}`).toUpperCase().includes(q));
         render(f, q !== "");
     }
