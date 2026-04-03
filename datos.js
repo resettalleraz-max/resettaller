@@ -147,6 +147,13 @@ const datos = [
     { modelos: "A71 OLED + MARCO", categoria: "SAMSUNG", subcategoria: "CON MARCO", precios: 70000 },
     { modelos: "A72 ORIG + MARCO", categoria: "SAMSUNG", subcategoria: "CON MARCO", precios: 125000 },
     { modelos: "A72 OLED + MARCO", categoria: "SAMSUNG", subcategoria: "CON MARCO", precios: 76000 },
-    { modelos: "A73 ORIGINAL + MARCO", categoria: "SAMSUNG", subcategoria: "CON MARCO", precios: 117000 },
+    { modelos: "A73 ORIGINAL + MARCO", categoria: "SAMSUNG", subcategoria: "CON MARCO", precios: 117000 },{ modelos: "A73 OLED + MARCO", categoria: "SAMSUNG", subcategoria: "CON MARCO", precios: 76000 },
+    { modelos: "M32 + MARCO", categoria: "SAMSUNG", subcategoria: "CON MARCO", precios: 54000 },
+    { modelos: "S20 FE + MARCO", categoria: "SAMSUNG", subcategoria: "CON MARCO", precios: 99000 },
+    { modelos: "S21 + MARCO", categoria: "SAMSUNG", subcategoria: "CON MARCO", precios: 145000 },
+    { modelos: "S21 FE + MARCO", categoria: "SAMSUNG", subcategoria: "CON MARCO", precios: 121000 },
+    { modelos: "S22 + MARCO", categoria: "SAMSUNG", subcategoria: "CON MARCO", precios: 175000 },
+    { modelos: "S23 + MARCO", categoria: "SAMSUNG", subcategoria: "CON MARCO", precios: 185000 },
+    { modelos: "S23 ULTRA ORIG + MARCO", categoria: "SAMSUNG", subcategoria: "CON MARCO", precios: 335000 },
 
 ];
