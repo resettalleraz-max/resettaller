@@ -144,8 +144,7 @@
                 const id = "cat" + i;
                 let subHtml = "";
 
-                // --- LÓGICA NUEVA PARA RAM CARGA Y OTRAS ---
-                // Agrupar por Subcategoría para crear subcarpetas
+                // --- LÓGICA PARA CREAR SUBCATEGORÍAS AUTOMÁTICAS ---
                 const categoriasUnicas = [...new Set(items.map(p => p.subcategoria))];
                 
                 if(categoriasUnicas.length > 1 || (categoriasUnicas.length === 1 && categoriasUnicas[0] !== "SIN MARCO" && categoriasUnicas[0] !== "CON MARCO")) {
