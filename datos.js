@@ -342,7 +342,7 @@ const datos = [
 // RAM CARGA
 // ========================================
 
-// --- HUAWEI (GAMA BAJA) ---
+// --- HUAWEI ---
 {"modelos":"G7","categoria":"RAM CARGA","subcategoria":"HUAWEI","precios":"7500"},
 {"modelos":"5 PINES","categoria":"RAM CARGA","subcategoria":"HUAWEI","precios":"7500"},
 {"modelos":"P7","categoria":"RAM CARGA","subcategoria":"HUAWEI","precios":"7500"},
@@ -352,14 +352,12 @@ const datos = [
 {"modelos":"Y3 2017","categoria":"RAM CARGA","subcategoria":"HUAWEI","precios":"7500"},
 {"modelos":"Y7 / Y7 PRIME","categoria":"RAM CARGA","subcategoria":"HUAWEI","precios":"7500"},
 
-// --- SAMSUNG BAJA ---
+// --- SAMSUNG ---
 {"modelos":"J500","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"7500"},
 {"modelos":"J700","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"7500"},
 {"modelos":"A01","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"7500"},
 {"modelos":"A03 CORE","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"7500"},
 {"modelos":"A10S","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"7500"},
-
-// --- SAMSUNG MEDIA / 2ª ---
 {"modelos":"A11","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"11000"},
 {"modelos":"A20S","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"11000"},
 {"modelos":"A21S/A13/A22 4G/A23/A30/A30S/A31/A32/","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"11000"},
@@ -368,17 +366,17 @@ const datos = [
 {"modelos":"S9 PLUS","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"11000"},
 {"modelos":"S21/S22/S23 ULTRA/PLUS","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"11000"},
 {"modelos":"S20 FE","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"11000"},
+
+// --- TIPO C ---
 {"modelos":"A70","categoria":"RAM CARGA","subcategoria":"TIPO C","precios":"11000"},
 
-// --- VARIOS ---
-{"modelos":"VARIADO","categoria":"RAM CARGA","subcategoria":"RAM DE CARGA","precios":"7500"},
+// --- VARIADOS ---
+{"modelos":"VARIADO","categoria":"RAM CARGA","subcategoria":"VARIADOS","precios":"7500"},
 
-// --- MOTOROLA BAJA ---
+// --- MOTOROLA ---
 {"modelos":"G8 POWER LITE","categoria":"RAM CARGA","subcategoria":"MOTOROLA","precios":"7500"},
 {"modelos":"G5","categoria":"RAM CARGA","subcategoria":"MOTOROLA","precios":"7500"},
 {"modelos":"G8","categoria":"RAM CARGA","subcategoria":"MOTOROLA","precios":"7500"},
-
-// --- MOTOROLA MEDIA ---
 {"modelos":"G8 PLUS","categoria":"RAM CARGA","subcategoria":"MOTOROLA","precios":"11000"},
 {"modelos":"G20","categoria":"RAM CARGA","subcategoria":"MOTOROLA","precios":"11000"},
 
