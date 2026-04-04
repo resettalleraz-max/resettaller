@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { 
-            --color-principal: #2c5aa0; /* 🟦 AZUL PROFESIONAL Y ELEGANTE */
+            --color-principal: #2c5aa0;
             --emerald-green: #25d366; 
             --bg-color: #f8fafc; 
             --text-color: #0f172a;
@@ -16,7 +16,6 @@
             --border-color: #dee2e6;
         }
         
-        /* MODO NOCHE: FONDO OSCURO */
         body.modo-noche { 
             --bg-color: #0a0e17; 
             --text-color: #f8fafc;
@@ -26,10 +25,8 @@
 
         body { background-color: var(--bg-color); font-family: 'Segoe UI', sans-serif; color: var(--text-color); padding-bottom: 90px; transition: background-color 0.5s, color 0.5s; }
         
-        /* PORTADA LIMPIA */
         .hero-section { padding: 50px 0 30px; text-align: center; background-color: transparent; border-bottom: 2px solid var(--color-principal); }
         
-        /* LOGO Y TITULO CON COLOR BONITO */
         .hero-logo { 
             width: 120px; 
             height: 120px; 
@@ -54,10 +51,9 @@
         .accordion-button { font-weight: 700; text-transform: uppercase; color: var(--text-color); background: transparent; padding: 18px; display: flex; align-items: center; width: 100%; position: relative; }
         .accordion-button:not(.collapsed) { background-color: rgba(44, 90, 160, 0.1); color: var(--color-principal); }
 
-        /* 👉 NÚMEROS CORREGIDOS: FUERA DE LA FLECHA */
         .badge-count { 
             position: absolute; 
-            right: 40px; /* 🚀 MOVÍ MÁS A LA DERECHA */
+            right: 40px;
             background: rgba(44, 90, 160, 0.1); 
             color: var(--color-principal); 
             padding: 4px 12px; 
@@ -115,7 +111,6 @@
     const whatsapp = "50661073855";
     const categoriasBase = ["HUAWEI", "SAMSUNG", "IPHONE", "MOTOROLA", "XIAOMI", "HONOR", "TACTIL", "RAM CARGA", "TARJETA CARGA", "FLEX PRINCIPAL", "CARGADORES", "AUDIFONOS", "TAPAS"];
 
-    // FUNCIÓN PARA CAMBIAR SOL / LUNA (FUNCIONANDO AL 100%)
     function cambiarModo() {
         document.body.classList.toggle('modo-noche');
         const icono = document.getElementById('iconoModo');
@@ -147,19 +142,36 @@
             const items = lista.filter(p => p.categoria === c);
             if(items.length > 0) {
                 const id = "cat" + i;
-                const sinM = items.filter(p => p.subcategoria === "SIN MARCO");
-                const conM = items.filter(p => p.subcategoria === "CON MARCO");
-                const otros = items.filter(p => p.subcategoria !== "SIN MARCO" && p.subcategoria !== "CON MARCO");
-
                 let subHtml = "";
-                if(sinM.length > 0 || conM.length > 0) {
-                    subHtml = `<div class="accordion sub-accordion">
-                        ${genSub(i, "sin", "PANTALLAS SIN MARCO", sinM, expandir)}
-                        ${genSub(i, "con", "PANTALLAS CON MARCO", conM, expandir)}
-                        ${otros.length > 0 ? `<div class="row pt-2">${otros.map(p => card(p)).join('')}</div>` : ''}
-                    </div>`;
+
+                // --- LÓGICA NUEVA PARA RAM CARGA Y OTRAS ---
+                // Agrupar por Subcategoría para crear subcarpetas
+                const categoriasUnicas = [...new Set(items.map(p => p.subcategoria))];
+                
+                if(categoriasUnicas.length > 1 || (categoriasUnicas.length === 1 && categoriasUnicas[0] !== "SIN MARCO" && categoriasUnicas[0] !== "CON MARCO")) {
+                    // Hay varias subcategorías, crear acordeones internos
+                    subHtml = `<div class="accordion sub-accordion">`;
+                    categoriasUnicas.forEach((subCat, j) => {
+                        const itemsSub = items.filter(p => p.subcategoria === subCat);
+                        const subId = `sub${i}${j}`;
+                        subHtml += genSub(i, j, subCat, itemsSub, expandir);
+                    });
+                    subHtml += `</div>`;
                 } else {
-                    subHtml = `<div class="row">${items.map(p => card(p)).join('')}</div>`;
+                    // Lógica normal o una sola categoría
+                    const sinM = items.filter(p => p.subcategoria === "SIN MARCO");
+                    const conM = items.filter(p => p.subcategoria === "CON MARCO");
+                    const otros = items.filter(p => p.subcategoria !== "SIN MARCO" && p.subcategoria !== "CON MARCO");
+
+                    if(sinM.length > 0 || conM.length > 0) {
+                        subHtml = `<div class="accordion sub-accordion">
+                            ${genSub(i, "sin", "PANTALLAS SIN MARCO", sinM, expandir)}
+                            ${genSub(i, "con", "PANTALLAS CON MARCO", conM, expandir)}
+                            ${otros.length > 0 ? `<div class="row pt-2">${otros.map(p => card(p)).join('')}</div>` : ''}
+                        </div>`;
+                    } else {
+                        subHtml = `<div class="row">${items.map(p => card(p)).join('')}</div>`;
+                    }
                 }
 
                 h.innerHTML += `
