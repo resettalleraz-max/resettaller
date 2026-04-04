@@ -331,5 +331,11 @@ const datos = [
 {"modelos":"X9 - NEGRO / AZUL / BLANCO","categoria":"HONOR","subcategoria":"CON MARCO","precios":"20000"},
 {"modelos":"X9A / MAGIC 5 LITE - NEGRO / BLANCO / VERDE","categoria":"HONOR","subcategoria":"CON MARCO","precios":"34000"},
 {"modelos":"MAGIC 6 LITE / X9B - NEGRA","categoria":"HONOR","subcategoria":"CON MARCO","precios":"40000"},
-{"modelos":"MAGIC 7 LITE / X9C - NEGRA / MORADO","categoria":"HONOR","subcategoria":"CON MARCO","precios":"40000"}];
+{"modelos":"MAGIC 7 LITE / X9C - NEGRA / MORADO","categoria":"HONOR","subcategoria":"CON MARCO","precios":"40000"},// ========================================
+// TACTIL
+// ========================================
+{"modelos":"J2 PRIME","categoria":"TACTIL","subcategoria":"DOR GRI NEG PLA","precios":"5000"},
+{"modelos":"Y3-2017","categoria":"TACTIL","subcategoria":"NEGR DORA BLAN","precios":"5000"},
+{"modelos":"G531","categoria":"TACTIL","subcategoria":"NEGR BLAN DORA","precios":"5000"},
+{"modelos":"TAB CHINA","categoria":"TACTIL","subcategoria":"NEGRO","precios":"5000"},];
    
