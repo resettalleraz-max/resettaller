@@ -336,4 +336,4 @@ const datos = [
 {"modelos":"J2 PRIME","categoria":"TACTIL","subcategoria":"DOR GRI NEG PLA","precios":"17000"},
 {"modelos":"Y3-2017","categoria":"TACTIL","subcategoria":"NEGR DORA BLAN","precios":"17000"},
 {"modelos":"G531","categoria":"TACTIL","subcategoria":"NEGR BLAN DORA","precios":"17000"},
-{"modelos":"TAB CHINA","categoria":"TACTIL","subcategoria":"NEGRO","precios":"17000"},
+{"modelos":"TAB CHINA","categoria":"TACTIL","subcategoria":"NEGRO","precios":"17000"},]; 
