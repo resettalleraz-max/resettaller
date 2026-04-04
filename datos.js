@@ -339,48 +339,52 @@ const datos = [
 {"modelos":"Y3-2017","categoria":"TACTIL","subcategoria":"NEGR DORA BLAN","precios":"17000"},
 {"modelos":"G531","categoria":"TACTIL","subcategoria":"NEGR BLAN DORA","precios":"17000"},
 {"modelos":"TAB CHINA","categoria":"TACTIL","subcategoria":"NEGRO","precios":"17000"},// ========================================
-// RAM CARGA
+// HUAWEI
 // ========================================
+{"modelos":"G7","categoria":"HUAWEI","subcategoria":"RAM CARGA","precios":"7500"},
+{"modelos":"5 PINES","categoria":"HUAWEI","subcategoria":"RAM CARGA","precios":"7500"},
+{"modelos":"P7","categoria":"HUAWEI","subcategoria":"RAM CARGA","precios":"7500"},
+{"modelos":"P8","categoria":"HUAWEI","subcategoria":"RAM CARGA","precios":"7500"},
+{"modelos":"G510/Y300","categoria":"HUAWEI","subcategoria":"RAM CARGA","precios":"7500"},
+{"modelos":"Y3II","categoria":"HUAWEI","subcategoria":"RAM CARGA","precios":"7500"},
+{"modelos":"Y3 2017","categoria":"HUAWEI","subcategoria":"RAM CARGA","precios":"7500"},
+{"modelos":"Y7 / Y7 PRIME","categoria":"HUAWEI","subcategoria":"RAM CARGA","precios":"7500"},
 
-// --- HUAWEI ---
-{"modelos":"G7","categoria":"RAM CARGA","subcategoria":"HUAWEI","precios":"7500"},
-{"modelos":"5 PINES","categoria":"RAM CARGA","subcategoria":"HUAWEI","precios":"7500"},
-{"modelos":"P7","categoria":"RAM CARGA","subcategoria":"HUAWEI","precios":"7500"},
-{"modelos":"P8","categoria":"RAM CARGA","subcategoria":"HUAWEI","precios":"7500"},
-{"modelos":"G510/Y300","categoria":"RAM CARGA","subcategoria":"HUAWEI","precios":"7500"},
-{"modelos":"Y3II","categoria":"RAM CARGA","subcategoria":"HUAWEI","precios":"7500"},
-{"modelos":"Y3 2017","categoria":"RAM CARGA","subcategoria":"HUAWEI","precios":"7500"},
-{"modelos":"Y7 / Y7 PRIME","categoria":"RAM CARGA","subcategoria":"HUAWEI","precios":"7500"},
+// ========================================
+// SAMSUNG
+// ========================================
+{"modelos":"J500","categoria":"SAMSUNG","subcategoria":"RAM CARGA","precios":"7500"},
+{"modelos":"J700","categoria":"SAMSUNG","subcategoria":"RAM CARGA","precios":"7500"},
+{"modelos":"A01","categoria":"SAMSUNG","subcategoria":"RAM CARGA","precios":"7500"},
+{"modelos":"A03 CORE","categoria":"SAMSUNG","subcategoria":"RAM CARGA","precios":"7500"},
+{"modelos":"A10S","categoria":"SAMSUNG","subcategoria":"RAM CARGA","precios":"7500"},
+{"modelos":"A11","categoria":"SAMSUNG","subcategoria":"RAM CARGA","precios":"11000"},
+{"modelos":"A20S","categoria":"SAMSUNG","subcategoria":"RAM CARGA","precios":"11000"},
+{"modelos":"A21S/A13/A22 4G/A23/A30/A30S/A31/A32/","categoria":"SAMSUNG","subcategoria":"RAM CARGA","precios":"11000"},
+{"modelos":"A34","categoria":"SAMSUNG","subcategoria":"RAM CARGA","precios":"11000"},
+{"modelos":"A52","categoria":"SAMSUNG","subcategoria":"RAM CARGA","precios":"11000"},
+{"modelos":"S9 PLUS","categoria":"SAMSUNG","subcategoria":"RAM CARGA","precios":"11000"},
+{"modelos":"S21/S22/S23 ULTRA/PLUS","categoria":"SAMSUNG","subcategoria":"RAM CARGA","precios":"11000"},
+{"modelos":"S20 FE","categoria":"SAMSUNG","subcategoria":"RAM CARGA","precios":"11000"},
+{"modelos":"A70","categoria":"SAMSUNG","subcategoria":"RAM CARGA","precios":"11000"},
 
-// --- SAMSUNG ---
-{"modelos":"J500","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"7500"},
-{"modelos":"J700","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"7500"},
-{"modelos":"A01","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"7500"},
-{"modelos":"A03 CORE","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"7500"},
-{"modelos":"A10S","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"7500"},
-{"modelos":"A11","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"11000"},
-{"modelos":"A20S","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"11000"},
-{"modelos":"A21S/A13/A22 4G/A23/A30/A30S/A31/A32/","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"11000"},
-{"modelos":"A34","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"11000"},
-{"modelos":"A52","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"11000"},
-{"modelos":"S9 PLUS","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"11000"},
-{"modelos":"S21/S22/S23 ULTRA/PLUS","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"11000"},
-{"modelos":"S20 FE","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"11000"},
+// ========================================
+// VARIADOS
+// ========================================
+{"modelos":"VARIADO","categoria":"VARIADOS","subcategoria":"RAM CARGA","precios":"7500"},
 
-// --- TIPO C ---
-{"modelos":"A70","categoria":"RAM CARGA","subcategoria":"TIPO C","precios":"11000"},
+// ========================================
+// MOTOROLA
+// ========================================
+{"modelos":"G8 POWER LITE","categoria":"MOTOROLA","subcategoria":"RAM CARGA","precios":"7500"},
+{"modelos":"G5","categoria":"MOTOROLA","subcategoria":"RAM CARGA","precios":"7500"},
+{"modelos":"G8","categoria":"MOTOROLA","subcategoria":"RAM CARGA","precios":"7500"},
+{"modelos":"G8 PLUS","categoria":"MOTOROLA","subcategoria":"RAM CARGA","precios":"11000"},
+{"modelos":"G20","categoria":"MOTOROLA","subcategoria":"RAM CARGA","precios":"11000"},
 
-// --- VARIADOS ---
-{"modelos":"VARIADO","categoria":"RAM CARGA","subcategoria":"VARIADOS","precios":"7500"},
-
-// --- MOTOROLA ---
-{"modelos":"G8 POWER LITE","categoria":"RAM CARGA","subcategoria":"MOTOROLA","precios":"7500"},
-{"modelos":"G5","categoria":"RAM CARGA","subcategoria":"MOTOROLA","precios":"7500"},
-{"modelos":"G8","categoria":"RAM CARGA","subcategoria":"MOTOROLA","precios":"7500"},
-{"modelos":"G8 PLUS","categoria":"RAM CARGA","subcategoria":"MOTOROLA","precios":"11000"},
-{"modelos":"G20","categoria":"RAM CARGA","subcategoria":"MOTOROLA","precios":"11000"},
-
-// --- XIAOMI ---
-{"modelos":"POCO X3","categoria":"RAM CARGA","subcategoria":"XIAOMI","precios":"11000"},
-{"modelos":"REDMI 7","categoria":"RAM CARGA","subcategoria":"XIAOMI","precios":"7500"},
+// ========================================
+// XIAOMI
+// ========================================
+{"modelos":"POCO X3","categoria":"XIAOMI","subcategoria":"RAM CARGA","precios":"11000"},
+{"modelos":"REDMI 7","categoria":"XIAOMI","subcategoria":"RAM CARGA","precios":"7500"},
 ]
