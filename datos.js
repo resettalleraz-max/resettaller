@@ -342,7 +342,7 @@ const datos = [
 // RAM CARGA
 // ========================================
 
-// --- HUAWEI ---
+// --- HUAWEI (GAMA BAJA) ---
 {"modelos":"G7","categoria":"RAM CARGA","subcategoria":"HUAWEI","precios":"7500"},
 {"modelos":"5 PINES","categoria":"RAM CARGA","subcategoria":"HUAWEI","precios":"7500"},
 {"modelos":"P7","categoria":"RAM CARGA","subcategoria":"HUAWEI","precios":"7500"},
@@ -352,33 +352,37 @@ const datos = [
 {"modelos":"Y3 2017","categoria":"RAM CARGA","subcategoria":"HUAWEI","precios":"7500"},
 {"modelos":"Y7 / Y7 PRIME","categoria":"RAM CARGA","subcategoria":"HUAWEI","precios":"7500"},
 
-// --- SAMSUNG ---
+// --- SAMSUNG BAJA ---
 {"modelos":"J500","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"7500"},
 {"modelos":"J700","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"7500"},
 {"modelos":"A01","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"7500"},
 {"modelos":"A03 CORE","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"7500"},
 {"modelos":"A10S","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"7500"},
-{"modelos":"A11","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"9000"},
-{"modelos":"A20S","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"9000"},
-{"modelos":"A21S/A13/A22 4G/A23/A30/A30S/A31/A32/","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"9000"},
-{"modelos":"A34","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"9000"},
-{"modelos":"A52","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"9000"},
-{"modelos":"S9 PLUS","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"9000"},
-{"modelos":"S21/S22/S23 ULTRA/PLUS","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"9000"},
-{"modelos":"S20 FE","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"9000"},
-{"modelos":"A70","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"9000"},
 
-// --- VARIOS / TIPO C ---
-{"modelos":"VARIADO","categoria":"RAM CARGA","subcategoria":"VARIOS","precios":"7500"},
+// --- SAMSUNG MEDIA / 2ª ---
+{"modelos":"A11","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"11000"},
+{"modelos":"A20S","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"11000"},
+{"modelos":"A21S/A13/A22 4G/A23/A30/A30S/A31/A32/","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"11000"},
+{"modelos":"A34","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"11000"},
+{"modelos":"A52","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"11000"},
+{"modelos":"S9 PLUS","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"11000"},
+{"modelos":"S21/S22/S23 ULTRA/PLUS","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"11000"},
+{"modelos":"S20 FE","categoria":"RAM CARGA","subcategoria":"SAMSUNG","precios":"11000"},
+{"modelos":"A70","categoria":"RAM CARGA","subcategoria":"TIPO C","precios":"11000"},
 
-// --- MOTOROLA ---
+// --- VARIOS ---
+{"modelos":"VARIADO","categoria":"RAM CARGA","subcategoria":"RAM DE CARGA","precios":"7500"},
+
+// --- MOTOROLA BAJA ---
 {"modelos":"G8 POWER LITE","categoria":"RAM CARGA","subcategoria":"MOTOROLA","precios":"7500"},
 {"modelos":"G5","categoria":"RAM CARGA","subcategoria":"MOTOROLA","precios":"7500"},
 {"modelos":"G8","categoria":"RAM CARGA","subcategoria":"MOTOROLA","precios":"7500"},
-{"modelos":"G8 PLUS","categoria":"RAM CARGA","subcategoria":"MOTOROLA","precios":"9000"},
-{"modelos":"G20","categoria":"RAM CARGA","subcategoria":"MOTOROLA","precios":"9000"},
+
+// --- MOTOROLA MEDIA ---
+{"modelos":"G8 PLUS","categoria":"RAM CARGA","subcategoria":"MOTOROLA","precios":"11000"},
+{"modelos":"G20","categoria":"RAM CARGA","subcategoria":"MOTOROLA","precios":"11000"},
 
 // --- XIAOMI ---
-{"modelos":"POCO X3","categoria":"RAM CARGA","subcategoria":"XIAOMI","precios":"9000"},
-{"modelos":"REDMI 7","categoria":"RAM CARGA","subcategoria":"XIAOMI","precios":"7500"}, 
+{"modelos":"POCO X3","categoria":"RAM CARGA","subcategoria":"XIAOMI","precios":"11000"},
+{"modelos":"REDMI 7","categoria":"RAM CARGA","subcategoria":"XIAOMI","precios":"7500"},
 ]
