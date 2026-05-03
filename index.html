@@ -27,7 +27,7 @@
         
         /* SECCIÓN DE PORTADA */
         .hero-section { 
-            padding: 50px 0 40px; 
+            padding: 50px 0 30px; 
             text-align: center; 
             background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('portada.jpg');
             background-size: cover;
@@ -36,7 +36,7 @@
             color: white;
         }
         
-        /* Foto de perfil (Logo) que vuelve al inicio */
+        /* Foto de perfil (Logo) que llama a portada.jpg */
         .hero-logo { 
             width: 110px; 
             height: 110px; 
@@ -46,18 +46,10 @@
             margin-bottom: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
             cursor: pointer;
-            transition: transform 0.3s;
+            background-color: #fff;
         }
-        .hero-logo:hover { transform: scale(1.05); }
 
-        .hero-title { 
-            font-size: 2.5rem; 
-            font-weight: 900; 
-            color: white; 
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.8); 
-            margin: 0; 
-        }
-        
+        .hero-title { font-size: 2.5rem; font-weight: 900; color: white; text-shadow: 2px 2px 6px rgba(0,0,0,0.8); margin: 0; }
         .hero-divider { width: 100px; height: 4px; background: var(--emerald-green); margin: 15px auto; border-radius: 10px; }
         
         .hero-bible { 
@@ -80,7 +72,6 @@
 
         .btn-catalog { background-color: var(--emerald-green); color: white; font-weight: bold; padding: 12px 25px; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 2px solid white; }
 
-        /* BUSCADOR Y TARJETAS */
         .search-box { background: var(--card-bg); border-radius: 15px; padding: 10px; margin: 25px 0; border: 1px solid var(--border-color); }
         .btn-home { background: #0d6efd; color: white; border-radius: 10px; border: none; width: 45px; height: 45px; }
 
@@ -104,7 +95,7 @@
 <body>
 
 <div class="container-fluid hero-section">
-    <img src="WhatsApp Image 2026-03-30 at 8.47.32 PM.jpeg" class="hero-logo" onclick="location.reload()" title="Inicio">
+    <img src="portada.jpg" class="hero-logo" onclick="location.reload()" title="Volver al Inicio">
     <h1 class="hero-title">RESET TALLER</h1>
     <div class="hero-divider"></div>
     <p class="hero-bible">"Mira que te mando que te esfuerces y seas valiente..." - Josué 1:9</p>
