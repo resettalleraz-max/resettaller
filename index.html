@@ -94,7 +94,7 @@
 <body>
 
 <div class="container-fluid hero-section">
-    <img src="portada.jpg" class="hero-logo" onclick="location.reload()" title="Volver al Inicio">
+    <img src="portada.jpg" class="hero-logo" onclick="irAlInicio()" title="Ir al Inicio">
     <h1 class="hero-title">RESET TALLER</h1>
     <div class="hero-divider"></div>
     <p class="hero-bible">"Mira que te mando que te esfuerces y seas valiente..." - Josué 1:9</p>
@@ -105,7 +105,7 @@
 <div class="container my-4">
     <div class="search-box d-flex gap-2">
         <input type="text" id="bus" class="form-control bg-transparent border-0" placeholder="Escribí modelo (G7, P30, Pantalla)..." onkeyup="buscar()">
-        <button class="btn-home" onclick="location.reload()"><i class="fas fa-home"></i></button>
+        <button class="btn-home" onclick="irAlInicio()"><i class="fas fa-home"></i></button>
     </div>
     <div class="accordion" id="mainAcc"></div>
 </div>
@@ -121,6 +121,11 @@
 <script>
     const whatsapp = "50661073855";
     const categoriasBase = ["HUAWEI", "SAMSUNG", "IPHONE", "MOTOROLA", "XIAOMI", "HONOR", "TACTIL", "RAM CARGA", "TARJETA CARGA", "FLEX PRINCIPAL", "CARGADORES", "AUDIFONOS", "TAPAS"];
+
+    // NUEVA FUNCIÓN: Limpia la URL y vuelve al inicio real
+    function irAlInicio() {
+        window.location.href = window.location.pathname; 
+    }
 
     function cambiarModo() {
         document.body.classList.toggle('modo-noche');
@@ -190,16 +195,14 @@
         render(datos, false);
         setTimeout(() => {
             const hash = decodeURIComponent(window.location.hash);
-            if (hash) {
+            if (hash && hash !== "#") {
                 const elemento = document.querySelector(hash);
                 if (elemento) {
-                    // Abrir los acordeones que contienen el producto
                     let parent = elemento.closest('.accordion-collapse');
                     while (parent) {
                         new bootstrap.Collapse(parent, { toggle: false }).show();
                         parent = parent.parentElement.closest('.accordion-collapse');
                     }
-                    // Bajar suavemente hasta el producto
                     setTimeout(() => {
                         elemento.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         elemento.querySelector('.card-prod').style.boxShadow = "0 0 20px #2c5aa0";
