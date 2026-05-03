@@ -66,12 +66,8 @@
         .card-prod { background: var(--card-bg); border-radius: 12px; padding: 15px; margin-bottom: 10px; border: 1px solid var(--border-color); }
         .precio-tag { color: var(--color-principal); font-weight: 800; font-size: 1.3rem; }
         .btn-ws { background-color: var(--emerald-green); color: white; border-radius: 8px; padding: 8px 15px; text-decoration: none; font-weight: bold; font-size: 0.85rem; }
-
-        .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; height: 75px; background: var(--card-bg); display: flex; justify-content: space-around; align-items: center; border-top: 2px solid var(--color-principal); z-index: 1000; }
-        .nav-item { text-align: center; color: var(--text-color); text-decoration: none; flex: 1; border: none; cursor: default; }
-        .nav-item.clickable { cursor: pointer; }
-        .nav-item i { font-size: 1.3rem; color: var(--color-principal); display: block; }
-        .nav-item span { font-size: 0.65rem; font-weight: bold; text-transform: uppercase; color: #6c757d; }
+        /* Estilo del nuevo botón de compartir */
+        .btn-share { background-color: #0d6efd; color: white; border-radius: 8px; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1rem; margin-left: 8px; }
     </style>
 </head>
 <body>
@@ -208,8 +204,29 @@
     function card(p) {
         return `<div class="col-12 col-md-6 px-1"><div class="card-prod d-flex justify-content-between align-items-center mb-2">
             <div><div class="fw-bold" style="font-size:0.9rem; color:var(--text-color)">${p.modelos}</div><div class="precio-tag">₡${p.precios}</div></div>
-            <a href="https://wa.me/${whatsapp}?text=Hola Reset Taller, consulto por: ${p.modelos}" class="btn-ws" target="_blank">PEDIR</a>
+            <div class="d-flex align-items-center">
+                <a href="https://wa.me/${whatsapp}?text=Hola Reset Taller, consulto por: ${p.modelos}" class="btn-ws" target="_blank">PEDIR</a>
+                <button class="btn-share" onclick="compartirProducto('${p.modelos}')" title="Compartir"><i class="fas fa-share"></i></button>
+            </div>
         </div></div>`;
+    }
+
+    // Función para compartir
+    function compartirProducto(modelo) {
+        const urlActual = window.location.href;
+        const texto = `Te recomiendo este producto: ${modelo}`;
+        
+        if (navigator.share) {
+            navigator.share({
+                title: 'Catálogo Reset Taller',
+                text: texto,
+                url: urlActual
+            });
+        } else {
+            // Si el navegador no soporta la API nativa, copia el enlace al portapapeles
+            navigator.clipboard.writeText(urlActual);
+            alert('Enlace copiado, ya podés pegarlo y compartirlo!');
+        }
     }
 
     window.onload = () => render(datos, false);
