@@ -36,7 +36,6 @@
             color: white;
         }
         
-        /* Foto de perfil (Logo) que llama a portada.jpg */
         .hero-logo { 
             width: 110px; 
             height: 110px; 
@@ -70,7 +69,8 @@
             font-weight: bold;
         }
 
-        .btn-catalog { background-color: var(--emerald-green); color: white; font-weight: bold; padding: 12px 25px; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 2px solid white; }
+        /* BOTÓN DE CATÁLOGO CORREGIDO */
+        .btn-catalog { background-color: var(--emerald-green); color: white !important; font-weight: bold; padding: 12px 25px; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 2px solid white; }
 
         .search-box { background: var(--card-bg); border-radius: 15px; padding: 10px; margin: 25px 0; border: 1px solid var(--border-color); }
         .btn-home { background: #0d6efd; color: white; border-radius: 10px; border: none; width: 45px; height: 45px; }
@@ -100,7 +100,10 @@
     <div class="hero-divider"></div>
     <p class="hero-bible">"Mira que te mando que te esfuerces y seas valiente..." - Josué 1:9</p>
     <p class="hero-address">Alajuela, San Carlos, Aguas Zarcas</p>
-    <a href="https://wa.me/50661073855" class="btn-catalog" target="_blank"><i class="fab fa-whatsapp"></i> VER CATÁLOGO CON FOTOS</a>
+    
+    <a href="https://wa.me/c/50661073855" class="btn-catalog" target="_blank">
+        <i class="fab fa-whatsapp"></i> VER CATÁLOGO CON FOTOS
+    </a>
 </div>
 
 <div class="container my-4">
@@ -193,7 +196,7 @@
             const hash = decodeURIComponent(window.location.hash);
             if (hash) {
                 const elemento = document.querySelector(hash);
-                if (elemento) {
+                if (element) {
                     let parent = elemento.closest('.accordion-collapse');
                     while (parent) {
                         new bootstrap.Collapse(parent, { toggle: false }).show();
