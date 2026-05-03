@@ -201,7 +201,7 @@
             const hash = decodeURIComponent(window.location.hash);
             if (hash && hash !== "#") {
                 const elemento = document.querySelector(hash);
-                if (element) {
+                if (elemento) {
                     let parent = elemento.closest('.accordion-collapse');
                     while (parent) {
                         new bootstrap.Collapse(parent, { toggle: false }).show();
