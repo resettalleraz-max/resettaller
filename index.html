@@ -67,6 +67,11 @@
         .precio-tag { color: var(--color-principal); font-weight: 800; font-size: 1.3rem; }
         .btn-ws { background-color: var(--emerald-green); color: white; border-radius: 8px; padding: 8px 15px; text-decoration: none; font-weight: bold; font-size: 0.85rem; }
         .btn-share { background-color: #0d6efd; color: white; border-radius: 8px; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1rem; margin-left: 8px; border: none; }
+
+        .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: var(--card-bg); display: flex; justify-content: space-around; padding: 12px; border-top: 1px solid var(--border-color); z-index: 1000; }
+        .nav-item { display: flex; flex-direction: column; align-items: center; font-size: 0.75rem; color: var(--text-color); text-decoration: none; }
+        .nav-item i { font-size: 1.2rem; margin-bottom: 3px; color: var(--color-principal); }
+        .clickable { cursor: pointer; }
     </style>
 </head>
 <body>
@@ -88,6 +93,18 @@
     <div class="accordion" id="mainAcc"></div>
 </div>
 
+<div class="bottom-nav">
+    <div class="nav-item">
+        <i class="fas fa-box-open"></i><span id="txtItems">Cargando...</span>
+    </div>
+    <a href="https://wa.me/50661073855" class="nav-item clickable" target="_blank">
+        <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
+    </a>
+    <div class="nav-item clickable" onclick="cambiarModo()">
+        <i id="iconoModo" class="fas fa-moon"></i><span id="txtModo">Noche</span>
+    </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="datos.js"></script>
 <script>
@@ -99,11 +116,11 @@
         const icono = document.getElementById('iconoModo');
         const texto = document.getElementById('txtModo');
         if(document.body.classList.contains('modo-noche')) {
-            icono.classList.replace('fa-sun', 'fa-moon');
-            texto.innerText = "Noche";
-        } else {
-            icono.classList.replace('fa-moon', 'fa-sun');
+            icono.className = 'fas fa-sun';
             texto.innerText = "Día";
+        } else {
+            icono.className = 'fas fa-moon';
+            texto.innerText = "Noche";
         }
     }
 
@@ -113,22 +130,7 @@
         render(f, q !== "");
     }
 
-    function genSub(idx, tipo, tit, lista, exp) {
-        if(lista.length === 0) return "";
-        const id = `s${idx}${tipo}`;
-        return `
-        <div class="accordion-item border-0">
-            <h2 class="accordion-header">
-                <button class="accordion-button ${exp ? '' : 'collapsed'} py-2" style="font-size:0.85rem" type="button" data-bs-toggle="collapse" data-bs-target="#${id}">
-                    <span>${tit}</span><span class="badge-count">${lista.length}</span>
-                </button>
-            </h2>
-            <div id="${id}" class="accordion-collapse collapse ${exp ? 'show' : ''}">
-                <div class="accordion-body"><div class="row">${lista.map(p => card(p)).join('')}</div></div>
-            </div>
-        </div>`;
-    }
-    ,     function render(lista, expandir) {
+    function render(lista, expandir) {
         const h = document.getElementById('mainAcc');
         h.innerHTML = "";
         document.getElementById('txtItems').innerText = datos.length + " Items";
@@ -179,10 +181,24 @@
         });
     }
 
+    function genSub(idx, tipo, tit, lista, exp) {
+        if(lista.length === 0) return "";
+        const id = `s${idx}${tipo}`;
+        return `
+        <div class="accordion-item border-0">
+            <h2 class="accordion-header">
+                <button class="accordion-button ${exp ? '' : 'collapsed'} py-2" style="font-size:0.85rem" type="button" data-bs-toggle="collapse" data-bs-target="#${id}">
+                    <span>${tit}</span><span class="badge-count">${lista.length}</span>
+                </button>
+            </h2>
+            <div id="${id}" class="accordion-collapse collapse ${exp ? 'show' : ''}">
+                <div class="accordion-body"><div class="row">${lista.map(p => card(p)).join('')}</div></div>
+            </div>
+        </div>`;
+    }
+
     function card(p) {
-        // Genera un ID único para cada producto basado en el nombre
         const idUnico = p.modelos.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '').toLowerCase();
-        
         return `<div class="col-12 col-md-6 px-1" id="${idUnico}">
             <div class="card-prod d-flex justify-content-between align-items-center mb-2">
                 <div>
@@ -200,59 +216,34 @@
     function compartirProducto(modelo, idUnico) {
         const urlConAnclaje = window.location.origin + window.location.pathname + "#" + idUnico;
         const texto = `Mira este artículo en Reset Taller: ${modelo}`;
-        
         if (navigator.share) {
             navigator.share({ title: 'Reset Taller', text: texto, url: urlConAnclaje });
         } else {
             navigator.clipboard.writeText(urlConAnclaje);
-            alert('¡Enlace copiado al portapapeles!');
+            alert('¡Enlace copiado!');
         }
     }
 
     window.onload = () => {
         render(datos, false);
-        
-        // Lógica de auto-enfoque al cargar con un ID en la URL
         setTimeout(() => {
-            const hash = window.location.hash;
+            const hash = decodeURIComponent(window.location.hash);
             if (hash) {
                 const elemento = document.querySelector(hash);
                 if (elemento) {
-                    // Abre los acordeones padres
                     let parent = elemento.closest('.accordion-collapse');
                     while (parent) {
                         new bootstrap.Collapse(parent, { toggle: false }).show();
                         parent = parent.parentElement.closest('.accordion-collapse');
                     }
-                    // Desplazamiento suave al producto
                     setTimeout(() => {
                         elemento.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        elemento.querySelector('.card-prod').style.boxShadow = "0 0 15px var(--color-principal)";
+                        elemento.querySelector('.card-prod').style.boxShadow = "0 0 15px #2c5aa0";
                     }, 600);
                 }
             }
-        }, 300);
+        }, 500);
     };
 </script>
-
-<style>
-    .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: var(--card-bg); display: flex; justify-content: space-around; padding: 12px; border-top: 1px solid var(--border-color); z-index: 1000; }
-    .nav-item { display: flex; flex-direction: column; align-items: center; font-size: 0.75rem; color: var(--text-color); text-decoration: none; }
-    .nav-item i { font-size: 1.2rem; margin-bottom: 3px; color: var(--color-principal); }
-    .clickable { cursor: pointer; }
-</style>
-
-<div class="bottom-nav">
-    <div class="nav-item">
-        <i class="fas fa-box-open"></i><span id="txtItems">Cargando...</span>
-    </div>
-    <a href="https://wa.me/50661073855" class="nav-item clickable" target="_blank">
-        <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
-    </a>
-    <div class="nav-item clickable" onclick="cambiarModo()">
-        <i id="iconoModo" class="fas fa-moon"></i><span id="txtModo">Noche</span>
-    </div>
-</div>
-
 </body>
 </html>
